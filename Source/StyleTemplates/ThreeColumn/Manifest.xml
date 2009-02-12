@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RotatorManifest>
+  <Description>
+    
+	This displays the content in three columns:
+
+	1. Content Thumbnail
+	2. Content
+	3. Position Title
+
+	This display is not intended to be used with Position Thumnnail, Next, Previous, or Pause buttons.
+
+
+  </Description>
+  <Preview>threecolumn.png</Preview>
+  <Stylesheet>Style.css</Stylesheet>
+  <Settings>
+    <Setting>
+      <Name>ShowContentHeader</Name>
+      <Value>False</Value>
+    </Setting>
+    <Setting>
+      <Name>ShowContentHeaderLink</Name>
+      <Value>False</Value>
+    </Setting>
+    <Setting>
+      <Name>ShowReadMoreLink</Name>
+      <Value>True</Value>
+    </Setting>
+    <Setting>
+      <Name>ControlsShowNextButton</Name>
+      <Value>False</Value>
+    </Setting>
+    <Setting>
+      <Name>ControlsShowPrevButton</Name>
+      <Value>False</Value>
+    </Setting>
+    <Setting>
+      <Name>ControlsShowPauseButton</Name>
+      <Value>False</Value>
+    </Setting>
+    <Setting>
+      <Name>UseAnimations</Name>
+      <Value>True</Value>
+    </Setting>
+    <Setting>
+      <Name>AnimationPauseOnMouseOver</Name>
+      <Value>True</Value>
+    </Setting>
+    <Setting>
+      <Name>RotatorWidth</Name>
+      <Value/>
+    </Setting>
+    <Setting>
+      <Name>RotatorHeight</Name>
+      <Value/>
+    </Setting>
+    <Setting>
+      <Name>ThumbnailWidth</Name>
+      <Value/>
+    </Setting>
+    <Setting>
+      <Name>ThumbnailHeight</Name>
+      <Value/>
+    </Setting>
+    <Setting>
+      <Name>ControlsTitleDisplayMode</Name>
+      <Value>RotateContent</Value>
+    </Setting>
+    <Setting>
+      <Name>ContentTitleDisplayMode</Name>
+      <Value>Content</Value>
+    </Setting>
+    <Setting>
+      <Name>ContentDisplayMode</Name>
+      <Value>Content</Value>
+    </Setting>
+    <Setting>
+      <Name>ThumbnailDisplayMode</Name>
+      <Value>Content</Value>
+    </Setting>
+    <Setting>
+      <Name>PositionThumbnailDisplayMode</Name>
+      <Value>None</Value>
+    </Setting>
+  </Settings>
+</RotatorManifest>

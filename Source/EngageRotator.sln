@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageRotator", "EngageRotator.csproj", "{EC040588-2E64-4C1F-98C3-0647D88056BF}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.etg-inc.net:8080/
+		SccProjectUniqueName0 = EngageRotator.csproj
+		SccProjectName0 = ../../EngageRotator
+		SccAuxPath0 = http://etg30:8080
+		SccLocalPath0 = .
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC040588-2E64-4C1F-98C3-0647D88056BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC040588-2E64-4C1F-98C3-0647D88056BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC040588-2E64-4C1F-98C3-0647D88056BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC040588-2E64-4C1F-98C3-0647D88056BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

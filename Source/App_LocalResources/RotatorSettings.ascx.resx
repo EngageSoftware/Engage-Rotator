@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="btnSubmit.Text" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Content.Text" xml:space="preserve">
+    <value>Display as plain content</value>
+  </data>
+  <data name="fps.Text" xml:space="preserve">
+    <value>fps</value>
+  </data>
+  <data name="lblAnimationDuration.Help" xml:space="preserve">
+    <value>Choose how many seconds the fading animation will last.  You can use decimals to choose to last a fraction of a second.</value>
+  </data>
+  <data name="lblAnimationDuration.Text" xml:space="preserve">
+    <value>Animation Duration: </value>
+  </data>
+  <data name="lblAnimationFramesPerSecond.Help" xml:space="preserve">
+    <value>Choose how many frames to render per second for the fading animation.  A higher fps will result in a smoother animation.</value>
+  </data>
+  <data name="lblAnimationFramesPerSecond.Text" xml:space="preserve">
+    <value>Animation Frames Per Second:</value>
+  </data>
+  <data name="lblContentDisplay.Help" xml:space="preserve">
+    <value>Choose how you want to display the main content (not the title or thumbnail).  You can choose to display it as a link or just as plain content, or you could choose to not display the content at all (if you wanted to use only the title and thumbnail, for instance).</value>
+  </data>
+  <data name="lblContentDisplay.Text" xml:space="preserve">
+    <value>Display Mode for Main Content: </value>
+  </data>
+  <data name="lblContentHeaderLink.Help" xml:space="preserve">
+    <value>The URL destination of the link displayed at the top of the content area.</value>
+  </data>
+  <data name="lblContentHeaderLink.Text" xml:space="preserve">
+    <value>Header URL:</value>
+  </data>
+  <data name="lblContentHeaderLinkText.Help" xml:space="preserve">
+    <value>The text of the link displayed at the top of the content area.</value>
+  </data>
+  <data name="lblContentHeaderLinkText.Text" xml:space="preserve">
+    <value>Header Link: </value>
+  </data>
+  <data name="lblContentHeaderTitle.Help" xml:space="preserve">
+    <value>The title displayed at the top of the content area.</value>
+  </data>
+  <data name="lblContentHeaderTitle.Text" xml:space="preserve">
+    <value>Header Title: </value>
+  </data>
+  <data name="lblContentHeight.Help" xml:space="preserve">
+    <value>Use this setting to force the main content to be a specific height, measured in pixels.  This does not include the thumbnail or title.</value>
+  </data>
+  <data name="lblContentHeight.Text" xml:space="preserve">
+    <value>Content Height:</value>
+  </data>
+  <data name="lblContentTitleDisplay.Help" xml:space="preserve">
+    <value>Choose how you want to display the content's title, whether to display it as a link, as plain text, or to not display it at all.</value>
+  </data>
+  <data name="lblContentTitleDisplay.Text" xml:space="preserve">
+    <value>Display Mode for the Content Title:</value>
+  </data>
+  <data name="lblContentWidth.Help" xml:space="preserve">
+    <value>Use this setting to force the main content to be a specific width, measured in pixels.  This does not include the thumbnail or title.</value>
+  </data>
+  <data name="lblContentWidth.Text" xml:space="preserve">
+    <value>Content Width:</value>
+  </data>
+  <data name="lblPauseOnMouseOver.Help" xml:space="preserve">
+    <value>Pause the rotation of content when the user's mouse is over the content area.</value>
+  </data>
+  <data name="lblPauseOnMouseOver.Text" xml:space="preserve">
+    <value>Pause on MouseOver: </value>
+  </data>
+  <data name="lblPositionThumbnailHeight.Help" xml:space="preserve">
+    <value>Use this setting to force the position thumbnail to be a specific height, measured in pixels.</value>
+  </data>
+  <data name="lblPositionThumbnailHeight.Text" xml:space="preserve">
+    <value>Position Thumbnail Height: </value>
+  </data>
+  <data name="lblPositionThumbnailWidth.Help" xml:space="preserve">
+    <value>Use this setting to force the position thumbnail to be a specific width, measured in pixels.</value>
+  </data>
+  <data name="lblPositionThumbnailWidth.Text" xml:space="preserve">
+    <value>Position Thumbnail Width: </value>
+  </data>
+  <data name="lblPositionTitleDisplay.Help" xml:space="preserve">
+    <value>Choose how you want to display the position title.  You can choose to display it as plain text, or you could choose to not display it at all.  You can also choose to display it as a link that links to the content URL, or a link that will display the item in the rotator. The title will change its CSS class when it is the currently displayed item, so you can use this to show all of the possible "positions," and to highlight the current item.</value>
+  </data>
+  <data name="lblPositionTitleDisplay.Text" xml:space="preserve">
+    <value>Display Mode for Position Title: </value>
+  </data>
+  <data name="lblRotatorDelay.Help" xml:space="preserve">
+    <value>The number of seconds each item is shown before the next item appears.</value>
+  </data>
+  <data name="lblRotatorDelay.Text" xml:space="preserve">
+    <value>Rotator Delay: </value>
+  </data>
+  <data name="lblRotatorHeight.Help" xml:space="preserve">
+    <value>Use this setting to force the entire rotator module (not including the container) to be a specific height, measured in pixels.</value>
+  </data>
+  <data name="lblRotatorHeight.Text" xml:space="preserve">
+    <value>Rotator Height: </value>
+  </data>
+  <data name="lblRotatorPauseDelay.Help" xml:space="preserve">
+    <value>The number of seconds to wait before continuing to rotate content after the user's mouse has exited the content area.  This only applies if the content pane is paused when the user's mouse enters the content area.</value>
+  </data>
+  <data name="lblRotatorPauseDelay.Text" xml:space="preserve">
+    <value>Rotator Pause Delay: </value>
+  </data>
+  <data name="lblRotatorWidth.Help" xml:space="preserve">
+    <value>Use this setting to force the entire rotator module (not including the container) to be a specific width, measured in pixels.</value>
+  </data>
+  <data name="lblRotatorWidth.Text" xml:space="preserve">
+    <value>Rotator Width: </value>
+  </data>
+  <data name="lblShowContentHeaderLink.Help" xml:space="preserve">
+    <value>You can choose to display a constant link at the top of the content area, for example, "View Archive," or "See More."</value>
+  </data>
+  <data name="lblShowContentHeaderLink.Text" xml:space="preserve">
+    <value>Display a Header Link: </value>
+  </data>
+  <data name="lblShowContentHeaderTitle.Help" xml:space="preserve">
+    <value>You can choose to display a constant title at the top of the content area, for example, "Hot Topics," or "Our Featured Products."</value>
+  </data>
+  <data name="lblShowContentHeaderTitle.Text" xml:space="preserve">
+    <value>Display a Header Title: </value>
+  </data>
+  <data name="lblShowNextButton.Help" xml:space="preserve">
+    <value>Display a button to allow the user to move to the next content item.</value>
+  </data>
+  <data name="lblShowNextButton.Text" xml:space="preserve">
+    <value>Display Next Button: </value>
+  </data>
+  <data name="lblShowPauseButton.Help" xml:space="preserve">
+    <value>Display a button to allow the user to pause the rotation of the content.</value>
+  </data>
+  <data name="lblShowPauseButton.Text" xml:space="preserve">
+    <value>Display Pause Button: </value>
+  </data>
+  <data name="lblShowPositionThumbnail.Help" xml:space="preserve">
+    <value>If you choose, you can display an image and/or a title for each item.  The title will change its CSS class when it is the currently displayed item, so you can use this to show all of the possible "positions," and to highlight the current item.</value>
+  </data>
+  <data name="lblShowPositionThumbnail.Text" xml:space="preserve">
+    <value>Display Position Thumbnails: </value>
+  </data>
+  <data name="lblShowPreviousButton.Help" xml:space="preserve">
+    <value>Display a button to allow the user to scroll backwards through the content.</value>
+  </data>
+  <data name="lblShowPreviousButton.Text" xml:space="preserve">
+    <value>Display Previous Button: </value>
+  </data>
+  <data name="lblShowReadMoreLink.Help" xml:space="preserve">
+    <value>You can choose to display a link at the bottom of the rotator for the user to read more.</value>
+  </data>
+  <data name="lblShowReadMoreLink.Text" xml:space="preserve">
+    <value>Display a "Read More" Link: </value>
+  </data>
+  <data name="lblThumbnailDisplay.Help" xml:space="preserve">
+    <value>Choose how you want to display the content thumbnail.  You can choose to display it as a link or just an image, or you could choose not to display the thumbnail at all.</value>
+  </data>
+  <data name="lblThumbnailDisplay.Text" xml:space="preserve">
+    <value>Display Mode for Content Thumbnail: </value>
+  </data>
+  <data name="lblThumbnailHeight.Help" xml:space="preserve">
+    <value>Use this setting to force the content thumbnail to be a specific height, measured in pixels.</value>
+  </data>
+  <data name="lblThumbnailHeight.Text" xml:space="preserve">
+    <value>Content Thumbnail Height: </value>
+  </data>
+  <data name="lblThumbnailWidth.Help" xml:space="preserve">
+    <value>Use this setting to force the content thumbnail to be a specific width, measured in pixels.</value>
+  </data>
+  <data name="lblThumbnailWidth.Text" xml:space="preserve">
+    <value>Content Thumbnail Width: </value>
+  </data>
+  <data name="lblUseAnimations.Help" xml:space="preserve">
+    <value>Choose whether to use fading animations when the content item changes.</value>
+  </data>
+  <data name="lblUseAnimations.Text" xml:space="preserve">
+    <value>Use Animations: </value>
+  </data>
+  <data name="Link.Text" xml:space="preserve">
+    <value>Display as hyperlinked content</value>
+  </data>
+  <data name="pixels.Text" xml:space="preserve">
+    <value>pixels</value>
+  </data>
+  <data name="RotateContent.Text" xml:space="preserve">
+    <value>Display as a hyperlink that rotates the content when clicked</value>
+  </data>
+  <data name="seconds.Text" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="lblContentHeader.Text" xml:space="preserve">
+    <value>Main Content Settings&lt;hr/&gt;</value>
+  </data>
+  <data name="lblHeaderHeader.Text" xml:space="preserve">
+    <value>Header Settings&lt;hr/&gt;</value>
+  </data>
+  <data name="lblPositionHeader.Text" xml:space="preserve">
+    <value>Rotator Position Settings&lt;hr/&gt;</value>
+  </data>
+  <data name="lblRotationHeader.Text" xml:space="preserve">
+    <value>Rotation Settings&lt;hr/&gt;</value>
+  </data>
+  <data name="rfvAnimationDuration.Text" xml:space="preserve">
+    <value>Animation Duration is required</value>
+  </data>
+  <data name="rfvAnimationFramesPerSecond.Text" xml:space="preserve">
+    <value>Animation Frames Per Second is required</value>
+  </data>
+  <data name="valContentHeaderLink.Text" xml:space="preserve">
+    <value>Content Header Link URL is required</value>
+  </data>
+  <data name="rfvContentHeaderLinkText.Text" xml:space="preserve">
+    <value>Content Header Link Text is required</value>
+  </data>
+  <data name="rfvContentHeaderTitle.Text" xml:space="preserve">
+    <value>Content Header Title is required</value>
+  </data>
+  <data name="rfvRotatorDelay.Text" xml:space="preserve">
+    <value>Rotator Delay is required</value>
+  </data>
+  <data name="rfvRotatorPauseDelay.Text" xml:space="preserve">
+    <value>Rotator Pause Delay is required</value>
+  </data>
+  <data name="valAnimationDuration.Text" xml:space="preserve">
+    <value>Animation Duration must be an number</value>
+  </data>
+  <data name="valAnimationFramesPerSecond.Text" xml:space="preserve">
+    <value>Animation Frames Per Second must be an integer</value>
+  </data>
+  <data name="valContentHeight.Text" xml:space="preserve">
+    <value>Content Height must be an integer</value>
+  </data>
+  <data name="valContentWidth.Text" xml:space="preserve">
+    <value>Content Width must be an integer</value>
+  </data>
+  <data name="valPositionThumbnailHeight.Text" xml:space="preserve">
+    <value>Position Thumbnail Height must be an integer</value>
+  </data>
+  <data name="valPositionThumbnailWidth.Text" xml:space="preserve">
+    <value>Position Thumbnail Width must be an integer</value>
+  </data>
+  <data name="valRotatorDelay.Text" xml:space="preserve">
+    <value>Rotator Display must be an integer</value>
+  </data>
+  <data name="valRotatorHeight.Text" xml:space="preserve">
+    <value>Rotator Height must be an integer</value>
+  </data>
+  <data name="valRotatorPauseDelay.Text" xml:space="preserve">
+    <value>Rotator Pause Display must be an integer</value>
+  </data>
+  <data name="valRotatorWidth.Text" xml:space="preserve">
+    <value>Rotator Width must be an integer</value>
+  </data>
+  <data name="valThumbnailHeight.Text" xml:space="preserve">
+    <value>Content Thumbnail Height must be an integer</value>
+  </data>
+  <data name="valThumbnailWidth.Text" xml:space="preserve">
+    <value>Content Thumbnail Width must be an integer</value>
+  </data>
+  <data name="Above.Text" xml:space="preserve">
+    <value>Above the position titles section</value>
+  </data>
+  <data name="Below.Text" xml:space="preserve">
+    <value>Below the position titles section</value>
+  </data>
+  <data name="lblNextButtonLocation.Help" xml:space="preserve">
+    <value>Choose whether the pause button should display above or below the position titles.</value>
+  </data>
+  <data name="lblNextButtonLocation.Text" xml:space="preserve">
+    <value>Next Button Placement:</value>
+  </data>
+  <data name="lblPauseButtonLocation.Help" xml:space="preserve">
+    <value>Choose whether the pause button should display above or below the position titles.</value>
+  </data>
+  <data name="lblPauseButtonLocation.Text" xml:space="preserve">
+    <value>Pause Button Placement:</value>
+  </data>
+  <data name="lblPreviousButtonLocation.Help" xml:space="preserve">
+    <value>Choose whether the previous button should display above or below the position titles.</value>
+  </data>
+  <data name="lblPreviousButtonLocation.Text" xml:space="preserve">
+    <value>Previous Button Placement</value>
+  </data>
+  <data name="Content.Header" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="Header.Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="None.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Position.Header" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Rotation.Header" xml:space="preserve">
+    <value>Rotation</value>
+  </data>
+  <data name="lblStyleTemplates.Help" xml:space="preserve">
+    <value>You can choose to use an existing template style for the rotator, which will determine how the various parts of the rotator are layed out and styled.  Click the Apply button to select the current template.  This will apply all settings associated with the template to be applied.</value>
+  </data>
+  <data name="lblStyleTemplates.Text" xml:space="preserve">
+    <value>Style Template</value>
+  </data>
+  <data name="lblTemplatesHeader.Text" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="Templates.Header" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="ControlTitle_modsettings.Text" xml:space="preserve">
+    <value>Rotator Settings</value>
+  </data>
+  <data name="lblPositionThumbnailDisplay.Help" xml:space="preserve">
+    <value>Choose how you want to display the position thumbnail. You can choose to display just the image, or you could choose to not display it at all. You can also choose to display it as a link that links to the content URL, or a link that will display the item in the rotator.</value>
+  </data>
+  <data name="lblPositionThumbnailDisplay.Text" xml:space="preserve">
+    <value>Position Thumbnail Display Mode:</value>
+  </data>
+  <data name="StyleDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="btnApplyStyleTemplate.Text" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="TemplateChangedConfirm.Text" xml:space="preserve">
+    <value>The currently selected template has not yet been applied.  Please click Apply on the template tab before you click Submit if you would like to use that template.</value>
+  </data>
+  <data name="ManifestValidation.Text" xml:space="preserve">
+    <value>The Style Template you have chosen does not have a valid manifest and cannot be used.  Please select another.</value>
+  </data>
+  <data name="lblShowPositionCounter.Help" xml:space="preserve">
+    <value>Choose whether you would like to show a counter of the current piece of content, i.e. "1 of 3"</value>
+  </data>
+  <data name="lblShowPositionCounter.Text" xml:space="preserve">
+    <value>Display Position Counter:</value>
+  </data>
+  <data name="lblPositionCounterLocation.Help" xml:space="preserve">
+    <value>Choose whether the position counter should display above or below the position titles.</value>
+  </data>
+  <data name="lblPositionCounterLocation.Text" xml:space="preserve">
+    <value>Position Counter Placement:</value>
+  </data>
+</root>

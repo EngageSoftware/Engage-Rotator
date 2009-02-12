@@ -1,0 +1,22 @@
+﻿IF EXISTS (SELECT * FROM sysobjects where id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem'))
+DROP TABLE {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+GO
+CREATE TABLE {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+	(
+	ContentItemId int NOT NULL IDENTITY (1, 1),
+	Description text NULL,
+	LinkUrl nvarchar(255) NULL,
+	ThumbnailUrl nvarchar(255) NULL,
+	StartDate datetime NOT NULL,
+	EndDate datetime NULL,
+	TabModuleId int NOT NULL
+	)  ON [PRIMARY]
+	 TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE {databaseOwner}{objectQualifier}EngageRotator_ContentItem ADD CONSTRAINT
+	{objectQualifier}PK_EngageRotator_ContentItem PRIMARY KEY CLUSTERED 
+	(
+	ContentItemId
+	) ON [PRIMARY]
+GO
+

@@ -1,0 +1,11 @@
+﻿IF EXISTS (select * from syscolumns where [name] = 'SmallThumbnailUrl' and id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem'))
+EXECUTE sp_rename N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem.SmallThumbnailUrl', N'PositionThumbnailUrl', 'COLUMN' 
+GO
+
+IF EXISTS (SELECT * FROM sysobjects where id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem'))
+ AND NOT EXISTS (SELECT * FROM syscolumns where id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem') and [name] = 'SortOrder')
+ALTER TABLE {databaseOwner}{objectQualifier}EngageRotator_ContentItem	ADD
+    SortOrder int NOT NULL CONSTRAINT DF_{objectQualifier}EngageRotator_ContentItem_SortOrder DEFAULT 5
+GO
+
+

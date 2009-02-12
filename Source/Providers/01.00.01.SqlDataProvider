@@ -1,0 +1,5 @@
+﻿IF EXISTS (SELECT * FROM sysobjects where id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem'))
+ALTER TABLE {databaseOwner}{objectQualifier}EngageRotator_ContentItem	ADD
+    SmallThumbnailUrl nvarchar(255) NULL,
+	Title nvarchar(255) NULL
+GO

@@ -1,0 +1,2 @@
+﻿IF EXISTS (SELECT * FROM sysobjects where id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem'))
+DROP TABLE {databaseOwner}{objectQualifier}EngageRotator_ContentItem

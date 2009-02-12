@@ -1,0 +1,70 @@
+<dotnetnuke version="3.0" type="Module">
+  <folders>
+    <folder>
+      <name>Engage: Rotator</name>
+      <friendlyname>Engage: Rotator</friendlyname>
+      <foldername>EngageRotator</foldername>
+      <modulename>Engage: Rotator</modulename>
+      <description>
+        The DotNetNuke Content Rotator module by Engage Software (www.engagesoftware.com)
+      </description>
+      <version>01.02.00</version>
+      <businesscontrollerclass></businesscontrollerclass>
+      <dependencies>AjaxControlToolkit.CalendarExtender</dependencies>
+      <resourcefile>Resources.zip</resourcefile>
+      <modules>
+        <module>
+          <friendlyname>EngageRotator</friendlyname>
+          <cachetime>0</cachetime>
+          <controls>
+            <control>
+              <src>DesktopModules/EngageRotator/Rotator.ascx</src>
+              <type>View</type>
+            </control>
+            <control>
+              <key>Edit</key>
+              <src>DesktopModules/EngageRotator/RotatorEdit.ascx</src>
+              <type>Edit</type>
+            </control>
+            <control>
+              <key>Options</key>
+              <src>DesktopModules/EngageRotator/RotatorOptions.ascx</src>
+              <type>Edit</type>
+            </control>
+            <control>
+              <key>ModSettings</key>
+              <src>DesktopModules/EngageRotator/RotatorSettings.ascx</src>
+              <type>Edit</type>
+            </control>
+          </controls>
+        </module>
+      </modules>
+      <files>
+        <file>
+          <path>Providers\DataProviders\SqlDataProvider</path>
+          <name>01.00.00.SqlDataProvider</name>
+        </file>
+        <file>
+          <path>Providers\DataProviders\SqlDataProvider</path>
+          <name>01.00.01.SqlDataProvider</name>
+        </file>
+        <file>
+          <path>Providers\DataProviders\SqlDataProvider</path>
+          <name>01.01.00.SqlDataProvider</name>
+        </file>
+        <file>
+          <name>Uninstall.SqlDataProvider</name>
+        </file>
+        <file>
+          <name>Engage.Rotator.dll</name>
+        </file>
+        <file>
+          <name>Engage.Utility.dll</name>
+        </file>
+        <file>
+          <name>Engage.Dnn.Utility.dll</name>
+        </file>
+      </files>
+    </folder>
+  </folders>
+</dotnetnuke>

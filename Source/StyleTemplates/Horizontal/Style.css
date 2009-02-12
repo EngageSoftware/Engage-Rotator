@@ -1,0 +1,29 @@
+﻿#%parentId% .rotatorWrapper{width: 100%; clear: both; overflow: hidden; background: transparent;}
+
+	#%parentId% .rotator{width: 100%; overflow: hidden; float:left; width: 72%; margin-right: 3%;}
+		#%parentId% .rotatorContentWrapper{clear: both; overflow: hidden;}
+			#%parentId% .rotatorContent{clear: both;}
+				#%parentId% .rotatorThumbnailWrapper{display: none;}
+				
+				#%parentId% #rotatorContentDescriptionWrapper{clear:both;}
+				#%parentId% .rotatorDescription{width: 100%;}
+						
+			#%parentId% .rotatorContentBodyWrapper{width: 100%;}
+				#%parentId% .rotatorContentTitleWrapper{}
+
+				
+	
+	#%parentId% .rotatorControlsWrapper{float:right; width: 25%;}
+		#%parentId% .rotatorControlsPreviousLink{background: transparent url(images/previous.gif) no-repeat; height: 6px; width: 16px; cursor: pointer;}
+		#%parentId% .rotatorControlsPauseLink{background: transparent url(images/pause.gif) no-repeat;height: 14px;width: 14px; cursor: pointer;}
+
+		#%parentId% .rotatorPositionsWrapper{border-top: 1px #aeaeae solid;}
+			#%parentId% .rotatorPosition{background: url(images/itembg.gif) repeat-x; height: 32px; border: 1px #aeaeae solid; border-top: none;}
+			#%parentId% .rotatorPositionSelected{background: url(images/itembgOn.gif) repeat-x; height: 32px; border: 1px #8fb9d0 solid; border-top: none;}
+			#%parentId% .rotatorPositionTitle{font-weight: bold; color: #333; line-height: 1.2; padding: 8px 5px 0 5px;}
+			
+			#%parentId% .rotatorPosition .rotatorPositionTitle{color: #fff; cursor:pointer;}
+			#%parentId% .rotatorPositionSelected .rotatorPositionTitle{color: #000;}	
+				
+			
+		#%parentId% .rotatorControlsNextLink{background: transparent url(images/next.gif) no-repeat; height: 6px; width: 16px; cursor: pointer;}
