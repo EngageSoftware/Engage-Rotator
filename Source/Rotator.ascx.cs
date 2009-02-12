@@ -182,10 +182,7 @@ namespace Engage.Dnn.ContentRotator
                 manager.Scripts.Add(new ScriptReference("AjaxControlToolkit.Compat.Timer.Timer.js", "AjaxControlToolkit"));
             }
 
-            if (!Page.ClientScript.IsStartupScriptRegistered(this.GetType(), "rotator"))
-            {
-                Page.ClientScript.RegisterClientScriptInclude(this.GetType(), "rotator", ResolveUrl("~/DesktopModules/EngageRotator/Rotator.js"));
-            }
+            Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.Rotator.JavaScript.Rotator.js");
 	    }
 
         protected static string FormatThumbnailUrl(string url)

@@ -51,12 +51,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\DotNetNuke.WebUtility.dll</HintPath>
     </Reference>
-    <Reference Include="Engage.Dnn.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="Engage.Utility, Version=2.0.2.25001, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="Engage.Dnn.Framework, Version=1.1.0.30545, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Engage.Framework, Version=2.0.6.30532, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\microsoft.ApplicationBlocks.Data.dll</HintPath>
@@ -111,7 +107,7 @@
     <Content Include="Licenses\EULA-Enterprise.txt" />
     <Content Include="Licenses\EULA-Professional.txt" />
     <Content Include="Licenses\EULA-Standard.txt" />
-    <Content Include="Rotator.js" />
+    <EmbeddedResource Include="JavaScript\Rotator.js" />
     <Content Include="RotatorSettings.ascx" />
     <Content Include="RotatorEdit.ascx" />
     <Content Include="module.css" />
@@ -151,6 +147,12 @@
     <Content Include="images\rb-corner.gif" />
     <Content Include="images\rt-corner.gif" />
     <Content Include="images\top-header-bg.gif" />
+    <Content Include="References\AjaxControlToolkit.dll" />
+    <Content Include="References\DotNetNuke.dll" />
+    <Content Include="References\DotNetNuke.WebUtility.dll" />
+    <Content Include="References\Engage.Dnn.Framework.dll" />
+    <Content Include="References\Engage.Framework.dll" />
+    <Content Include="References\Microsoft.ApplicationBlocks.Data.dll" />
     <Content Include="StyleTemplates\Engage\images\item-bg-on.png" />
     <Content Include="StyleTemplates\Engage\images\item-bg.gif" />
     <Content Include="StyleTemplates\Engage\Manifest.xml" />
