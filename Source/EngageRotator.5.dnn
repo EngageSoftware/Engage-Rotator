@@ -1,0 +1,102 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="Engage: Rotator" type="Module" version="REPLACED BY NANT">
+      <friendlyName>Engage: Rotator</friendlyName>
+      <description>The DotNetNuke Content Rotator module by Engage Software (www.engagesoftware.com)</description>
+      <owner>
+        <name>Engage Software</name>
+        <organization>Engage Software</organization>
+        <url><![CDATA[<a href="http://www.engagesoftware.com/">http://www.engagesoftware.com/</a>]]></url>
+        <email><![CDATA[<a href="mailto:support@engagemodules.com">support@engagemodules.com</a>]]></email>
+      </owner>
+      <license src="REPLACED BY NANT"/>
+      <releaseNotes src="REPLACED BY NANT" />
+      <components>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/EngageRotator</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\EngageRotator</basePath>
+            <script type="Install">
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+            <script type="Install">
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.01</version>
+            </script>
+            <script type="Install">
+              <name>01.01.00.SqlDataProvider</name>
+              <version>01.01.00</version>
+            </script>
+            <script type="UnInstall">
+              <name>Uninstall.SqlDataProvider</name>
+              <version>REPLACED BY NANT</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>Engage: Rotator</moduleName>
+            <foldername>EngageRotator</foldername>
+            <businessControllerClass>Engage.Dnn.Rotator.Components.FeaturesController</businessControllerClass>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>EngageRotator</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey/>
+                    <controlSrc>DesktopModules/EngageRotator/Rotator.ascx</controlSrc>
+                    <controlType>View</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Edit</controlKey>
+                    <controlSrc>DesktopModules/EngageRotator/RotatorEdit.ascx</controlSrc>
+                    <controlType>Edit</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Options</controlKey>
+                    <controlSrc>DesktopModules/EngageRotator/RotatorOptions.ascx</controlSrc>
+                    <controlType>Edit</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>ModSettings</controlKey>
+                    <controlSrc>DesktopModules/EngageRotator/RotatorSettings.ascx</controlSrc>
+                    <controlType>Edit</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>Engage.Rotator.dll</name>
+              <version>REPLACED BY NANT</version>
+            </assembly>
+            <assembly>
+              <name>Engage.Framework.dll</name>
+              <version>2.0.6</version>
+            </assembly>
+            <assembly>
+              <name>Engage.Dnn.Framework.dll</name>
+              <version>1.1.0</version>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

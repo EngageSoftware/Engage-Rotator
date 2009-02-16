@@ -8,9 +8,8 @@
       <description>
         The DotNetNuke Content Rotator module by Engage Software (www.engagesoftware.com)
       </description>
-      <version>01.02.00</version>
-      <businesscontrollerclass></businesscontrollerclass>
-      <dependencies>AjaxControlToolkit.CalendarExtender</dependencies>
+      <version>REPLACED BY NANT</version>
+      <businesscontrollerclass>Engage.Dnn.Rotator.Components.FeaturesController</businesscontrollerclass>
       <resourcefile>Resources.zip</resourcefile>
       <modules>
         <module>
@@ -20,21 +19,25 @@
             <control>
               <src>DesktopModules/EngageRotator/Rotator.ascx</src>
               <type>View</type>
+              <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
             </control>
             <control>
               <key>Edit</key>
               <src>DesktopModules/EngageRotator/RotatorEdit.ascx</src>
               <type>Edit</type>
+              <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
             </control>
             <control>
               <key>Options</key>
               <src>DesktopModules/EngageRotator/RotatorOptions.ascx</src>
               <type>Edit</type>
+              <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
             </control>
             <control>
               <key>ModSettings</key>
               <src>DesktopModules/EngageRotator/RotatorSettings.ascx</src>
               <type>Edit</type>
+              <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
             </control>
           </controls>
         </module>

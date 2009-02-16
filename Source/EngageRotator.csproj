@@ -88,6 +88,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeaturesController.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="RotatorSettings.ascx.cs">
       <DependentUpon>RotatorSettings.ascx</DependentUpon>
@@ -104,9 +105,9 @@
       <DependentUpon>RotatorEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Providers\DataProvider.cs" />
-    <Content Include="Licenses\EULA-Enterprise.txt" />
-    <Content Include="Licenses\EULA-Professional.txt" />
-    <Content Include="Licenses\EULA-Standard.txt" />
+    <Content Include="Licenses\EULA-Enterprise.htm" />
+    <Content Include="Licenses\EULA-Professional.htm" />
+    <Content Include="Licenses\EULA-Standard.htm" />
     <EmbeddedResource Include="JavaScript\Rotator.js" />
     <Content Include="RotatorSettings.ascx" />
     <Content Include="RotatorEdit.ascx" />
@@ -118,10 +119,11 @@
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="EngageRotator.5.dnn" />
     <None Include="Providers\01.01.00.SqlDataProvider" />
     <None Include="StyleTemplates\Manifest.xsd" />
     <None Include="Uninstall.SqlDataProvider" />
-    <None Include="EngageRotator.dnn" />
+    <None Include="EngageRotator.4.dnn" />
     <None Include="EngageRotator.Build" />
     <None Include="Providers\01.00.00.SqlDataProvider" />
     <None Include="Providers\01.00.01.SqlDataProvider" />
