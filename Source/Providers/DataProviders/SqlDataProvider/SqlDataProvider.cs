@@ -107,7 +107,7 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         public override int InsertContentItem(string description, string thumbnailUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string positionThumbnailUrl, int sortOrder)
         {
-            return (int)this.ExecuteScalar(
+            return (int)(decimal)this.ExecuteScalar(
                 "InsertContentItem",
                 Engage.Utility.CreateTextParam("@description", description),
                 Engage.Utility.CreateVarcharParam("@thumbnailUrl", thumbnailUrl, TextFieldSize),
