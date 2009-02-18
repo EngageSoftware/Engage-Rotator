@@ -52,8 +52,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\DotNetNuke.WebUtility.dll</HintPath>
     </Reference>
-    <Reference Include="Engage.Dnn.Framework, Version=1.1.0.30545, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Engage.Framework, Version=2.0.6.30532, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Engage.Dnn.Framework, Version=1.1.0.30545, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Engage.Framework, Version=2.0.6.30532, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\microsoft.ApplicationBlocks.Data.dll</HintPath>
@@ -232,6 +236,8 @@
       <ItemGroup>
         <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
         <EmbeddedResource Include="JavaScript\jquery-ui-datepicker-1.5.3.js" />
+        <Content Include="Templates\App_LocalResources\Template.resx">
+        </Content>
       </ItemGroup>
     </When>
     <Otherwise>

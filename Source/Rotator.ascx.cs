@@ -12,8 +12,6 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
-    using System.Data;
-    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Text;
     using System.Web;
@@ -542,9 +540,12 @@ namespace Engage.Dnn.ContentRotator
         private static void ProcessTags(Control container, Tag tag, object engageObject, string resourceFile)
         {
             ContentItem contentItem = engageObject as ContentItem;
-            switch (tag.LocalName.ToUpperInvariant())
+
+            if (tag.TagType == TagType.Open)
             {
-                case "READMORE":
+                switch (tag.LocalName.ToUpperInvariant())
+                {
+                    case "READMORE":
                         StringBuilder detailLinkBuilder = new StringBuilder();
 
                         detailLinkBuilder.AppendFormat(
@@ -565,7 +566,8 @@ namespace Engage.Dnn.ContentRotator
 
                         if (!tag.HasChildTags)
                         {
-                            string detailLinkText = Localization.GetString(tag.GetAttributeValue("ResourceKey"), resourceFile);
+                            string detailLinkText = Localization.GetString(
+                                    tag.GetAttributeValue("ResourceKey"), resourceFile);
                             if (string.IsNullOrEmpty(detailLinkText))
                             {
                                 detailLinkText = tag.GetAttributeValue("Text");
@@ -575,15 +577,26 @@ namespace Engage.Dnn.ContentRotator
                                 }
                             }
 
-                            detailLinkBuilder.Append(detailLinkText)
-                                .Append("</a>");
+                            detailLinkBuilder.Append(detailLinkText).Append("</a>");
                         }
 
                         container.Controls.Add(new LiteralControl(detailLinkBuilder.ToString()));
 
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (tag.TagType == TagType.Close)
+            {
+                switch (tag.LocalName.ToUpperInvariant())
+                {
+                    case "READMORE":
+                        container.Controls.Add(new LiteralControl("</a>"));
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 

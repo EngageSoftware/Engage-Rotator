@@ -1,19 +1,19 @@
 ﻿<div>
     <div class="rotatorContentWrapper" > <!--style='ContentWrapperStyle'-->
         <div class="rotatorContent">
-            <Engage:DataEntity Property="ContentHeaderText" />
-            <span class="rotatorContentHeaderLinkWrapper"><!--a href='--><Engage:DataEntity Property="ContentHeaderLink" CssClass="rotatorContentHeaderLink" /><!-- --><Engage:DataEntity Property="ContentHeaderLinkText" /><!--/a--></span>
+            <Engage:DataEntity PropertyName="ContentHeaderText" />
+            <span class="rotatorContentHeaderLinkWrapper"><Engage:ReadMore PropertyName="ContentHeaderLink" CssClass="rotatorContentHeaderLink"><Engage:DataEntity PropertyName="ContentHeaderLinkText" /></Engage:ReadMore></span>
 	        <div class="rotatorThumbnailWrapper">
-	            <Engage:ReadMore Property="LinkUrl" CssClass="rotatorThumbnailLink">
-		            <!--img class="rotatorThumbnail" src='--><Engage:DataEntity Property="ThumbnailUrl" /><!--' alt='' /--> <!--style='ThumbnailStyle'-->
+	            <Engage:ReadMore PropertyName="LinkUrl" CssClass="rotatorThumbnailLink">
+		            <Engage:Image CssClass="rotatorThumbnail" PropertyName="ThumbnailUrl" AlternateText="" /> <!--style='ThumbnailStyle'-->
 	            </Engage:ReadMore>
             </div>
             <div class="rotatorContentBodyWrapper">
                 <span class="rotatorContentTitleWrapper">
-	                <!--a class="rotatorContentTitleLink" href='--><Engage:DataEntity Property="LinkUrl"/><!--'--><Engage:DataEntity Property="Title" /><!--/a-->
+	                <Engage:ReadMore CssClass="rotatorContentTitleLink" PropertyName="LinkUrl"><Engage:DataEntity PropertyName="Title" /></Engage:ReadMore>
                 </span>
                 <div id="rotatorContentDescriptionWrapper" class="rotatorContentDescriptionWrapper">
-                    <span class="rotatorDescription"><!--a href='<Engage:DataEntity Property="LinkUrl" />' class='rotatorDescriptionLink'--><Engage:DataEntity Property="Description" /><!--/a--></span>
+                    <span class="rotatorDescription"><Engage:ReadMore PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:DataEntity PropertyName="Description" /></Engage:ReadMore></span>
 	                <div class="rotatorReadMoreLinkWrapper"><Engage:ReadMore CssClass="rotatorReadMoreLink" ResourceKey="lnkReadMore" /></div>
                 </div>
             </div>
