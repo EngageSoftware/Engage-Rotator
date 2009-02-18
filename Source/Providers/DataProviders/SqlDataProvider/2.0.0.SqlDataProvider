@@ -1,0 +1,110 @@
+﻿IF EXISTS (select * from syscolumns where [name] = 'TabModuleId' and id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem'))
+BEGIN
+	DELETE {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+	FROM {databaseOwner}{objectQualifier}EngageRotator_ContentItem ci
+	FULL OUTER JOIN {databaseOwner}{objectQualifier}TabModules tm ON (ci.TabModuleId = tm.TabModuleID)
+	WHERE tm.ModuleID IS NULL
+
+	UPDATE {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+	SET TabModuleId = (SELECT ModuleId FROM {databaseOwner}{objectQualifier}TabModules tm WHERE tm.TabModuleId = ci.TabModuleId)
+	FROM {databaseOwner}{objectQualifier}EngageRotator_ContentItem ci
+	
+	EXECUTE sp_rename N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem.TabModuleId', N'ModuleId', 'COLUMN' 
+END
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spInsertContentItem'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spInsertContentItem
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spInsertContentItem
+	@description text, 
+	@linkUrl nvarchar(255), 
+	@startDate datetime, 
+	@endDate datetime, 
+	@moduleId int, 
+	@title nvarchar(255), 
+	@thumbnailUrl nvarchar(255), 
+	@positionThumbnailUrl nvarchar(255), 
+	@sortOrder int
+AS
+BEGIN
+	INSERT INTO {databaseOwner}{objectQualifier}EngageRotator_ContentItem(Description, LinkUrl, StartDate, EndDate, ModuleId, Title, ThumbnailUrl, PositionThumbnailUrl, SortOrder)
+	VALUES (@description, @linkUrl, @startDate, @endDate, @moduleId, @title, @thumbnailUrl, @positionThumbnailUrl, @sortOrder)
+	
+	SELECT SCOPE_IDENTITY()
+END
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spUpdateContentItem'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spUpdateContentItem
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spUpdateContentItem
+	@contentItemId int,
+	@description text, 
+	@linkUrl nvarchar(255), 
+	@startDate datetime, 
+	@endDate datetime, 
+	@title nvarchar(255), 
+	@thumbnailUrl nvarchar(255), 
+	@positionThumbnailUrl nvarchar(255), 
+	@sortOrder int
+AS
+BEGIN
+	UPDATE {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+	SET Description = @description, 
+	LinkUrl = @linkUrl, 
+	StartDate = @startDate, 
+	EndDate = @endDate, 
+	Title = @title, 
+	ThumbnailUrl = @thumbnailUrl, 
+	PositionThumbnailUrl = @positionThumbnailUrl, 
+	SortOrder = @sortOrder
+	WHERE ContentItemId = @contentItemId
+END
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spDeleteContentItem'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spDeleteContentItem
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spDeleteContentItem
+	@contentItemId int
+AS
+BEGIN
+	DELETE {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+	WHERE ContentItemId = @contentItemId
+END
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spGetContentItem'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetContentItem
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetContentItem
+	@contentItemId int
+AS
+BEGIN
+	SELECT ContentItemId, Description, ThumbnailUrl, LinkUrl, StartDate, EndDate, Title, PositionThumbnailUrl, SortOrder
+	FROM {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+	WHERE ContentItemId = @contentItemId
+END
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spGetContentItems'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetContentItems
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetContentItems
+	@moduleId int,
+	@getOutdatedItems bit
+AS
+BEGIN
+	SELECT ContentItemId, Description, ThumbnailUrl, LinkUrl, StartDate, EndDate, Title, PositionThumbnailUrl, SortOrder
+	FROM {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+	WHERE ModuleId = @moduleId
+	AND (@getOutdatedItems = 1 OR (StartDate < GETDATE() and (EndDate IS NULL OR EndDate > GETDATE())))
+	ORDER BY SortOrder, StartDate, Title
+END
+GO

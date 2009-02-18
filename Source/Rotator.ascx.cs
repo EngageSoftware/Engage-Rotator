@@ -1,473 +1,629 @@
-//Copyright (c) 2004-2008
-//by Engage Software ( http://www.engagesoftware.net )
-
-//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
-//TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
-//THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
-//CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-//DEALINGS IN THE SOFTWARE.
-
-using System;
-using System.Data;
-using System.Globalization;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Web.Hosting;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Xml.Schema;
-using DotNetNuke.Entities.Modules;
-using DotNetNuke.Entities.Modules.Actions;
-using DotNetNuke.Security;
-using DotNetNuke.Services.Exceptions;
-using DotNetNuke.Services.Localization;
+// <copyright file="Rotator.ascx.cs" company="Engage Software">
+// Engage: Rotator - http://www.engagemodules.com
+// Copyright (c) 2004-2009
+// by Engage Software ( http://www.engagesoftware.com )
+// </copyright>
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
+// TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+// CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+// DEALINGS IN THE SOFTWARE.
 
 namespace Engage.Dnn.ContentRotator
 {
-	public partial class Rotator : PortalModuleBase, IActionable
+    using System;
+    using System.Data;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
+    using System.Text;
+    using System.Web;
+    using System.Web.Script.Serialization;
+    using System.Web.UI;
+    using DotNetNuke.Entities.Modules;
+    using DotNetNuke.Entities.Modules.Actions;
+    using DotNetNuke.Security;
+    using DotNetNuke.Services.Exceptions;
+    using DotNetNuke.Services.Localization;
+    using Framework.Templating;
+    using Templating;
+
+    public partial class Rotator : ModuleBase, IActionable
     {
-        #region Event Handlers
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-        protected void Page_Load(object sender, EventArgs e)
-		{
-			try 
-			{
-                string rotatorStyle = RotatorWrapperStyle;
-                if (rotatorStyle.Length > 0)
-                {
-                    divRotator.Attributes.Add("style", rotatorStyle);
-                }
-			    InsertStyleTemplate();
-
-                DataSet ds = DataProvider.Instance().GetContentItems(TabModuleId);
-                if (ds.Tables[0].Rows.Count > 1)
-                {
-                    rpArticles.DataSource = ds.Tables[0];
-                    rpPosition.DataSource = ds.Tables[0];
-
-                    ViewState["TotalCount"] = ds.Tables[0].Rows.Count;
-                }
-                else
-                {
-                    lblNoHotTopics.Visible = true;
-                    divRotator.Visible = false;
-                }
-                RegisterRotatorJavascript();
-                this.DataBind();
-			} 
-			catch (Exception exc) 
-			{
-				Exceptions.ProcessModuleLoadException(this, exc);
-			}
-		}
-
-	    private void InsertStyleTemplate()
-	    {
-            try
-            {
-                TemplateManifest manifest = TemplateManifest.CreateTemplateManifest(Settings["StyleTemplate"] as string);
-
-                if (Engage.Utility.HasValue(manifest.StylesheetFilePath))
-                {
-                    string stylesheetMapPath = HostingEnvironment.MapPath(manifest.StylesheetFilePath);
-                    if (File.Exists(stylesheetMapPath))
-                    {
-                        string parentId = string.Empty;
-                        Control visibleParent = this.Parent;
-                        while (visibleParent != null && (!visibleParent.Visible || !Engage.Utility.HasValue(visibleParent.ClientID)))
-                        {
-                            visibleParent = visibleParent.Parent;
-                        }
-                        if (visibleParent != null)
-                        {
-                            parentId = visibleParent.ClientID;
-                        }
-
-                        string stylesheetContent = File.ReadAllText(stylesheetMapPath);
-                        stylesheetContent = stylesheetContent.Replace("%parentId%", parentId);
-                        foreach (Match match in Regex.Matches(stylesheetContent, @"url\(([^\)]*)\)", RegexOptions.ECMAScript))
-                        {
-                            if (match.Groups.Count > 1)
-                            {
-                                //create an absolute url with the request as the base, pointing to the stylesheet,
-                                //and then the relative path from the stylesheet to whatever resource it's pointing to
-                                Uri absoluteCaptureUrl = new Uri(new Uri(Request.Url, ResolveUrl(manifest.StylesheetFilePath)), match.Groups[1].Value);
-                                stylesheetContent = stylesheetContent.Replace(match.Groups[0].Value, "url(" + absoluteCaptureUrl.ToString() + ")");
-                            }
-                        }
-                        phStyleTemplate.Controls.Add(new LiteralControl("<style type=\"text/css\">"));
-                        phStyleTemplate.Controls.Add(new LiteralControl(stylesheetContent));
-                        phStyleTemplate.Controls.Add(new LiteralControl("</style>"));
-                    }
-                }
-            }
-            catch (XmlSchemaValidationException)
-            {
-                return;
-            }
-            catch (IOException)
-            {
-                return;
-            }
-	    }
-
-	    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", MessageId = "Member"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Member")]
-        protected void rpArticles_ItemDataBound(object sender, RepeaterItemEventArgs e)
-		{
-            if (e != null)
-            {
-                //get the row
-                //DataRowView item = (DataRowView)e.Item.DataItem;
-
-                //find the control
-                //Image imgThumbnail = (Image)e.Item.FindControl("imgThumbnail");
-                //Label lblArticleSummary = (Label)e.Item.FindControl("lblArticleSummary");
-                //HyperLink lnkReadMore = (HyperLink)e.Item.FindControl("lnkReadMore");
-                //HyperLink lnkArticleTitle = (HyperLink)e.Item.FindControl("lnkArticleTitle");
-                HtmlGenericControl divArticleToRotate = (HtmlGenericControl)e.Item.FindControl("divArticleToRotate");
-
-                if (divArticleToRotate != null)
-                {
-                    if (e.Item.ItemIndex == 0)
-                    {
-                        divArticleToRotate.Style.Add("display", "block");
-                    }
-                    else
-                    {
-                        divArticleToRotate.Style.Add("display", "none");
-                    }
-
-                    if (PauseOnMouseOver)
-                    {
-                        divArticleToRotate.Attributes.Add("onmouseover", "rotator" + TabModuleId.ToString(CultureInfo.InvariantCulture) + ".StopTheClock();");
-                        divArticleToRotate.Attributes.Add("onmouseout", "rotator" + TabModuleId.ToString(CultureInfo.InvariantCulture) + ".OnMouseOut();");
-                    }
-                }
-            }
-        }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", MessageId = "Member"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Member")]
-        protected void rpPosition_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e != null)
-            {
-                string rotatorOnClickCode = "rotator" + TabModuleId.ToString(CultureInfo.InvariantCulture) + ".Show(" + e.Item.ItemIndex.ToString(CultureInfo.InvariantCulture) + ");";
-                if (PositionTitleDisplayMode == DisplayType.RotateContent)
-                {
-                    HtmlGenericControl positionTitle = (HtmlGenericControl)e.Item.FindControl("positionTitle");
-                    positionTitle.Attributes.Add("onclick", rotatorOnClickCode);
-                }
-                if (PositionThumbnailDisplayMode == DisplayType.RotateContent)
-                {
-                    HtmlGenericControl positionThumbnail = (HtmlGenericControl)e.Item.FindControl("positionThumbnail");
-                    positionThumbnail.Attributes.Add("onclick", rotatorOnClickCode);
-                }
-            }
-        }
-        #endregion
-
-	    private void RegisterRotatorJavascript()
-	    {
-            if (UseAnimations && DotNetNuke.Framework.AJAX.IsInstalled())
-            {
-                DotNetNuke.Framework.AJAX.AddScriptManager(Page);
-                //Add references to Animations scripts
-                ScriptManager manager = (ScriptManager)DotNetNuke.Framework.AJAX.ScriptManagerControl(Page);
-                manager.Scripts.Add(new ScriptReference("AjaxControlToolkit.ExtenderBase.BaseScripts.js", "AjaxControlToolkit"));
-                manager.Scripts.Add(new ScriptReference("AjaxControlToolkit.Common.Common.js", "AjaxControlToolkit"));
-                manager.Scripts.Add(new ScriptReference("AjaxControlToolkit.Animation.Animations.js", "AjaxControlToolkit"));
-                manager.Scripts.Add(new ScriptReference("AjaxControlToolkit.Animation.AnimationBehavior.js", "AjaxControlToolkit"));
-                manager.Scripts.Add(new ScriptReference("AjaxControlToolkit.Compat.Timer.Timer.js", "AjaxControlToolkit"));
-            }
-
-            Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.Rotator.JavaScript.Rotator.js");
-	    }
-
-        protected static string FormatThumbnailUrl(string url)
-        {
-            //test the thumbnail path
-            return Engage.Utility.HasValue(url) ? url : "/images/1x1.gif";
-        }
-
-        #region Settings
-        protected int? RotatorWidth
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "RotatorWidth"); }
-        }
-
-        protected int? RotatorHeight
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "RotatorHeight"); }
-        }
-
-        protected int? ContentWidth
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "ContentWidth"); }
-        }
-
-        protected int? ContentHeight
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "ContentHeight"); }
-        }
-
-        protected int? ThumbnailWidth
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "ThumbnailWidth"); }
-        }
-
-        protected int? ThumbnailHeight
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "ThumbnailHeight"); }
-        }
-
-        //protected int? ControlsMarginTop
-        //{
-        //    get
-        //    {
-        //        return Engage.Dnn.Utility.GetIntSetting(Settings, "ControlsMarginTop");
-        //    }
-        //}
-
-        //protected int? ControlsMarginLeft
-        //{
-        //    get
-        //    {
-        //        return Engage.Dnn.Utility.GetIntSetting(Settings, "ControlsMarginLeft");
-        //    }
-        //}
-
-        protected int? PositionThumbnailWidth
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "PositionThumbnailWidth"); }
-        }
-
-        protected int? PositionThumbnailHeight
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "PositionThumbnailHeight"); }
-        }
-
-        protected int RotatorDelay
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "RotatorDelay", 8); }
-        }
-
-        protected int RotatorPauseDelay
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "RotatorPauseDelay", 3); }
-        }
-
-        protected int AnimationFramesPerSecond
-        {
-            get { return Engage.Dnn.Utility.GetIntSetting(Settings, "AnimationFramesPerSecond", 30); }
-        }
-
-        protected decimal AnimationDuration
-        {
-            get { return Engage.Dnn.Utility.GetDecimalSetting(Settings, "AnimationDuration", 0.3m); }
-        }
-
-        protected DisplayType PositionTitleDisplayMode
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "ControlsTitleDisplayMode", DisplayType.Link); }
-        }
-
-        protected DisplayType ContentTitleDisplayMode
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "ContentTitleDisplayMode", DisplayType.Link); }
-        }
-
-        protected DisplayType ContentDisplayMode
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "ContentDisplayMode", DisplayType.Content); }
-        }
-
-        protected DisplayType ThumbnailDisplayMode
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "ThumbnailDisplayMode", DisplayType.Link); }
-        }
-
-        protected bool ShowContentHeader
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "ShowContentHeader", false); }
-        }
-
-        protected bool ShowContentHeaderLink
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "ShowContentHeaderLink", false); }
-        }
-
-        protected bool ShowReadMoreLink
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "ShowReadMoreLink", false); }
-        }
-
-        protected bool ShowPreviousButton
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "ControlsShowPrevButton", true); }
-        }
-
-        protected ControlPlacement PreviousButtonPlacement
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "ControlsPreviousPlacement", ControlPlacement.Above); }
-        }
-
-        //protected string PreviousButtonImageUrl
-        //{
-        //    get
-        //    {
-        //        //if setting is null, then return the path to the provided image
-        //        return Settings["ControlsPreviousImageUrl"] as string ?? ResolveUrl("~/DesktopModules/EngageRotator/images/previous.gif");
-        //    }
-        //}
-
-        protected bool ShowPauseButton
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "ControlsShowPauseButton", true); }
-        }
-
-        protected ControlPlacement PauseButtonPlacement
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "ControlsPausePlacement", ControlPlacement.Above); }
-        }
-
-        //protected string PauseButtonImageUrl
-        //{
-        //    get
-        //    {
-        //        //if setting is null, then return the path to the provided image
-        //        return Settings["ControlsPauseImageUrl"] as string ?? ResolveUrl("~/DesktopModules/EngageRotator/images/pause.gif");
-        //    }
-        //}
-
-        protected bool ShowNextButton
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "ControlsShowNextButton", true); }
-        }
-
-        protected ControlPlacement NextButtonPlacement
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "ControlsNextPlacement", ControlPlacement.Below); }
-        }
-
-        //protected string NextButtonImageUrl
-        //{
-        //    get
-        //    {
-        //        //if setting is null, then return the path to the provided image
-        //        return Settings["ControlsNextImageUrl"] as string ?? ResolveUrl("~/DesktopModules/EngageRotator/images/next.gif");
-        //    }
-        //}
-
-        protected DisplayType PositionThumbnailDisplayMode
-        {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "PositionThumbnailDisplayMode", DisplayType.Link); }
-        }
-
-        protected bool UseAnimations
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "UseAnimations", true); }
-        }
-
-        protected bool PauseOnMouseOver
-        {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "AnimationPauseOnMouseOver", true); }
-        }
-
-        protected string RotatorWrapperStyle
+        /// <summary>
+        /// Gets ModuleActions.
+        /// </summary>
+        public ModuleActionCollection ModuleActions
         {
             get
             {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", RotatorWidth);
-                Utility.AddStyle(style, "height", RotatorHeight);
-                return style.ToString();
+                ModuleActionCollection actions = new ModuleActionCollection();
+                actions.Add(
+                        this.GetNextActionID(),
+                        Localization.GetString("Add/Edit Content", this.LocalResourceFile),
+                        ModuleActionType.AddContent,
+                        string.Empty,
+                        string.Empty,
+                        this.EditUrl("Options"),
+                        false,
+                        SecurityAccessLevel.Edit,
+                        true,
+                        false);
+                actions.Add(
+                        this.GetNextActionID(),
+                        Localization.GetString("Rotator Settings", this.LocalResourceFile),
+                        ModuleActionType.AddContent,
+                        string.Empty,
+                        string.Empty,
+                        this.EditUrl("ModSettings"),
+                        false,
+                        SecurityAccessLevel.Edit,
+                        true,
+                        false);
+                return actions;
             }
         }
 
+        /// <summary>
+        /// Gets AnimationDuration.
+        /// </summary>
+        protected decimal AnimationDuration
+        {
+            get
+            {
+                return Dnn.Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+            }
+        }
+
+        /// <summary>
+        /// Gets AnimationFramesPerSecond.
+        /// </summary>
+        protected int AnimationFramesPerSecond
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "AnimationFramesPerSecond", 30);
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentDisplayMode.
+        /// </summary>
+        protected DisplayType ContentDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentDisplayMode", DisplayType.Content);
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentHeaderLink.
+        /// </summary>
+        protected string ContentHeaderLink
+        {
+            get
+            {
+                return this.Settings["ContentHeaderLink"] as string;
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentHeaderLinkText.
+        /// </summary>
+        protected string ContentHeaderLinkText
+        {
+            get
+            {
+                return this.Settings["ContentHeaderLinkText"] as string;
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentHeaderText.
+        /// </summary>
+        protected string ContentHeaderText
+        {
+            get
+            {
+                return this.Settings["ContentHeaderText"] as string;
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentHeight.
+        /// </summary>
+        protected int? ContentHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ContentHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentTitleDisplayMode.
+        /// </summary>
+        protected DisplayType ContentTitleDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentTitleDisplayMode", DisplayType.Link);
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentWidth.
+        /// </summary>
+        protected int? ContentWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ContentWidth");
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentWrapperStyle.
+        /// </summary>
         protected string ContentWrapperStyle
         {
             get
             {
                 StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", ContentWidth);
-                Utility.AddStyle(style, "height", ContentHeight);
+                Utility.AddStyle(style, "width", this.ContentWidth);
+                Utility.AddStyle(style, "height", this.ContentHeight);
                 return style.ToString();
             }
         }
 
-        protected string ThumbnailStyle
+        /// <summary>
+        /// Gets NextButtonPlacement.
+        /// </summary>
+        protected ControlPlacement NextButtonPlacement
         {
             get
             {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", ThumbnailWidth);
-                Utility.AddStyle(style, "height", ThumbnailHeight);
-                return style.ToString();
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsNextPlacement", ControlPlacement.Below);
             }
         }
 
+        /// <summary>
+        /// Gets PauseButtonPlacement.
+        /// </summary>
+        protected ControlPlacement PauseButtonPlacement
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsPausePlacement", ControlPlacement.Above);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether PauseOnMouseOver.
+        /// </summary>
+        protected bool PauseOnMouseOver
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionCounterPlacement.
+        /// </summary>
+        protected ControlPlacement PositionCounterPlacement
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "PositionCounterPlacement", ControlPlacement.Below);
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionThumbnailDisplayMode.
+        /// </summary>
+        protected DisplayType PositionThumbnailDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "PositionThumbnailDisplayMode", DisplayType.Link);
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionThumbnailHeight.
+        /// </summary>
+        protected int? PositionThumbnailHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionThumbnailStyle.
+        /// </summary>
         protected string PositionThumbnailStyle
         {
             get
             {
                 StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", PositionThumbnailWidth);
-                Utility.AddStyle(style, "height", PositionThumbnailHeight);
+                Utility.AddStyle(style, "width", this.PositionThumbnailWidth);
+                Utility.AddStyle(style, "height", this.PositionThumbnailHeight);
                 return style.ToString();
             }
         }
 
-        //protected string ControlsWrapperStyle
-        //{
-        //    get
-        //    {
-        //        StringBuilder style = new StringBuilder();
-        //        AddStyle(style, "margin-left", ControlsMarginLeft);
-        //        AddStyle(style, "margin-top", ControlsMarginTop);
-        //        return style.ToString();
-        //    }
-        //}
-
-        protected string ContentHeaderText
+        /// <summary>
+        /// Gets PositionThumbnailWidth.
+        /// </summary>
+        protected int? PositionThumbnailWidth
         {
-            get { return Settings["ContentHeaderText"] as string; }
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailWidth");
+            }
         }
 
-        protected string ContentHeaderLink
+        /// <summary>
+        /// Gets PositionTitleDisplayMode.
+        /// </summary>
+        protected DisplayType PositionTitleDisplayMode
         {
-            get { return Settings["ContentHeaderLink"] as string; }
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsTitleDisplayMode", DisplayType.Link);
+            }
         }
 
-        protected string ContentHeaderLinkText
+        /// <summary>
+        /// Gets PreviousButtonPlacement.
+        /// </summary>
+        protected ControlPlacement PreviousButtonPlacement
         {
-            get { return Settings["ContentHeaderLinkText"] as string; }
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsPreviousPlacement", ControlPlacement.Above);
+            }
         }
 
-	    protected bool ShowPositionCounter
-	    {
-            get { return Engage.Dnn.Utility.GetBoolSetting(Settings, "ShowPositionCounter", false); }
-	    }
-
-        protected ControlPlacement PositionCounterPlacement
+        /// <summary>
+        /// Gets RotatorDelay.
+        /// </summary>
+        protected int RotatorDelay
         {
-            get { return Engage.Dnn.Utility.GetEnumSetting(Settings, "PositionCounterPlacement", ControlPlacement.Below); }
-        }
-        #endregion
-
-        #region IActionable
-        public ModuleActionCollection ModuleActions 
-	    {
-		    get 
-		    {
-			    ModuleActionCollection actions = new ModuleActionCollection();
-			    actions.Add(GetNextActionID(), Localization.GetString("Add/Edit Content", LocalResourceFile), ModuleActionType.AddContent, "", "", EditUrl("Options"), false, SecurityAccessLevel.Edit, true, false);
-                actions.Add(GetNextActionID(), Localization.GetString("Rotator Settings", LocalResourceFile), ModuleActionType.AddContent, "", "", EditUrl("ModSettings"), false, SecurityAccessLevel.Edit, true, false);
-			    return actions;
-		    }
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
+            }
         }
 
-	    #endregion
+        /// <summary>
+        /// Gets RotatorHeight.
+        /// </summary>
+        protected int RotatorHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight", 200);
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorPauseDelay.
+        /// </summary>
+        protected int RotatorPauseDelay
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorPauseDelay", 3);
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorWidth.
+        /// </summary>
+        protected int RotatorWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorWidth", 200);
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorWrapperStyle.
+        /// </summary>
+        protected string RotatorWrapperStyle
+        {
+            get
+            {
+                StringBuilder style = new StringBuilder();
+                Utility.AddStyle(style, "width", this.RotatorWidth);
+                Utility.AddStyle(style, "height", this.RotatorHeight);
+                return style.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowContentHeader.
+        /// </summary>
+        protected bool ShowContentHeader
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowContentHeader", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowContentHeaderLink.
+        /// </summary>
+        protected bool ShowContentHeaderLink
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowContentHeaderLink", false);
+            }
+        }
+
+        ////protected string PauseButtonImageUrl
+        ////{
+        ////    get
+        ////    {
+        ////        //if setting is null, then return the path to the provided image
+        ////        return Settings["ControlsPauseImageUrl"] as string ?? ResolveUrl("~/DesktopModules/EngageRotator/images/pause.gif");
+        ////    }
+        ////}
+        
+        /// <summary>
+        /// Gets a value indicating whether ShowNextButton.
+        /// </summary>
+        protected bool ShowNextButton
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowNextButton", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowPauseButton.
+        /// </summary>
+        protected bool ShowPauseButton
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowPauseButton", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowPositionCounter.
+        /// </summary>
+        protected bool ShowPositionCounter
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowPositionCounter", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowPreviousButton.
+        /// </summary>
+        protected bool ShowPreviousButton
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowPrevButton", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowReadMoreLink.
+        /// </summary>
+        protected bool ShowReadMoreLink
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowReadMoreLink", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailDisplayMode.
+        /// </summary>
+        protected DisplayType ThumbnailDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ThumbnailDisplayMode", DisplayType.Link);
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailHeight.
+        /// </summary>
+        protected int? ThumbnailHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailStyle.
+        /// </summary>
+        protected string ThumbnailStyle
+        {
+            get
+            {
+                StringBuilder style = new StringBuilder();
+                Utility.AddStyle(style, "width", this.ThumbnailWidth);
+                Utility.AddStyle(style, "height", this.ThumbnailHeight);
+                return style.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailWidth.
+        /// </summary>
+        protected int? ThumbnailWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailWidth");
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether UseAnimations.
+        /// </summary>
+        protected bool UseAnimations
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
+            }
+        }
+
+        protected new RepeaterTemplateProvider TemplateProvider
+        {
+            get
+            {
+                return (RepeaterTemplateProvider)base.TemplateProvider;
+            }
+
+            set
+            {
+                base.TemplateProvider = value;
+            }
+        }
+
+        protected static string FormatThumbnailUrl(string url)
+        {
+            // test the thumbnail path
+            return Engage.Utility.HasValue(url) ? url : "/images/1x1.gif";
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            this.Load += this.Page_Load;
+            this.TemplateProvider = new RepeaterTemplateProvider(
+                    this.DesktopModuleName,
+                    TemplateEngine.GetTemplate(this.PhysicalTemplatesFolderName, "Header.test.html"),
+                    this.HeaderTemplatePlaceholder,
+                    TemplateEngine.GetTemplate(this.PhysicalTemplatesFolderName, "Item.test.html"),
+                    this.ItemTemplateSection,
+                    TemplateEngine.GetTemplate(this.PhysicalTemplatesFolderName, "Footer.test.html"),
+                    this.FooterTemplatePlaceholder,
+                    string.Empty,
+                    new ItemPagingState(),
+                    ProcessTags);
+        }
+
+        /// <summary>
+        /// Method used to process a token. This method is invoked from the <see cref="TemplateEngine"/> class. Since this control knows
+        /// best on how to construct the page. ListingHeader, ListingItem and Listing Footer templates are processed here.
+        /// </summary>
+        /// <param name="container">The container.</param>
+        /// <param name="tag">The tag being processed.</param>
+        /// <param name="engageObject">The engage object.</param>
+        /// <param name="resourceFile">The resource file to use to find get localized text.</param>
+        private static void ProcessTags(Control container, Tag tag, object engageObject, string resourceFile)
+        {
+            ContentItem contentItem = engageObject as ContentItem;
+            switch (tag.LocalName.ToUpperInvariant())
+            {
+                case "READMORE":
+                        StringBuilder detailLinkBuilder = new StringBuilder();
+
+                        detailLinkBuilder.AppendFormat(
+                                CultureInfo.InvariantCulture,
+                                "<a href=\"{0}\"",
+                                HttpUtility.HtmlAttributeEncode(contentItem.LinkUrl));
+
+                        string detailLinkCssClass = tag.GetAttributeValue("CssClass");
+                        if (Engage.Utility.HasValue(detailLinkCssClass))
+                        {
+                            detailLinkBuilder.AppendFormat(
+                                    CultureInfo.InvariantCulture,
+                                    "class=\"{0}\"",
+                                    HttpUtility.HtmlAttributeEncode(detailLinkCssClass));
+                        }
+
+                        detailLinkBuilder.Append(">");
+
+                        if (!tag.HasChildTags)
+                        {
+                            string detailLinkText = Localization.GetString(tag.GetAttributeValue("ResourceKey"), resourceFile);
+                            if (string.IsNullOrEmpty(detailLinkText))
+                            {
+                                detailLinkText = tag.GetAttributeValue("Text");
+                                if (string.IsNullOrEmpty(detailLinkText))
+                                {
+                                    detailLinkText = "Read More...";
+                                }
+                            }
+
+                            detailLinkBuilder.Append(detailLinkText)
+                                .Append("</a>");
+                        }
+
+                        container.Controls.Add(new LiteralControl(detailLinkBuilder.ToString()));
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Handles the Load event of the Page control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void Page_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.TemplateProvider.DataSource = ContentItem.GetContentItems(this.ModuleId);
+                this.TemplateProvider.DataBind();
+
+                this.RegisterRotatorJavascript();
+                this.DataBind();
+            }
+            catch (Exception exc)
+            {
+                Exceptions.ProcessModuleLoadException(this, exc);
+            }
+        }
+
+        /// <summary>
+        /// </summary>
+        private void RegisterRotatorJavascript()
+        {
+            this.AddJQueryReference();
+
+#if DEBUG
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js");
+#else
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.min.js");
+#endif
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            serializer.RegisterConverters(new JavaScriptConverter[] { new CycleOptionsConverter() });
+            this.Page.ClientScript.RegisterClientScriptBlock(typeof(Rotator), "cycleOptions", "var cycleOptions = " + serializer.Serialize(new CycleOptions()) + ";", true);
+
+            ////this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.Rotator.js");
+        }
     }
 }

@@ -73,7 +73,7 @@ namespace Engage.Dnn.ContentRotator
             {
                 if (e.CommandName == "Delete")
                 {
-                    DataProvider.Instance().DeleteContentItem(GetIdFromIndex(e.Item.ItemIndex));
+                    ContentItem.Delete(GetIdFromIndex(e.Item.ItemIndex));
                     BindData();
                 }
                 else if (e.CommandName == "Edit")
@@ -91,7 +91,7 @@ namespace Engage.Dnn.ContentRotator
 
         private void BindData()
         {
-            rpContentItems.DataSource = DataProvider.Instance().GetContentItems(TabModuleId, true);
+            rpContentItems.DataSource = ContentItem.GetContentItems(this.ModuleId, true);
             rpContentItems.DataBind();
         }
 

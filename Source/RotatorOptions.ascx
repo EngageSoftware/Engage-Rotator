@@ -16,7 +16,7 @@
                         <div class="lt-corner">
                         </div>
                         <div class="rotatorHeaderWrapper">
-                            <div class="sortOrder">
+                            <div class="sortOrder Normal">
                                 <asp:Label runat="server" resourcekey="lblOrderLabel" /> (<%#Eval("SortOrder") %>)
                             </div>
                             <div class="rotatorContentTitleWrapper SubHead">
@@ -31,7 +31,7 @@
                             <div class="rotatorDescriptionTitle SubHead">
                                 <asp:Label runat="server" resourcekey="lblContentHeader" />
                             </div>
-                            <div>
+                            <div class="Normal">
                                 <%# Eval("Description") %>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                     <div style="clear: both;">
                     </div>
                     <div id="rotatorReadMoreLinkWrapper">
-                        <div class="rotatorReadMoreLink">
+                        <div class="rotatorReadMoreLink Normal">
                             <asp:Label runat="server" resourcekey="Link" /><asp:HyperLink ID="lnkReadMore" runat="server" NavigateUrl='<%# Eval("LinkUrl") %>' Text='<%# Eval("LinkUrl") %>' />
                         </div>
                     </div>
@@ -65,14 +65,14 @@
                         <div class="lb-corner">
                         </div>
                         <div class="editContent">
-                            <div class="startEndDate">
+                            <div class="startEndDate Normal">
                                 <asp:Label runat="server" resourcekey="Starts" />
                                 <%#Eval("StartDate", "{0:d}") %>
                                 &nbsp;&nbsp;&nbsp;
                                 <asp:Label runat="server" resourcekey="Ends" />
                                 <%#Eval("EndDate", "{0:d}") %>
                             </div>
-                            <div class="editButtons">
+                            <div class="editButtons Normal">
                                 <asp:Button ID="btnEdit" runat="server" resourcekey="Edit" CausesValidation="false" CommandName="Edit" />&nbsp;
                                 <asp:Button ID="btnDeleteItem" runat="server" resourcekey="btnDeleteItem" CausesValidation="false" CommandName="Delete" />
                                 <ajaxToolkit:ConfirmButtonExtender ID="ajaxConfirm" runat="server" ConfirmText="DeleteConfirm.Text" TargetControlID="btnDeleteItem" />
@@ -90,7 +90,7 @@
     </td></tr>
     <tr>
         <td colspan="2">
-            <asp:Button ID="btnBack2" runat="server" resourcekey="lnkBack" OnClick="btnBack_Click" />
+            <asp:Button ID="btnBack2" runat="server" resourcekey="lnkBack" OnClick="btnBack_Click" CssClass="Normal" />
         </td>
     </tr>
 </table>

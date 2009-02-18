@@ -1,5 +1,5 @@
-// <copyright file="FeaturesController.cs" company="Engage Software">
-// Engage: Rotator - http://www.EngageSoftware.com
+﻿// <copyright file="ModuleBase.cs" company="Engage Software">
+// Engage: Rotator - http://www.engagemodules.com
 // Copyright (c) 2004-2009
 // by Engage Software ( http://www.engagesoftware.com )
 // </copyright>
@@ -12,10 +12,16 @@
 namespace Engage.Dnn.ContentRotator
 {
     /// <summary>
-    /// Controls which DNN features are available for this module.
+    /// 
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated through reflection by DNN")]
-    internal class FeaturesController
+    public class ModuleBase : Framework.ModuleBase
     {
+        public override string DesktopModuleName
+        {
+            get
+            {
+                return "Engage: Rotator";
+            }
+        }
     }
 }
