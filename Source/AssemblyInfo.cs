@@ -31,8 +31,8 @@ using System.Web.UI;
 [assembly: AssemblyFileVersion("2.0.0.0")]
 
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.min.js", "text/javascript")]
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui-datepicker-1.5.3.min.js", "text/javascript")]
+[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.min.js", "text/javascript")]
 #if DEBUG
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js", "text/javascript")]
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui-datepicker-1.5.3.js", "text/javascript")]
+[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.js", "text/javascript")]
 #endif

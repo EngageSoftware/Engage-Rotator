@@ -182,9 +182,9 @@ namespace Engage.Dnn.ContentRotator
             this.AddJQueryReference();
 
 #if DEBUG
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-datepicker-1.5.3.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.js");
 #else
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-datepicker-1.5.3.min.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.min.js");
 #endif
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();

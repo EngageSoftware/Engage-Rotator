@@ -192,7 +192,7 @@
     <Content Include="images\rt-corner.gif" />
     <Content Include="images\top-header-bg.gif" />
     <EmbeddedResource Include="JavaScript\jquery.cycle.all.min.js" />
-    <EmbeddedResource Include="JavaScript\jquery-ui-datepicker-1.5.3.min.js" />
+    <EmbeddedResource Include="JavaScript\jquery-ui-1.5.3.min.js" />
     <Content Include="References\AjaxControlToolkit.dll" />
     <Content Include="References\DotNetNuke.dll" />
     <Content Include="References\DotNetNuke.WebUtility.dll" />
@@ -227,6 +227,8 @@
     <Content Include="Templates\Footer.test.html" />
     <Content Include="Templates\Item.test.html" />
     <Content Include="Templates\Header.test.html" />
+    <Content Include="Templates\App_LocalResources\Template.resx">
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -235,22 +237,20 @@
     <When Condition=" '$(Configuration)' == 'Debug' ">
       <ItemGroup>
         <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
-        <EmbeddedResource Include="JavaScript\jquery-ui-datepicker-1.5.3.js" />
-        <Content Include="Templates\App_LocalResources\Template.resx">
-        </Content>
+        <EmbeddedResource Include="JavaScript\jquery-ui-1.5.3.js" />
       </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
         <None Include="JavaScript\jquery.cycle.all.js" />
-        <None Include="JavaScript\jquery-ui-datepicker-1.5.3.js" />
+        <None Include="JavaScript\jquery-ui-1.5.3.js" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" Condition="'$(Solutions.VSVersion)' == '8.0'" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="'$(Solutions.VSVersion)' == '9.0'" />
-  <Import Project="$(ProgramFiles)\MSBuild\Microsoft\StyleCop\v4.3\Microsoft.StyleCop.Targets" Condition="Exists('$(ProgramFiles)\MSBuild\Microsoft\StyleCop\v4.3\Microsoft.StyleCop.Targets')"/>
+  <Import Project="$(ProgramFiles)\MSBuild\Microsoft\StyleCop\v4.3\Microsoft.StyleCop.Targets" Condition="Exists('$(ProgramFiles)\MSBuild\Microsoft\StyleCop\v4.3\Microsoft.StyleCop.Targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
