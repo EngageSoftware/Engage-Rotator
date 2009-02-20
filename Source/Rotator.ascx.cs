@@ -539,65 +539,6 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="resourceFile">The resource file to use to find get localized text.</param>
         private static void ProcessTags(Control container, Tag tag, object engageObject, string resourceFile)
         {
-            ContentItem contentItem = engageObject as ContentItem;
-
-            if (tag.TagType == TagType.Open)
-            {
-                switch (tag.LocalName.ToUpperInvariant())
-                {
-                    case "READMORE":
-                        StringBuilder detailLinkBuilder = new StringBuilder();
-
-                        detailLinkBuilder.AppendFormat(
-                                CultureInfo.InvariantCulture,
-                                "<a href=\"{0}\"",
-                                HttpUtility.HtmlAttributeEncode(contentItem.LinkUrl));
-
-                        string detailLinkCssClass = tag.GetAttributeValue("CssClass");
-                        if (Engage.Utility.HasValue(detailLinkCssClass))
-                        {
-                            detailLinkBuilder.AppendFormat(
-                                    CultureInfo.InvariantCulture,
-                                    "class=\"{0}\"",
-                                    HttpUtility.HtmlAttributeEncode(detailLinkCssClass));
-                        }
-
-                        detailLinkBuilder.Append(">");
-
-                        if (!tag.HasChildTags)
-                        {
-                            string detailLinkText = Localization.GetString(
-                                    tag.GetAttributeValue("ResourceKey"), resourceFile);
-                            if (string.IsNullOrEmpty(detailLinkText))
-                            {
-                                detailLinkText = tag.GetAttributeValue("Text");
-                                if (string.IsNullOrEmpty(detailLinkText))
-                                {
-                                    detailLinkText = "Read More...";
-                                }
-                            }
-
-                            detailLinkBuilder.Append(detailLinkText).Append("</a>");
-                        }
-
-                        container.Controls.Add(new LiteralControl(detailLinkBuilder.ToString()));
-
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (tag.TagType == TagType.Close)
-            {
-                switch (tag.LocalName.ToUpperInvariant())
-                {
-                    case "READMORE":
-                        container.Controls.Add(new LiteralControl("</a>"));
-                        break;
-                    default:
-                        break;
-                }
-            }
         }
 
         /// <summary>
