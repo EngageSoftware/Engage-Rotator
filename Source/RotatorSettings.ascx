@@ -1,11 +1,35 @@
 <%@ Control Language="c#" AutoEventWireup="True" Codebehind="RotatorSettings.ascx.cs" Inherits="Engage.Dnn.ContentRotator.RotatorSettings" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/labelControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/URLControl.ascx" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-<ajaxToolkit:TabContainer ID="tabsSettings" runat="server" ActiveTabIndex="0">
-    <ajaxToolkit:TabPanel ID="tabHeader" runat="server">
-        <HeaderTemplate><asp:Label runat="server" resourcekey="Header.Header" /></HeaderTemplate>
-        <ContentTemplate><asp:UpdatePanel ID="upnlHeaderSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
+<div class="TabContainer">
+    <ul>
+        <li><a href="#template-settings"><asp:Label runat="server" resourcekey="Templates.Header"/></a></li>
+        <li><a href="#header-settings"><asp:Label runat="server" resourcekey="Header.Header" /></a></li>
+        <li><a href="#content-settings"><asp:Label runat="server" resourcekey="Content.Header"/></a></li>
+        <li><a href="#position-settings"><asp:Label runat="server" resourcekey="Position.Header"/></a></li>
+        <li><a href="#rotation-settings"><asp:Label runat="server" resourcekey="Rotation.Header"/></a></li>
+        </ul>
+    <div id="template-settings">
+        <asp:UpdatePanel ID="upnlTemplatesSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
+            <table class="settingsTable">
+                <tr><th colspan="2"><asp:Label ID="lblTemplatesHeader" resourcekey="lblTemplatesHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
+                <tr>
+                    <td class="SubHead nowrap rightAlign"><dnn:Label ID="lblStyleTemplates" runat="server" EnableViewState="false" /></td>
+                    <td class="contentColumn leftAlign">
+                        <asp:DropDownList ID="ddlStyleTemplates" runat="server" CssClass="NormalTextBox" AutoPostBack="true" OnSelectedIndexChanged="ddlStyleTemplates_SelectedIndexChanged"/>
+                        <asp:Button ID="btnApplyStyleTemplate" runat="server" resourcekey="btnApplyStyleTemplate" OnClick="btnApplyStyleTemplate_Click" />
+                        
+                        <fieldset id="pnlStyleDescription" runat="server"><legend><asp:Label runat="server" resourcekey="StyleDescription" /></legend>
+                            <asp:Label ID="lblStyleDescription" runat="server" />
+                        </fieldset>
+                        <asp:Image ID="imgStylePreview" runat="server" />
+                    </td>
+                </tr>
+            </table>
+        </ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /></Triggers></asp:UpdatePanel>
+    </div>
+    <div id="header-settings">
+        <asp:UpdatePanel ID="upnlHeaderSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
             <table class="settingsTable">
                 <tr><th colspan="2"><asp:Label ID="lblHeaderHeader" resourcekey="lblHeaderHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                 <tr>
@@ -43,11 +67,9 @@
                 </tr>
             </table>
     	</ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /></Triggers></asp:UpdatePanel>
-    	</ContentTemplate>
-    </ajaxToolkit:TabPanel>
-    <ajaxToolkit:TabPanel ID="tabContent" runat="server">
-        <HeaderTemplate><asp:Label runat="server" resourcekey="Content.Header"/></HeaderTemplate>
-        <ContentTemplate><asp:UpdatePanel ID="upnlContentSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
+    </div>
+    <div id="content-settings">
+        <asp:UpdatePanel ID="upnlContentSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
             <table class="settingsTable">
                 <tr><th colspan="2"><asp:Label ID="lblContentHeader" resourcekey="lblContentHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                 <tr>
@@ -118,11 +140,9 @@
                 </tr>
             </table>
         </ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /></Triggers></asp:UpdatePanel>
-        </ContentTemplate>
-    </ajaxToolkit:TabPanel>
-    <ajaxToolkit:TabPanel ID="tabPosition" runat="server">
-        <HeaderTemplate><asp:Label runat="server" resourcekey="Position.Header"/></HeaderTemplate>
-        <ContentTemplate><asp:UpdatePanel ID="upnlPositionSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
+    </div>
+    <div id="position-settings">
+        <asp:UpdatePanel ID="upnlPositionSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
             <table class="settingsTable">
                 <tr><th colspan="2"><asp:Label ID="lblPositionHeader" resourcekey="lblPositionHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                 <tr>
@@ -201,11 +221,9 @@
                 </tr>
             </table> 
         </ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /></Triggers></asp:UpdatePanel>
-        </ContentTemplate>
-    </ajaxToolkit:TabPanel>
-    <ajaxToolkit:TabPanel ID="tabRotation" runat="server">
-        <HeaderTemplate><asp:Label runat="server" resourcekey="Rotation.Header"/></HeaderTemplate>
-        <ContentTemplate><asp:UpdatePanel ID="upnlRotationSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
+    </div>
+    <div id="rotation-settings">
+        <asp:UpdatePanel ID="upnlRotationSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
             <table class="settingsTable">
                 <tr><th colspan="2"><asp:Label ID="lblRotationHeader" resourcekey="lblRotationHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                 <tr>
@@ -254,37 +272,26 @@
                 </tr>
             </table>
         </ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /></Triggers></asp:UpdatePanel>
-        </ContentTemplate>
-    </ajaxToolkit:TabPanel>
-    <ajaxToolkit:TabPanel ID="tabTemplates" runat="server">
-        <HeaderTemplate><asp:Label runat="server" resourcekey="Templates.Header"/></HeaderTemplate>
-        <ContentTemplate><asp:UpdatePanel ID="upnlTemplatesSettings" runat="server" UpdateMode="Conditional"><ContentTemplate>
-            <table class="settingsTable">
-                <tr><th colspan="2"><asp:Label ID="lblTemplatesHeader" resourcekey="lblTemplatesHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
-                <tr>
-                    <td class="SubHead nowrap rightAlign"><dnn:Label ID="lblStyleTemplates" runat="server" EnableViewState="false" /></td>
-                    <td class="contentColumn leftAlign">
-                        <asp:DropDownList ID="ddlStyleTemplates" runat="server" CssClass="NormalTextBox" AutoPostBack="true" OnSelectedIndexChanged="ddlStyleTemplates_SelectedIndexChanged"/>
-                        <asp:Button ID="btnApplyStyleTemplate" runat="server" resourcekey="btnApplyStyleTemplate" OnClick="btnApplyStyleTemplate_Click" />
-                        
-                        <fieldset id="pnlStyleDescription" runat="server"><legend><asp:Label runat="server" resourcekey="StyleDescription" /></legend>
-                            <asp:Label ID="lblStyleDescription" runat="server" />
-                        </fieldset>
-                        <asp:Image ID="imgStylePreview" runat="server" />
-                    </td>
-                </tr>
-            </table>
-        </ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /></Triggers></asp:UpdatePanel>
-        </ContentTemplate>
-    </ajaxToolkit:TabPanel>
-</ajaxToolkit:TabContainer>
+    </div>
+</div>
 
-<asp:UpdatePanel ID="upnlValidation" runat="server" UpdateMode="Always"><ContentTemplate>
-    <asp:ValidationSummary ID="valSummary" runat="server" ShowMessageBox="true" ShowSummary="true" CssClass="NormalRed" />
-    <asp:Panel ID="pnlManifestValidation" runat="server" CssClass="NormalRed"/>
-</ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /><asp:AsyncPostBackTrigger ControlID="tabsSettings$tabTemplates$ddlStyleTemplates" /></Triggers></asp:UpdatePanel>
-<br />
-<asp:UpdatePanel ID="upnlSubmit" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="False" RenderMode="Inline" ><ContentTemplate>
-<asp:Button ID="btnSubmit" runat="server" resourcekey="btnSubmit" OnClick="btnSubmit_Click" EnableViewState="false" />&nbsp;
-</ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="tabsSettings$tabTemplates$ddlStyleTemplates" /></Triggers></asp:UpdatePanel>
-<asp:Button ID="btnCancel" runat="server" resourcekey="btnCancel" OnClick="btnCancel_Click" CausesValidation="false" EnableViewState="false" />
+<div style="clear:both;">
+    <asp:UpdatePanel ID="upnlValidation" runat="server" UpdateMode="Always">
+        <ContentTemplate>
+            <asp:ValidationSummary ID="valSummary" runat="server" ShowMessageBox="true" ShowSummary="true" CssClass="NormalRed" />
+            <asp:Panel ID="pnlManifestValidation" runat="server" CssClass="NormalRed"/>
+        </ContentTemplate>
+        <Triggers><asp:AsyncPostBackTrigger ControlID="btnSubmit" /><asp:AsyncPostBackTrigger ControlID="ddlStyleTemplates" /></Triggers>
+    </asp:UpdatePanel>
+
+    <asp:UpdatePanel ID="upnlSubmit" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="False" RenderMode="Inline" >
+        <ContentTemplate>
+            <asp:Button ID="btnSubmit" runat="server" resourcekey="btnSubmit" OnClick="btnSubmit_Click" EnableViewState="false" />&nbsp;
+        </ContentTemplate>
+        <Triggers><asp:AsyncPostBackTrigger ControlID="ddlStyleTemplates" /></Triggers>
+    </asp:UpdatePanel>
+    <asp:Button ID="btnCancel" runat="server" resourcekey="btnCancel" OnClick="btnCancel_Click" CausesValidation="false" EnableViewState="false" />
+</div>
+<script type="text/javascript">
+    jQuery(function() { jQuery('.TabContainer').tabs(); });
+</script>

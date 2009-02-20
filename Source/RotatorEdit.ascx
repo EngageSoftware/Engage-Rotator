@@ -55,5 +55,5 @@
 <asp:ValidationSummary runat="server" ShowMessageBox="true" ShowSummary="false" />
 
 <script type="text/javascript">
-    jQuery('.DatePicker').datepicker(datePickerOpts);
+    jQuery(function() { jQuery('.DatePicker').datepicker(datePickerOpts); });
 </script>

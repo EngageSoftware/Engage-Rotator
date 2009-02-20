@@ -26,7 +26,7 @@ namespace Engage.Dnn.ContentRotator
     using DotNetNuke.Services.Localization;
     using DotNetNuke.UI.Utilities;
 
-    public partial class RotatorSettings : PortalModuleBase
+    public partial class RotatorSettings : ModuleBase
     {
         private const string DisabledTextBoxCssClass = "disabledTextBox";
 
@@ -504,7 +504,7 @@ namespace Engage.Dnn.ContentRotator
         {
             try
             {
-                if (!this.Page.IsPostBack)
+                if (!this.IsPostBack)
                 {
                     this.rblPositionTitleDisplay.Items.Clear();
                     this.rblPositionTitleDisplay.Items.Add(
@@ -723,11 +723,27 @@ namespace Engage.Dnn.ContentRotator
                     this.ddlStyleTemplates.Attributes.Add("OriginalStyleTemplate", this.StyleTemplate);
                     this.FillTemplateTab();
                 }
+
+                this.RegisterTabsContainer();
             }
             catch (Exception exc)
             {
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
+        }
+
+        /// <summary>
+        /// Registers the JavaScript to create the tabs container.
+        /// </summary>
+        private void RegisterTabsContainer()
+        {
+            this.AddJQueryReference();
+
+#if DEBUG
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.js");
+#else
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.min.js");
+#endif
         }
 
         protected void rblContentDisplay_SelectedIndexChanged(object sender, EventArgs e)

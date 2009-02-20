@@ -3,7 +3,7 @@
 <asp:Panel ID="ItemTemplateSection" runat="server" CssClass="RotatorBody" />
 <asp:PlaceHolder ID="FooterTemplatePlaceholder" runat="server"/>
 <script type="text/javascript">
-jQuery(function() {
-    jQuery('div.RotatorBody').cycle(cycleOptions);
-});
+    jQuery(function() {
+        jQuery(function() { jQuery('div.RotatorBody').cycle(cycleOptions); });
+    });
 </script>
