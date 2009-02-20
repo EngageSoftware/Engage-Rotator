@@ -14,39 +14,39 @@ namespace Engage.Dnn.ContentRotator {
     public partial class RotatorOptions {
         
         /// <summary>
-        /// btnNewContentItem control.
+        /// NewContentItemButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewContentItem;
+        protected global::System.Web.UI.WebControls.Button NewContentItemButton;
         
         /// <summary>
-        /// btnBack control.
+        /// BackButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
+        protected global::System.Web.UI.WebControls.Button BackButton;
         
         /// <summary>
-        /// rpContentItems control.
+        /// ContentItemsRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpContentItems;
+        protected global::System.Web.UI.WebControls.Repeater ContentItemsRepeater;
         
         /// <summary>
-        /// btnBack2 control.
+        /// BackButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack2;
+        protected global::System.Web.UI.WebControls.Button BackButton2;
     }
 }
