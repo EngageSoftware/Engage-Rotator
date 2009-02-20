@@ -90,6 +90,9 @@ wbr:after { content: "\00200B" }
 		.startEndDate{float: left; width: 50%; padding: 10px 0;}
 		.editButtons {float: right; width: 50%; padding: 10px 0; text-align: right;}
 	.rb-corner{background: url(images/rb-corner.gif) no-repeat right top; height: 45px; width: 10px; float: left;}
+	
+	
+.RotatorBody {overflow:hidden;}
 
 /*
  * jQuery UI screen structure and presentation
