@@ -11,15 +11,15 @@ using System;
 using System.Globalization;
 using System.Text;
 using System.Web.UI.WebControls;
-using DotNetNuke.Common;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
-using AjaxControlToolkit;
 
 namespace Engage.Dnn.ContentRotator
 {
-	public partial class RotatorOptions : PortalModuleBase
+    using DotNetNuke.UI.Utilities;
+
+    public partial class RotatorOptions : PortalModuleBase
 	{
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         protected void Page_Load(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Engage.Dnn.ContentRotator
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Member")]
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Globals.NavigateURL(TabId));
+            Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(TabId));
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Member")]
@@ -58,11 +58,8 @@ namespace Engage.Dnn.ContentRotator
         {
             if (e != null)
             {
-                ConfirmButtonExtender ajaxConfirm = (ConfirmButtonExtender)e.Item.FindControl("ajaxConfirm");
-                if (ajaxConfirm != null)
-                {
-                    ajaxConfirm.ConfirmText = Localization.GetString(ajaxConfirm.ConfirmText, LocalResourceFile);
-                }
+                Button btnDeleteItem = (Button)e.Item.FindControl("btnDeleteItem");
+                ClientAPI.AddButtonConfirm(btnDeleteItem, Localization.GetString("DeleteConfirm.Text", this.LocalResourceFile));
             }
         }
 

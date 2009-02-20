@@ -75,7 +75,6 @@
                             <div class="editButtons Normal">
                                 <asp:Button ID="btnEdit" runat="server" resourcekey="Edit" CausesValidation="false" CommandName="Edit" />&nbsp;
                                 <asp:Button ID="btnDeleteItem" runat="server" resourcekey="btnDeleteItem" CausesValidation="false" CommandName="Delete" />
-                                <ajaxToolkit:ConfirmButtonExtender ID="ajaxConfirm" runat="server" ConfirmText="DeleteConfirm.Text" TargetControlID="btnDeleteItem" />
                                 <asp:HiddenField ID="hfContentItemId" runat="server" Value='<%# Eval("ContentItemId") %>' />
                             </div>
                         </div>
