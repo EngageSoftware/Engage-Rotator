@@ -13,7 +13,6 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Text;
-    using System.Web.Script.Serialization;
     using System.Web.UI;
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Entities.Modules.Actions;
