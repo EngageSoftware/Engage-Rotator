@@ -13,8 +13,6 @@
 .hotTopicThumbnail{width: 160px; height: 160px;}
 .btnPrev, .btnPause, .btnNext{border: none;}
 
-
-.disabledTextBox{background-color: #777 !important;}
 .Help{white-space: normal;}
 .leftAlign{text-align: left;}
 .rightAlign{text-align: right;}

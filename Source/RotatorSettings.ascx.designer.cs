@@ -14,112 +14,58 @@ namespace Engage.Dnn.ContentRotator {
     public partial class RotatorSettings {
         
         /// <summary>
-        /// upnlTemplatesSettings control.
+        /// TemplatesDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnlTemplatesSettings;
+        protected global::System.Web.UI.WebControls.DropDownList TemplatesDropDownList;
         
         /// <summary>
-        /// lblTemplatesHeader control.
+        /// ApplyTemplateButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTemplatesHeader;
+        protected global::System.Web.UI.WebControls.Button ApplyTemplateButton;
         
         /// <summary>
-        /// lblStyleTemplates control.
+        /// TemplateDescriptionPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblStyleTemplates;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TemplateDescriptionPanel;
         
         /// <summary>
-        /// ddlStyleTemplates control.
+        /// TemplateDescriptionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStyleTemplates;
+        protected global::System.Web.UI.WebControls.Label TemplateDescriptionLabel;
         
         /// <summary>
-        /// btnApplyStyleTemplate control.
+        /// TemplatePreviewImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApplyStyleTemplate;
+        protected global::System.Web.UI.WebControls.Image TemplatePreviewImage;
         
         /// <summary>
-        /// pnlStyleDescription control.
+        /// ShowContentHeaderTitleCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlStyleDescription;
-        
-        /// <summary>
-        /// lblStyleDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStyleDescription;
-        
-        /// <summary>
-        /// imgStylePreview control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgStylePreview;
-        
-        /// <summary>
-        /// upnlHeaderSettings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnlHeaderSettings;
-        
-        /// <summary>
-        /// lblHeaderHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeaderHeader;
-        
-        /// <summary>
-        /// lblShowContentHeaderTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowContentHeaderTitle;
-        
-        /// <summary>
-        /// chkShowContentHeaderTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkShowContentHeaderTitle;
+        protected global::System.Web.UI.WebControls.CheckBox ShowContentHeaderTitleCheckBox;
         
         /// <summary>
         /// contentHeaderTitleRow control.
@@ -131,49 +77,31 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow contentHeaderTitleRow;
         
         /// <summary>
-        /// lblContentHeaderTitle control.
+        /// ContentHeaderTitleTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContentHeaderTitle;
+        protected global::System.Web.UI.WebControls.TextBox ContentHeaderTitleTextBox;
         
         /// <summary>
-        /// txtContentHeaderTitle control.
+        /// ContentHeaderTitleRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContentHeaderTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ContentHeaderTitleRequiredValidator;
         
         /// <summary>
-        /// rfvContentHeaderTitle control.
+        /// ShowContentHeaderLinkCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContentHeaderTitle;
-        
-        /// <summary>
-        /// lblShowContentHeaderLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowContentHeaderLink;
-        
-        /// <summary>
-        /// chkShowContentHeaderLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkShowContentHeaderLink;
+        protected global::System.Web.UI.WebControls.CheckBox ShowContentHeaderLinkCheckBox;
         
         /// <summary>
         /// contentHeaderLinkTextRow control.
@@ -185,31 +113,22 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow contentHeaderLinkTextRow;
         
         /// <summary>
-        /// lblContentHeaderLinkText control.
+        /// ContentHeaderLinkTextTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContentHeaderLinkText;
+        protected global::System.Web.UI.WebControls.TextBox ContentHeaderLinkTextTextBox;
         
         /// <summary>
-        /// txtContentHeaderLinkText control.
+        /// ContentHeaderLinkTextRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContentHeaderLinkText;
-        
-        /// <summary>
-        /// rfvContentHeaderLinkText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContentHeaderLinkText;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ContentHeaderLinkTextRequiredValidator;
         
         /// <summary>
         /// contentHeaderLinkRow control.
@@ -221,157 +140,67 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow contentHeaderLinkRow;
         
         /// <summary>
-        /// lblContentHeaderLink control.
+        /// ContentHeaderLinkUrlControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContentHeaderLink;
+        protected global::DotNetNuke.UI.UserControls.UrlControl ContentHeaderLinkUrlControl;
         
         /// <summary>
-        /// urlContentHeaderLink control.
+        /// ContentHeaderLinkRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.UrlControl urlContentHeaderLink;
+        protected global::System.Web.UI.WebControls.CustomValidator ContentHeaderLinkRequiredValidator;
         
         /// <summary>
-        /// valContentHeaderLink control.
+        /// RotatorHeightTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator valContentHeaderLink;
+        protected global::System.Web.UI.WebControls.TextBox RotatorHeightTextBox;
         
         /// <summary>
-        /// upnlContentSettings control.
+        /// RotatorWidthTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnlContentSettings;
+        protected global::System.Web.UI.WebControls.TextBox RotatorWidthTextBox;
         
         /// <summary>
-        /// lblContentHeader control.
+        /// ContentDisplayRadioButtonList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContentHeader;
+        protected global::System.Web.UI.WebControls.RadioButtonList ContentDisplayRadioButtonList;
         
         /// <summary>
-        /// lblRotatorHeight control.
+        /// ContentHeightTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblRotatorHeight;
+        protected global::System.Web.UI.WebControls.TextBox ContentHeightTextBox;
         
         /// <summary>
-        /// txtRotatorHeight control.
+        /// ContentHeightIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRotatorHeight;
-        
-        /// <summary>
-        /// valRotatorHeight control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valRotatorHeight;
-        
-        /// <summary>
-        /// lblRotatorWidth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblRotatorWidth;
-        
-        /// <summary>
-        /// txtRotatorWidth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRotatorWidth;
-        
-        /// <summary>
-        /// valRotatorWidth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valRotatorWidth;
-        
-        /// <summary>
-        /// lblContentDisplay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContentDisplay;
-        
-        /// <summary>
-        /// rblContentDisplay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblContentDisplay;
-        
-        /// <summary>
-        /// lblContentHeight control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContentHeight;
-        
-        /// <summary>
-        /// txtContentHeight control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContentHeight;
-        
-        /// <summary>
-        /// valContentHeight control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valContentHeight;
-        
-        /// <summary>
-        /// lblContentWidth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContentWidth;
+        protected global::System.Web.UI.WebControls.CompareValidator ContentHeightIntegerValidator;
         
         /// <summary>
         /// txtContentWidth control.
@@ -383,660 +212,228 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.TextBox txtContentWidth;
         
         /// <summary>
-        /// valContentWidth control.
+        /// ContentWidthIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valContentWidth;
+        protected global::System.Web.UI.WebControls.CompareValidator ContentWidthIntegerValidator;
         
         /// <summary>
-        /// lblContentTitleDisplay control.
+        /// ContentTitleDisplayRadioButtonList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContentTitleDisplay;
+        protected global::System.Web.UI.WebControls.RadioButtonList ContentTitleDisplayRadioButtonList;
         
         /// <summary>
-        /// rblContentTitleDisplay control.
+        /// ThumbnailDisplayRadioButtonList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblContentTitleDisplay;
+        protected global::System.Web.UI.WebControls.RadioButtonList ThumbnailDisplayRadioButtonList;
         
         /// <summary>
-        /// lblThumbnailDisplay control.
+        /// ThumbnailHeightTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblThumbnailDisplay;
+        protected global::System.Web.UI.WebControls.TextBox ThumbnailHeightTextBox;
         
         /// <summary>
-        /// rblThumbnailDisplay control.
+        /// ThumbnailHeightIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblThumbnailDisplay;
+        protected global::System.Web.UI.WebControls.CompareValidator ThumbnailHeightIntegerValidator;
         
         /// <summary>
-        /// lblThumbnailHeight control.
+        /// ThumbnailWidthTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblThumbnailHeight;
+        protected global::System.Web.UI.WebControls.TextBox ThumbnailWidthTextBox;
         
         /// <summary>
-        /// txtThumbnailHeight control.
+        /// ThumbnailWidthIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtThumbnailHeight;
+        protected global::System.Web.UI.WebControls.CompareValidator ThumbnailWidthIntegerValidator;
         
         /// <summary>
-        /// valThumbnailHeight control.
+        /// PositionTitleDisplayRadioButtonList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valThumbnailHeight;
+        protected global::System.Web.UI.WebControls.RadioButtonList PositionTitleDisplayRadioButtonList;
         
         /// <summary>
-        /// lblThumbnailWidth control.
+        /// PositionThumbnailDisplayRadioButtonList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblThumbnailWidth;
+        protected global::System.Web.UI.WebControls.RadioButtonList PositionThumbnailDisplayRadioButtonList;
         
         /// <summary>
-        /// txtThumbnailWidth control.
+        /// PositionThumbnailHeightTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtThumbnailWidth;
+        protected global::System.Web.UI.WebControls.TextBox PositionThumbnailHeightTextBox;
         
         /// <summary>
-        /// valThumbnailWidth control.
+        /// PositionThumbnailHeightIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valThumbnailWidth;
+        protected global::System.Web.UI.WebControls.CompareValidator PositionThumbnailHeightIntegerValidator;
         
         /// <summary>
-        /// lblShowReadMoreLink control.
+        /// PositionThumbnailWidthTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowReadMoreLink;
+        protected global::System.Web.UI.WebControls.TextBox PositionThumbnailWidthTextBox;
         
         /// <summary>
-        /// chkShowReadMoreLink control.
+        /// PositionThumbnailWidthIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkShowReadMoreLink;
+        protected global::System.Web.UI.WebControls.CompareValidator PositionThumbnailWidthIntegerValidator;
         
         /// <summary>
-        /// upnlPositionSettings control.
+        /// RotatorDelayTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnlPositionSettings;
+        protected global::System.Web.UI.WebControls.TextBox RotatorDelayTextBox;
         
         /// <summary>
-        /// lblPositionHeader control.
+        /// PauseOnMouseOverCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPositionHeader;
+        protected global::System.Web.UI.WebControls.CheckBox PauseOnMouseOverCheckBox;
         
         /// <summary>
-        /// lblPositionTitleDisplay control.
+        /// RotatorPauseDelayTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPositionTitleDisplay;
+        protected global::System.Web.UI.WebControls.TextBox RotatorPauseDelayTextBox;
         
         /// <summary>
-        /// rblPositionTitleDisplay control.
+        /// RotatorPauseDelayIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblPositionTitleDisplay;
+        protected global::System.Web.UI.WebControls.CompareValidator RotatorPauseDelayIntegerValidator;
         
         /// <summary>
-        /// lblPositionThumbnailDisplay control.
+        /// RotatorPauseDelayRequiredValidtor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPositionThumbnailDisplay;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RotatorPauseDelayRequiredValidtor;
         
         /// <summary>
-        /// rblPositionThumbnailDisplay control.
+        /// UseAnimationsCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblPositionThumbnailDisplay;
+        protected global::System.Web.UI.WebControls.CheckBox UseAnimationsCheckBox;
         
         /// <summary>
-        /// lblPositionThumbnailHeight control.
+        /// AnimationDurationTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPositionThumbnailHeight;
+        protected global::System.Web.UI.WebControls.TextBox AnimationDurationTextBox;
         
         /// <summary>
-        /// txtPositionThumbnailHeight control.
+        /// AnimationDurationIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPositionThumbnailHeight;
+        protected global::System.Web.UI.WebControls.CompareValidator AnimationDurationIntegerValidator;
         
         /// <summary>
-        /// valPositionThumbnailHeight control.
+        /// AnimationDurationRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valPositionThumbnailHeight;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AnimationDurationRequiredValidator;
         
         /// <summary>
-        /// lblPositionThumbnailWidth control.
+        /// ManifestValidationErrorsPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPositionThumbnailWidth;
+        protected global::System.Web.UI.WebControls.Panel ManifestValidationErrorsPanel;
         
         /// <summary>
-        /// txtPositionThumbnailWidth control.
+        /// SubmitButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPositionThumbnailWidth;
+        protected global::System.Web.UI.WebControls.Button SubmitButton;
         
         /// <summary>
-        /// valPositionThumbnailWidth control.
+        /// CancelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valPositionThumbnailWidth;
-        
-        /// <summary>
-        /// lblShowPreviousButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowPreviousButton;
-        
-        /// <summary>
-        /// chkShowPreviousButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkShowPreviousButton;
-        
-        /// <summary>
-        /// lblPreviousButtonLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPreviousButtonLocation;
-        
-        /// <summary>
-        /// ddlPreviousButtonLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPreviousButtonLocation;
-        
-        /// <summary>
-        /// lblShowPauseButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowPauseButton;
-        
-        /// <summary>
-        /// chkShowPauseButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkShowPauseButton;
-        
-        /// <summary>
-        /// lblPauseButtonLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPauseButtonLocation;
-        
-        /// <summary>
-        /// ddlPauseButtonLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPauseButtonLocation;
-        
-        /// <summary>
-        /// lblShowNextButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowNextButton;
-        
-        /// <summary>
-        /// chkShowNextButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkShowNextButton;
-        
-        /// <summary>
-        /// lblNextButtonLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblNextButtonLocation;
-        
-        /// <summary>
-        /// ddlNextButtonLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNextButtonLocation;
-        
-        /// <summary>
-        /// lblShowPositionCounter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowPositionCounter;
-        
-        /// <summary>
-        /// chkShowPositionCounter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkShowPositionCounter;
-        
-        /// <summary>
-        /// lblPositionCounterLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPositionCounterLocation;
-        
-        /// <summary>
-        /// ddlPositionCounterLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPositionCounterLocation;
-        
-        /// <summary>
-        /// upnlRotationSettings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnlRotationSettings;
-        
-        /// <summary>
-        /// lblRotationHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRotationHeader;
-        
-        /// <summary>
-        /// lblRotatorDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblRotatorDelay;
-        
-        /// <summary>
-        /// txtRotatorDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRotatorDelay;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// valRotatorDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valRotatorDelay;
-        
-        /// <summary>
-        /// rfvRotatorDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRotatorDelay;
-        
-        /// <summary>
-        /// lblPauseOnMouseOver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPauseOnMouseOver;
-        
-        /// <summary>
-        /// chkPauseOnMouseOver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkPauseOnMouseOver;
-        
-        /// <summary>
-        /// lblRotatorPauseDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblRotatorPauseDelay;
-        
-        /// <summary>
-        /// txtRotatorPauseDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRotatorPauseDelay;
-        
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// valRotatorPauseDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valRotatorPauseDelay;
-        
-        /// <summary>
-        /// rfvRotatorPauseDelay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRotatorPauseDelay;
-        
-        /// <summary>
-        /// lblUseAnimations control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblUseAnimations;
-        
-        /// <summary>
-        /// chkUseAnimations control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkUseAnimations;
-        
-        /// <summary>
-        /// lblAnimationFramesPerSecond control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblAnimationFramesPerSecond;
-        
-        /// <summary>
-        /// txtAnimationFramesPerSecond control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnimationFramesPerSecond;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// valAnimationFramesPerSecond control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valAnimationFramesPerSecond;
-        
-        /// <summary>
-        /// rfvAnimationFramesPerSecond control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAnimationFramesPerSecond;
-        
-        /// <summary>
-        /// lblAnimationDuration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblAnimationDuration;
-        
-        /// <summary>
-        /// txtAnimationDuration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnimationDuration;
-        
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-        
-        /// <summary>
-        /// valAnimationDuration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator valAnimationDuration;
-        
-        /// <summary>
-        /// rfvAnimationDuration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAnimationDuration;
-        
-        /// <summary>
-        /// upnlValidation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnlValidation;
-        
-        /// <summary>
-        /// valSummary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary valSummary;
-        
-        /// <summary>
-        /// pnlManifestValidation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlManifestValidation;
-        
-        /// <summary>
-        /// upnlSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnlSubmit;
-        
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }
