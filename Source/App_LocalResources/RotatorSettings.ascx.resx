@@ -147,24 +147,6 @@
   <data name="lblContentDisplay.Text" xml:space="preserve">
     <value>Display Mode for Main Content: </value>
   </data>
-  <data name="lblContentHeaderLink.Help" xml:space="preserve">
-    <value>The URL destination of the link displayed at the top of the content area.</value>
-  </data>
-  <data name="lblContentHeaderLink.Text" xml:space="preserve">
-    <value>Header URL:</value>
-  </data>
-  <data name="lblContentHeaderLinkText.Help" xml:space="preserve">
-    <value>The text of the link displayed at the top of the content area.</value>
-  </data>
-  <data name="lblContentHeaderLinkText.Text" xml:space="preserve">
-    <value>Header Link: </value>
-  </data>
-  <data name="lblContentHeaderTitle.Help" xml:space="preserve">
-    <value>The title displayed at the top of the content area.</value>
-  </data>
-  <data name="lblContentHeaderTitle.Text" xml:space="preserve">
-    <value>Header Title: </value>
-  </data>
   <data name="lblContentHeight.Help" xml:space="preserve">
     <value>Use this setting to force the main content to be a specific height, measured in pixels.  This does not include the thumbnail or title.</value>
   </data>
@@ -309,12 +291,6 @@
   <data name="seconds.Text" xml:space="preserve">
     <value>seconds</value>
   </data>
-  <data name="lblContentHeader.Text" xml:space="preserve">
-    <value>Main Content Settings&lt;hr/&gt;</value>
-  </data>
-  <data name="lblHeaderHeader.Text" xml:space="preserve">
-    <value>Header Settings&lt;hr/&gt;</value>
-  </data>
   <data name="lblPositionHeader.Text" xml:space="preserve">
     <value>Rotator Position Settings&lt;hr/&gt;</value>
   </data>
@@ -326,15 +302,6 @@
   </data>
   <data name="rfvAnimationFramesPerSecond.Text" xml:space="preserve">
     <value>Animation Frames Per Second is required</value>
-  </data>
-  <data name="valContentHeaderLink.Text" xml:space="preserve">
-    <value>Content Header Link URL is required</value>
-  </data>
-  <data name="rfvContentHeaderLinkText.Text" xml:space="preserve">
-    <value>Content Header Link Text is required</value>
-  </data>
-  <data name="rfvContentHeaderTitle.Text" xml:space="preserve">
-    <value>Content Header Title is required</value>
   </data>
   <data name="rfvRotatorDelay.Text" xml:space="preserve">
     <value>Rotator Delay is required</value>
@@ -405,9 +372,6 @@
   <data name="Content.Header" xml:space="preserve">
     <value>Content</value>
   </data>
-  <data name="Header.Header" xml:space="preserve">
-    <value>Header</value>
-  </data>
   <data name="None.Text" xml:space="preserve">
     <value>None</value>
   </data>
@@ -461,5 +425,23 @@
   </data>
   <data name="lblPositionCounterLocation.Text" xml:space="preserve">
     <value>Position Counter Placement:</value>
+  </data>
+  <data name="AutoStopBegin.Text" xml:space="preserve">
+    <value>Automatically stop rotation after </value>
+  </data>
+  <data name="AutoStopEnd.Text" xml:space="preserve">
+    <value> items are displayed</value>
+  </data>
+  <data name="lblAutoStop.Help" xml:space="preserve">
+    <value>Choose whether to automatically stop the rotation after a specific number of items are displayed</value>
+  </data>
+  <data name="lblAutoStop.Text" xml:space="preserve">
+    <value>Auto Stop</value>
+  </data>
+  <data name="rfvAutoStopCount.Text" xml:space="preserve">
+    <value>Number of items before auto stop is required</value>
+  </data>
+  <data name="valAutoStopCount.Text" xml:space="preserve">
+    <value>Number of items before auto stop must be an integer</value>
   </data>
 </root>

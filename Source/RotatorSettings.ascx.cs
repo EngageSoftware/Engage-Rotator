@@ -66,42 +66,6 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets the content header link.
-        /// </summary>
-        /// <value>The content header link.</value>
-        private string ContentHeaderLink
-        {
-            get
-            {
-                return this.Settings["ContentHeaderLink"] as string;
-            }
-        }
-
-        /// <summary>
-        /// Gets the content header link text.
-        /// </summary>
-        /// <value>The content header link text.</value>
-        private string ContentHeaderLinkText
-        {
-            get
-            {
-                return this.Settings["ContentHeaderLinkText"] as string;
-            }
-        }
-
-        /// <summary>
-        /// Gets the content header text.
-        /// </summary>
-        /// <value>The content header text.</value>
-        private string ContentHeaderText
-        {
-            get
-            {
-                return this.Settings["ContentHeaderText"] as string;
-            }
-        }
-
-        /// <summary>
         /// Gets the setting for the height of the main content.
         /// </summary>
         /// <value>The height of the main content (in <c>px</c>).</value>
@@ -146,6 +110,30 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to stop rotation after a certain number of transitions.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to stop rotation after a certain number of transitions; otherwise, <c>false</c>.</value>
+        private bool AutoStop
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "AutoStop", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to stop rotation after a certain number of transitions.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to stop rotation after a certain number of transitions; otherwise, <c>false</c>.</value>
+        private int AutoStopCount
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
             }
         }
 
@@ -242,34 +230,6 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetIntSetting(this.Settings, "RotatorWidth");
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to show the content header.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if the content header is set to be displayed; otherwise, <c>false</c>.
-        /// </value>
-        private bool ShowContentHeader
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowContentHeader", false);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to show the content header link.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if the content header link is set to be displayed; otherwise, <c>false</c>.
-        /// </value>
-        private bool ShowContentHeaderLink
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowContentHeaderLink", false);
             }
         }
 
@@ -372,14 +332,12 @@ namespace Engage.Dnn.ContentRotator
             this.CancelButton.Click += this.CancelButton_Click;
             this.SubmitButton.Click += this.SubmitButton_Click;
             this.PauseOnMouseOverCheckBox.CheckedChanged += this.PauseOnMouseOverCheckBox_CheckedChanged;
-            this.ShowContentHeaderLinkCheckBox.CheckedChanged += this.ShowContentHeaderLinkCheckBox_CheckedChanged;
-            this.ShowContentHeaderTitleCheckBox.CheckedChanged += this.ShowContentHeaderTitleCheckBox_CheckedChanged;
+            this.AutoStopCheckBox.CheckedChanged += this.AutoStopCheckBox_CheckedChanged;
             this.UseAnimationsCheckBox.CheckedChanged += this.UseAnimationsCheckBox_CheckedChanged;
             this.TemplatesDropDownList.SelectedIndexChanged += this.TemplatesDropDownList_SelectedIndexChanged;
             this.ContentDisplayRadioButtonList.SelectedIndexChanged += this.ContentDisplayRadioButtonList_SelectedIndexChanged;
             this.PositionThumbnailDisplayRadioButtonList.SelectedIndexChanged += this.PositionThumbnailDisplayRadioButtonList_SelectedIndexChanged;
             this.ThumbnailDisplayRadioButtonList.SelectedIndexChanged += this.ThumbnailDisplayRadioButtonList_SelectedIndexChanged;
-            this.ContentHeaderLinkRequiredValidator.ServerValidate += this.ContentHeaderLinkRequiredValidator_ServerValidate;
         }
 
         /// <summary>
@@ -447,30 +405,22 @@ namespace Engage.Dnn.ContentRotator
                     this.PositionThumbnailHeightTextBox.Text = GetValueText(this.PositionThumbnailHeight);
                     this.ProcessPositionThumbnailVisibility();
 
-                    this.ShowContentHeaderTitleCheckBox.Checked = this.ShowContentHeader;
-                    this.ContentHeaderTitleTextBox.Text = this.ContentHeaderText;
-                    this.ProcessContentHeaderVisiblity();
-
-                    this.ShowContentHeaderLinkCheckBox.Checked = this.ShowContentHeaderLink;
-                    this.ContentHeaderLinkTextTextBox.Text = this.ContentHeaderLinkText;
-                    this.ContentHeaderLinkUrlControl.Url = this.ContentHeaderLink;
-
-                    // Show tabs if there is no url, show as a url if there is anything.  BD
-                    this.ContentHeaderLinkUrlControl.UrlType = string.IsNullOrEmpty(this.ContentHeaderLink) ? "T" : "U";
-                    this.ProcessContentHeaderLinkVisiblity();
-
                     this.PauseOnMouseOverCheckBox.Checked = this.PauseOnMouseOver;
                     this.RotatorDelayTextBox.Text = this.RotatorDelay.ToString(CultureInfo.CurrentCulture);
                     this.RotatorPauseDelayTextBox.Text = this.RotatorPauseDelay.ToString(CultureInfo.CurrentCulture);
                     this.ProcessMouseOverVisibility();
+
+                    this.AutoStopCheckBox.Checked = this.AutoStop;
+                    this.AutoStopCountTextBox.Text = this.AutoStopCount.ToString(CultureInfo.CurrentCulture);
+                    this.ProcessAutoStopVisibility();
 
                     this.UseAnimationsCheckBox.Checked = this.UseAnimations;
                     this.AnimationDurationTextBox.Text = this.AnimationDuration.ToString(CultureInfo.CurrentCulture);
                     this.PauseOnMouseOverCheckBox.Checked = this.PauseOnMouseOver;
                     this.ProcessAnimationsVisiblity();
 
-                    this.TemplatesDropDownList.SelectedValue = this.StyleTemplate;
-                    this.TemplatesDropDownList.Attributes.Add("OriginalStyleTemplate", this.StyleTemplate);
+                    this.TemplatesDropDownList.SelectedValue = 
+                        this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
                     this.FillTemplateTab();
                 }
 
@@ -555,18 +505,14 @@ namespace Engage.Dnn.ContentRotator
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", this.RotatorDelayTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorPauseDelay", this.RotatorPauseDelayTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", this.AnimationDurationTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeaderText", this.ContentHeaderTitleTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeaderLink", Dnn.Utility.CreateUrlFromControl(this.ContentHeaderLinkUrlControl, this.PortalSettings));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeaderLinkText", this.ContentHeaderLinkTextTextBox.Text);
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ControlsTitleDisplayMode", this.PositionTitleDisplayRadioButtonList.SelectedValue);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContentTitleDisplayMode", this.ContentTitleDisplayRadioButtonList.SelectedValue);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContentDisplayMode", this.ContentDisplayRadioButtonList.SelectedValue);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailDisplayMode", this.ThumbnailDisplayRadioButtonList.SelectedValue);
 
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ShowContentHeader", this.ShowContentHeaderTitleCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ShowContentHeaderLink", this.ShowContentHeaderLinkCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStop", this.AutoStopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStopCount", this.AutoStopCountTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailDisplayMode", this.PositionThumbnailDisplayRadioButtonList.SelectedValue);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "UseAnimations", this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
@@ -585,23 +531,13 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of the ShowContentHeaderLinkCheckBox control.
+        /// Handles the CheckedChanged event of the AutoStopCheckBox control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void ShowContentHeaderLinkCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void AutoStopCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            this.ProcessContentHeaderLinkVisiblity();
-        }
-
-        /// <summary>
-        /// Handles the CheckedChanged event of the ShowContentHeaderTitleCheckBox control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void ShowContentHeaderTitleCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            this.ProcessContentHeaderVisiblity();
+            this.ProcessAutoStopVisibility();
         }
 
         /// <summary>
@@ -657,22 +593,6 @@ namespace Engage.Dnn.ContentRotator
         private void ThumbnailDisplayRadioButtonList_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.ProcessThumbnailVisibility();
-        }
-
-        /// <summary>
-        /// Handles the ServerValidate event of the ContentHeaderLinkRequiredValidator control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.Web.UI.WebControls.ServerValidateEventArgs"/> instance containing the event data.</param>
-        private void ContentHeaderLinkRequiredValidator_ServerValidate(object sender, ServerValidateEventArgs e)
-        {
-            if (e != null)
-            {
-                // valid if there is a url, or we aren't using the header link.
-                // the validator should be disabled if ShowContentHeaderLinkCheckBox is unchecked, this is just a doublecheck.  BD
-                e.IsValid = !string.IsNullOrEmpty(this.ContentHeaderLinkUrlControl.Url)
-                            || !this.ShowContentHeaderLinkCheckBox.Checked;
-            }
         }
 
         /// <summary>
@@ -733,6 +653,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Hides and shows controls based on whether the AutoStop setting is selected
+        /// </summary>
+        private void ProcessAutoStopVisibility()
+        {
+            this.AutoStopCountTextBox.Enabled =
+                    this.AutoStopCountIntegerValidator.Enabled =
+                    this.AutoStopCountRequiredValidator.Enabled = this.AutoStopCheckBox.Checked;
+
+            SetDisabledCssClass(this.AutoStopCountTextBox);
+        }
+
+        /// <summary>
         /// Hides and shows controls based on whether the Use Animations setting is selected
         /// </summary>
         private void ProcessAnimationsVisiblity()
@@ -742,30 +674,6 @@ namespace Engage.Dnn.ContentRotator
                     this.AnimationDurationRequiredValidator.Enabled = this.UseAnimationsCheckBox.Checked;
 
             SetDisabledCssClass(this.AnimationDurationTextBox);
-        }
-
-        /// <summary>
-        /// Hides and shows controls based on whether the content header link is set to be shown
-        /// </summary>
-        private void ProcessContentHeaderLinkVisiblity()
-        {
-            this.ContentHeaderLinkTextTextBox.Enabled =
-                    this.ContentHeaderLinkTextRequiredValidator.Enabled =
-                    this.ContentHeaderLinkUrlControl.Visible =
-                    this.ContentHeaderLinkRequiredValidator.Enabled = this.ShowContentHeaderLinkCheckBox.Checked;
-
-            SetDisabledCssClass(this.ContentHeaderLinkTextTextBox);
-        }
-
-        /// <summary>
-        /// Hides and shows controls based on whether the content header is set to be shown
-        /// </summary>
-        private void ProcessContentHeaderVisiblity()
-        {
-            this.ContentHeaderTitleTextBox.Enabled =
-                    this.ContentHeaderTitleRequiredValidator.Enabled = this.ShowContentHeaderTitleCheckBox.Checked;
-
-            SetDisabledCssClass(this.ContentHeaderTitleTextBox);
         }
 
         /// <summary>

@@ -63,434 +63,6 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets AnimationDuration.
-        /// </summary>
-        protected decimal AnimationDuration
-        {
-            get
-            {
-                return Dnn.Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
-            }
-        }
-
-        /// <summary>
-        /// Gets AnimationFramesPerSecond.
-        /// </summary>
-        protected int AnimationFramesPerSecond
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "AnimationFramesPerSecond", 30);
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentDisplayMode.
-        /// </summary>
-        protected DisplayType ContentDisplayMode
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentDisplayMode", DisplayType.Content);
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentHeaderLink.
-        /// </summary>
-        protected string ContentHeaderLink
-        {
-            get
-            {
-                return this.Settings["ContentHeaderLink"] as string;
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentHeaderLinkText.
-        /// </summary>
-        protected string ContentHeaderLinkText
-        {
-            get
-            {
-                return this.Settings["ContentHeaderLinkText"] as string;
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentHeaderText.
-        /// </summary>
-        protected string ContentHeaderText
-        {
-            get
-            {
-                return this.Settings["ContentHeaderText"] as string;
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentHeight.
-        /// </summary>
-        protected int? ContentHeight
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ContentHeight");
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentTitleDisplayMode.
-        /// </summary>
-        protected DisplayType ContentTitleDisplayMode
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentTitleDisplayMode", DisplayType.Link);
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentWidth.
-        /// </summary>
-        protected int? ContentWidth
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ContentWidth");
-            }
-        }
-
-        /// <summary>
-        /// Gets ContentWrapperStyle.
-        /// </summary>
-        protected string ContentWrapperStyle
-        {
-            get
-            {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", this.ContentWidth);
-                Utility.AddStyle(style, "height", this.ContentHeight);
-                return style.ToString();
-            }
-        }
-
-        /// <summary>
-        /// Gets NextButtonPlacement.
-        /// </summary>
-        protected ControlPlacement NextButtonPlacement
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsNextPlacement", ControlPlacement.Below);
-            }
-        }
-
-        /// <summary>
-        /// Gets PauseButtonPlacement.
-        /// </summary>
-        protected ControlPlacement PauseButtonPlacement
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsPausePlacement", ControlPlacement.Above);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether PauseOnMouseOver.
-        /// </summary>
-        protected bool PauseOnMouseOver
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
-            }
-        }
-
-        /// <summary>
-        /// Gets PositionCounterPlacement.
-        /// </summary>
-        protected ControlPlacement PositionCounterPlacement
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "PositionCounterPlacement", ControlPlacement.Below);
-            }
-        }
-
-        /// <summary>
-        /// Gets PositionThumbnailDisplayMode.
-        /// </summary>
-        protected DisplayType PositionThumbnailDisplayMode
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "PositionThumbnailDisplayMode", DisplayType.Link);
-            }
-        }
-
-        /// <summary>
-        /// Gets PositionThumbnailHeight.
-        /// </summary>
-        protected int? PositionThumbnailHeight
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailHeight");
-            }
-        }
-
-        /// <summary>
-        /// Gets PositionThumbnailStyle.
-        /// </summary>
-        protected string PositionThumbnailStyle
-        {
-            get
-            {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", this.PositionThumbnailWidth);
-                Utility.AddStyle(style, "height", this.PositionThumbnailHeight);
-                return style.ToString();
-            }
-        }
-
-        /// <summary>
-        /// Gets PositionThumbnailWidth.
-        /// </summary>
-        protected int? PositionThumbnailWidth
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailWidth");
-            }
-        }
-
-        /// <summary>
-        /// Gets PositionTitleDisplayMode.
-        /// </summary>
-        protected DisplayType PositionTitleDisplayMode
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsTitleDisplayMode", DisplayType.Link);
-            }
-        }
-
-        /// <summary>
-        /// Gets PreviousButtonPlacement.
-        /// </summary>
-        protected ControlPlacement PreviousButtonPlacement
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsPreviousPlacement", ControlPlacement.Above);
-            }
-        }
-
-        /// <summary>
-        /// Gets RotatorDelay.
-        /// </summary>
-        protected int RotatorDelay
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
-            }
-        }
-
-        /// <summary>
-        /// Gets RotatorHeight.
-        /// </summary>
-        protected int? RotatorHeight
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight");
-            }
-        }
-
-        /// <summary>
-        /// Gets RotatorPauseDelay.
-        /// </summary>
-        protected int RotatorPauseDelay
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorPauseDelay", 3);
-            }
-        }
-
-        /// <summary>
-        /// Gets RotatorWidth.
-        /// </summary>
-        protected int RotatorWidth
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorWidth", 200);
-            }
-        }
-
-        /// <summary>
-        /// Gets RotatorWrapperStyle.
-        /// </summary>
-        protected string RotatorWrapperStyle
-        {
-            get
-            {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", this.RotatorWidth);
-                Utility.AddStyle(style, "height", this.RotatorHeight);
-                return style.ToString();
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether ShowContentHeader.
-        /// </summary>
-        protected bool ShowContentHeader
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowContentHeader", false);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether ShowContentHeaderLink.
-        /// </summary>
-        protected bool ShowContentHeaderLink
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowContentHeaderLink", false);
-            }
-        }
-
-        ////protected string PauseButtonImageUrl
-        ////{
-        ////    get
-        ////    {
-        ////        //if setting is null, then return the path to the provided image
-        ////        return Settings["ControlsPauseImageUrl"] as string ?? ResolveUrl("~/DesktopModules/EngageRotator/images/pause.gif");
-        ////    }
-        ////}
-        
-        /// <summary>
-        /// Gets a value indicating whether ShowNextButton.
-        /// </summary>
-        protected bool ShowNextButton
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowNextButton", true);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether ShowPauseButton.
-        /// </summary>
-        protected bool ShowPauseButton
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowPauseButton", true);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether ShowPositionCounter.
-        /// </summary>
-        protected bool ShowPositionCounter
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowPositionCounter", false);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether ShowPreviousButton.
-        /// </summary>
-        protected bool ShowPreviousButton
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowPrevButton", true);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether ShowReadMoreLink.
-        /// </summary>
-        protected bool ShowReadMoreLink
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowReadMoreLink", false);
-            }
-        }
-
-        /// <summary>
-        /// Gets ThumbnailDisplayMode.
-        /// </summary>
-        protected DisplayType ThumbnailDisplayMode
-        {
-            get
-            {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ThumbnailDisplayMode", DisplayType.Link);
-            }
-        }
-
-        /// <summary>
-        /// Gets ThumbnailHeight.
-        /// </summary>
-        protected int? ThumbnailHeight
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailHeight");
-            }
-        }
-
-        /// <summary>
-        /// Gets ThumbnailStyle.
-        /// </summary>
-        protected string ThumbnailStyle
-        {
-            get
-            {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", this.ThumbnailWidth);
-                Utility.AddStyle(style, "height", this.ThumbnailHeight);
-                return style.ToString();
-            }
-        }
-
-        /// <summary>
-        /// Gets ThumbnailWidth.
-        /// </summary>
-        protected int? ThumbnailWidth
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailWidth");
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether UseAnimations.
-        /// </summary>
-        protected bool UseAnimations
-        {
-            get
-            {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the template provider.
         /// </summary>
         /// <value>The template provider.</value>
@@ -508,13 +80,402 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets AnimationDuration.
+        /// </summary>
+        private decimal AnimationDuration
+        {
+            get
+            {
+                return Dnn.Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+            }
+        }
+
+        /// <summary>
+        /// Gets AnimationFramesPerSecond.
+        /// </summary>
+        private int AnimationFramesPerSecond
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "AnimationFramesPerSecond", 30);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to stop rotation after a certain number of transitions.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to stop rotation after a certain number of transitions; otherwise, <c>false</c>.</value>
+        private bool AutoStop
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "AutoStop", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to stop rotation after a certain number of transitions.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to stop rotation after a certain number of transitions; otherwise, <c>false</c>.</value>
+        private int AutoStopCount
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentDisplayMode.
+        /// </summary>
+        private DisplayType ContentDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentDisplayMode", DisplayType.Content);
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentHeight.
+        /// </summary>
+        private int? ContentHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ContentHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentTitleDisplayMode.
+        /// </summary>
+        private DisplayType ContentTitleDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentTitleDisplayMode", DisplayType.Link);
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentWidth.
+        /// </summary>
+        private int? ContentWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ContentWidth");
+            }
+        }
+
+        /// <summary>
+        /// Gets ContentWrapperStyle.
+        /// </summary>
+        private string ContentWrapperStyle
+        {
+            get
+            {
+                StringBuilder style = new StringBuilder();
+                Utility.AddStyle(style, "width", this.ContentWidth);
+                Utility.AddStyle(style, "height", this.ContentHeight);
+                return style.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets NextButtonPlacement.
+        /// </summary>
+        private ControlPlacement NextButtonPlacement
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsNextPlacement", ControlPlacement.Below);
+            }
+        }
+
+        /// <summary>
+        /// Gets PauseButtonPlacement.
+        /// </summary>
+        private ControlPlacement PauseButtonPlacement
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsPausePlacement", ControlPlacement.Above);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether PauseOnMouseOver.
+        /// </summary>
+        private bool PauseOnMouseOver
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionCounterPlacement.
+        /// </summary>
+        private ControlPlacement PositionCounterPlacement
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "PositionCounterPlacement", ControlPlacement.Below);
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionThumbnailDisplayMode.
+        /// </summary>
+        private DisplayType PositionThumbnailDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "PositionThumbnailDisplayMode", DisplayType.Link);
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionThumbnailHeight.
+        /// </summary>
+        private int? PositionThumbnailHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionThumbnailStyle.
+        /// </summary>
+        private string PositionThumbnailStyle
+        {
+            get
+            {
+                StringBuilder style = new StringBuilder();
+                Utility.AddStyle(style, "width", this.PositionThumbnailWidth);
+                Utility.AddStyle(style, "height", this.PositionThumbnailHeight);
+                return style.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionThumbnailWidth.
+        /// </summary>
+        private int? PositionThumbnailWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailWidth");
+            }
+        }
+
+        /// <summary>
+        /// Gets PositionTitleDisplayMode.
+        /// </summary>
+        private DisplayType PositionTitleDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsTitleDisplayMode", DisplayType.Link);
+            }
+        }
+
+        /// <summary>
+        /// Gets PreviousButtonPlacement.
+        /// </summary>
+        private ControlPlacement PreviousButtonPlacement
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsPreviousPlacement", ControlPlacement.Above);
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorDelay.
+        /// </summary>
+        private int RotatorDelay
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorHeight.
+        /// </summary>
+        private int? RotatorHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorPauseDelay.
+        /// </summary>
+        private int RotatorPauseDelay
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorPauseDelay", 3);
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorWidth.
+        /// </summary>
+        private int RotatorWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorWidth", 200);
+            }
+        }
+
+        /// <summary>
+        /// Gets RotatorWrapperStyle.
+        /// </summary>
+        private string RotatorWrapperStyle
+        {
+            get
+            {
+                StringBuilder style = new StringBuilder();
+                Utility.AddStyle(style, "width", this.RotatorWidth);
+                Utility.AddStyle(style, "height", this.RotatorHeight);
+                return style.ToString();
+            }
+        }
+        
+        /// <summary>
+        /// Gets a value indicating whether ShowNextButton.
+        /// </summary>
+        private bool ShowNextButton
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowNextButton", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowPauseButton.
+        /// </summary>
+        private bool ShowPauseButton
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowPauseButton", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowPositionCounter.
+        /// </summary>
+        private bool ShowPositionCounter
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowPositionCounter", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowPreviousButton.
+        /// </summary>
+        private bool ShowPreviousButton
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ControlsShowPrevButton", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether ShowReadMoreLink.
+        /// </summary>
+        private bool ShowReadMoreLink
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ShowReadMoreLink", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailDisplayMode.
+        /// </summary>
+        private DisplayType ThumbnailDisplayMode
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "ThumbnailDisplayMode", DisplayType.Link);
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailHeight.
+        /// </summary>
+        private int? ThumbnailHeight
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailStyle.
+        /// </summary>
+        private string ThumbnailStyle
+        {
+            get
+            {
+                StringBuilder style = new StringBuilder();
+                Utility.AddStyle(style, "width", this.ThumbnailWidth);
+                Utility.AddStyle(style, "height", this.ThumbnailHeight);
+                return style.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets ThumbnailWidth.
+        /// </summary>
+        private int? ThumbnailWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailWidth");
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether UseAnimations.
+        /// </summary>
+        private bool UseAnimations
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
+            }
+        }
+
+        /// <summary>
         /// Gets the <see cref="CycleOptions"/> for this module instance.
         /// </summary>
         /// <returns>The <see cref="CycleOptions"/> for this module instance</returns>
         protected CycleOptions GetCycleOptions()
         {
             Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
-            return new CycleOptions(containerHeight, this.RotatorDelay * 1000, this.PauseOnMouseOver, Effects.fade, (int)(this.AnimationDuration * 1000));
+            int transitionSpeed = this.UseAnimations ? (int)(this.AnimationDuration * 1000) : 0;
+            return new CycleOptions(this.AutoStop, this.AutoStopCount, containerHeight, this.RotatorDelay * 1000, this.PauseOnMouseOver, Effects.fade, transitionSpeed);
         }
 
         /// <summary>
@@ -545,7 +506,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="container">The container.</param>
         /// <param name="tag">The tag being processed.</param>
         /// <param name="engageObject">The engage object.</param>
-        /// <param name="resourceFile">The resource file to use to find get localized text.</param>
+        /// <param name="resourceFile">The resource file to use to find localized text.</param>
         private static void ProcessTags(Control container, Tag tag, object engageObject, string resourceFile)
         {
         }
@@ -583,8 +544,6 @@ namespace Engage.Dnn.ContentRotator
 #else
             this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.min.js");
 #endif
-            this.GetCycleOptions();
-
             ////this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.Rotator.js");
         }
     }

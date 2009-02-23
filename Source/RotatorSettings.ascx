@@ -4,7 +4,6 @@
 <div class="TabContainer">
     <ul>
         <li><a href="#template-settings"><asp:Label runat="server" resourcekey="Templates.Header"/></a></li>
-        <li><a href="#header-settings"><asp:Label runat="server" resourcekey="Header.Header" /></a></li>
         <li><a href="#content-settings"><asp:Label runat="server" resourcekey="Content.Header"/></a></li>
         <li><a href="#position-settings"><asp:Label runat="server" resourcekey="Position.Header"/></a></li>
         <li><a href="#rotation-settings"><asp:Label runat="server" resourcekey="Rotation.Header"/></a></li>
@@ -12,7 +11,7 @@
     <div id="template-settings">
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-                <table class="settingsTable">
+                <table class="settingsTable Normal">
                     <tr><th colspan="2"><asp:Label resourcekey="lblTemplatesHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblStyleTemplates" runat="server" EnableViewState="false" /></td>
@@ -31,53 +30,10 @@
             <Triggers><asp:AsyncPostBackTrigger ControlID="SubmitButton" /></Triggers>
         </asp:UpdatePanel>
     </div>
-    <div id="header-settings">
-        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
-            <ContentTemplate>
-                <table class="settingsTable">
-                    <tr><th colspan="2"><asp:Label resourcekey="lblHeaderHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
-                    <tr>
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblShowContentHeaderTitle" runat="server" EnableViewState="false" /></td>
-                        <td class="contentColumn leftAlign">
-                            <asp:Checkbox ID="ShowContentHeaderTitleCheckBox" runat="server" AutoPostBack="true" />
-                        </td>
-                    </tr>
-                    <tr id="contentHeaderTitleRow" runat="server">
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContentHeaderTitle" runat="server" EnableViewState="false" /></td>
-                        <td class="contentColumn leftAlign">
-                            <asp:Textbox ID="ContentHeaderTitleTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/>
-                            <asp:RequiredFieldValidator id="ContentHeaderTitleRequiredValidator" runat="server" ControlToValidate="ContentHeaderTitleTextBox" Display="None" EnableClientScript="false" resourcekey="rfvContentHeaderTitle" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblShowContentHeaderLink" runat="server" EnableViewState="false" /></td>
-                        <td class="contentColumn leftAlign">
-                            <asp:Checkbox ID="ShowContentHeaderLinkCheckBox" runat="server" AutoPostBack="true" />
-                        </td>
-                    </tr>
-                    <tr id="contentHeaderLinkTextRow" runat="server">
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContentHeaderLinkText" runat="server" EnableViewState="false" /></td>
-                        <td class="contentColumn leftAlign">
-                            <asp:Textbox ID="ContentHeaderLinkTextTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/>
-                            <asp:RequiredFieldValidator id="ContentHeaderLinkTextRequiredValidator" runat="server" ControlToValidate="ContentHeaderLinkTextTextBox" Display="None" EnableClientScript="false" resourcekey="rfvContentHeaderLinkText" />
-                        </td>
-                    </tr>
-                    <tr id="contentHeaderLinkRow" runat="server">
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContentHeaderLink" runat="server" EnableViewState="false" /></td>
-                        <td class="contentColumn leftAlign"><%-- UrlType is T for Tab --%>
-                            <dnn:Url ID="ContentHeaderLinkUrlControl" runat="server" UrlType="T" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowNone="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowTabs="true" ShowUrls="true"/>
-                            <asp:CustomValidator id="ContentHeaderLinkRequiredValidator" runat="server" Display="None" resourcekey="valContentHeaderLink" EnableClientScript="false" />
-                        </td>
-                    </tr>
-                </table>
-    	    </ContentTemplate>
-    	    <Triggers><asp:AsyncPostBackTrigger ControlID="SubmitButton" /></Triggers>
-    	</asp:UpdatePanel>
-    </div>
     <div id="content-settings">
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-                <table class="settingsTable">
+                <table class="settingsTable Normal">
                     <tr><th colspan="2"><asp:Label resourcekey="lblContentHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblRotatorHeight" runat="server" EnableViewState="false" /></td>
@@ -147,7 +103,7 @@
     <div id="position-settings">
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-                <table class="settingsTable">
+                <table class="settingsTable Normal">
                     <tr><th colspan="2"><asp:Label resourcekey="lblPositionHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblPositionTitleDisplay" runat="server" EnableViewState="false" /></td>
@@ -183,7 +139,7 @@
     <div id="rotation-settings">
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-                <table class="settingsTable">
+                <table class="settingsTable Normal">
                     <tr><th colspan="2"><asp:Label resourcekey="lblRotationHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblRotatorDelay" runat="server" EnableViewState="false" /></td>
@@ -191,6 +147,14 @@
                             <asp:Textbox ID="RotatorDelayTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
                             <asp:CompareValidator runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="RotatorDelayTextBox" Display="None" EnableClientScript="false" resourcekey="valRotatorDelay" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="RotatorDelayTextBox" Display="None" EnableClientScript="false" resourcekey="rfvRotatorDelay" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblAutoStop" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:CheckBox ID="AutoStopCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="AutoStopBegin.Text" /><asp:TextBox ID="AutoStopCountTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="AutoStopEnd.Text" />
+                            <asp:CompareValidator ID="AutoStopCountIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="AutoStopCountTextBox" Display="None" EnableClientScript="false" resourcekey="valAutoStopCount" />
+                            <asp:RequiredFieldValidator ID="AutoStopCountRequiredValidator" runat="server" ControlToValidate="AutoStopCountTextBox" Display="None" EnableClientScript="false" resourcekey="rfvAutoStopCount" />
                         </td>
                     </tr>
                     <tr>

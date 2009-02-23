@@ -59,105 +59,6 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.Image TemplatePreviewImage;
         
         /// <summary>
-        /// ShowContentHeaderTitleCheckBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ShowContentHeaderTitleCheckBox;
-        
-        /// <summary>
-        /// contentHeaderTitleRow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow contentHeaderTitleRow;
-        
-        /// <summary>
-        /// ContentHeaderTitleTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ContentHeaderTitleTextBox;
-        
-        /// <summary>
-        /// ContentHeaderTitleRequiredValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ContentHeaderTitleRequiredValidator;
-        
-        /// <summary>
-        /// ShowContentHeaderLinkCheckBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ShowContentHeaderLinkCheckBox;
-        
-        /// <summary>
-        /// contentHeaderLinkTextRow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow contentHeaderLinkTextRow;
-        
-        /// <summary>
-        /// ContentHeaderLinkTextTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ContentHeaderLinkTextTextBox;
-        
-        /// <summary>
-        /// ContentHeaderLinkTextRequiredValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ContentHeaderLinkTextRequiredValidator;
-        
-        /// <summary>
-        /// contentHeaderLinkRow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow contentHeaderLinkRow;
-        
-        /// <summary>
-        /// ContentHeaderLinkUrlControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.UrlControl ContentHeaderLinkUrlControl;
-        
-        /// <summary>
-        /// ContentHeaderLinkRequiredValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator ContentHeaderLinkRequiredValidator;
-        
-        /// <summary>
         /// RotatorHeightTextBox control.
         /// </summary>
         /// <remarks>
@@ -336,6 +237,42 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox RotatorDelayTextBox;
+        
+        /// <summary>
+        /// AutoStopCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox AutoStopCheckBox;
+        
+        /// <summary>
+        /// AutoStopCountTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AutoStopCountTextBox;
+        
+        /// <summary>
+        /// AutoStopCountIntegerValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator AutoStopCountIntegerValidator;
+        
+        /// <summary>
+        /// AutoStopCountRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AutoStopCountRequiredValidator;
         
         /// <summary>
         /// PauseOnMouseOverCheckBox control.
