@@ -14,6 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Text;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Entities.Modules.Actions;
     using DotNetNuke.Security;
@@ -301,11 +302,11 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Gets RotatorHeight.
         /// </summary>
-        protected int RotatorHeight
+        protected int? RotatorHeight
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight", 200);
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight");
             }
         }
 
@@ -507,14 +508,13 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Returns <paramref name="url"/> if it has a value, or the path to an empty image if not
+        /// Gets the <see cref="CycleOptions"/> for this module instance.
         /// </summary>
-        /// <param name="url">The URL to format.</param>
-        /// <returns>The given <paramref name="url"/>, or the path to an empty image if <paramref name="url"/> is empty</returns>
-        protected static string FormatThumbnailUrl(string url)
+        /// <returns>The <see cref="CycleOptions"/> for this module instance</returns>
+        protected CycleOptions GetCycleOptions()
         {
-            // test the thumbnail path
-            return Engage.Utility.HasValue(url) ? url : "/images/1x1.gif";
+            Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
+            return new CycleOptions(containerHeight, this.RotatorDelay * 1000, this.PauseOnMouseOver, Effects.fade, (int)(this.AnimationDuration * 1000));
         }
 
         /// <summary>
@@ -583,8 +583,7 @@ namespace Engage.Dnn.ContentRotator
 #else
             this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.min.js");
 #endif
-            CycleOptions cycleOptions = new CycleOptions();
-            this.Page.ClientScript.RegisterClientScriptBlock(typeof(Rotator), "cycleOptions", "var cycleOptions = " + cycleOptions.Serialize() + ";", true);
+            this.GetCycleOptions();
 
             ////this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.Rotator.js");
         }

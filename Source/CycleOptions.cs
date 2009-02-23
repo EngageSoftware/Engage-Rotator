@@ -112,6 +112,23 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int transitionSpeed = 1000;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CycleOptions"/> class.
+        /// </summary>
+        /// <param name="containerHeight">Height of the container.</param>
+        /// <param name="millisecondsBetweenTransitions">The milliseconds between transitions.</param>
+        /// <param name="pauseOnHover">if set to <c>true</c> pause rotation when the mouse is over the content.</param>
+        /// <param name="transitionEffects">The transition effects.</param>
+        /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
+        public CycleOptions(Unit containerHeight, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
+        {
+            this.containerHeight = containerHeight;
+            this.millisecondsBetweenTransitions = millisecondsBetweenTransitions;
+            this.pauseOnHover = pauseOnHover;
+            this.transitionEffects = transitionEffects;
+            this.transitionSpeed = transitionSpeed;
+        }
+
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>
         public bool AutoStop
         {

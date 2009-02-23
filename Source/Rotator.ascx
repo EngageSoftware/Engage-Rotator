@@ -4,6 +4,6 @@
 <asp:PlaceHolder ID="FooterTemplatePlaceholder" runat="server"/>
 <script type="text/javascript">
     jQuery(function() {
-        jQuery(function() { jQuery('div.RotatorBody').cycle(cycleOptions); });
+        jQuery(function() { jQuery('#<%=this.ItemTemplateSection.ClientID %>').cycle(<%= this.GetCycleOptions().Serialize() %>); });
     });
 </script>
