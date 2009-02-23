@@ -37,6 +37,11 @@ namespace Engage.Dnn.ContentRotator
         private const string DisabledTextBoxCssClass = "NormalDisabled";
 
         /// <summary>
+        /// An array of <see cref="ListItem"/>s for the common <see cref="DisplayType"/> options
+        /// </summary>
+        private ListItem[] displayTypeItems;
+
+        /// <summary>
         /// Gets the duration of the transition animation.
         /// </summary>
         /// <value>The duration of the animation (in seconds).</value>
@@ -329,6 +334,33 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets an array of <see cref="ListItem"/>s for the common <see cref="DisplayType"/> options
+        /// </summary>
+        private ListItem[] DisplayTypeItems
+        {
+            get
+            {
+                if (this.displayTypeItems == null)
+                {
+                    this.displayTypeItems = new ListItem[]
+                                        {
+                                                new ListItem(
+                                                    Localization.GetString(DisplayType.None.ToString(), this.LocalResourceFile),
+                                                    DisplayType.None.ToString()),
+                                                new ListItem(
+                                                    Localization.GetString(DisplayType.Content.ToString(), this.LocalResourceFile),
+                                                    DisplayType.Content.ToString()),
+                                                new ListItem(
+                                                    Localization.GetString(DisplayType.Link.ToString(), this.LocalResourceFile),
+                                                    DisplayType.Link.ToString())
+                                        };
+                }
+
+                return this.displayTypeItems;
+            }
+        }
+
+        /// <summary>
         /// Raises the <see cref="Control.Init"/> event.
         /// </summary>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
@@ -351,6 +383,31 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets the text representation of a <see cref="Nullable{T}"/> <see cref="int"/> <paramref name="value"/>.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>A culture-aware representation of the given <paramref name="value"/></returns>
+        private static string GetValueText(int? value)
+        {
+            return value.HasValue
+                           ? value.Value.ToString(CultureInfo.CurrentCulture)
+                           : string.Empty;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="DisabledTextBoxCssClass"/> to the given 
+        /// <see cref="textbox"/> if it is not <see cref="TextBox.Enabled"/>; otherwise
+        /// removes the <see cref="DisabledTextBoxCssClass"/>.
+        /// </summary>
+        /// <param name="textbox">The textbox on which to set the CSS class.</param>
+        private static void SetDisabledCssClass(TextBox textbox)
+        {
+            textbox.CssClass = !textbox.Enabled
+                                       ? Engage.Utility.AddCssClass(textbox.CssClass, DisabledTextBoxCssClass)
+                                       : Engage.Utility.RemoveCssClass(textbox.CssClass, DisabledTextBoxCssClass);
+        }
+
+        /// <summary>
         /// Handles the Load event of the Page control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -361,113 +418,33 @@ namespace Engage.Dnn.ContentRotator
             {
                 if (!this.IsPostBack)
                 {
-                    this.PositionTitleDisplayRadioButtonList.Items.Clear();
-                    this.PositionTitleDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.None.ToString(), this.LocalResourceFile),
-                        DisplayType.None.ToString()));
-                    this.PositionTitleDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Content.ToString(), this.LocalResourceFile),
-                        DisplayType.Content.ToString()));
-                    this.PositionTitleDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Link.ToString(), this.LocalResourceFile),
-                        DisplayType.Link.ToString()));
-                    this.PositionTitleDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.RotateContent.ToString(), this.LocalResourceFile),
-                        DisplayType.RotateContent.ToString()));
+                    this.FillDisplayTypeListControl(this.PositionTitleDisplayRadioButtonList, true);
+                    this.FillDisplayTypeListControl(this.PositionThumbnailDisplayRadioButtonList, true);
+                    this.FillDisplayTypeListControl(this.ContentTitleDisplayRadioButtonList, false);
+                    this.FillDisplayTypeListControl(this.ContentDisplayRadioButtonList, false);
+                    this.FillDisplayTypeListControl(this.ThumbnailDisplayRadioButtonList, false);
 
-                    this.PositionThumbnailDisplayRadioButtonList.Items.Clear();
-                    this.PositionThumbnailDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.None.ToString(), this.LocalResourceFile),
-                        DisplayType.None.ToString()));
-                    this.PositionThumbnailDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Content.ToString(), this.LocalResourceFile),
-                        DisplayType.Content.ToString()));
-                    this.PositionThumbnailDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Link.ToString(), this.LocalResourceFile),
-                        DisplayType.Link.ToString()));
-                    this.PositionThumbnailDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.RotateContent.ToString(), this.LocalResourceFile),
-                        DisplayType.RotateContent.ToString()));
+                    this.FillTemplatesListControl();
 
-                    this.ContentTitleDisplayRadioButtonList.Items.Clear();
-                    this.ContentTitleDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.None.ToString(), this.LocalResourceFile),
-                        DisplayType.None.ToString()));
-                    this.ContentTitleDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Content.ToString(), this.LocalResourceFile),
-                        DisplayType.Content.ToString()));
-                    this.ContentTitleDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Link.ToString(), this.LocalResourceFile),
-                        DisplayType.Link.ToString()));
-
-                    this.ContentDisplayRadioButtonList.Items.Clear();
-                    this.ContentDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.None.ToString(), this.LocalResourceFile),
-                        DisplayType.None.ToString()));
-                    this.ContentDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Content.ToString(), this.LocalResourceFile),
-                        DisplayType.Content.ToString()));
-                    this.ContentDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Link.ToString(), this.LocalResourceFile),
-                        DisplayType.Link.ToString()));
-
-                    this.ThumbnailDisplayRadioButtonList.Items.Clear();
-                    this.ThumbnailDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.None.ToString(), this.LocalResourceFile),
-                        DisplayType.None.ToString()));
-                    this.ThumbnailDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Content.ToString(), this.LocalResourceFile),
-                        DisplayType.Content.ToString()));
-                    this.ThumbnailDisplayRadioButtonList.Items.Add(new ListItem(
-                        Localization.GetString(DisplayType.Link.ToString(), this.LocalResourceFile),
-                        DisplayType.Link.ToString()));
-
-                    this.TemplatesDropDownList.Items.Clear();
-                    this.TemplatesDropDownList.Items.Add(new ListItem(Localization.GetString("None", this.LocalResourceFile), string.Empty));
-                    string templatesDirectory = HostingEnvironment.MapPath(Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName);
-                    if (!string.IsNullOrEmpty(templatesDirectory))
-                    {
-                        foreach (string directory in Directory.GetDirectories(templatesDirectory))
-                        {
-                            this.TemplatesDropDownList.Items.Add(new ListItem(directory.Substring(directory.LastIndexOf(Path.DirectorySeparatorChar) + 1)));
-                        }
-                    }
-
-                    this.RotatorWidthTextBox.Text = this.RotatorWidth.HasValue
-                                                            ? this.RotatorWidth.Value.ToString(CultureInfo.CurrentCulture)
-                                                            : string.Empty;
-                    this.RotatorHeightTextBox.Text = this.RotatorHeight.HasValue
-                                                             ? this.RotatorHeight.Value.ToString(CultureInfo.CurrentCulture)
-                                                             : string.Empty;
+                    this.RotatorWidthTextBox.Text = GetValueText(this.RotatorWidth);
+                    this.RotatorHeightTextBox.Text = GetValueText(this.RotatorHeight);
 
                     this.PositionTitleDisplayRadioButtonList.SelectedValue = this.PositionTitleDisplayMode.ToString();
                     this.PositionThumbnailDisplayRadioButtonList.SelectedValue = this.PositionThumbnailDisplayMode.ToString();
                     this.ContentTitleDisplayRadioButtonList.SelectedValue = this.ContentTitleDisplayMode.ToString();
 
                     this.ContentDisplayRadioButtonList.SelectedValue = this.ContentDisplayMode.ToString();
-                    this.txtContentWidth.Text = this.ContentWidth.HasValue
-                                                        ? this.ContentWidth.Value.ToString(CultureInfo.CurrentCulture)
-                                                        : string.Empty;
-                    this.ContentHeightTextBox.Text = this.ContentHeight.HasValue
-                                                             ? this.ContentHeight.Value.ToString(CultureInfo.CurrentCulture)
-                                                             : string.Empty;
+                    this.ContentWidthTextBox.Text = GetValueText(this.ContentWidth);
+                    this.ContentHeightTextBox.Text = GetValueText(this.ContentHeight);
                     this.ProcessContentVisibility();
 
                     this.ThumbnailDisplayRadioButtonList.SelectedValue = this.ThumbnailDisplayMode.ToString();
-                    this.ThumbnailWidthTextBox.Text = this.ThumbnailWidth.HasValue
-                                                              ? this.ThumbnailWidth.Value.ToString(CultureInfo.CurrentCulture)
-                                                              : string.Empty;
-                    this.ThumbnailHeightTextBox.Text = this.ThumbnailHeight.HasValue
-                                                               ? this.ThumbnailHeight.Value.ToString(CultureInfo.CurrentCulture)
-                                                               : string.Empty;
+                    this.ThumbnailWidthTextBox.Text = GetValueText(this.ThumbnailWidth);
+                    this.ThumbnailHeightTextBox.Text = GetValueText(this.ThumbnailHeight);
                     this.ProcessThumbnailVisibility();
 
-                    this.PositionThumbnailWidthTextBox.Text = this.PositionThumbnailWidth.HasValue
-                                                                      ? this.PositionThumbnailWidth.Value.ToString(CultureInfo.CurrentCulture)
-                                                                      : string.Empty;
-                    this.PositionThumbnailHeightTextBox.Text = this.PositionThumbnailHeight.HasValue
-                                                                       ? this.PositionThumbnailHeight.Value.ToString(CultureInfo.CurrentCulture)
-                                                                       : string.Empty;
+                    this.PositionThumbnailWidthTextBox.Text = GetValueText(this.PositionThumbnailWidth);
+                    this.PositionThumbnailHeightTextBox.Text = GetValueText(this.PositionThumbnailHeight);
                     this.ProcessPositionThumbnailVisibility();
 
                     this.ShowContentHeaderTitleCheckBox.Checked = this.ShowContentHeader;
@@ -519,8 +496,7 @@ namespace Engage.Dnn.ContentRotator
 
                 try
                 {
-                    TemplateManifest manifest =
-                            TemplateManifest.CreateTemplateManifest(this.TemplatesDropDownList.SelectedValue);
+                    TemplateManifest manifest = TemplateManifest.CreateTemplateManifest(this.TemplatesDropDownList.SelectedValue);
                     if (manifest.Settings != null && manifest.Settings.Count > 0)
                     {
                         foreach (KeyValuePair<string, string> setting in manifest.Settings)
@@ -569,54 +545,31 @@ namespace Engage.Dnn.ContentRotator
                 ModuleController modules = new ModuleController();
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorWidth", this.RotatorWidthTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorHeight", this.RotatorHeightTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentWidth", this.txtContentWidth.Text);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentWidth", this.ContentWidthTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeight", this.ContentHeightTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailWidth", this.ThumbnailWidthTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailHeight", this.ThumbnailHeightTextBox.Text);
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "PositionThumbnailWidth", this.PositionThumbnailWidthTextBox.Text);
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "PositionThumbnailHeight", this.PositionThumbnailHeightTextBox.Text);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailWidth", this.PositionThumbnailWidthTextBox.Text);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailHeight", this.PositionThumbnailHeightTextBox.Text);
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", this.RotatorDelayTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorPauseDelay", this.RotatorPauseDelayTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", this.AnimationDurationTextBox.Text);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeaderText", this.ContentHeaderTitleTextBox.Text);
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId,
-                        "ContentHeaderLink",
-                        Dnn.Utility.CreateUrlFromControl(this.ContentHeaderLinkUrlControl, this.PortalSettings));
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "ContentHeaderLinkText", this.ContentHeaderLinkTextTextBox.Text);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeaderLink", Dnn.Utility.CreateUrlFromControl(this.ContentHeaderLinkUrlControl, this.PortalSettings));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeaderLinkText", this.ContentHeaderLinkTextTextBox.Text);
 
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "ControlsTitleDisplayMode", this.PositionTitleDisplayRadioButtonList.SelectedValue);
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "ContentTitleDisplayMode", this.ContentTitleDisplayRadioButtonList.SelectedValue);
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "ContentDisplayMode", this.ContentDisplayRadioButtonList.SelectedValue);
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "ThumbnailDisplayMode", this.ThumbnailDisplayRadioButtonList.SelectedValue);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ControlsTitleDisplayMode", this.PositionTitleDisplayRadioButtonList.SelectedValue);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentTitleDisplayMode", this.ContentTitleDisplayRadioButtonList.SelectedValue);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentDisplayMode", this.ContentDisplayRadioButtonList.SelectedValue);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailDisplayMode", this.ThumbnailDisplayRadioButtonList.SelectedValue);
 
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId,
-                        "ShowContentHeader",
-                        this.ShowContentHeaderTitleCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId,
-                        "ShowContentHeaderLink",
-                        this.ShowContentHeaderLinkCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ShowContentHeader", this.ShowContentHeaderTitleCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ShowContentHeaderLink", this.ShowContentHeaderLinkCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
 
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId, "PositionThumbnailDisplayMode", this.PositionThumbnailDisplayRadioButtonList.SelectedValue);
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId,
-                        "UseAnimations",
-                        this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(
-                        this.TabModuleId,
-                        "AnimationPauseOnMouseOver",
-                        this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailDisplayMode", this.PositionThumbnailDisplayRadioButtonList.SelectedValue);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "UseAnimations", this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
             }
         }
@@ -670,8 +623,7 @@ namespace Engage.Dnn.ContentRotator
         {
             if (this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] != this.TemplatesDropDownList.SelectedValue)
             {
-                ClientAPI.AddButtonConfirm(
-                        this.SubmitButton, Localization.GetString("TemplateChangedConfirm", this.LocalResourceFile));
+                ClientAPI.AddButtonConfirm(this.SubmitButton, Localization.GetString("TemplateChangedConfirm", this.LocalResourceFile));
             }
 
             this.FillTemplateTab();
@@ -724,6 +676,42 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Fills the given <paramref name="list"/> with the <see cref="DisplayType"/> options
+        /// </summary>
+        /// <param name="list">The list to fill.</param>
+        /// <param name="showRotateContentOption">if set to <c>true</c> adds the <see cref="DisplayType.RotateContent"/> option.</param>
+        private void FillDisplayTypeListControl(ListControl list, bool showRotateContentOption)
+        {
+            list.Items.Clear();
+            list.Items.AddRange(this.DisplayTypeItems);
+
+            if (showRotateContentOption)
+            {
+                list.Items.Add(new ListItem(
+                    Localization.GetString(DisplayType.RotateContent.ToString(), this.LocalResourceFile),
+                    DisplayType.RotateContent.ToString()));
+            }
+        }
+
+        /// <summary>
+        /// Fills <see cref="TemplatesDropDownList"/>.
+        /// </summary>
+        private void FillTemplatesListControl()
+        {
+            this.TemplatesDropDownList.Items.Clear();
+            this.TemplatesDropDownList.Items.Add(new ListItem(Localization.GetString("None", this.LocalResourceFile), string.Empty));
+
+            string templatesDirectory = HostingEnvironment.MapPath(Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName);
+            if (!string.IsNullOrEmpty(templatesDirectory))
+            {
+                foreach (string directory in Directory.GetDirectories(templatesDirectory))
+                {
+                    this.TemplatesDropDownList.Items.Add(new ListItem(directory.Substring(directory.LastIndexOf(Path.DirectorySeparatorChar) + 1)));
+                }
+            }
+        }
+
+        /// <summary>
         /// Displays information about the selected template
         /// </summary>
         private void FillTemplateTab()
@@ -749,13 +737,11 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void ProcessAnimationsVisiblity()
         {
-            this.AnimationDurationTextBox.Enabled = this.UseAnimationsCheckBox.Checked;
-            this.AnimationDurationIntegerValidator.Enabled = this.UseAnimationsCheckBox.Checked;
-            this.AnimationDurationRequiredValidator.Enabled = this.UseAnimationsCheckBox.Checked;
+            this.AnimationDurationTextBox.Enabled =
+                    this.AnimationDurationIntegerValidator.Enabled =
+                    this.AnimationDurationRequiredValidator.Enabled = this.UseAnimationsCheckBox.Checked;
 
-            this.AnimationDurationTextBox.CssClass = !this.AnimationDurationTextBox.Enabled
-                                                         ? Engage.Utility.AddCssClass(this.AnimationDurationTextBox.CssClass, DisabledTextBoxCssClass)
-                                                         : Engage.Utility.RemoveCssClass(this.AnimationDurationTextBox.CssClass, DisabledTextBoxCssClass);
+            SetDisabledCssClass(this.AnimationDurationTextBox);
         }
 
         /// <summary>
@@ -763,15 +749,12 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void ProcessContentHeaderLinkVisiblity()
         {
-            this.ContentHeaderLinkTextTextBox.Enabled = this.ShowContentHeaderLinkCheckBox.Checked;
-            this.ContentHeaderLinkTextRequiredValidator.Enabled = this.ShowContentHeaderLinkCheckBox.Checked;
+            this.ContentHeaderLinkTextTextBox.Enabled =
+                    this.ContentHeaderLinkTextRequiredValidator.Enabled =
+                    this.ContentHeaderLinkUrlControl.Visible =
+                    this.ContentHeaderLinkRequiredValidator.Enabled = this.ShowContentHeaderLinkCheckBox.Checked;
 
-            this.ContentHeaderLinkUrlControl.Visible = this.ShowContentHeaderLinkCheckBox.Checked;
-            this.ContentHeaderLinkRequiredValidator.Enabled = this.ShowContentHeaderLinkCheckBox.Checked;
-
-            this.ContentHeaderLinkTextTextBox.CssClass = !this.ContentHeaderLinkTextTextBox.Enabled
-                                                             ? Engage.Utility.AddCssClass(this.ContentHeaderLinkTextTextBox.CssClass, DisabledTextBoxCssClass)
-                                                             : Engage.Utility.RemoveCssClass(this.ContentHeaderLinkTextTextBox.CssClass, DisabledTextBoxCssClass);
+            SetDisabledCssClass(this.ContentHeaderLinkTextTextBox);
         }
 
         /// <summary>
@@ -779,12 +762,10 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void ProcessContentHeaderVisiblity()
         {
-            this.ContentHeaderTitleTextBox.Enabled = this.ShowContentHeaderTitleCheckBox.Checked;
-            this.ContentHeaderTitleRequiredValidator.Enabled = this.ShowContentHeaderTitleCheckBox.Checked;
+            this.ContentHeaderTitleTextBox.Enabled =
+                    this.ContentHeaderTitleRequiredValidator.Enabled = this.ShowContentHeaderTitleCheckBox.Checked;
 
-            this.ContentHeaderTitleTextBox.CssClass = !this.ContentHeaderTitleTextBox.Enabled
-                                                          ? Engage.Utility.AddCssClass(this.ContentHeaderTitleTextBox.CssClass, DisabledTextBoxCssClass)
-                                                          : Engage.Utility.RemoveCssClass(this.ContentHeaderTitleTextBox.CssClass, DisabledTextBoxCssClass);
+            SetDisabledCssClass(this.ContentHeaderTitleTextBox);
         }
 
         /// <summary>
@@ -792,18 +773,14 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void ProcessContentVisibility()
         {
-            this.ContentHeightTextBox.Enabled = this.ContentDisplayRadioButtonList.SelectedValue != DisplayType.None.ToString();
-            this.ContentHeightIntegerValidator.Enabled = this.ContentHeightTextBox.Enabled;
+            this.ContentHeightTextBox.Enabled =
+                    this.ContentHeightIntegerValidator.Enabled =
+                    this.ContentWidthTextBox.Enabled =
+                    this.ContentWidthIntegerValidator.Enabled =
+                    this.ContentDisplayRadioButtonList.SelectedValue != DisplayType.None.ToString();
 
-            this.txtContentWidth.Enabled = this.ContentDisplayRadioButtonList.SelectedValue != DisplayType.None.ToString();
-            this.ContentWidthIntegerValidator.Enabled = this.txtContentWidth.Enabled;
-
-            this.ContentHeightTextBox.CssClass = !this.ContentHeightTextBox.Enabled
-                                                     ? Engage.Utility.AddCssClass(this.ContentHeightTextBox.CssClass, DisabledTextBoxCssClass)
-                                                     : Engage.Utility.RemoveCssClass(this.ContentHeightTextBox.CssClass, DisabledTextBoxCssClass);
-            this.txtContentWidth.CssClass = !this.txtContentWidth.Enabled
-                                                    ? Engage.Utility.AddCssClass(this.txtContentWidth.CssClass, DisabledTextBoxCssClass)
-                                                    : Engage.Utility.RemoveCssClass(this.txtContentWidth.CssClass, DisabledTextBoxCssClass);
+            SetDisabledCssClass(this.ContentHeightTextBox);
+            SetDisabledCssClass(this.ContentWidthTextBox);
         }
 
         /// <summary>
@@ -811,13 +788,11 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void ProcessMouseOverVisibility()
         {
-            this.RotatorPauseDelayTextBox.Enabled = this.PauseOnMouseOverCheckBox.Checked;
-            this.RotatorPauseDelayIntegerValidator.Enabled = this.PauseOnMouseOverCheckBox.Checked;
-            this.RotatorPauseDelayRequiredValidtor.Enabled = this.PauseOnMouseOverCheckBox.Checked;
+            this.RotatorPauseDelayTextBox.Enabled =
+                    this.RotatorPauseDelayIntegerValidator.Enabled =
+                    this.RotatorPauseDelayRequiredValidtor.Enabled = this.PauseOnMouseOverCheckBox.Checked;
 
-            this.RotatorPauseDelayTextBox.CssClass = !this.RotatorPauseDelayTextBox.Enabled
-                                                         ? Engage.Utility.AddCssClass(this.RotatorPauseDelayTextBox.CssClass, DisabledTextBoxCssClass)
-                                                         : Engage.Utility.RemoveCssClass(this.RotatorPauseDelayTextBox.CssClass, DisabledTextBoxCssClass);
+            SetDisabledCssClass(this.RotatorPauseDelayTextBox);
         }
 
         /// <summary>
@@ -825,19 +800,14 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void ProcessPositionThumbnailVisibility()
         {
-            DisplayType positionThumbnailDisplayMode =
-                    (DisplayType)Enum.Parse(typeof(DisplayType), this.PositionThumbnailDisplayRadioButtonList.SelectedValue, true);
+            DisplayType positionThumbnailDisplayMode = (DisplayType)Enum.Parse(typeof(DisplayType), this.PositionThumbnailDisplayRadioButtonList.SelectedValue, true);
             this.PositionThumbnailHeightTextBox.Enabled =
                     this.PositionThumbnailHeightIntegerValidator.Enabled =
                     this.PositionThumbnailWidthTextBox.Enabled =
                     this.PositionThumbnailWidthIntegerValidator.Enabled = positionThumbnailDisplayMode != DisplayType.None;
 
-            this.PositionThumbnailHeightTextBox.CssClass = !this.PositionThumbnailHeightTextBox.Enabled
-                                                               ? Engage.Utility.AddCssClass(this.PositionThumbnailHeightTextBox.CssClass, DisabledTextBoxCssClass)
-                                                               : Engage.Utility.RemoveCssClass(this.PositionThumbnailHeightTextBox.CssClass, DisabledTextBoxCssClass);
-            this.PositionThumbnailWidthTextBox.CssClass = !this.PositionThumbnailWidthTextBox.Enabled
-                                                              ? Engage.Utility.AddCssClass(this.PositionThumbnailWidthTextBox.CssClass, DisabledTextBoxCssClass)
-                                                              : Engage.Utility.RemoveCssClass(this.PositionThumbnailWidthTextBox.CssClass, DisabledTextBoxCssClass);
+            SetDisabledCssClass(this.PositionThumbnailHeightTextBox);
+            SetDisabledCssClass(this.PositionThumbnailWidthTextBox);
         }
 
         /// <summary>
@@ -851,12 +821,8 @@ namespace Engage.Dnn.ContentRotator
             this.ThumbnailWidthTextBox.Enabled = this.ThumbnailDisplayRadioButtonList.SelectedValue != DisplayType.None.ToString();
             this.ThumbnailWidthIntegerValidator.Enabled = this.ThumbnailWidthTextBox.Enabled;
 
-            this.ThumbnailHeightTextBox.CssClass = !this.ThumbnailHeightTextBox.Enabled
-                                                       ? Engage.Utility.AddCssClass(this.ThumbnailHeightTextBox.CssClass, DisabledTextBoxCssClass)
-                                                       : Engage.Utility.RemoveCssClass(this.ThumbnailHeightTextBox.CssClass, DisabledTextBoxCssClass);
-            this.ThumbnailWidthTextBox.CssClass = !this.ThumbnailWidthTextBox.Enabled
-                                                      ? Engage.Utility.AddCssClass(this.ThumbnailWidthTextBox.CssClass, DisabledTextBoxCssClass)
-                                                      : Engage.Utility.RemoveCssClass(this.ThumbnailWidthTextBox.CssClass, DisabledTextBoxCssClass);
+            SetDisabledCssClass(this.ThumbnailHeightTextBox);
+            SetDisabledCssClass(this.ThumbnailWidthTextBox);
         }
 
         /// <summary>

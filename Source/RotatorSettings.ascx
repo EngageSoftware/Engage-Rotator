@@ -17,8 +17,8 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblStyleTemplates" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:DropDownList ID="TemplatesDropDownList" runat="server" CssClass="NormalTextBox" AutoPostBack="true" OnSelectedIndexChanged="ddlStyleTemplates_SelectedIndexChanged"/>
-                            <asp:Button ID="ApplyTemplateButton" runat="server" resourcekey="btnApplyStyleTemplate" OnClick="btnApplyStyleTemplate_Click" />
+                            <asp:DropDownList ID="TemplatesDropDownList" runat="server" CssClass="NormalTextBox" AutoPostBack="true" />
+                            <asp:Button ID="ApplyTemplateButton" runat="server" resourcekey="btnApplyStyleTemplate" />
                             
                             <fieldset id="TemplateDescriptionPanel" runat="server"><legend><asp:Label runat="server" resourcekey="StyleDescription" /></legend>
                                 <asp:Label ID="TemplateDescriptionLabel" runat="server" />
@@ -39,7 +39,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblShowContentHeaderTitle" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:Checkbox ID="ShowContentHeaderTitleCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="chkShowContentHeaderTitle_CheckedChanged"/>
+                            <asp:Checkbox ID="ShowContentHeaderTitleCheckBox" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr id="contentHeaderTitleRow" runat="server">
@@ -52,7 +52,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblShowContentHeaderLink" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:Checkbox ID="ShowContentHeaderLinkCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="chkShowContentHeaderLink_CheckedChanged"/>
+                            <asp:Checkbox ID="ShowContentHeaderLinkCheckBox" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr id="contentHeaderLinkTextRow" runat="server">
@@ -66,7 +66,7 @@
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContentHeaderLink" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign"><%-- UrlType is T for Tab --%>
                             <dnn:Url ID="ContentHeaderLinkUrlControl" runat="server" UrlType="T" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowNone="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowTabs="true" ShowUrls="true"/>
-                            <asp:CustomValidator id="ContentHeaderLinkRequiredValidator" runat="server" Display="None" resourcekey="valContentHeaderLink" EnableClientScript="false" OnServerValidate="valContentHeaderLink_ServerValidate" />
+                            <asp:CustomValidator id="ContentHeaderLinkRequiredValidator" runat="server" Display="None" resourcekey="valContentHeaderLink" EnableClientScript="false" />
                         </td>
                     </tr>
                 </table>
@@ -96,7 +96,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContentDisplay" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:RadioButtonList id="ContentDisplayRadioButtonList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblContentDisplay_SelectedIndexChanged" />
+                            <asp:RadioButtonList id="ContentDisplayRadioButtonList" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr>
@@ -109,8 +109,8 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContentWidth" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:Textbox ID="txtContentWidth" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="pixels" />
-                            <asp:CompareValidator id="ContentWidthIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="txtContentWidth" Display="None" EnableClientScript="false" resourcekey="valContentWidth" />
+                            <asp:Textbox ID="ContentWidthTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="pixels" />
+                            <asp:CompareValidator id="ContentWidthIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="ContentWidthTextBox" Display="None" EnableClientScript="false" resourcekey="valContentWidth" />
                         </td>
                     </tr>
                     <tr>
@@ -122,7 +122,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblThumbnailDisplay" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:RadioButtonList id="ThumbnailDisplayRadioButtonList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblThumbnailDisplay_SelectedIndexChanged" />
+                            <asp:RadioButtonList id="ThumbnailDisplayRadioButtonList" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr>
@@ -158,7 +158,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblPositionThumbnailDisplay" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:RadioButtonList id="PositionThumbnailDisplayRadioButtonList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblPositionThumbnailDisplay_SelectedIndexChanged" />
+                            <asp:RadioButtonList id="PositionThumbnailDisplayRadioButtonList" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr>
@@ -196,7 +196,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblPauseOnMouseOver" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:CheckBox id="PauseOnMouseOverCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="chkPauseOnMouseOver_CheckedChanged" />
+                            <asp:CheckBox id="PauseOnMouseOverCheckBox" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr>
@@ -210,7 +210,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblUseAnimations" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:Checkbox ID="UseAnimationsCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="chkUseAnimations_CheckedChanged"/>
+                            <asp:Checkbox ID="UseAnimationsCheckBox" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr>
@@ -239,11 +239,11 @@
 
     <asp:UpdatePanel runat="server" UpdateMode="Conditional" ChildrenAsTriggers="False" RenderMode="Inline" >
         <ContentTemplate>
-            <asp:Button ID="SubmitButton" runat="server" resourcekey="btnSubmit" OnClick="btnSubmit_Click" EnableViewState="false" />&nbsp;
+            <asp:Button ID="SubmitButton" runat="server" resourcekey="btnSubmit" EnableViewState="false" />&nbsp;
         </ContentTemplate>
         <Triggers><asp:AsyncPostBackTrigger ControlID="TemplatesDropDownList" /></Triggers>
     </asp:UpdatePanel>
-    <asp:Button ID="CancelButton" runat="server" resourcekey="btnCancel" OnClick="btnCancel_Click" CausesValidation="false" EnableViewState="false" />
+    <asp:Button ID="CancelButton" runat="server" resourcekey="btnCancel" CausesValidation="false" EnableViewState="false" />
 </div>
 <script type="text/javascript">
     jQuery(function() { jQuery('.TabContainer').tabs(); });
