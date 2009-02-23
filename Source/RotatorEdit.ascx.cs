@@ -187,9 +187,8 @@ namespace Engage.Dnn.ContentRotator
             this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.min.js");
 #endif
 
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            serializer.RegisterConverters(new JavaScriptConverter[] { new DatePickerOptionsConverter() });
-            this.Page.ClientScript.RegisterClientScriptBlock(typeof(RotatorEdit), "datepicker options", "var datePickerOpts = " + serializer.Serialize(new DatePickerOptions(CultureInfo.CurrentCulture, this.LocalResourceFile)) + ";", true);
+            DatePickerOptions datePickerOptions = new DatePickerOptions(CultureInfo.CurrentCulture, this.LocalResourceFile);
+            this.Page.ClientScript.RegisterClientScriptBlock(typeof(RotatorEdit), "datepicker options", "var datePickerOpts = " + datePickerOptions.Serialize() + ";", true);
         }
     }
 }

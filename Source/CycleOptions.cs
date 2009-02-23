@@ -12,6 +12,7 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System.Diagnostics;
+    using System.Web.Script.Serialization;
     using System.Web.UI.WebControls;
 
     /// <summary>
@@ -490,6 +491,17 @@ namespace Engage.Dnn.ContentRotator
             {
                 this.transitionSpeed = value;
             }
+        }
+
+        /// <summary>
+        /// Converts this instance into a JSON string.
+        /// </summary>
+        /// <returns>The serialized JSON string</returns>
+        public string Serialize()
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            serializer.RegisterConverters(new JavaScriptConverter[] { new CycleOptionsConverter() });
+            return serializer.Serialize(this);
         }
     }
 }

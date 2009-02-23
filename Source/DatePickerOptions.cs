@@ -14,6 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Diagnostics;
     using System.Globalization;
+    using System.Web.Script.Serialization;
     using DotNetNuke.Services.Localization;
 
     /// <summary>
@@ -560,6 +561,17 @@ namespace Engage.Dnn.ContentRotator
             {
                 this.yearStatus = value;
             }
+        }
+
+        /// <summary>
+        /// Converts this instance into a JSON string.
+        /// </summary>
+        /// <returns>The serialized JSON string</returns>
+        public string Serialize()
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            serializer.RegisterConverters(new JavaScriptConverter[] { new DatePickerOptionsConverter() });
+            return serializer.Serialize(this);
         }
 
         /// <summary>

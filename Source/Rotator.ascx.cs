@@ -12,9 +12,7 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
-    using System.Globalization;
     using System.Text;
-    using System.Web;
     using System.Web.Script.Serialization;
     using System.Web.UI;
     using DotNetNuke.Entities.Modules;
@@ -25,6 +23,9 @@ namespace Engage.Dnn.ContentRotator
     using Framework.Templating;
     using Templating;
 
+    /// <summary>
+    /// Code-behind for the main control displaying rotating content
+    /// </summary>
     public partial class Rotator : ModuleBase, IActionable
     {
         /// <summary>
@@ -489,6 +490,10 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the template provider.
+        /// </summary>
+        /// <value>The template provider.</value>
         protected new RepeaterTemplateProvider TemplateProvider
         {
             get
@@ -502,6 +507,11 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
+        /// <summary>
+        /// Returns <paramref name="url"/> if it has a value, or the path to an empty image if not
+        /// </summary>
+        /// <param name="url">The URL to format.</param>
+        /// <returns>The given <paramref name="url"/>, or the path to an empty image if <paramref name="url"/> is empty</returns>
         protected static string FormatThumbnailUrl(string url)
         {
             // test the thumbnail path
@@ -563,6 +573,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Adds the references and code to the page to enable the jQuery Cycle plugin
         /// </summary>
         private void RegisterRotatorJavascript()
         {
@@ -573,9 +584,8 @@ namespace Engage.Dnn.ContentRotator
 #else
             this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.min.js");
 #endif
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            serializer.RegisterConverters(new JavaScriptConverter[] { new CycleOptionsConverter() });
-            this.Page.ClientScript.RegisterClientScriptBlock(typeof(Rotator), "cycleOptions", "var cycleOptions = " + serializer.Serialize(new CycleOptions()) + ";", true);
+            CycleOptions cycleOptions = new CycleOptions();
+            this.Page.ClientScript.RegisterClientScriptBlock(typeof(Rotator), "cycleOptions", "var cycleOptions = " + cycleOptions.Serialize() + ";", true);
 
             ////this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.Rotator.js");
         }
