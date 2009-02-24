@@ -12,10 +12,14 @@
 namespace Engage.Dnn.ContentRotator
 {
     /// <summary>
-    /// 
+    /// The base class for all module controls in Rotator
     /// </summary>
     public class ModuleBase : Framework.ModuleBase
     {
+        /// <summary>
+        /// Gets the name of the this module's desktop module record in DNN.
+        /// </summary>
+        /// <value>The name of this module's desktop module record in DNN.</value>
         public override string DesktopModuleName
         {
             get

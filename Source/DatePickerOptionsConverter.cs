@@ -72,20 +72,20 @@ namespace Engage.Dnn.ContentRotator
             datePickerOptions.Add("nextStatus", opts.NextStatus);
             datePickerOptions.Add("currentText", opts.CurrentText);
             datePickerOptions.Add("currentStatus", opts.CurrentStatus);
-            datePickerOptions.Add("monthNames", opts.MonthNames);
-            datePickerOptions.Add("monthNamesShort", opts.MonthNamesShort);
+            datePickerOptions.Add("monthNames", opts.GetMonthNames());
+            datePickerOptions.Add("monthNamesShort", opts.GetMonthNamesShort());
             datePickerOptions.Add("monthStatus", opts.MonthStatus);
             datePickerOptions.Add("yearStatus", opts.YearStatus);
             datePickerOptions.Add("weekHeader", opts.WeekHeader);
             datePickerOptions.Add("weekStatus", opts.WeekStatus);
-            datePickerOptions.Add("dayNames", opts.DayNames);
-            datePickerOptions.Add("dayNamesShort", opts.DayNamesShort);
-            datePickerOptions.Add("dayNamesMin", opts.DayNamesMin);
+            datePickerOptions.Add("dayNames", opts.GetDayNames());
+            datePickerOptions.Add("dayNamesShort", opts.GetDayNamesShort());
+            datePickerOptions.Add("dayNamesMin", opts.GetDayNamesMin());
             datePickerOptions.Add("dayStatus", opts.DayStatus);
             datePickerOptions.Add("dateStatus", opts.DateStatus);
             datePickerOptions.Add("dateFormat", opts.DateFormat);
             datePickerOptions.Add("firstDay", opts.FirstDay);
-            datePickerOptions.Add("isRTL", opts.IsRtl);
+            datePickerOptions.Add("isRTL", opts.IsRightToLeft);
 
             return datePickerOptions;
         }

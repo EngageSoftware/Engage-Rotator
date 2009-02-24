@@ -71,19 +71,19 @@ namespace Engage.Dnn.ContentRotator
         private string dateStatus;
 
         /// <summary>
-        /// Backing field for <see cref="DayNames"/>
+        /// Backing field for <see cref="GetDayNames"/> and <see cref="SetDayNames"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string[] dayNames;
 
         /// <summary>
-        /// Backing field for <see cref="DayNamesMin"/>
+        /// Backing field for <see cref="GetDayNamesMin"/> and <see cref="SetDayNamesMin"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string[] dayNamesMin;
 
         /// <summary>
-        /// Backing field for <see cref="DayNamesShort"/>
+        /// Backing field for <see cref="GetDayNamesShort"/> and <see cref="SetDayNamesShort"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string[] dayNamesShort;
@@ -107,19 +107,19 @@ namespace Engage.Dnn.ContentRotator
         private string initStatus;
 
         /// <summary>
-        /// Backing field for <see cref="IsRtl"/>
+        /// Backing field for <see cref="IsRightToLeft"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool isRtl;
+        private bool isRightToLeft;
 
         /// <summary>
-        /// Backing field for <see cref="MonthNames"/>
+        /// Backing field for <see cref="GetMonthNames"/> and <see cref="SetMonthNames"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string[] monthNames;
 
         /// <summary>
-        /// Backing field for <see cref="MonthNamesShort"/>
+        /// Backing field for <see cref="GetMonthNamesShort"/> and <see cref="SetMonthNamesShort"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string[] monthNamesShort;
@@ -206,7 +206,7 @@ namespace Engage.Dnn.ContentRotator
             this.monthNames = dateTimeFormat.MonthNames;
             this.monthNamesShort = dateTimeFormat.AbbreviatedMonthNames;
             
-            this.isRtl = displayCulture.TextInfo.IsRightToLeft;
+            this.isRightToLeft = displayCulture.TextInfo.IsRightToLeft;
         }
 
         /// <summary>Gets or sets Status text for clear link</summary>
@@ -321,48 +321,6 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets For formatting</summary>
-        public string[] DayNames
-        {
-            get
-            {
-                return this.dayNames;
-            }
-
-            set
-            {
-                this.dayNames = value;
-            }
-        }
-
-        /// <summary>Gets or sets Column headings for days starting at Sunday</summary>
-        public string[] DayNamesMin
-        {
-            get
-            {
-                return this.dayNamesMin;
-            }
-
-            set
-            {
-                this.dayNamesMin = value;
-            }
-        }
-
-        /// <summary>Gets or sets For formatting</summary>
-        public string[] DayNamesShort
-        {
-            get
-            {
-                return this.dayNamesShort;
-            }
-
-            set
-            {
-                this.dayNamesShort = value;
-            }
-        }
-
         /// <summary>Gets or sets Status text for the day of the week selection</summary>
         public string DayStatus
         {
@@ -406,44 +364,16 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>Gets or sets a value indicating whether it is a right-to-left language</summary>
-        public bool IsRtl
+        public bool IsRightToLeft
         {
             get
             {
-                return this.isRtl;
+                return this.isRightToLeft;
             }
 
             set
             {
-                this.isRtl = value;
-            }
-        }
-
-        /// <summary>Gets or sets Names of months for drop-down and formatting</summary>
-        public string[] MonthNames
-        {
-            get
-            {
-                return this.monthNames;
-            }
-
-            set
-            {
-                this.monthNames = value;
-            }
-        }
-
-        /// <summary>Gets or sets For formatting</summary>
-        public string[] MonthNamesShort
-        {
-            get
-            {
-                return this.monthNamesShort;
-            }
-
-            set
-            {
-                this.monthNamesShort = value;
+                this.isRightToLeft = value;
             }
         }
 
@@ -561,6 +491,96 @@ namespace Engage.Dnn.ContentRotator
             {
                 this.yearStatus = value;
             }
+        }
+
+        /// <summary>
+        /// Gets the list of day name to use for formatting
+        /// </summary>
+        /// <returns>The list of day names</returns>
+        public string[] GetDayNames()
+        {
+            return this.dayNames;
+        }
+
+        /// <summary>
+        /// Gets the list of column headings for days, starting with <see cref="DayOfWeek.Sunday"/>
+        /// </summary>
+        /// <returns>The list of column headings for days</returns>
+        public string[] GetDayNamesMin()
+        {
+            return this.dayNamesMin;
+        }
+
+        /// <summary>
+        /// Gets the list of short days names to use for formatting
+        /// </summary>
+        /// <returns>The list of short day names</returns>
+        public string[] GetDayNamesShort()
+        {
+            return this.dayNamesShort;
+        }
+
+        /// <summary>
+        /// Gets the names of the months for drop-down and formatting
+        /// </summary>
+        /// <returns>The list of the month names.</returns>
+        public string[] GetMonthNames()
+        {
+            return this.monthNames;
+        }
+
+        /// <summary>
+        /// Gets the list of short month names for formatting
+        /// </summary>
+        /// <returns>The list of short month names.</returns>
+        public string[] GetMonthNamesShort()
+        {
+            return this.monthNamesShort;
+        }
+
+        /// <summary>
+        /// Sets the list of day names to use for formatting
+        /// </summary>
+        /// <param name="dayNamesList">The list of day names.</param>
+        public void SetDayNames(string[] dayNamesList)
+        {
+            this.dayNames = dayNamesList;
+        }
+
+        /// <summary>
+        /// Sets the list of column headings for days, starting with <see cref="DayOfWeek.Sunday"/>
+        /// </summary>
+        /// <param name="dayNamesList">The list of day column headings.</param>
+        public void SetDayNamesMin(string[] dayNamesList)
+        {
+            this.dayNamesMin = dayNamesList;
+        }
+
+        /// <summary>
+        /// Sets the list of short days names to use for formatting
+        /// </summary>
+        /// <param name="dayNamesList">The list of short day names.</param>
+        public void SetDayNamesShort(string[] dayNamesList)
+        {
+            this.dayNamesShort = dayNamesList;
+        }
+
+        /// <summary>
+        /// Sets the names of the months for drop-down and formatting
+        /// </summary>
+        /// <param name="monthNamesList">The list of the month names..</param>
+        public void SetMonthNames(string[] monthNamesList)
+        {
+            this.monthNames = monthNamesList;
+        }
+
+        /// <summary>
+        /// Sets the list of short month names for formatting
+        /// </summary>
+        /// <param name="value">The list of short month names.</param>
+        public void SetMonthNamesShort(string[] value)
+        {
+            this.monthNamesShort = value;
         }
 
         /// <summary>
