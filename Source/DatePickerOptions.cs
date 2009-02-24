@@ -143,16 +143,16 @@ namespace Engage.Dnn.ContentRotator
         private string nextText;
 
         /// <summary>
-        /// Backing field for <see cref="PrevStatus"/>
+        /// Backing field for <see cref="PreviousStatus"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string prevStatus;
+        private string previousStatus;
 
         /// <summary>
-        /// Backing field for <see cref="PrevText"/>
+        /// Backing field for <see cref="PreviousText"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string prevText;
+        private string previousText;
 
         /// <summary>
         /// Backing field for <see cref="WeekHeader"/>
@@ -191,8 +191,8 @@ namespace Engage.Dnn.ContentRotator
             this.monthStatus = Localization.GetString("CalendarMonthStatus.Text", resourceFile);
             this.nextStatus = Localization.GetString("CalendarNextStatus.Text", resourceFile);
             this.nextText = Localization.GetString("CalendarNextText.Text", resourceFile);
-            this.prevStatus = Localization.GetString("CalendarPrevStatus.Text", resourceFile);
-            this.prevText = Localization.GetString("CalendarPrevText.Text", resourceFile);
+            this.previousStatus = Localization.GetString("CalendarPrevStatus.Text", resourceFile);
+            this.previousText = Localization.GetString("CalendarPrevText.Text", resourceFile);
             this.weekHeader = Localization.GetString("CalendarWeekHeader.Text", resourceFile);
             this.weekStatus = Localization.GetString("CalendarWeekStatus.Text", resourceFile);
             this.yearStatus = Localization.GetString("CalendarYearStatus.Text", resourceFile);
@@ -422,32 +422,32 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>Gets or sets Status text for previous month link</summary>
-        public string PrevStatus
+        public string PreviousStatus
         {
             get
             {
-                return this.prevStatus;
+                return this.previousStatus;
             }
 
             set
             {
-                this.prevStatus = value;
+                this.previousStatus = value;
             }
         }
 
         /// <summary>
         /// Gets or sets Display text for previous month link
         /// </summary>
-        public string PrevText
+        public string PreviousText
         {
             get
             {
-                return this.prevText;
+                return this.previousText;
             }
 
             set
             {
-                this.prevText = value;
+                this.previousText = value;
             }
         }
 

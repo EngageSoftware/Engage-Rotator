@@ -698,7 +698,7 @@ namespace Engage.Dnn.ContentRotator
         {
             this.RotatorPauseDelayTextBox.Enabled =
                     this.RotatorPauseDelayIntegerValidator.Enabled =
-                    this.RotatorPauseDelayRequiredValidtor.Enabled = this.PauseOnMouseOverCheckBox.Checked;
+                    this.RotatorPauseDelayRequiredValidator.Enabled = this.PauseOnMouseOverCheckBox.Checked;
 
             SetDisabledCssClass(this.RotatorPauseDelayTextBox);
         }

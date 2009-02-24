@@ -302,13 +302,13 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.CompareValidator RotatorPauseDelayIntegerValidator;
         
         /// <summary>
-        /// RotatorPauseDelayRequiredValidtor control.
+        /// RotatorPauseDelayRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RotatorPauseDelayRequiredValidtor;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RotatorPauseDelayRequiredValidator;
         
         /// <summary>
         /// UseAnimationsCheckBox control.

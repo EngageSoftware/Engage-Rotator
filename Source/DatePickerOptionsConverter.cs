@@ -66,8 +66,8 @@ namespace Engage.Dnn.ContentRotator
             datePickerOptions.Add("clearStatus", opts.ClearStatus);
             datePickerOptions.Add("closeText", opts.CloseText);
             datePickerOptions.Add("closeStatus", opts.CloseStatus);
-            datePickerOptions.Add("prevText", opts.PrevText);
-            datePickerOptions.Add("prevStatus", opts.PrevStatus);
+            datePickerOptions.Add("prevText", opts.PreviousText);
+            datePickerOptions.Add("prevStatus", opts.PreviousStatus);
             datePickerOptions.Add("nextText", opts.NextText);
             datePickerOptions.Add("nextStatus", opts.NextStatus);
             datePickerOptions.Add("currentText", opts.CurrentText);

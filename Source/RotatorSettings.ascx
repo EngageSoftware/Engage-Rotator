@@ -168,7 +168,7 @@
                         <td class="contentColumn leftAlign">
                             <asp:Textbox ID="RotatorPauseDelayTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
                             <asp:CompareValidator id="RotatorPauseDelayIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="RotatorPauseDelayTextBox" Display="None" EnableClientScript="false" resourcekey="valRotatorPauseDelay" />
-                            <asp:RequiredFieldValidator id="RotatorPauseDelayRequiredValidtor" runat="server" ControlToValidate="RotatorPauseDelayTextBox" Display="None" EnableClientScript="false" resourcekey="rfvRotatorPauseDelay" />
+                            <asp:RequiredFieldValidator id="RotatorPauseDelayRequiredValidator" runat="server" ControlToValidate="RotatorPauseDelayTextBox" Display="None" EnableClientScript="false" resourcekey="rfvRotatorPauseDelay" />
                         </td>
                     </tr>
                     <tr>

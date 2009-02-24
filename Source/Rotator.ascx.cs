@@ -161,6 +161,7 @@ namespace Engage.Dnn.ContentRotator
         /// Gets the <see cref="CycleOptions"/> for this module instance.
         /// </summary>
         /// <returns>The <see cref="CycleOptions"/> for this module instance</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Does not represent object data")]
         protected CycleOptions GetCycleOptions()
         {
             Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
