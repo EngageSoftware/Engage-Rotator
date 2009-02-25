@@ -34,30 +34,33 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                ModuleActionCollection actions = new ModuleActionCollection();
-                actions.Add(
-                        this.GetNextActionID(),
-                        Localization.GetString("Add/Edit Content", this.LocalResourceFile),
-                        ModuleActionType.AddContent,
-                        string.Empty,
-                        string.Empty,
-                        this.EditUrl("Options"),
-                        false,
-                        SecurityAccessLevel.Edit,
-                        true,
-                        false);
-                actions.Add(
-                        this.GetNextActionID(),
-                        Localization.GetString("Rotator Settings", this.LocalResourceFile),
-                        ModuleActionType.AddContent,
-                        string.Empty,
-                        string.Empty,
-                        this.EditUrl("ModSettings"),
-                        false,
-                        SecurityAccessLevel.Edit,
-                        true,
-                        false);
-                return actions;
+                return new ModuleActionCollection(new ModuleAction[]
+                        {
+                                new ModuleAction(
+                                        this.GetNextActionID(),
+                                        Localization.GetString("Add/Edit Content", this.LocalResourceFile),
+                                        ModuleActionType.AddContent,
+                                        string.Empty,
+                                        string.Empty,
+                                        this.EditUrl("Options"),
+                                        string.Empty,
+                                        false,
+                                        SecurityAccessLevel.Edit,
+                                        true,
+                                        false),
+                                new ModuleAction(
+                                        this.GetNextActionID(),
+                                        Localization.GetString("Rotator Settings", this.LocalResourceFile),
+                                        ModuleActionType.AddContent,
+                                        string.Empty,
+                                        string.Empty,
+                                        this.EditUrl("ModSettings"),
+                                        string.Empty,
+                                        false,
+                                        SecurityAccessLevel.Edit,
+                                        true,
+                                        false)
+                        });
             }
         }
 
@@ -75,6 +78,27 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 base.TemplateProvider = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the <see cref="CycleOptions"/> for this module instance.
+        /// </summary>
+        /// <returns>The <see cref="CycleOptions"/> for this module instance</returns>
+        protected CycleOptions CycleOptions
+        {
+            get
+            {
+                Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
+                int transitionSpeed = this.UseAnimations ? (int)(this.AnimationDuration * 1000) : 0;
+                return new CycleOptions(
+                        this.AutoStop,
+                        this.AutoStopCount,
+                        containerHeight,
+                        this.RotatorDelay * 1000,
+                        this.PauseOnMouseOver,
+                        Effects.fade,
+                        transitionSpeed);
             }
         }
 
@@ -155,18 +179,6 @@ namespace Engage.Dnn.ContentRotator
             {
                 return Dnn.Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
             }
-        }
-
-        /// <summary>
-        /// Gets the <see cref="CycleOptions"/> for this module instance.
-        /// </summary>
-        /// <returns>The <see cref="CycleOptions"/> for this module instance</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Does not represent object data")]
-        protected CycleOptions GetCycleOptions()
-        {
-            Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
-            int transitionSpeed = this.UseAnimations ? (int)(this.AnimationDuration * 1000) : 0;
-            return new CycleOptions(this.AutoStop, this.AutoStopCount, containerHeight, this.RotatorDelay * 1000, this.PauseOnMouseOver, Effects.fade, transitionSpeed);
         }
 
         /// <summary>
