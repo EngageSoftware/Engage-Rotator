@@ -37,21 +37,6 @@ namespace Engage.Dnn.ContentRotator
         private readonly string previewImageFilename;
 
         /// <summary>
-        /// Backing field for <see cref="StylesheetFilePath"/>
-        /// </summary>
-        private readonly string stylesheetFilename;
-
-        /// <summary>
-        /// The name of the template
-        /// </summary>
-        private readonly string templateName;
-
-        /// <summary>
-        /// Backing field for <see cref="StylesheetFilePath"/>
-        /// </summary>
-        private readonly string templateFilePath;
-
-        /// <summary>
         /// Backing field for <see cref="Settings"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -61,27 +46,31 @@ namespace Engage.Dnn.ContentRotator
         /// Initializes a new instance of the <see cref="TemplateManifest"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        /// <param name="templateName">Name of the template.</param>
-        private TemplateManifest(string filePath, string templateName)
+        private TemplateManifest(string filePath)
         {
             this.settings = new Dictionary<string, string>();
-            this.templateName = templateName;
-            this.templateFilePath = Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName
-                                    + this.templateName + "/";
             try
             {
-                using (
-                        FileStream manifestStream = new FileStream(
-                                HostingEnvironment.MapPath(filePath), FileMode.Open, FileAccess.Read))
+                string templateManifestPath = HostingEnvironment.MapPath(filePath);
+                if (string.IsNullOrEmpty(templateManifestPath))
+                {
+                    return;
+                }
+
+                using (FileStream manifestStream = new FileStream(templateManifestPath, FileMode.Open, FileAccess.Read))
                 {
                     XmlReaderSettings readerSettings = new XmlReaderSettings();
                     readerSettings.IgnoreWhitespace = true;
                     readerSettings.ValidationType = ValidationType.Schema;
-                    string schemaUri =
-                            (new Uri(
-                                    HostingEnvironment.MapPath(
-                                            Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName
-                                            + "Manifest.xsd"))).AbsoluteUri;
+
+                    // TODO: Embed Manifest.xsd into assembly
+                    string manifestSchemaPath = HostingEnvironment.MapPath(Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName + "Manifest.xsd");
+                    if (string.IsNullOrEmpty(manifestSchemaPath))
+                    {
+                        return;
+                    }
+
+                    string schemaUri = new Uri(manifestSchemaPath).AbsoluteUri;
                     readerSettings.Schemas.Add(string.Empty, schemaUri);
                     using (XmlReader manifestReader = XmlReader.Create(manifestStream, readerSettings))
                     {
@@ -113,7 +102,7 @@ namespace Engage.Dnn.ContentRotator
                         if (manifestReader.IsStartElement("Stylesheet"))
                         {
                             manifestReader.ReadStartElement("Stylesheet");
-                            this.stylesheetFilename = manifestReader.ReadContentAsString();
+                            manifestReader.ReadContentAsString();
                             if (manifestReader.LocalName == "Stylesheet")
                             {
                                 // needed in case element is self-closing
@@ -205,20 +194,6 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets the stylesheet file path.
-        /// </summary>
-        /// <value>The stylesheet file path.</value>
-        public string StylesheetFilePath
-        {
-            get
-            {
-                return Engage.Utility.HasValue(this.stylesheetFilename)
-                               ? this.templateFilePath + this.stylesheetFilename
-                               : string.Empty;
-            }
-        }
-
-        /// <summary>
         /// Creates a representation of the supplied template
         /// </summary>
         /// <param name="templateName">The name of the template</param>
@@ -227,11 +202,8 @@ namespace Engage.Dnn.ContentRotator
         /// <exception cref="XmlSchemaValidationException">If the file is not in a valid format</exception>
         public static TemplateManifest CreateTemplateManifest(string templateName)
         {
-            return
-                    new TemplateManifest(
-                            Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName + templateName
-                            + "/Manifest.xml",
-                            templateName);
+            return new TemplateManifest(
+                Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName + templateName + "/Manifest.xml");
         }
     }
 }

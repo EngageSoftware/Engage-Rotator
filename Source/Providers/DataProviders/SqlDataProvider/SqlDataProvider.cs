@@ -199,21 +199,6 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Executes a SQL stored procedure, returning the results as a <see cref="DataSet"/>.
-        /// </summary>
-        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "GetContentItems" is translated to "dnn_EngageRotator_spGetContentItems."</param>
-        /// <param name="parameters">The parameters for this query.</param>
-        /// <returns>A <see cref="DataSet"/> with the results of the stored procedure call</returns>
-        private DataSet ExecuteDataset(string storedProcedureName, params SqlParameter[] parameters)
-        {
-            return SqlHelper.ExecuteDataset(
-                this.connectionString,
-                CommandType.StoredProcedure,
-                this.NamePrefix + "sp" + storedProcedureName,
-                parameters);
-        }
-
-        /// <summary>
         /// Executes a SQL stored procedure, returning the results as a <see cref="SqlDataReader"/>.
         /// </summary>
         /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "GetGetContentItem" is translated to "dnn_EngageRotator_spGetContentItem."</param>
