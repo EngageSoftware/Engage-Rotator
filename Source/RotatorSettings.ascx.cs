@@ -162,6 +162,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating the additional delay (in seconds) for the first transition (hint: can be negative).
+        /// </summary>
+        /// <value>A value indicating the additional delay (in seconds) for the first transition (hint: can be negative)</value>
+        private decimal InitialDelay
+        {
+            get
+            {
+                return Dnn.Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
+            }
+        }
+
+        /// <summary>
         /// Gets the setting for the display mode of the position thumbnail.
         /// </summary>
         /// <value>The position thumbnail display mode.</value>
@@ -390,6 +402,56 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Converts <paramref name="valueText"/> from <see cref="CultureInfo.CurrentCulture"/> to <see cref="CultureInfo.InvariantCulture"/>.
+        /// </summary>
+        /// <param name="valueText">The text representing a <see cref="decimal"/> value in the <see cref="CultureInfo.CurrentCulture"/>.</param>
+        /// <returns><paramref name="valueText"/> represented in the <see cref="CultureInfo.InvariantCulture"/></returns>
+        private static string ConvertCurrentCultureDecimalToInvariantCulture(string valueText)
+        {
+            decimal value;
+            if (!decimal.TryParse(valueText, NumberStyles.Number, CultureInfo.CurrentCulture, out value))
+            {
+                value = default(decimal);
+            }
+
+            return value.ToString(CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Converts <paramref name="valueText"/> from <see cref="CultureInfo.CurrentCulture"/> to <see cref="CultureInfo.InvariantCulture"/>.
+        /// </summary>
+        /// <param name="valueText">The text representing an <see cref="int"/> value in the <see cref="CultureInfo.CurrentCulture"/>.</param>
+        /// <returns><paramref name="valueText"/> represented in the <see cref="CultureInfo.InvariantCulture"/></returns>
+        private static string ConvertCurrentCultureIntegerToInvariantCulture(string valueText)
+        {
+            return ConvertCurrentCultureIntegerToInvariantCulture(valueText, default(int));
+        }
+
+        /// <summary>
+        /// Converts <paramref name="valueText"/> from <see cref="CultureInfo.CurrentCulture"/> to <see cref="CultureInfo.InvariantCulture"/>.
+        /// </summary>
+        /// <param name="valueText">The text representing an <see cref="int"/> value in the <see cref="CultureInfo.CurrentCulture"/>.</param>
+        /// <param name="defaultValue">The value to use if <paramref cref="valueText"/> is not an <see cref="int"/> value.</param>
+        /// <returns>
+        /// <paramref name="valueText"/> represented in the <see cref="CultureInfo.InvariantCulture"/>
+        /// </returns>
+        private static string ConvertCurrentCultureIntegerToInvariantCulture(string valueText, int? defaultValue)
+        {
+            int value;
+            if (!int.TryParse(valueText, NumberStyles.Integer, CultureInfo.CurrentCulture, out value))
+            {
+                if (!defaultValue.HasValue)
+                {
+                    return string.Empty;
+                }
+
+                value = defaultValue.Value;
+            }
+
+            return value.ToString(CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
         /// Handles the Load event of the Page control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -445,6 +507,7 @@ namespace Engage.Dnn.ContentRotator
 
                     this.ContainerResizeCheckBox.Checked = this.ContainerResize;
                     this.ContinuousCheckBox.Checked = this.Continuous;
+                    this.InitialDelayTextBox.Text = this.InitialDelay.ToString(CultureInfo.CurrentCulture);
 
                     this.TemplatesDropDownList.SelectedValue = this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
                     this.FillTemplateTab();
@@ -519,18 +582,18 @@ namespace Engage.Dnn.ContentRotator
             if (this.Page.IsValid)
             {
                 ModuleController modules = new ModuleController();
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorWidth", this.RotatorWidthTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorHeight", this.RotatorHeightTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentWidth", this.ContentWidthTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeight", this.ContentHeightTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailWidth", this.ThumbnailWidthTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailHeight", this.ThumbnailHeightTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailWidth", this.PositionThumbnailWidthTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailHeight", this.PositionThumbnailHeightTextBox.Text);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorWidth", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorWidthTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorHeight", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorHeightTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentWidth", ConvertCurrentCultureIntegerToInvariantCulture(this.ContentWidthTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeight", ConvertCurrentCultureIntegerToInvariantCulture(this.ContentHeightTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailWidth", ConvertCurrentCultureIntegerToInvariantCulture(this.ThumbnailWidthTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ThumbnailHeight", ConvertCurrentCultureIntegerToInvariantCulture(this.ThumbnailHeightTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailWidth", ConvertCurrentCultureIntegerToInvariantCulture(this.PositionThumbnailWidthTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailHeight", ConvertCurrentCultureIntegerToInvariantCulture(this.PositionThumbnailHeightTextBox.Text, null));
 
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", this.RotatorDelayTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorPauseDelay", this.RotatorPauseDelayTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", this.AnimationDurationTextBox.Text);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorDelayTextBox.Text));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorPauseDelay", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorPauseDelayTextBox.Text));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", ConvertCurrentCultureDecimalToInvariantCulture(this.AnimationDurationTextBox.Text));
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ControlsTitleDisplayMode", this.PositionTitleDisplayRadioButtonList.SelectedValue);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContentTitleDisplayMode", this.ContentTitleDisplayRadioButtonList.SelectedValue);
@@ -545,6 +608,7 @@ namespace Engage.Dnn.ContentRotator
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "Continuous", this.ContinuousCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "InitialDelay", ConvertCurrentCultureDecimalToInvariantCulture(this.InitialDelayTextBox.Text));
                 this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
             }
         }

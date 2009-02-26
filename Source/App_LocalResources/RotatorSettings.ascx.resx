@@ -310,7 +310,7 @@
     <value>Rotator Pause Delay is required</value>
   </data>
   <data name="valAnimationDuration.Text" xml:space="preserve">
-    <value>Animation Duration must be an number</value>
+    <value>Animation Duration must be a number</value>
   </data>
   <data name="valAnimationFramesPerSecond.Text" xml:space="preserve">
     <value>Animation Frames Per Second must be an integer</value>
@@ -461,5 +461,17 @@
   </data>
   <data name="lblContinuous.Text" xml:space="preserve">
     <value>Continuous Rotation</value>
+  </data>
+  <data name="lblContentHeader.Text" xml:space="preserve">
+    <value>Content Settings&lt;hr/&gt;</value>
+  </data>
+  <data name="lblInitialDelay.Help" xml:space="preserve">
+    <value>Choose the additional delay for the first transition.  This number can also be negative to have the initial item transition more quickly than the rest.</value>
+  </data>
+  <data name="lblInitialDelay.Text" xml:space="preserve">
+    <value>Additional Initial Delay</value>
+  </data>
+  <data name="valInitialDelay.Text" xml:space="preserve">
+    <value>Initial Delay must be a number</value>
   </data>
 </root>

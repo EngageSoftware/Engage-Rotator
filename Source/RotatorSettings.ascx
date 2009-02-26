@@ -208,6 +208,13 @@
                             <asp:CheckBox ID="ContinuousCheckBox" runat="server" />
                         </td>
                     </tr>
+                    <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblInitialDelay" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:TextBox ID="InitialDelayTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
+                            <asp:CompareValidator id="InitialDelayIntegerValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="valInitialDelay"/>
+                        </td>
+                    </tr>
                 </table>
             </ContentTemplate>
             <Triggers><asp:AsyncPostBackTrigger ControlID="SubmitButton" /></Triggers>

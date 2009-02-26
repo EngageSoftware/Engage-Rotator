@@ -43,7 +43,7 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>Backing field for <see cref="InitialDelay"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int initialDelay;
+        private decimal initialDelay;
 
         /// <summary>Backing field for <see cref="ManuallyTriggeredTransitionSpeed"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -121,12 +121,13 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="containerResize">if set to <c>true</c> automatically resize the container to fit the largest <see cref="ContentItem"/>.</param>
         /// <param name="containerHeight">Height of the container.</param>
         /// <param name="continuous">if set to <c>true</c> start the next transition immediately after the current one completes.</param>
+        /// <param name="initialDelay">The additional delay (in ms) for the first transition (hint: can be negative).</param>
         /// <param name="millisecondsBetweenTransitions">The milliseconds between transitions.</param>
         /// <param name="pauseOnHover">if set to <c>true</c> pause rotation when the mouse is over the content.</param>
         /// <param name="transitionEffects">The transition effects.</param>
         /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, decimal initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
@@ -138,6 +139,7 @@ namespace Engage.Dnn.ContentRotator
             this.containerResize = containerResize;
             this.containerHeight = containerHeight;
             this.continuous = continuous;
+            this.initialDelay = initialDelay;
             this.millisecondsBetweenTransitions = millisecondsBetweenTransitions;
             this.pauseOnHover = pauseOnHover;
             this.transitionEffects = transitionEffects;
@@ -237,7 +239,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>Gets or sets a value indicating the additional delay (in ms) for the first transition (hint: can be negative)</summary>
-        public int InitialDelay
+        public decimal InitialDelay
         {
             [DebuggerStepThrough]
             get
