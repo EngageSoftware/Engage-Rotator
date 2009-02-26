@@ -57,9 +57,9 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string nextButton;
 
-        /// <summary>Backing field for <see cref="Nowrap"/></summary>
+        /// <summary>Backing field for <see cref="NoWrap"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool nowrap;
+        private bool noWrap;
 
         /// <summary>Backing field for <see cref="PagerContainer"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -112,6 +112,10 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>Backing field for <see cref="TransitionSpeed"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int transitionSpeed = 1000;
+
+        /// <summary>Backing field for <see cref="Reverse"/></summary>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private bool reverse;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CycleOptions"/> class.
@@ -302,20 +306,19 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets a value indicating whether to prevent slideshow from wrapping</summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Nowrap", Justification = "Refers to the CSS property 'nowrap'")]
-        public bool Nowrap
+        /// <summary>Gets or sets a value indicating whether to prevent slideshow from wrapping, i.e. start again after going once through the <see cref="ContentItem"/>s</summary>
+        public bool NoWrap
         {
             [DebuggerStepThrough]
             get
             {
-                return this.nowrap;
+                return this.noWrap;
             }
 
             [DebuggerStepThrough]
             set
             {
-                this.nowrap = value;
+                this.noWrap = value;
             }
         }
 
@@ -524,6 +527,24 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 this.transitionSpeed = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to cause animations to transition in reverse.
+        /// </summary>
+        public bool Reverse
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.reverse;
+            }
+
+            [DebuggerStepThrough]
+            set
+            {
+                this.reverse = value;
             }
         }
 
