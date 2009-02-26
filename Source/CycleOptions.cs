@@ -120,12 +120,13 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="autoStopCount">The number of transitions after which rotation stops if <paramref name="autoStop"/> is <c>true</c>.</param>
         /// <param name="containerResize">if set to <c>true</c> automatically resize the container to fit the largest <see cref="ContentItem"/>.</param>
         /// <param name="containerHeight">Height of the container.</param>
+        /// <param name="continuous">if set to <c>true</c> start the next transition immediately after the current one completes.</param>
         /// <param name="millisecondsBetweenTransitions">The milliseconds between transitions.</param>
         /// <param name="pauseOnHover">if set to <c>true</c> pause rotation when the mouse is over the content.</param>
         /// <param name="transitionEffects">The transition effects.</param>
         /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
@@ -136,6 +137,7 @@ namespace Engage.Dnn.ContentRotator
             this.autoStopCount = autoStop ? autoStopCount.Value : 0;
             this.containerResize = containerResize;
             this.containerHeight = containerHeight;
+            this.continuous = continuous;
             this.millisecondsBetweenTransitions = millisecondsBetweenTransitions;
             this.pauseOnHover = pauseOnHover;
             this.transitionEffects = transitionEffects;

@@ -66,6 +66,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating whether to start the next transition immediately after the current one completes.
+        /// </summary>
+        /// <value><c>true</c> if the option to start the next transition immediately after the current one completes is set; otherwise, <c>false</c>.</value>
+        private bool Continuous
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "Continuous", false);
+            }
+        }
+
+        /// <summary>
         /// Gets the setting for the display mode of the main content.
         /// </summary>
         /// <value>The content display mode.</value>
@@ -432,6 +444,7 @@ namespace Engage.Dnn.ContentRotator
                     this.ProcessAnimationsVisiblity();
 
                     this.ContainerResizeCheckBox.Checked = this.ContainerResize;
+                    this.ContinuousCheckBox.Checked = this.Continuous;
 
                     this.TemplatesDropDownList.SelectedValue = this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
                     this.FillTemplateTab();
@@ -531,6 +544,7 @@ namespace Engage.Dnn.ContentRotator
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "Continuous", this.ContinuousCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
             }
         }

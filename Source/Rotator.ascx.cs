@@ -95,7 +95,8 @@ namespace Engage.Dnn.ContentRotator
                         this.AutoStop,
                         this.AutoStopCount, 
                         this.ContainerResize,
-                        containerHeight,
+                        containerHeight, 
+                        this.Continuous,
                         this.RotatorDelay * 1000,
                         this.PauseOnMouseOver,
                         Effects.fade,
@@ -147,6 +148,18 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to start the next transition immediately after the current one completes.
+        /// </summary>
+        /// <value><c>true</c> if the option to start the next transition immediately after the current one completes is set; otherwise, <c>false</c>.</value>
+        private bool Continuous
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "Continuous", false);
             }
         }
 

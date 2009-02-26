@@ -202,6 +202,12 @@
                             <asp:CheckBox ID="ContainerResizeCheckBox" runat="server" />
                         </td>
                     </tr>
+                    <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContinuous" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:CheckBox ID="ContinuousCheckBox" runat="server" />
+                        </td>
+                    </tr>
                 </table>
             </ContentTemplate>
             <Triggers><asp:AsyncPostBackTrigger ControlID="SubmitButton" /></Triggers>

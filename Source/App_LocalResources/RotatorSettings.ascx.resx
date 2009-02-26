@@ -382,7 +382,7 @@
     <value>Rotation</value>
   </data>
   <data name="lblStyleTemplates.Help" xml:space="preserve">
-    <value>You can choose to use an existing template style for the rotator, which will determine how the various parts of the rotator are layed out and styled.  Click the Apply button to select the current template.  This will apply all settings associated with the template to be applied.</value>
+    <value>You can choose to use an existing template style for the rotator, which will determine how the various parts of the rotator are laid out and styled.  Click the Apply button to select the current template.  This will apply all settings associated with the template to be applied.</value>
   </data>
   <data name="lblStyleTemplates.Text" xml:space="preserve">
     <value>Style Template</value>
@@ -455,5 +455,11 @@
   </data>
   <data name="lblContainerResize.Text" xml:space="preserve">
     <value>Auto Resize Container</value>
+  </data>
+  <data name="lblContinuous.Help" xml:space="preserve">
+    <value>Check to make rotation to occur continuously, i.e. the next transition should start as soon as the current transition ends.</value>
+  </data>
+  <data name="lblContinuous.Text" xml:space="preserve">
+    <value>Continuous Rotation</value>
   </data>
 </root>
