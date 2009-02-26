@@ -347,6 +347,15 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator AnimationDurationRequiredValidator;
         
         /// <summary>
+        /// ContainerResizeCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ContainerResizeCheckBox;
+        
+        /// <summary>
         /// ManifestValidationErrorsPanel control.
         /// </summary>
         /// <remarks>

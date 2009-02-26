@@ -54,6 +54,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating whether to automatically resize the container to fit the largest <see cref="ContentItem"/>.
+        /// </summary>
+        /// <value><c>true</c> if the option to automatically resize the container to fit the largest <see cref="ContentItem"/> is set; otherwise, <c>false</c>.</value>
+        private bool ContainerResize
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
+            }
+        }
+
+        /// <summary>
         /// Gets the setting for the display mode of the main content.
         /// </summary>
         /// <value>The content display mode.</value>
@@ -419,8 +431,9 @@ namespace Engage.Dnn.ContentRotator
                     this.PauseOnMouseOverCheckBox.Checked = this.PauseOnMouseOver;
                     this.ProcessAnimationsVisiblity();
 
-                    this.TemplatesDropDownList.SelectedValue = 
-                        this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
+                    this.ContainerResizeCheckBox.Checked = this.ContainerResize;
+
+                    this.TemplatesDropDownList.SelectedValue = this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
                     this.FillTemplateTab();
                 }
 
@@ -516,6 +529,8 @@ namespace Engage.Dnn.ContentRotator
                 modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailDisplayMode", this.PositionThumbnailDisplayRadioButtonList.SelectedValue);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "UseAnimations", this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
             }
         }

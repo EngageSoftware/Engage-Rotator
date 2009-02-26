@@ -7,7 +7,8 @@
         <li><a href="#content-settings"><asp:Label runat="server" resourcekey="Content.Header"/></a></li>
         <li><a href="#position-settings"><asp:Label runat="server" resourcekey="Position.Header"/></a></li>
         <li><a href="#rotation-settings"><asp:Label runat="server" resourcekey="Rotation.Header"/></a></li>
-        </ul>
+        <li><a href="#advanced-settings"><asp:Label runat="server" resourcekey="Advanced.Header"/></a></li>
+    </ul>
     <div id="template-settings">
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
             <ContentTemplate>
@@ -183,6 +184,22 @@
                             <asp:Textbox ID="AnimationDurationTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
                             <asp:CompareValidator id="AnimationDurationIntegerValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="AnimationDurationTextBox" Display="None" EnableClientScript="false" resourcekey="valAnimationDuration"/>
                             <asp:RequiredFieldValidator id="AnimationDurationRequiredValidator" runat="server" ControlToValidate="AnimationDurationTextBox" Display="None" EnableClientScript="false" resourcekey="rfvAnimationDuration"/>
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+            <Triggers><asp:AsyncPostBackTrigger ControlID="SubmitButton" /></Triggers>
+        </asp:UpdatePanel>
+    </div>
+    <div id="advanced-settings">
+        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+            <ContentTemplate>
+                <table class="settingsTable Normal">
+                    <tr><th colspan="2"><asp:Label resourcekey="lblAdvancedHeader" CssClass="Head" runat="server" EnableViewState="false" /></th></tr>
+                    <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContainerResize" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:CheckBox ID="ContainerResizeCheckBox" runat="server" />
                         </td>
                     </tr>
                 </table>

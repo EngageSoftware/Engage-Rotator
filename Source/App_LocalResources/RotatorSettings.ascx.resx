@@ -444,4 +444,16 @@
   <data name="valAutoStopCount.Text" xml:space="preserve">
     <value>Number of items before auto stop must be an integer</value>
   </data>
+  <data name="Advanced.Header" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="lblAdvancedHeader.Text" xml:space="preserve">
+    <value>Advanced Settings&lt;hr/&gt;</value>
+  </data>
+  <data name="lblContainerResize.Help" xml:space="preserve">
+    <value>Check to automatically resize the container to fit the largest content item</value>
+  </data>
+  <data name="lblContainerResize.Text" xml:space="preserve">
+    <value>Auto Resize Container</value>
+  </data>
 </root>
