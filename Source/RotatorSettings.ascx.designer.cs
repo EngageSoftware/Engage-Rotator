@@ -383,13 +383,13 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.TextBox InitialDelayTextBox;
         
         /// <summary>
-        /// InitialDelayIntegerValidator control.
+        /// InitialDelayDecimalValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator InitialDelayIntegerValidator;
+        protected global::System.Web.UI.WebControls.CompareValidator InitialDelayDecimalValidator;
         
         /// <summary>
         /// InitialDelayRequiredValidator control.
@@ -399,6 +399,42 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator InitialDelayRequiredValidator;
+        
+        /// <summary>
+        /// ManuallyTriggeredTransitionSpeedCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ManuallyTriggeredTransitionSpeedCheckBox;
+        
+        /// <summary>
+        /// ManuallyTriggeredTransitionSpeedTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ManuallyTriggeredTransitionSpeedTextBox;
+        
+        /// <summary>
+        /// ManuallyTriggeredTransitionSpeedDecimalValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator ManuallyTriggeredTransitionSpeedDecimalValidator;
+        
+        /// <summary>
+        /// ManuallyTriggeredTransitionSpeedRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ManuallyTriggeredTransitionSpeedRequiredValidator;
         
         /// <summary>
         /// ManifestValidationErrorsPanel control.

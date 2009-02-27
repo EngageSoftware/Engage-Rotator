@@ -477,10 +477,25 @@
   <data name="InitialDelayBegin.Text" xml:space="preserve">
     <value>Delay first content item an additional </value>
   </data>
+  <data name="lblManuallyTriggeredTransitionSpeed.Help" xml:space="preserve">
+    <value>Choose whether you would like "triggered" transitions (transitions caused by a pager or the previous or next buttons) to occur with a different speed than the automatic transitions.</value>
+  </data>
+  <data name="lblManuallyTriggeredTransitionSpeed.Text" xml:space="preserve">
+    <value>Triggered Transition Speed</value>
+  </data>
   <data name="Loading.Alt" xml:space="preserve">
     <value>Loading...</value>
   </data>
+  <data name="ManuallyTriggeredTransitionSpeedBegin.Text" xml:space="preserve">
+    <value>User triggered transitions should last </value>
+  </data>
   <data name="rfvInitialDelay.Text" xml:space="preserve">
     <value>Additional Initial Delay is required when checked</value>
+  </data>
+  <data name="rfvManuallyTriggeredTransitionSpeed.Text" xml:space="preserve">
+    <value>Triggered Transition Speed is required when checked</value>
+  </data>
+  <data name="valManuallyTriggeredTransitionSpeed.Text" xml:space="preserve">
+    <value>Triggered Transition Speed must be a number</value>
   </data>
 </root>

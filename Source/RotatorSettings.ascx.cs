@@ -174,6 +174,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating the delay (in seconds) for transitions triggered manually (through the pager or previous/next button).
+        /// </summary>
+        /// <value>A value indicating the delay (in seconds) for transitions triggered manually (through the pager or previous/next button)</value>
+        private decimal ManuallyTriggeredTransitionSpeed
+        {
+            get
+            {
+                return Dnn.Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
+            }
+        }
+
+        /// <summary>
         /// Gets the setting for the display mode of the position thumbnail.
         /// </summary>
         /// <value>The position thumbnail display mode.</value>
@@ -370,6 +382,7 @@ namespace Engage.Dnn.ContentRotator
             this.PauseOnMouseOverCheckBox.CheckedChanged += this.PauseOnMouseOverCheckBox_CheckedChanged;
             this.AutoStopCheckBox.CheckedChanged += this.AutoStopCheckBox_CheckedChanged;
             this.InitialDelayCheckBox.CheckedChanged += this.InitialDelayCheckBox_CheckedChanged;
+            this.ManuallyTriggeredTransitionSpeedCheckBox.CheckedChanged += this.ManuallyTriggeredTransitionSpeedCheckBox_CheckedChanged;
             this.UseAnimationsCheckBox.CheckedChanged += this.UseAnimationsCheckBox_CheckedChanged;
             this.TemplatesDropDownList.SelectedIndexChanged += this.TemplatesDropDownList_SelectedIndexChanged;
             this.ContentDisplayRadioButtonList.SelectedIndexChanged += this.ContentDisplayRadioButtonList_SelectedIndexChanged;
@@ -513,6 +526,10 @@ namespace Engage.Dnn.ContentRotator
                     this.InitialDelayCheckBox.Checked = this.InitialDelay != 0;
                     this.ProcessInitialDelayVisibility();
 
+                    this.ManuallyTriggeredTransitionSpeedTextBox.Text = this.ManuallyTriggeredTransitionSpeed.ToString(CultureInfo.CurrentCulture);
+                    this.ManuallyTriggeredTransitionSpeedCheckBox.Checked = this.ManuallyTriggeredTransitionSpeed != 0;
+                    this.ProcessManuallyTriggeredTransitionSpeedVisibility();
+
                     this.TemplatesDropDownList.SelectedValue = this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
                     this.FillTemplateTab();
                 }
@@ -648,6 +665,16 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Handles the CheckedChanged event of the ManuallyTriggeredTransitionSpeedCheckBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void ManuallyTriggeredTransitionSpeedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ProcessManuallyTriggeredTransitionSpeedVisibility();
+        }
+
+        /// <summary>
         /// Handles the CheckedChanged event of the UseAnimationsCheckBox control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -770,17 +797,29 @@ namespace Engage.Dnn.ContentRotator
 
             SetDisabledCssClass(this.AutoStopCountTextBox);
         }
-        
+
         /// <summary>
         /// Hides and shows controls based on whether the <see cref="InitialDelay"/> setting is selected
         /// </summary>
         private void ProcessInitialDelayVisibility()
         {
             this.InitialDelayTextBox.Enabled =
-                    this.InitialDelayIntegerValidator.Enabled =
+                    this.InitialDelayDecimalValidator.Enabled =
                     this.InitialDelayRequiredValidator.Enabled = this.InitialDelayCheckBox.Checked;
 
             SetDisabledCssClass(this.InitialDelayTextBox);
+        }
+
+        /// <summary>
+        /// Hides and shows controls based on whether the <see cref="ManuallyTriggeredTransitionSpeed"/> setting is selected
+        /// </summary>
+        private void ProcessManuallyTriggeredTransitionSpeedVisibility()
+        {
+            this.ManuallyTriggeredTransitionSpeedTextBox.Enabled =
+                    this.ManuallyTriggeredTransitionSpeedDecimalValidator.Enabled =
+                    this.ManuallyTriggeredTransitionSpeedRequiredValidator.Enabled = this.ManuallyTriggeredTransitionSpeedCheckBox.Checked;
+
+            SetDisabledCssClass(this.ManuallyTriggeredTransitionSpeedTextBox);
         }
 
         /// <summary>

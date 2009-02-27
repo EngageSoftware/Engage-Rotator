@@ -213,8 +213,16 @@
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblInitialDelay" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
                             <asp:CheckBox ID="InitialDelayCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="InitialDelayBegin.Text" /><asp:TextBox ID="InitialDelayTextBox" runat="server" CssClass="NormalTextBox inlineTextbox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="seconds.Text" />
-                            <asp:CompareValidator ID="InitialDelayIntegerValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="valInitialDelay" />
+                            <asp:CompareValidator ID="InitialDelayDecimalValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="valInitialDelay" />
                             <asp:RequiredFieldValidator ID="InitialDelayRequiredValidator" runat="server" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="rfvInitialDelay" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblManuallyTriggeredTransitionSpeed" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:CheckBox ID="ManuallyTriggeredTransitionSpeedCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="ManuallyTriggeredTransitionSpeedBegin.Text" /><asp:TextBox ID="ManuallyTriggeredTransitionSpeedTextBox" runat="server" CssClass="NormalTextBox inlineTextbox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="seconds.Text" />
+                            <asp:CompareValidator ID="ManuallyTriggeredTransitionSpeedDecimalValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="ManuallyTriggeredTransitionSpeedTextBox" Display="None" EnableClientScript="false" resourcekey="valManuallyTriggeredTransitionSpeed" />
+                            <asp:RequiredFieldValidator ID="ManuallyTriggeredTransitionSpeedRequiredValidator" runat="server" ControlToValidate="ManuallyTriggeredTransitionSpeedTextBox" Display="None" EnableClientScript="false" resourcekey="rfvManuallyTriggeredTransitionSpeed" />
                         </td>
                     </tr>
                 </table>

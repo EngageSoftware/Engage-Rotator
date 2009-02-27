@@ -125,13 +125,14 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="containerResize">if set to <c>true</c> automatically resize the container to fit the largest <see cref="ContentItem"/>.</param>
         /// <param name="containerHeight">Height of the container.</param>
         /// <param name="continuous">if set to <c>true</c> start the next transition immediately after the current one completes.</param>
-        /// <param name="initialDelay">The additional delay (in ms) for the first transition (hint: can be negative).</param>
+        /// <param name="initialDelay">The additional delay (in milliseconds) for the first transition (hint: can be negative).</param>
         /// <param name="millisecondsBetweenTransitions">The milliseconds between transitions.</param>
         /// <param name="pauseOnHover">if set to <c>true</c> pause rotation when the mouse is over the content.</param>
         /// <param name="transitionEffects">The transition effects.</param>
         /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
+        /// <param name="manuallyTriggeredTransitionSpeed">The delay (in milliseconds) for transitions triggered manually (through the pager or previous/next button)</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
@@ -148,6 +149,7 @@ namespace Engage.Dnn.ContentRotator
             this.pauseOnHover = pauseOnHover;
             this.transitionEffects = transitionEffects;
             this.transitionSpeed = transitionSpeed;
+            this.manuallyTriggeredTransitionSpeed = manuallyTriggeredTransitionSpeed;
         }
 
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>

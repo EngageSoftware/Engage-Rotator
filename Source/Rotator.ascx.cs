@@ -106,7 +106,8 @@ namespace Engage.Dnn.ContentRotator
                         this.RotatorDelay * MillisecondsPerSecond,
                         this.PauseOnMouseOver,
                         Effects.fade,
-                        transitionSpeed);
+                        transitionSpeed, 
+                        (int)Math.Round(this.ManuallyTriggeredTransitionSpeed * MillisecondsPerSecond));
             }
         }
 
@@ -178,6 +179,18 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating the delay (in seconds) for transitions triggered manually (through the pager or previous/next button).
+        /// </summary>
+        /// <value>A value indicating the delay (in seconds) for transitions triggered manually (through the pager or previous/next button)</value>
+        private decimal ManuallyTriggeredTransitionSpeed
+        {
+            get
+            {
+                return Dnn.Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
             }
         }
 
