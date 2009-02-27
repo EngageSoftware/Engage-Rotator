@@ -213,7 +213,7 @@
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblInitialDelay" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
                             <asp:CheckBox ID="InitialDelayCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="InitialDelayBegin.Text" /><asp:TextBox ID="InitialDelayTextBox" runat="server" CssClass="NormalTextBox inlineTextbox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="seconds.Text" />
-                            <asp:CompareValidator ID="InitialDelayIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="AutoStopCountTextBox" Display="None" EnableClientScript="false" resourcekey="valInitialDelay" />
+                            <asp:CompareValidator ID="InitialDelayIntegerValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="valInitialDelay" />
                             <asp:RequiredFieldValidator ID="InitialDelayRequiredValidator" runat="server" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="rfvInitialDelay" />
                         </td>
                     </tr>

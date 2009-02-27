@@ -95,14 +95,14 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
-                int transitionSpeed = this.UseAnimations ? (int)(this.AnimationDuration * MillisecondsPerSecond) : 0;
+                int transitionSpeed = this.UseAnimations ? (int)Math.Round(this.AnimationDuration * MillisecondsPerSecond) : 0;
                 return new CycleOptions(
                         this.AutoStop,
                         this.AutoStopCount, 
                         this.ContainerResize,
                         containerHeight, 
                         this.Continuous, 
-                        this.InitialDelay * MillisecondsPerSecond,
+                        (int)Math.Round(this.InitialDelay * MillisecondsPerSecond),
                         this.RotatorDelay * MillisecondsPerSecond,
                         this.PauseOnMouseOver,
                         Effects.fade,

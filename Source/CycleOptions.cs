@@ -131,7 +131,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="transitionEffects">The transition effects.</param>
         /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, decimal initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
