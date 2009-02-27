@@ -388,7 +388,7 @@
     <value>Style Template</value>
   </data>
   <data name="lblTemplatesHeader.Text" xml:space="preserve">
-    <value>Templates</value>
+    <value>Template Settings&lt;hr/&gt;</value>
   </data>
   <data name="Templates.Header" xml:space="preserve">
     <value>Templates</value>
@@ -439,7 +439,7 @@
     <value>Auto Stop</value>
   </data>
   <data name="rfvAutoStopCount.Text" xml:space="preserve">
-    <value>Number of items before auto stop is required</value>
+    <value>Number of items before auto stop is required when checked</value>
   </data>
   <data name="valAutoStopCount.Text" xml:space="preserve">
     <value>Number of items before auto stop must be an integer</value>
@@ -472,6 +472,15 @@
     <value>Additional Initial Delay</value>
   </data>
   <data name="valInitialDelay.Text" xml:space="preserve">
-    <value>Initial Delay must be a number</value>
+    <value>Additional Initial Delay must be a number</value>
+  </data>
+  <data name="InitialDelayBegin.Text" xml:space="preserve">
+    <value>Delay first content item an additional </value>
+  </data>
+  <data name="Loading.Alt" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="rfvInitialDelay.Text" xml:space="preserve">
+    <value>Additional Initial Delay is required when checked</value>
   </data>
 </root>

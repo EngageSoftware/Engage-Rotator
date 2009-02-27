@@ -369,6 +369,7 @@ namespace Engage.Dnn.ContentRotator
             this.SubmitButton.Click += this.SubmitButton_Click;
             this.PauseOnMouseOverCheckBox.CheckedChanged += this.PauseOnMouseOverCheckBox_CheckedChanged;
             this.AutoStopCheckBox.CheckedChanged += this.AutoStopCheckBox_CheckedChanged;
+            this.InitialDelayCheckBox.CheckedChanged += this.InitialDelayCheckBox_CheckedChanged;
             this.UseAnimationsCheckBox.CheckedChanged += this.UseAnimationsCheckBox_CheckedChanged;
             this.TemplatesDropDownList.SelectedIndexChanged += this.TemplatesDropDownList_SelectedIndexChanged;
             this.ContentDisplayRadioButtonList.SelectedIndexChanged += this.ContentDisplayRadioButtonList_SelectedIndexChanged;
@@ -507,7 +508,10 @@ namespace Engage.Dnn.ContentRotator
 
                     this.ContainerResizeCheckBox.Checked = this.ContainerResize;
                     this.ContinuousCheckBox.Checked = this.Continuous;
+
                     this.InitialDelayTextBox.Text = this.InitialDelay.ToString(CultureInfo.CurrentCulture);
+                    this.InitialDelayCheckBox.Checked = this.InitialDelay != 0;
+                    this.ProcessInitialDelayVisibility();
 
                     this.TemplatesDropDownList.SelectedValue = this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
                     this.FillTemplateTab();
@@ -608,7 +612,7 @@ namespace Engage.Dnn.ContentRotator
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "Continuous", this.ContinuousCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "InitialDelay", ConvertCurrentCultureDecimalToInvariantCulture(this.InitialDelayTextBox.Text));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "InitialDelay", this.InitialDelayCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.InitialDelayTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
                 this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
             }
         }
@@ -631,6 +635,16 @@ namespace Engage.Dnn.ContentRotator
         private void AutoStopCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             this.ProcessAutoStopVisibility();
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of the InitialDelayCheckBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void InitialDelayCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ProcessInitialDelayVisibility();
         }
 
         /// <summary>
@@ -746,7 +760,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Hides and shows controls based on whether the AutoStop setting is selected
+        /// Hides and shows controls based on whether the <see cref="AutoStop"/> setting is selected
         /// </summary>
         private void ProcessAutoStopVisibility()
         {
@@ -756,9 +770,21 @@ namespace Engage.Dnn.ContentRotator
 
             SetDisabledCssClass(this.AutoStopCountTextBox);
         }
+        
+        /// <summary>
+        /// Hides and shows controls based on whether the <see cref="InitialDelay"/> setting is selected
+        /// </summary>
+        private void ProcessInitialDelayVisibility()
+        {
+            this.InitialDelayTextBox.Enabled =
+                    this.InitialDelayIntegerValidator.Enabled =
+                    this.InitialDelayRequiredValidator.Enabled = this.InitialDelayCheckBox.Checked;
+
+            SetDisabledCssClass(this.InitialDelayTextBox);
+        }
 
         /// <summary>
-        /// Hides and shows controls based on whether the Use Animations setting is selected
+        /// Hides and shows controls based on whether the <see cref="UseAnimations"/> setting is selected
         /// </summary>
         private void ProcessAnimationsVisiblity()
         {

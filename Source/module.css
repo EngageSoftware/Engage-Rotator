@@ -95,6 +95,9 @@ wbr:after { content: "\00200B" }
 	
 .RotatorOptions .rotatorReadMoreLinkWrapper{border-left: 1px #8fb9d0 solid; border-right: 1px #8fb9d0 solid;}
 
+/****************** Rotator Settings ******************/
+.SettingsContainer .inlineTextbox { text-align:right; width:4ex; }
+
 
 /*
  * jQuery UI screen structure and presentation

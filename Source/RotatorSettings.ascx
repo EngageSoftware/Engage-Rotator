@@ -1,7 +1,8 @@
+<%@ Import Namespace="DotNetNuke.Services.Localization"%>
 <%@ Control Language="c#" AutoEventWireup="false" Codebehind="RotatorSettings.ascx.cs" Inherits="Engage.Dnn.ContentRotator.RotatorSettings" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/labelControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/URLControl.ascx" %>
-<div class="TabContainer">
+<div class="SettingsContainer">
     <ul>
         <li><a href="#template-settings"><asp:Label runat="server" resourcekey="Templates.Header"/></a></li>
         <li><a href="#content-settings"><asp:Label runat="server" resourcekey="Content.Header"/></a></li>
@@ -153,7 +154,7 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblAutoStop" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:CheckBox ID="AutoStopCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="AutoStopBegin.Text" /><asp:TextBox ID="AutoStopCountTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="AutoStopEnd.Text" />
+                            <asp:CheckBox ID="AutoStopCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="AutoStopBegin.Text" /><asp:TextBox ID="AutoStopCountTextBox" runat="server" CssClass="NormalTextBox inlineTextbox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="AutoStopEnd.Text" />
                             <asp:CompareValidator ID="AutoStopCountIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="AutoStopCountTextBox" Display="None" EnableClientScript="false" resourcekey="valAutoStopCount" />
                             <asp:RequiredFieldValidator ID="AutoStopCountRequiredValidator" runat="server" ControlToValidate="AutoStopCountTextBox" Display="None" EnableClientScript="false" resourcekey="rfvAutoStopCount" />
                         </td>
@@ -211,8 +212,9 @@
                     <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblInitialDelay" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
-                            <asp:TextBox ID="InitialDelayTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
-                            <asp:CompareValidator id="InitialDelayIntegerValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="valInitialDelay"/>
+                            <asp:CheckBox ID="InitialDelayCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="InitialDelayBegin.Text" /><asp:TextBox ID="InitialDelayTextBox" runat="server" CssClass="NormalTextBox inlineTextbox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="seconds.Text" />
+                            <asp:CompareValidator ID="InitialDelayIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="AutoStopCountTextBox" Display="None" EnableClientScript="false" resourcekey="valInitialDelay" />
+                            <asp:RequiredFieldValidator ID="InitialDelayRequiredValidator" runat="server" ControlToValidate="InitialDelayTextBox" Display="None" EnableClientScript="false" resourcekey="rfvInitialDelay" />
                         </td>
                     </tr>
                 </table>
@@ -221,7 +223,11 @@
         </asp:UpdatePanel>
     </div>
 </div>
-
+<asp:UpdateProgress runat="server">
+    <ProgressTemplate>
+        <img src='<%=this.ResolveUrl("~/images/progressbar.gif") %>' alt='<%=Localization.GetString("Loading.Alt", this.LocalResourceFile) %>' />
+    </ProgressTemplate>
+</asp:UpdateProgress>
 <div style="clear:both;">
     <asp:UpdatePanel runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -240,5 +246,5 @@
     <asp:Button ID="CancelButton" runat="server" resourcekey="btnCancel" CausesValidation="false" EnableViewState="false" />
 </div>
 <script type="text/javascript">
-    jQuery(function() { jQuery('.TabContainer').tabs(); });
+    jQuery(function() { jQuery('.SettingsContainer').tabs(); });
 </script>
