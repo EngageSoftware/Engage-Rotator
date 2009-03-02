@@ -132,8 +132,9 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
         /// <param name="manuallyTriggeredTransitionSpeed">The delay (in milliseconds) for transitions triggered manually (through the pager or previous/next button)</param>
         /// <param name="loop">if set to <c>true</c> allow slideshow to loop, i.e. start again after going once through the <see cref="ContentItem"/>s.</param>
+        /// <param name="randomOrder">if set to <c>true</c> display items in a random order.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
@@ -152,6 +153,7 @@ namespace Engage.Dnn.ContentRotator
             this.transitionSpeed = transitionSpeed;
             this.manuallyTriggeredTransitionSpeed = manuallyTriggeredTransitionSpeed;
             this.loop = loop;
+            this.randomOrder = randomOrder;
         }
 
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>

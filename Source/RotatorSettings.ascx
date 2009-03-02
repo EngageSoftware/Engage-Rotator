@@ -216,6 +216,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblRandomOrder" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:CheckBox ID="RandomOrderCheckBox" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblInitialDelay" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
                             <asp:CheckBox ID="InitialDelayCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="InitialDelayBegin.Text" /><asp:TextBox ID="InitialDelayTextBox" runat="server" CssClass="NormalTextBox inlineTextbox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="seconds.Text" />

@@ -504,4 +504,10 @@
   <data name="lblLoop.Text" xml:space="preserve">
     <value>Loop</value>
   </data>
+  <data name="lblRandomOrder.Help" xml:space="preserve">
+    <value>Choose whether the display content items in a random order.  Otherwise items are sorted first by the items' Sort Order field, then their Start Date, and finally, if those two fields are the same, by their Title</value>
+  </data>
+  <data name="lblRandomOrder.Text" xml:space="preserve">
+    <value>Random Order</value>
+  </data>
 </root>

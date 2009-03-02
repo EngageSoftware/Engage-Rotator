@@ -103,7 +103,8 @@ namespace Engage.Dnn.ContentRotator
                         Effects.fade,
                         transitionSpeed, 
                         ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed), 
-                        this.Loop);
+                        this.Loop, 
+                        this.RandomOrder);
             }
         }
 
@@ -199,6 +200,18 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetBoolSetting(this.Settings, "Loop", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to display items in a random order.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to display items in a random order; otherwise, <c>false</c>.</value>
+        private bool RandomOrder
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "RandomOrder", false);
             }
         }
 
