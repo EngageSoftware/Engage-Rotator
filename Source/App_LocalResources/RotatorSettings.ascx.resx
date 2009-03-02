@@ -498,4 +498,10 @@
   <data name="valManuallyTriggeredTransitionSpeed.Text" xml:space="preserve">
     <value>Triggered Transition Speed must be a number</value>
   </data>
+  <data name="lblLoop.Help" xml:space="preserve">
+    <value>Choose whether to continue the rotation indefinitely, or to just display each item once</value>
+  </data>
+  <data name="lblLoop.Text" xml:space="preserve">
+    <value>Loop</value>
+  </data>
 </root>

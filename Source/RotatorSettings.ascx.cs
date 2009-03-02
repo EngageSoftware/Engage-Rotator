@@ -186,6 +186,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating whether to loop rotation, or just display each item once.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to only show each item once; otherwise, <c>false</c>.</value>
+        private bool Loop
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "Loop", true);
+            }
+        }
+
+        /// <summary>
         /// Gets the setting for the display mode of the position thumbnail.
         /// </summary>
         /// <value>The position thumbnail display mode.</value>
@@ -521,6 +533,7 @@ namespace Engage.Dnn.ContentRotator
 
                     this.ContainerResizeCheckBox.Checked = this.ContainerResize;
                     this.ContinuousCheckBox.Checked = this.Continuous;
+                    this.LoopCheckBox.Checked = this.Loop;
 
                     this.InitialDelayTextBox.Text = this.InitialDelay.ToString(CultureInfo.CurrentCulture);
                     this.InitialDelayCheckBox.Checked = this.InitialDelay != 0;
@@ -629,6 +642,7 @@ namespace Engage.Dnn.ContentRotator
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "Continuous", this.ContinuousCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "Loop", this.LoopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "InitialDelay", this.InitialDelayCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.InitialDelayTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
                 this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
             }

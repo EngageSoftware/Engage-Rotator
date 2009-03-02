@@ -28,11 +28,6 @@ namespace Engage.Dnn.ContentRotator
     public partial class Rotator : ModuleBase, IActionable
     {
         /// <summary>
-        /// The number of milliseconds in a seconds
-        /// </summary>
-        private const int MillisecondsPerSecond = 1000;
-
-        /// <summary>
         /// Gets ModuleActions.
         /// </summary>
         public ModuleActionCollection ModuleActions
@@ -95,19 +90,20 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
-                int transitionSpeed = this.UseAnimations ? (int)Math.Round(this.AnimationDuration * MillisecondsPerSecond) : 0;
+                int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 0;
                 return new CycleOptions(
                         this.AutoStop,
                         this.AutoStopCount, 
                         this.ContainerResize,
                         containerHeight, 
-                        this.Continuous, 
-                        (int)Math.Round(this.InitialDelay * MillisecondsPerSecond),
-                        this.RotatorDelay * MillisecondsPerSecond,
+                        this.Continuous,
+                        ConvertSecondsToMilliseconds(this.InitialDelay),
+                        ConvertSecondsToMilliseconds(this.RotatorDelay),
                         this.PauseOnMouseOver,
                         Effects.fade,
                         transitionSpeed, 
-                        (int)Math.Round(this.ManuallyTriggeredTransitionSpeed * MillisecondsPerSecond));
+                        ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed), 
+                        this.Loop);
             }
         }
 
@@ -195,6 +191,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating whether to loop rotation, or just display each item once.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to only show each item once; otherwise, <c>false</c>.</value>
+        private bool Loop
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "Loop", true);
+            }
+        }
+
+        /// <summary>
         /// Gets a value indicating whether PauseOnMouseOver.
         /// </summary>
         private bool PauseOnMouseOver
@@ -257,6 +265,17 @@ namespace Engage.Dnn.ContentRotator
                     string.Empty,
                     new ItemPagingState(),
                     ProcessTags);
+        }
+
+        /// <summary>
+        /// Converts the given number of seconds into milliseconds.
+        /// </summary>
+        /// <param name="seconds">The value in seconds.</param>
+        /// <returns>The number of milliseconds represented by <paramref name="seconds"/></returns>
+        private static int ConvertSecondsToMilliseconds(decimal seconds)
+        {
+            const int MillisecondsPerSecond = 1000;
+            return (int)Math.Round(seconds * MillisecondsPerSecond);
         }
 
         /// <summary>

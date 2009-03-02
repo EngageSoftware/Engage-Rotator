@@ -57,9 +57,9 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string nextButton;
 
-        /// <summary>Backing field for <see cref="NoWrap"/></summary>
+        /// <summary>Backing field for <see cref="Loop"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool noWrap;
+        private bool loop;
 
         /// <summary>Backing field for <see cref="PagerContainer"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -131,8 +131,9 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="transitionEffects">The transition effects.</param>
         /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
         /// <param name="manuallyTriggeredTransitionSpeed">The delay (in milliseconds) for transitions triggered manually (through the pager or previous/next button)</param>
+        /// <param name="loop">if set to <c>true</c> allow slideshow to loop, i.e. start again after going once through the <see cref="ContentItem"/>s.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
@@ -150,6 +151,7 @@ namespace Engage.Dnn.ContentRotator
             this.transitionEffects = transitionEffects;
             this.transitionSpeed = transitionSpeed;
             this.manuallyTriggeredTransitionSpeed = manuallyTriggeredTransitionSpeed;
+            this.loop = loop;
         }
 
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>
@@ -308,19 +310,19 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets a value indicating whether to prevent slideshow from wrapping, i.e. start again after going once through the <see cref="ContentItem"/>s</summary>
-        public bool NoWrap
+        /// <summary>Gets or sets a value indicating whether to allow slideshow to loop, i.e. start again after going once through the <see cref="ContentItem"/>s</summary>
+        public bool Loop
         {
             [DebuggerStepThrough]
             get
             {
-                return this.noWrap;
+                return this.loop;
             }
 
             [DebuggerStepThrough]
             set
             {
-                this.noWrap = value;
+                this.loop = value;
             }
         }
 
