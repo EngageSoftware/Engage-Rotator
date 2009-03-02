@@ -104,7 +104,8 @@ namespace Engage.Dnn.ContentRotator
                         transitionSpeed, 
                         ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed), 
                         this.Loop, 
-                        this.RandomOrder);
+                        this.RandomOrder, 
+                        this.SimultaneousTransitions);
             }
         }
 
@@ -245,6 +246,18 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether in and out transitions occur simultaneously.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to display in and out transitions simultaneously; otherwise, <c>false</c>.</value>
+        private bool SimultaneousTransitions
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
             }
         }
 

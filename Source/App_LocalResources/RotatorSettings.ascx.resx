@@ -510,4 +510,10 @@
   <data name="lblRandomOrder.Text" xml:space="preserve">
     <value>Random Order</value>
   </data>
+  <data name="lblSimultaneousTransitions.Help" xml:space="preserve">
+    <value>Choose whether the current content item's "out" transitions should happen at the same time as the next content item's "in" transition</value>
+  </data>
+  <data name="lblSimultaneousTransitions.Text" xml:space="preserve">
+    <value>Simultaneous Transitions</value>
+  </data>
 </root>

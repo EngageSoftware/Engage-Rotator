@@ -74,7 +74,7 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("pagerEvent", opts.PagerEvent);
             cycleOptions.Add("height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString());
             cycleOptions.Add("startingSlide", opts.StartingSlideIndex);
-            cycleOptions.Add("sync", opts.SimultaneousInOutTransitions);
+            cycleOptions.Add("sync", opts.SimultaneousTransitions);
             cycleOptions.Add("random", opts.RandomOrder);
             cycleOptions.Add("fit", opts.SlidesFitContainer);
             cycleOptions.Add("containerResize", opts.ContainerResize);

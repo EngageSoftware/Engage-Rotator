@@ -85,9 +85,9 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private bool randomOrder;
 
-        /// <summary>Backing field for <see cref="SimultaneousInOutTransitions"/></summary>
+        /// <summary>Backing field for <see cref="SimultaneousTransitions"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool simultaneousInOutTransitions = true;
+        private bool simultaneousTransitions = true;
 
         /// <summary>Backing field for <see cref="SlidesFitContainer"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -133,8 +133,9 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="manuallyTriggeredTransitionSpeed">The delay (in milliseconds) for transitions triggered manually (through the pager or previous/next button)</param>
         /// <param name="loop">if set to <c>true</c> allow slideshow to loop, i.e. start again after going once through the <see cref="ContentItem"/>s.</param>
         /// <param name="randomOrder">if set to <c>true</c> display items in a random order.</param>
+        /// <param name="simultaneousTransitions">if set to <c>true</c> transition the current item out at the same time as the next item transitions in.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
@@ -154,6 +155,7 @@ namespace Engage.Dnn.ContentRotator
             this.manuallyTriggeredTransitionSpeed = manuallyTriggeredTransitionSpeed;
             this.loop = loop;
             this.randomOrder = randomOrder;
+            this.simultaneousTransitions = simultaneousTransitions;
         }
 
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>
@@ -425,18 +427,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>Gets or sets a value indicating whether in/out transitions should occur simultaneously</summary>
-        public bool SimultaneousInOutTransitions
+        public bool SimultaneousTransitions
         {
             [DebuggerStepThrough]
             get
             {
-                return this.simultaneousInOutTransitions;
+                return this.simultaneousTransitions;
             }
 
             [DebuggerStepThrough]
             set
             {
-                this.simultaneousInOutTransitions = value;
+                this.simultaneousTransitions = value;
             }
         }
 
