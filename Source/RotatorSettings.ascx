@@ -204,6 +204,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblForceSlidesToFitContainer" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:CheckBox ID="ForceSlidesToFitContainerCheckBox" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblContinuous" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
                             <asp:CheckBox ID="ContinuousCheckBox" runat="server" />

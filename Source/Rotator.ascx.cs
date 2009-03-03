@@ -90,12 +90,14 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
+                Unit containerWidth = this.RotatorWidth.HasValue ? Unit.Pixel(this.RotatorWidth.Value) : Unit.Empty;
                 int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 0;
                 return new CycleOptions(
                         this.AutoStop,
                         this.AutoStopCount, 
                         this.ContainerResize,
                         containerHeight, 
+                        containerWidth, 
                         this.Continuous,
                         ConvertSecondsToMilliseconds(this.InitialDelay),
                         ConvertSecondsToMilliseconds(this.RotatorDelay),
@@ -105,7 +107,8 @@ namespace Engage.Dnn.ContentRotator
                         ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed), 
                         this.Loop, 
                         this.RandomOrder, 
-                        this.SimultaneousTransitions);
+                        this.SimultaneousTransitions,
+                        this.ForceSlidesToFitContainer);
             }
         }
 
@@ -239,13 +242,24 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets RotatorHeight.
+        /// Gets Rotator Height.
         /// </summary>
         private int? RotatorHeight
         {
             get
             {
                 return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets Rotator Width.
+        /// </summary>
+        private int? RotatorWidth
+        {
+            get
+            {
+                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorWidth");
             }
         }
 
@@ -258,6 +272,18 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to force slides to fit exactly within the container.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to force slides to fit the dimensions of the container; otherwise, <c>false</c>.</value>
+        private bool ForceSlidesToFitContainer
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
             }
         }
 

@@ -222,6 +222,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating whether to force slides to fit exactly within the container.
+        /// </summary>
+        /// <value><c>true</c> if the module is set to force slides to fit the dimensions of the container; otherwise, <c>false</c>.</value>
+        private bool ForceSlidesToFitContainer
+        {
+            get
+            {
+                return Dnn.Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
+            }
+        }
+
+        /// <summary>
         /// Gets the setting for the display mode of the position thumbnail.
         /// </summary>
         /// <value>The position thumbnail display mode.</value>
@@ -556,6 +568,7 @@ namespace Engage.Dnn.ContentRotator
                     this.ProcessAnimationsVisiblity();
 
                     this.ContainerResizeCheckBox.Checked = this.ContainerResize;
+                    this.ForceSlidesToFitContainerCheckBox.Checked = this.ForceSlidesToFitContainer;
                     this.ContinuousCheckBox.Checked = this.Continuous;
                     this.LoopCheckBox.Checked = this.Loop;
                     this.RandomOrderCheckBox.Checked = this.RandomOrder;
@@ -667,6 +680,7 @@ namespace Engage.Dnn.ContentRotator
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ForceSlidesToFitContainer", this.ForceSlidesToFitContainerCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "Continuous", this.ContinuousCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "Loop", this.LoopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RandomOrder", this.RandomOrderCheckBox.Checked.ToString(CultureInfo.InvariantCulture));

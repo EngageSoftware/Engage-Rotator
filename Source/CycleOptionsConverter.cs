@@ -73,10 +73,11 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("pager", opts.PagerContainer);
             cycleOptions.Add("pagerEvent", opts.PagerEvent);
             cycleOptions.Add("height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString());
+            cycleOptions.Add("width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString());
             cycleOptions.Add("startingSlide", opts.StartingSlideIndex);
             cycleOptions.Add("sync", opts.SimultaneousTransitions);
             cycleOptions.Add("random", opts.RandomOrder);
-            cycleOptions.Add("fit", opts.SlidesFitContainer);
+            cycleOptions.Add("fit", opts.ForceSlidesToFitContainer);
             cycleOptions.Add("containerResize", opts.ContainerResize);
             cycleOptions.Add("pause", opts.PauseOnHover);
             cycleOptions.Add("pauseOnPagerHover", opts.PauseOnPagerHover);

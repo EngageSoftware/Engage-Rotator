@@ -33,6 +33,10 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private Unit containerHeight = Unit.Empty;
 
+        /// <summary>Backing field for <see cref="ContainerWidth"/></summary>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private Unit containerWidth = Unit.Empty;
+
         /// <summary>Backing field for <see cref="ContainerResize"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private bool containerResize = true;
@@ -89,9 +93,9 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private bool simultaneousTransitions = true;
 
-        /// <summary>Backing field for <see cref="SlidesFitContainer"/></summary>
+        /// <summary>Backing field for <see cref="ForceSlidesToFitContainer"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool slidesFitContainer;
+        private bool forceSlidesToFitContainer;
 
         /// <summary>Backing field for <see cref="StartingSlideIndex"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -124,6 +128,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="autoStopCount">The number of transitions after which rotation stops if <paramref name="autoStop"/> is <c>true</c>.</param>
         /// <param name="containerResize">if set to <c>true</c> automatically resize the container to fit the largest <see cref="ContentItem"/>.</param>
         /// <param name="containerHeight">Height of the container.</param>
+        /// <param name="containerWidth">Width of the container.</param>
         /// <param name="continuous">if set to <c>true</c> start the next transition immediately after the current one completes.</param>
         /// <param name="initialDelay">The additional delay (in milliseconds) for the first transition (hint: can be negative).</param>
         /// <param name="millisecondsBetweenTransitions">The milliseconds between transitions.</param>
@@ -134,8 +139,9 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="loop">if set to <c>true</c> allow slideshow to loop, i.e. start again after going once through the <see cref="ContentItem"/>s.</param>
         /// <param name="randomOrder">if set to <c>true</c> display items in a random order.</param>
         /// <param name="simultaneousTransitions">if set to <c>true</c> transition the current item out at the same time as the next item transitions in.</param>
+        /// <param name="forceSlidesToFitContainer">if set to <c>true</c> force slides to fit within container.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer)
         {
             if (autoStop && !autoStopCount.HasValue)
             {
@@ -146,6 +152,7 @@ namespace Engage.Dnn.ContentRotator
             this.autoStopCount = autoStop ? autoStopCount.Value : 0;
             this.containerResize = containerResize;
             this.containerHeight = containerHeight;
+            this.containerWidth = containerWidth;
             this.continuous = continuous;
             this.initialDelay = initialDelay;
             this.millisecondsBetweenTransitions = millisecondsBetweenTransitions;
@@ -156,6 +163,7 @@ namespace Engage.Dnn.ContentRotator
             this.loop = loop;
             this.randomOrder = randomOrder;
             this.simultaneousTransitions = simultaneousTransitions;
+            this.forceSlidesToFitContainer = forceSlidesToFitContainer;
         }
 
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>
@@ -215,6 +223,22 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 this.containerHeight = value;
+            }
+        }
+
+        /// <summary>Gets or sets a value indicating container width, defaults to <see cref="Unit.Empty"/></summary>
+        public Unit ContainerWidth
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.containerWidth;
+            }
+
+            [DebuggerStepThrough]
+            set
+            {
+                this.containerWidth = value;
             }
         }
 
@@ -443,18 +467,18 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>Gets or sets a value indicating whether to force slides to fit within the container</summary>
-        public bool SlidesFitContainer
+        public bool ForceSlidesToFitContainer
         {
             [DebuggerStepThrough]
             get
             {
-                return this.slidesFitContainer;
+                return this.forceSlidesToFitContainer;
             }
 
             [DebuggerStepThrough]
             set
             {
-                this.slidesFitContainer = value;
+                this.forceSlidesToFitContainer = value;
             }
         }
 

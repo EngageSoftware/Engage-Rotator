@@ -516,4 +516,10 @@
   <data name="lblSimultaneousTransitions.Text" xml:space="preserve">
     <value>Simultaneous Transitions</value>
   </data>
+  <data name="lblForceSlidesToFitContainer.Help" xml:space="preserve">
+    <value>Choose whether the slides should be stretched to fit exactly within the container</value>
+  </data>
+  <data name="lblForceSlidesToFitContainer.Text" xml:space="preserve">
+    <value>Force Slides to Fit Within Container</value>
+  </data>
 </root>
