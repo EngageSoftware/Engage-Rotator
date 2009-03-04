@@ -187,6 +187,13 @@
                             <asp:RequiredFieldValidator id="AnimationDurationRequiredValidator" runat="server" ControlToValidate="AnimationDurationTextBox" Display="None" EnableClientScript="false" resourcekey="rfvAnimationDuration"/>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblAnimationEffect" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn leftAlign">
+                            <asp:CheckBoxList ID="AnimationEffectCheckBoxList" runat="server" RepeatLayout="Table" RepeatDirection="Horizontal" RepeatColumns="3" CssClass="animationEffectsCheckBoxes Normal" />
+                            <asp:CustomValidator ID="AnimationEffectRequiredValidator" runat="server" Display="None" resourcekey="rfvAnimationEffect" ClientValidationFunction="AnimationEffectRequiredValidator_ClientValidate" />
+                        </td>
+                    </tr>
                 </table>
             </ContentTemplate>
             <Triggers><asp:AsyncPostBackTrigger ControlID="SubmitButton" /></Triggers>
@@ -279,4 +286,8 @@
 </div>
 <script type="text/javascript">
     jQuery(function() { jQuery('.SettingsContainer').tabs(); });
+
+    function AnimationEffectRequiredValidator_ClientValidate(sender, args) {
+        args.isValid = jQuery('#<%=AnimationEffectCheckBoxList.ClientID %> :checked').length > 0;
+    }
 </script>

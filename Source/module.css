@@ -97,7 +97,7 @@ wbr:after { content: "\00200B" }
 
 /****************** Rotator Settings ******************/
 .SettingsContainer .inlineTextbox { text-align:right; width:4ex; }
-
+.SettingsContainer .animationEffectsCheckBoxes { width: 100%; }
 
 /*
  * jQuery UI screen structure and presentation

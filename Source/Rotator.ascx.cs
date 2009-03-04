@@ -102,7 +102,7 @@ namespace Engage.Dnn.ContentRotator
                         ConvertSecondsToMilliseconds(this.InitialDelay),
                         ConvertSecondsToMilliseconds(this.RotatorDelay),
                         this.PauseOnMouseOver,
-                        Effects.fade,
+                        this.AnimationEffect,
                         transitionSpeed, 
                         ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed), 
                         this.Loop, 
@@ -120,6 +120,18 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+            }
+        }
+
+        /// <summary>
+        /// Gets the transition effect or effects to use.
+        /// </summary>
+        /// <value>The animation effect or effects to use for transitions.</value>
+        private Effects AnimationEffect
+        {
+            get
+            {
+                return Dnn.Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
             }
         }
 

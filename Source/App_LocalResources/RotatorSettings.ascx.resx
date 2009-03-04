@@ -516,10 +516,103 @@
   <data name="lblSimultaneousTransitions.Text" xml:space="preserve">
     <value>Simultaneous Transitions</value>
   </data>
+  <data name="blindX.Text" xml:space="preserve">
+    <value>Blinds X</value>
+  </data>
+  <data name="blindY.Text" xml:space="preserve">
+    <value>Blinds Y</value>
+  </data>
+  <data name="blindZ.Text" xml:space="preserve">
+    <value>Blinds Z</value>
+  </data>
+  <data name="cover.Text" xml:space="preserve">
+    <value>Cover</value>
+  </data>
+  <data name="curtainX.Text" xml:space="preserve">
+    <value>Curtain X</value>
+  </data>
+  <data name="curtainY.Text" xml:space="preserve">
+    <value>Curtain Y</value>
+  </data>
+  <data name="fade.Text" xml:space="preserve">
+    <value>Fade</value>
+  </data>
+  <data name="fadeZoom.Text" xml:space="preserve">
+    <value>Fade &amp; Zoom</value>
+  </data>
+  <data name="growX.Text" xml:space="preserve">
+    <value>Grow X</value>
+  </data>
+  <data name="growY.Text" xml:space="preserve">
+    <value>Grow Y</value>
+  </data>
+  <data name="lblAnimationEffect.Help" xml:space="preserve">
+    <value>Choose one or more effects to use when transitioning items.</value>
+  </data>
+  <data name="lblAnimationEffect.Text" xml:space="preserve">
+    <value>Animation Effect(s)</value>
+  </data>
   <data name="lblForceSlidesToFitContainer.Help" xml:space="preserve">
     <value>Choose whether the slides should be stretched to fit exactly within the container</value>
   </data>
   <data name="lblForceSlidesToFitContainer.Text" xml:space="preserve">
     <value>Force Slides to Fit Within Container</value>
+  </data>
+  <data name="rfvAnimationEffect.Text" xml:space="preserve">
+    <value>At least one Animation Effect is required</value>
+  </data>
+  <data name="scrollDown.Text" xml:space="preserve">
+    <value>Scroll Down</value>
+  </data>
+  <data name="scrollHorz.Text" xml:space="preserve">
+    <value>Scroll Horizontal</value>
+  </data>
+  <data name="scrollLeft.Text" xml:space="preserve">
+    <value>Scroll Left</value>
+  </data>
+  <data name="scrollRight.Text" xml:space="preserve">
+    <value>Scroll Right</value>
+  </data>
+  <data name="scrollUp.Text" xml:space="preserve">
+    <value>Scroll Up</value>
+  </data>
+  <data name="scrollVert.Text" xml:space="preserve">
+    <value>Scroll Vertical</value>
+  </data>
+  <data name="shuffle.Text" xml:space="preserve">
+    <value>Shuffle</value>
+  </data>
+  <data name="slideX.Text" xml:space="preserve">
+    <value>Slide X</value>
+  </data>
+  <data name="slideY.Text" xml:space="preserve">
+    <value>Slide Y</value>
+  </data>
+  <data name="slideZ.Text" xml:space="preserve">
+    <value>Slide Z</value>
+  </data>
+  <data name="toss.Text" xml:space="preserve">
+    <value>Toss</value>
+  </data>
+  <data name="turnDown.Text" xml:space="preserve">
+    <value>Turn Down</value>
+  </data>
+  <data name="turnLeft.Text" xml:space="preserve">
+    <value>Turn Left</value>
+  </data>
+  <data name="turnRight.Text" xml:space="preserve">
+    <value>Turn Right</value>
+  </data>
+  <data name="turnUp.Text" xml:space="preserve">
+    <value>Turn Up</value>
+  </data>
+  <data name="uncover.Text" xml:space="preserve">
+    <value>Uncover</value>
+  </data>
+  <data name="wipe.Text" xml:space="preserve">
+    <value>Wipe</value>
+  </data>
+  <data name="zoom.Text" xml:space="preserve">
+    <value>Zoom</value>
   </data>
 </root>

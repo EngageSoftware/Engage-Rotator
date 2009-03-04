@@ -13,6 +13,7 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Globalization;
     using System.IO;
     using System.Web.Hosting;
@@ -42,6 +43,11 @@ namespace Engage.Dnn.ContentRotator
         private ListItem[] displayTypeItems;
 
         /// <summary>
+        /// Backing field for <see cref="AnimationEffect"/>
+        /// </summary>
+        private Effects animationEffect = Effects.None;
+
+        /// <summary>
         /// Gets the duration of the transition animation.
         /// </summary>
         /// <value>The duration of the animation (in seconds).</value>
@@ -50,6 +56,23 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Dnn.Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+            }
+        }
+
+        /// <summary>
+        /// Gets the transition effect or effects to use.
+        /// </summary>
+        /// <value>The animation effect or effects to use for transitions.</value>
+        private Effects AnimationEffect
+        {
+            get
+            {
+                if (this.animationEffect == Effects.None)
+                {
+                    this.animationEffect = Dnn.Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
+                }
+
+                return this.animationEffect;
             }
         }
 
@@ -436,6 +459,7 @@ namespace Engage.Dnn.ContentRotator
             this.ContentDisplayRadioButtonList.SelectedIndexChanged += this.ContentDisplayRadioButtonList_SelectedIndexChanged;
             this.PositionThumbnailDisplayRadioButtonList.SelectedIndexChanged += this.PositionThumbnailDisplayRadioButtonList_SelectedIndexChanged;
             this.ThumbnailDisplayRadioButtonList.SelectedIndexChanged += this.ThumbnailDisplayRadioButtonList_SelectedIndexChanged;
+            this.AnimationEffectRequiredValidator.ServerValidate += this.AnimationEffectRequiredValidator_ServerValidate;
         }
 
         /// <summary>
@@ -531,6 +555,7 @@ namespace Engage.Dnn.ContentRotator
                     this.FillDisplayTypeListControl(this.ThumbnailDisplayRadioButtonList, false);
 
                     this.FillTemplatesListControl();
+                    this.SetupAnimationEffectsListControl();
 
                     this.RotatorWidthTextBox.Text = GetValueText(this.RotatorWidth);
                     this.RotatorHeightTextBox.Text = GetValueText(this.RotatorHeight);
@@ -678,6 +703,7 @@ namespace Engage.Dnn.ContentRotator
                 modules.UpdateTabModuleSetting(this.TabModuleId, "PositionThumbnailDisplayMode", this.PositionThumbnailDisplayRadioButtonList.SelectedValue);
                 modules.UpdateTabModuleSetting(this.TabModuleId, "UseAnimations", this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationEffect", this.GetSelectedEffects().ToString());
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ForceSlidesToFitContainer", this.ForceSlidesToFitContainerCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
@@ -786,6 +812,16 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Handles the ServerValidate event of the AnimationEffectRequiredValidator control.
+        /// </summary>
+        /// <param name="source">The source of the event.</param>
+        /// <param name="args">The <see cref="System.Web.UI.WebControls.ServerValidateEventArgs"/> instance containing the event data.</param>
+        private void AnimationEffectRequiredValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = this.AnimationEffectCheckBoxList.SelectedIndex > -1;
+        }
+
+        /// <summary>
         /// Fills the given <paramref name="list"/> with the <see cref="DisplayType"/> options
         /// </summary>
         /// <param name="list">The list to fill.</param>
@@ -819,6 +855,58 @@ namespace Engage.Dnn.ContentRotator
                     this.TemplatesDropDownList.Items.Add(new ListItem(directory.Substring(directory.LastIndexOf(Path.DirectorySeparatorChar) + 1)));
                 }
             }
+        }
+
+        /// <summary>
+        /// Fills <see cref="AnimationEffectCheckBoxList"/> and selects the initial values
+        /// </summary>
+        private void SetupAnimationEffectsListControl()
+        {
+            this.FillAnimationEffectsListControl();
+            this.SelectAnimationEffectsValues();
+        }
+
+        /// <summary>
+        /// Fills <see cref="AnimationEffectCheckBoxList"/>.
+        /// </summary>
+        private void FillAnimationEffectsListControl()
+        {
+            this.AnimationEffectCheckBoxList.DataSource = Enum.GetNames(typeof(Effects));
+            this.AnimationEffectCheckBoxList.DataBind();
+            this.AnimationEffectCheckBoxList.Items.Remove(Effects.None.ToString());
+            Dnn.Utility.LocalizeListControl(this.AnimationEffectCheckBoxList, this.LocalResourceFile);
+        }
+
+        /// <summary>
+        /// Selects the initial values of <see cref="AnimationEffectCheckBoxList"/>.
+        /// </summary>
+        private void SelectAnimationEffectsValues()
+        {
+            foreach (ListItem item in this.AnimationEffectCheckBoxList.Items)
+            {
+                Effects itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
+                item.Selected = (this.AnimationEffect & itemEffect) != 0;
+            }
+        }
+
+        /// <summary>
+        /// Gets the effects selected in <see cref="AnimationEffectCheckBoxList"/>.
+        /// </summary>
+        /// <returns>The selected animation transition effects</returns>
+        private Effects GetSelectedEffects()
+        {
+            Effects effects = Effects.None;
+            foreach (ListItem item in this.AnimationEffectCheckBoxList.Items)
+            {
+                if (item.Selected)
+                {
+                    Effects itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
+                    effects |= itemEffect;
+                }
+            }
+
+            Debug.Assert(effects != Effects.None, "Page validation required that an effect has been selected");
+            return effects;
         }
 
         /// <summary>
@@ -885,7 +973,9 @@ namespace Engage.Dnn.ContentRotator
         {
             this.AnimationDurationTextBox.Enabled =
                     this.AnimationDurationIntegerValidator.Enabled =
-                    this.AnimationDurationRequiredValidator.Enabled = this.UseAnimationsCheckBox.Checked;
+                    this.AnimationDurationRequiredValidator.Enabled = 
+                    this.AnimationEffectCheckBoxList.Enabled = 
+                    this.AnimationEffectRequiredValidator.Enabled = this.UseAnimationsCheckBox.Checked;
 
             SetDisabledCssClass(this.AnimationDurationTextBox);
         }
