@@ -117,10 +117,6 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int transitionSpeed = 1000;
 
-        /// <summary>Backing field for <see cref="Reverse"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool reverse;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CycleOptions"/> class.
         /// </summary>
@@ -559,24 +555,6 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 this.transitionSpeed = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether to cause animations to transition in reverse.
-        /// </summary>
-        public bool Reverse
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.reverse;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.reverse = value;
             }
         }
 

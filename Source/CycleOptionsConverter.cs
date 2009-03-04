@@ -87,7 +87,6 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("cleartype", opts.ClearType);
             cycleOptions.Add("nowrap", !opts.Loop);
             cycleOptions.Add("fastOnEvent", opts.ManuallyTriggeredTransitionSpeed);
-            cycleOptions.Add("rev", opts.Reverse);
 
             return cycleOptions;
         }

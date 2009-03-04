@@ -538,7 +538,7 @@
     <value>Fade</value>
   </data>
   <data name="fadeZoom.Text" xml:space="preserve">
-    <value>Fade &amp; Zoom</value>
+    <value>Zoom &amp; Fade</value>
   </data>
   <data name="growX.Text" xml:space="preserve">
     <value>Grow X</value>
