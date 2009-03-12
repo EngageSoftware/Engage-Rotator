@@ -126,8 +126,7 @@
     <Content Include="RotatorOptions.ascx" />
     <Content Include="Rotator.ascx" />
     <Compile Include="Providers\DataProviders\SqlDataProvider\SqlDataProvider.cs" />
-    <Compile Include="TemplateManifest.cs" />
-    <Compile Include="Utility.cs" />
+    <Compile Include="DisplayType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EngageRotator.5.dnn" />
@@ -163,21 +162,6 @@
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_left.gif" />
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_right.gif" />
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_up.gif" />
-    <Content Include="images\JQueryUiTheme\eeeeee_40x100_textures_03_highlight_soft_100.png" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_arrows_leftright.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_arrows_updown.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_close.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_doc.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_folder_closed.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_folder_open.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_minus.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_11x11_icon_plus.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_7x7_arrow_down.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_7x7_arrow_left.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_7x7_arrow_right.gif" />
-    <Content Include="images\JQueryUiTheme\ef8c08_7x7_arrow_up.gif" />
-    <Content Include="images\JQueryUiTheme\f6f6f6_40x100_textures_02_glass_100.png" />
-    <Content Include="images\JQueryUiTheme\fdf5ce_40x100_textures_02_glass_100.png" />
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_02_glass_65.png" />
     <Content Include="images\lb-corner.gif" />
     <Content Include="images\lt-corner.gif" />
@@ -188,7 +172,7 @@
     <Content Include="images\rt-corner.gif" />
     <Content Include="images\top-header-bg.gif" />
     <EmbeddedResource Include="JavaScript\jquery.cycle.all.min.js" />
-    <EmbeddedResource Include="JavaScript\jquery-ui-1.5.3.min.js" />
+    <EmbeddedResource Include="JavaScript\jquery-ui.min.js" />
     <Content Include="References\DotNetNuke.dll" />
     <Content Include="References\DotNetNuke.WebUtility.dll" />
     <Content Include="References\Engage.Dnn.Framework.dll" />
@@ -219,20 +203,21 @@
     <Content Include="StyleTemplates\TwoColumn\Manifest.xml" />
     <Content Include="StyleTemplates\TwoColumn\Style.css" />
     <Content Include="StyleTemplates\TwoColumn\twocolumn.png" />
+    <Content Include="Templates\Engage\images\item-bg-on.png" />
+    <Content Include="Templates\Engage\images\item-bg.gif" />
+    <Content Include="Templates\Engage\Template.htm" />
+    <Content Include="Templates\Engage\Manifest.xml" />
+    <Content Include="Templates\Engage\Preview.png" />
+    <Content Include="Templates\Engage\Style.css" />
     <Content Include="Templates\Footer.test.html" />
     <Content Include="Templates\Item.test.html" />
     <Content Include="Templates\Header.test.html" />
-    <Content Include="Templates\App_LocalResources\Template.resx">
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
   <Choose>
     <When Condition=" '$(Configuration)' == 'Debug' ">
       <ItemGroup>
         <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
-        <EmbeddedResource Include="JavaScript\jquery-ui-1.5.3.js" />
+        <EmbeddedResource Include="JavaScript\jquery-ui.js" />
       </ItemGroup>
     </When>
     <Otherwise>
@@ -242,6 +227,57 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
+  <ItemGroup>
+    <Content Include="images\JQueryUiTheme\222222_11x11_icon_close.gif" />
+    <Content Include="images\JQueryUiTheme\222222_11x11_icon_folder_closed.gif" />
+    <Content Include="images\JQueryUiTheme\222222_11x11_icon_folder_open.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_arrows_leftright.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_arrows_updown.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_close.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_doc.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_folder_closed.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_folder_open.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_minus.gif" />
+    <Content Include="images\JQueryUiTheme\454545_11x11_icon_plus.gif" />
+    <Content Include="images\JQueryUiTheme\454545_7x7_arrow_down.gif" />
+    <Content Include="images\JQueryUiTheme\454545_7x7_arrow_left.gif" />
+    <Content Include="images\JQueryUiTheme\454545_7x7_arrow_right.gif" />
+    <Content Include="images\JQueryUiTheme\454545_7x7_arrow_up.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_arrows_leftright.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_arrows_updown.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_close.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_doc.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_folder_closed.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_folder_open.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_minus.gif" />
+    <Content Include="images\JQueryUiTheme\888888_11x11_icon_plus.gif" />
+    <Content Include="images\JQueryUiTheme\888888_7x7_arrow_down.gif" />
+    <Content Include="images\JQueryUiTheme\888888_7x7_arrow_left.gif" />
+    <Content Include="images\JQueryUiTheme\888888_7x7_arrow_right.gif" />
+    <Content Include="images\JQueryUiTheme\888888_7x7_arrow_up.gif" />
+    <Content Include="images\JQueryUiTheme\bg.gif" />
+    <Content Include="images\JQueryUiTheme\custom_background.png" />
+    <Content Include="images\JQueryUiTheme\custom_hex.png" />
+    <Content Include="images\JQueryUiTheme\custom_hsb_b.png" />
+    <Content Include="images\JQueryUiTheme\custom_hsb_h.png" />
+    <Content Include="images\JQueryUiTheme\custom_hsb_s.png" />
+    <Content Include="images\JQueryUiTheme\custom_indic.gif" />
+    <Content Include="images\JQueryUiTheme\custom_rgb_b.png" />
+    <Content Include="images\JQueryUiTheme\custom_rgb_g.png" />
+    <Content Include="images\JQueryUiTheme\custom_rgb_r.png" />
+    <Content Include="images\JQueryUiTheme\custom_submit.png" />
+    <Content Include="images\JQueryUiTheme\dadada_40x100_textures_02_glass_75.png" />
+    <Content Include="images\JQueryUiTheme\e6e6e6_40x100_textures_02_glass_75.png" />
+    <Content Include="images\JQueryUiTheme\progress-bg.gif" />
+    <Content Include="images\JQueryUiTheme\select.png" />
+    <Content Include="images\JQueryUiTheme\select2.png" />
+    <Content Include="images\JQueryUiTheme\spinner-bg.gif" />
+    <Content Include="Templates\Engage\App_LocalResources\Template.resx" />
+    <Content Include="Templates\App_LocalResources\Template.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" Condition="'$(Solutions.VSVersion)' == '8.0'" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="'$(Solutions.VSVersion)' == '9.0'" />

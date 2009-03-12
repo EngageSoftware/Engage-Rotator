@@ -15,16 +15,14 @@ namespace Engage.Dnn.ContentRotator
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Globalization;
-    using System.IO;
-    using System.Web.Hosting;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-    using System.Xml;
     using System.Xml.Schema;
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.Localization;
     using DotNetNuke.UI.Utilities;
+    using Framework.Templating;
     using Globals = DotNetNuke.Common.Globals;
 
     /// <summary>
@@ -55,7 +53,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+                return Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
             }
         }
 
@@ -69,7 +67,7 @@ namespace Engage.Dnn.ContentRotator
             {
                 if (this.animationEffect == Effects.None)
                 {
-                    this.animationEffect = Dnn.Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
+                    this.animationEffect = Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
                 }
 
                 return this.animationEffect;
@@ -84,7 +82,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
+                return Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
             }
         }
 
@@ -96,7 +94,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "Continuous", false);
+                return Utility.GetBoolSetting(this.Settings, "Continuous", false);
             }
         }
 
@@ -108,7 +106,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentDisplayMode", DisplayType.Content);
+                return Utility.GetEnumSetting(this.Settings, "ContentDisplayMode", DisplayType.Content);
             }
         }
 
@@ -120,7 +118,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ContentHeight");
+                return Utility.GetIntSetting(this.Settings, "ContentHeight");
             }
         }
 
@@ -132,7 +130,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ContentTitleDisplayMode", DisplayType.Link);
+                return Utility.GetEnumSetting(this.Settings, "ContentTitleDisplayMode", DisplayType.Link);
             }
         }
 
@@ -144,7 +142,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ContentWidth");
+                return Utility.GetIntSetting(this.Settings, "ContentWidth");
             }
         }
 
@@ -156,7 +154,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
+                return Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
             }
         }
 
@@ -168,7 +166,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "AutoStop", false);
+                return Utility.GetBoolSetting(this.Settings, "AutoStop", false);
             }
         }
 
@@ -180,7 +178,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
+                return Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
             }
         }
 
@@ -192,7 +190,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
+                return Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
             }
         }
 
@@ -204,7 +202,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
+                return Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
             }
         }
 
@@ -216,7 +214,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "Loop", true);
+                return Utility.GetBoolSetting(this.Settings, "Loop", true);
             }
         }
 
@@ -228,7 +226,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "RandomOrder", false);
+                return Utility.GetBoolSetting(this.Settings, "RandomOrder", false);
             }
         }
 
@@ -240,7 +238,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
+                return Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
             }
         }
 
@@ -252,7 +250,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
+                return Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
             }
         }
 
@@ -264,7 +262,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "PositionThumbnailDisplayMode", DisplayType.Link);
+                return Utility.GetEnumSetting(this.Settings, "PositionThumbnailDisplayMode", DisplayType.Link);
             }
         }
 
@@ -276,7 +274,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailHeight");
+                return Utility.GetIntSetting(this.Settings, "PositionThumbnailHeight");
             }
         }
 
@@ -288,7 +286,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailWidth");
+                return Utility.GetIntSetting(this.Settings, "PositionThumbnailWidth");
             }
         }
 
@@ -300,7 +298,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ControlsTitleDisplayMode", DisplayType.Link);
+                return Utility.GetEnumSetting(this.Settings, "ControlsTitleDisplayMode", DisplayType.Link);
             }
         }
 
@@ -312,7 +310,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
+                return Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
             }
         }
 
@@ -324,7 +322,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight");
+                return Utility.GetIntSetting(this.Settings, "RotatorHeight");
             }
         }
 
@@ -336,7 +334,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorPauseDelay", 3);
+                return Utility.GetIntSetting(this.Settings, "RotatorPauseDelay", 3);
             }
         }
 
@@ -348,7 +346,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorWidth");
+                return Utility.GetIntSetting(this.Settings, "RotatorWidth");
             }
         }
 
@@ -360,7 +358,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "ThumbnailDisplayMode", DisplayType.Link);
+                return Utility.GetEnumSetting(this.Settings, "ThumbnailDisplayMode", DisplayType.Link);
             }
         }
 
@@ -372,7 +370,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailHeight");
+                return Utility.GetIntSetting(this.Settings, "ThumbnailHeight");
             }
         }
 
@@ -384,7 +382,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailWidth");
+                return Utility.GetIntSetting(this.Settings, "ThumbnailWidth");
             }
         }
 
@@ -396,7 +394,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
+                return Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
             }
         }
 
@@ -404,11 +402,11 @@ namespace Engage.Dnn.ContentRotator
         /// Gets the setting for the selected style template.
         /// </summary>
         /// <value>The selected style template.</value>
-        private string StyleTemplate
+        private string Template
         {
             get
             {
-                return this.Settings["StyleTemplate"] as string;
+                return this.Settings["Template"] as string;
             }
         }
 
@@ -607,7 +605,7 @@ namespace Engage.Dnn.ContentRotator
                     this.ManuallyTriggeredTransitionSpeedCheckBox.Checked = this.ManuallyTriggeredTransitionSpeed != 0;
                     this.ProcessManuallyTriggeredTransitionSpeedVisibility();
 
-                    this.TemplatesDropDownList.SelectedValue = this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] = this.StyleTemplate;
+                    this.TemplatesDropDownList.SelectedValue = this.TemplatesDropDownList.Attributes["OriginalTemplate"] = this.Template;
                     this.FillTemplateTab();
                 }
 
@@ -629,11 +627,11 @@ namespace Engage.Dnn.ContentRotator
             try
             {
                 ModuleController modules = new ModuleController();
-                modules.UpdateTabModuleSetting(this.TabModuleId, "StyleTemplate", this.TemplatesDropDownList.SelectedValue);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "Template", this.TemplatesDropDownList.SelectedValue);
 
                 try
                 {
-                    TemplateManifest manifest = TemplateManifest.CreateTemplateManifest(this.TemplatesDropDownList.SelectedValue);
+                    TemplateInfo manifest = this.GetTemplate(this.TemplatesDropDownList.SelectedValue);
                     if (manifest.Settings != null && manifest.Settings.Count > 0)
                     {
                         foreach (KeyValuePair<string, string> setting in manifest.Settings)
@@ -646,10 +644,6 @@ namespace Engage.Dnn.ContentRotator
                     this.Response.Redirect(this.EditUrl("ModSettings"), false);
                 }
                 catch (XmlSchemaValidationException)
-                {
-                    this.ShowManifestValidationErrorMessage();
-                }
-                catch (XmlException)
                 {
                     this.ShowManifestValidationErrorMessage();
                 }
@@ -773,7 +767,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void TemplatesDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.TemplatesDropDownList.Attributes["OriginalStyleTemplate"] != this.TemplatesDropDownList.SelectedValue)
+            if (this.TemplatesDropDownList.Attributes["OriginalTemplate"] != this.TemplatesDropDownList.SelectedValue)
             {
                 ClientAPI.AddButtonConfirm(this.SubmitButton, Localization.GetString("TemplateChangedConfirm", this.LocalResourceFile));
             }
@@ -847,13 +841,9 @@ namespace Engage.Dnn.ContentRotator
             this.TemplatesDropDownList.Items.Clear();
             this.TemplatesDropDownList.Items.Add(new ListItem(Localization.GetString("None", this.LocalResourceFile), string.Empty));
 
-            string templatesDirectory = HostingEnvironment.MapPath(Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName);
-            if (!string.IsNullOrEmpty(templatesDirectory))
+            foreach (TemplateInfo template in this.GetTemplates())
             {
-                foreach (string directory in Directory.GetDirectories(templatesDirectory))
-                {
-                    this.TemplatesDropDownList.Items.Add(new ListItem(directory.Substring(directory.LastIndexOf(Path.DirectorySeparatorChar) + 1)));
-                }
+                this.TemplatesDropDownList.Items.Add(new ListItem(template.Title, template.FolderName));
             }
         }
 
@@ -874,7 +864,7 @@ namespace Engage.Dnn.ContentRotator
             this.AnimationEffectCheckBoxList.DataSource = Enum.GetNames(typeof(Effects));
             this.AnimationEffectCheckBoxList.DataBind();
             this.AnimationEffectCheckBoxList.Items.Remove(Effects.None.ToString());
-            Dnn.Utility.LocalizeListControl(this.AnimationEffectCheckBoxList, this.LocalResourceFile);
+            Utility.LocalizeListControl(this.AnimationEffectCheckBoxList, this.LocalResourceFile);
         }
 
         /// <summary>
@@ -917,12 +907,19 @@ namespace Engage.Dnn.ContentRotator
             try
             {
                 this.ApplyTemplateButton.Enabled = true;
-                TemplateManifest manifest = TemplateManifest.CreateTemplateManifest(this.TemplatesDropDownList.SelectedValue);
-                this.TemplateDescriptionLabel.Text = manifest.Description;
-                this.TemplateDescriptionPanel.Visible = Engage.Utility.HasValue(this.TemplateDescriptionLabel.Text);
-                string templateFolder = Utility.DesktopModuleVirtualPath + Utility.StyleTemplatesFolderName + this.TemplatesDropDownList.SelectedValue;
-                this.TemplatePreviewImage.ImageUrl = templateFolder + "/" + manifest.PreviewImageFilename;
-                this.TemplatePreviewImage.Visible = File.Exists(HostingEnvironment.MapPath(this.TemplatePreviewImage.ImageUrl));
+                TemplateInfo manifest = this.GetTemplate(this.TemplatesDropDownList.SelectedValue);
+                if (manifest != null)
+                {
+                    this.TemplateDescriptionLabel.Text = manifest.Description;
+                    this.TemplatePreviewImage.ImageUrl = "~" + manifest.GetRelativePath(manifest.PreviewImage);
+                    this.TemplateDescriptionPanel.Visible = Engage.Utility.HasValue(this.TemplateDescriptionLabel.Text);
+                    this.TemplatePreviewImage.Visible = Engage.Utility.HasValue(this.TemplatePreviewImage.ImageUrl);
+                }
+                else
+                {
+                    this.TemplateDescriptionPanel.Visible = false;
+                    this.TemplatePreviewImage.Visible = false;
+                }
             }
             catch (XmlSchemaValidationException)
             {
@@ -1056,9 +1053,9 @@ namespace Engage.Dnn.ContentRotator
             this.AddJQueryReference();
 
 #if DEBUG
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js");
 #else
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui-1.5.3.min.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui.min.js");
 #endif
         }
     }

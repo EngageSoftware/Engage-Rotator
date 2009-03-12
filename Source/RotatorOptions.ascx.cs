@@ -13,7 +13,6 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Globalization;
-    using System.Text;
     using System.Web.UI.WebControls;
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Framework;
@@ -27,84 +26,6 @@ namespace Engage.Dnn.ContentRotator
     /// </summary>
     public partial class RotatorOptions : PortalModuleBase
     {
-        /// <summary>
-        /// Gets the style to apply to the position thumbnail.
-        /// </summary>
-        /// <value>The style to apply to the position thumbnail.</value>
-        protected string PositionThumbnailStyle
-        {
-            get
-            {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", this.PositionThumbnailWidth);
-                Utility.AddStyle(style, "height", this.PositionThumbnailHeight);
-                return style.ToString();
-            }
-        }
-
-        /// <summary>
-        /// Gets the style to apply to the thumbnail.
-        /// </summary>
-        /// <value>The style to apply to the thumbnail.</value>
-        protected string ThumbnailStyle
-        {
-            get
-            {
-                StringBuilder style = new StringBuilder();
-                Utility.AddStyle(style, "width", this.ThumbnailWidth);
-                Utility.AddStyle(style, "height", this.ThumbnailHeight);
-                return style.ToString();
-            }
-        }
-
-        /// <summary>
-        /// Gets the setting for the height of the position thumbnail.
-        /// </summary>
-        /// <value>The setting for the height of the position thumbnail.</value>
-        private int? PositionThumbnailHeight
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailHeight");
-            }
-        }
-
-        /// <summary>
-        /// Gets the setting for the width of the position thumbnail.
-        /// </summary>
-        /// <value>The setting for the width of the position thumbnail.</value>
-        private int? PositionThumbnailWidth
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "PositionThumbnailWidth");
-            }
-        }
-
-        /// <summary>
-        /// Gets the setting for the height of the thumbnail.
-        /// </summary>
-        /// <value>The setting for the height of the thumbnail.</value>
-        private int? ThumbnailHeight
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailHeight");
-            }
-        }
-
-        /// <summary>
-        /// Gets the setting for the width of the thumbnail.
-        /// </summary>
-        /// <value>The setting for the width of the thumbnail.</value>
-        private int? ThumbnailWidth
-        {
-            get
-            {
-                return Dnn.Utility.GetIntSetting(this.Settings, "ThumbnailWidth");
-            }
-        }
-
         /// <summary>
         /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
         /// </summary>

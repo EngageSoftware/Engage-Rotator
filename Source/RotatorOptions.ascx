@@ -40,7 +40,7 @@
                                     <asp:Label runat="server" resourcekey="lblContentThumbnailHeader" />
                                 </div>
                                 <div class="rotatorThumbnail">
-                                    <img style='<%=ThumbnailStyle%>' src='<%# Eval("ThumbnailUrl")%>' alt='<%# Eval("ThumbnailUrl")%>' />
+                                    <img src='<%# Eval("ThumbnailUrl")%>' alt='<%# Eval("ThumbnailUrl")%>' />
                                 </div>
                             </div>
                             <div class="rotatorPositionThumbnailWrapper">
@@ -48,7 +48,7 @@
                                     <asp:Label runat="server" resourcekey="lblPositionThumbnailHeader" />
                                 </div>
                                 <div class="rotatorPositionThumbnail">
-                                    <img style='<%=PositionThumbnailStyle %>' src='<%# Eval("PositionThumbnailUrl") %>' alt='<%# Eval("PositionThumbnailUrl") %>' />
+                                    <img src='<%# Eval("PositionThumbnailUrl") %>' alt='<%# Eval("PositionThumbnailUrl") %>' />
                                 </div>
                             </div>
                         </div>

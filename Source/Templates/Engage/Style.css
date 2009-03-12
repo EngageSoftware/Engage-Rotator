@@ -1,0 +1,25 @@
+﻿#%parentId% {margin: 0; padding: 0;}
+#%parentId% #conts{padding-bottom: 0;}
+#%parentId% #conts #conts-top{ display: none;}
+#%parentId% .rotatorWrapper{width: 810px;}
+#%parentId% .rotator{width: 566px; float: left; margin: 0; line-height: 0;}
+#%parentId%.rotator p{margin: 0; line-height: 0;}
+#%parentId% #controls {float: left; width: 244px;  padding: 0; margin: 0; letter-spacing: 1px; position: relative; z-index: 1; font-weight: normal;}
+#%parentId% .rotatorControlsWrapper{clear: none;}
+
+#%parentId% .rotatorPositionSelected {position: relative; z-index: 1;}
+
+#%parentId% .rotatorContentWrapper{width: 566px;}
+
+#%parentId% .rotatorThumbnailWrapper{padding: 0;}
+#%parentId% #rotatorContentDescriptionWrapper {padding: 0 !important; font-size: 0;}
+#%parentId% .rotatorContentTitleWrapper { padding: 0;}
+#%parentId% .rotatorContentDescription { margin: 0; width: 566px;}
+
+#%parentId% .rotatorContent {width: 566px;}
+
+#%parentId% .rotatorDescription{width: 566px; margin-right: 0 !important;}
+
+#%parentId% .rotatorControlsWrapper .rotatorPositionsWrapper .rotatorPosition{height: 41px; background: url(images/item-bg.gif) no-repeat; padding-left: 20px; font-weight: bold; color: #777; line-height: 42px;}
+#%parentId% .rotatorControlsWrapper .rotatorPositionsWrapper .rotatorPositionSelected {background: url(images/item-bg-on.png) no-repeat; height: 41px; margin-left: -14px; padding-left: 34px; line-height: 42px;}
+#%parentId% .rotatorPositionSelected div { color: #fff !important; }
