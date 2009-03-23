@@ -37,6 +37,8 @@
     <include name="**/*.build"/>
     <include name="**/*.dnn"/>
     <include name="**/*.docx"/>
+    <include name="MSBuild/*.dll"/>
+    <include name="MSBuild/*.targets"/>
   </patternset>
 
   <target name="build" description="Builds the solution" if="${build}">

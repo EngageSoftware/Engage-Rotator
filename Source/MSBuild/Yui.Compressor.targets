@@ -1,0 +1,42 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask AssemblyFile="Yahoo.Yui.Compressor.NET20.dll" TaskName="CompressorTask"/>
+  <PropertyGroup>
+    <CompileDependsOn>CompressJavaScript;CompressCss;$(CompileDependsOn)</CompileDependsOn>
+  </PropertyGroup>
+  <Target Name="CompressJavaScript">
+    <!-- Create the list of files: you can create an explicit semi-colon delimited list or use wildcards as below -->
+    <CreateItem Include="$(SolutionDir)JavaScript\*.js" Exclude="$(SolutionDir)JavaScript\*.min.js">
+      <Output TaskParameter="Include" ItemName="JavaScriptFiles" />
+    </CreateItem>
+
+    <Exec Command="%22$(MSBuildStartupDirectory)\tf.exe%22 checkout %22%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)%22" Condition="Exists('$(MSBuildStartupDirectory)\tf.exe') And Exists('%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)')" IgnoreExitCode="true"/>
+    <!-- Execute CompressorTask for each file in the list -->
+    <CompressorTask
+       Condition="'%(JavaScriptFiles.Identity)' != ''"
+       JavaScriptFiles="%(JavaScriptFiles.Identity)"
+       ObfuscateJavaScript="FoSho"
+       PreserveAllSemicolons="Yeah"
+       DisableOptimizations="Nope"
+       EncodingType="Default"
+       DeleteJavaScriptFiles="false"
+       JavaScriptOutputFile="%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)"
+       LoggingType="HardcoreBringItOn"
+       ThreadCulture="en-GB"/> <!-- Setting to en-GB because 1) that's the default for the MSBuild task, and 2) there's a bug in the task where it's always set to en-GB regardless of what you provide -->
+
+    <Exec Command="%22$(MSBuildStartupDirectory)\tf.exe%22 add %22%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)%22" Condition="Exists('$(MSBuildStartupDirectory)\tf.exe') And Exists('%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)')" IgnoreExitCode="true"/>
+  </Target>
+  <Target Name="CompressCss">
+    <Message Text="CSS Compression to be implemented"/>
+    <!--CreateItem Include="$(SolutionDir)**\*.css">
+      <Output TaskParameter="Include" ItemName="CssFiles" />
+    </CreateItem-->
+    <!--CompressorTask
+       Condition="'%(CssFiles.Identity)' != ''"
+       CssFiles="%(CssFiles.Identity)"
+       DeleteCssFiles="false"
+       CssOutputFile="%(CssFiles.Identity)"
+       CssCompressionType="YuiStockCompression"
+       EncodingType="Default"
+       LoggingType="ALittleBit" /-->
+  </Target>
+</Project>

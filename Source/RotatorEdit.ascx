@@ -2,7 +2,6 @@
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/URLControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/labelControl.ascx" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <table class="settingsTable">
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="lblTitle" runat="server" EnableViewState="false" /></td>
