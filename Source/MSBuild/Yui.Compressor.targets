@@ -15,12 +15,8 @@
        Condition="'%(JavaScriptFiles.Identity)' != ''"
        JavaScriptFiles="%(JavaScriptFiles.Identity)"
        ObfuscateJavaScript="FoSho"
-       PreserveAllSemicolons="Yeah"
-       DisableOptimizations="Nope"
-       EncodingType="Default"
-       DeleteJavaScriptFiles="false"
        JavaScriptOutputFile="%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)"
-       LoggingType="HardcoreBringItOn"
+       LoggingType="ALittleBit"
        ThreadCulture="en-GB"/> <!-- Setting to en-GB because 1) that's the default for the MSBuild task, and 2) there's a bug in the task where it's always set to en-GB regardless of what you provide -->
 
     <Exec Command="%22$(MSBuildStartupDirectory)\tf.exe%22 add %22%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)%22" Condition="Exists('$(MSBuildStartupDirectory)\tf.exe') And Exists('%(JavaScriptFiles.RelativeDir)%(JavaScriptFiles.Filename).min%(JavaScriptFiles.Extension)')" IgnoreExitCode="true"/>
