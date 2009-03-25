@@ -12,6 +12,7 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
+    using System.Collections.Generic;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using DotNetNuke.Entities.Modules;
@@ -119,7 +120,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+                return Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
             }
         }
 
@@ -131,7 +132,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
+                return Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
             }
         }
 
@@ -143,7 +144,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "AutoStop", false);
+                return Utility.GetBoolSetting(this.Settings, "AutoStop", false);
             }
         }
 
@@ -155,7 +156,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
+                return Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
             }
         }
 
@@ -167,7 +168,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
+                return Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
             }
         }
 
@@ -179,7 +180,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "Continuous", false);
+                return Utility.GetBoolSetting(this.Settings, "Continuous", false);
             }
         }
 
@@ -191,7 +192,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
+                return Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
             }
         }
 
@@ -203,7 +204,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
+                return Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
             }
         }
 
@@ -215,7 +216,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "Loop", true);
+                return Utility.GetBoolSetting(this.Settings, "Loop", true);
             }
         }
 
@@ -227,7 +228,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "RandomOrder", false);
+                return Utility.GetBoolSetting(this.Settings, "RandomOrder", false);
             }
         }
 
@@ -238,7 +239,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
+                return Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
             }
         }
 
@@ -249,7 +250,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
+                return Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
             }
         }
 
@@ -260,7 +261,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorHeight");
+                return Utility.GetIntSetting(this.Settings, "RotatorHeight");
             }
         }
 
@@ -271,7 +272,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetIntSetting(this.Settings, "RotatorWidth");
+                return Utility.GetIntSetting(this.Settings, "RotatorWidth");
             }
         }
 
@@ -283,7 +284,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
+                return Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
             }
         }
 
@@ -295,7 +296,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
+                return Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
             }
         }
 
@@ -306,7 +307,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Dnn.Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
+                return Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
             }
         }
 
@@ -320,12 +321,8 @@ namespace Engage.Dnn.ContentRotator
             this.Load += this.Page_Load;
             this.TemplateProvider = new RepeaterTemplateProvider(
                     this.DesktopModuleName,
-                    TemplateEngine.GetTemplate(this.PhysicalTemplatesFolderName, "Header.test.html"),
-                    this.HeaderTemplatePlaceholder,
-                    TemplateEngine.GetTemplate(this.PhysicalTemplatesFolderName, "Item.test.html"),
+                    this.GetTemplateSetting(),
                     this.ItemTemplateSection,
-                    TemplateEngine.GetTemplate(this.PhysicalTemplatesFolderName, "Footer.test.html"),
-                    this.FooterTemplatePlaceholder,
                     string.Empty,
                     new ItemPagingState(),
                     ProcessTags);
@@ -352,6 +349,9 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="resourceFile">The resource file to use to find localized text.</param>
         private static void ProcessTags(Control container, Tag tag, object engageObject, string resourceFile)
         {
+#if DEBUG
+            container.Controls.Add(new LiteralControl("<em>" + (tag.TagType == TagType.Close ? "/" : string.Empty) + tag.LocalName + "</em>"));
+#endif
         }
 
         /// <summary>
@@ -363,16 +363,64 @@ namespace Engage.Dnn.ContentRotator
         {
             try
             {
-                this.TemplateProvider.DataSource = ContentItem.GetContentItems(this.ModuleId);
-                this.TemplateProvider.DataBind();
-
                 this.RegisterRotatorJavascript();
-                this.DataBind();
             }
             catch (Exception exc)
             {
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
+        }
+
+        /// <summary>
+        /// Gets the template from this page's settings.  If no template is set, sets a default.
+        /// </summary>
+        /// <returns>The template from this page's settings, or <c>null</c> if no valid template is available</returns>
+        private Template GetTemplateSetting()
+        {
+            TemplateInfo template = null;
+            string templateFolderName = Utility.GetStringSetting(this.Settings, "Template");
+            if (!string.IsNullOrEmpty(templateFolderName))
+            {
+                template = this.GetTemplate(templateFolderName);
+            }
+
+            if (template == null)
+            {
+                template = this.GetDefaultTemplate();
+                if (template == null)
+                {
+                    // if there are no templates, return null and cause the templating framework to throw an ArgumentNullException...
+                    return null;
+                }
+
+                this.SetTemplateSetting(template.FolderName);
+            }
+
+            return template.Template;
+        }
+
+        /// <summary>
+        /// Gets a default template to use if no template has been set (or the set template is no longer available).
+        /// </summary>
+        /// <returns>A valid template, or <c>null</c> if there are no valid templates available</returns>
+        private TemplateInfo GetDefaultTemplate()
+        {
+            IList<TemplateInfo> templates = this.GetTemplates();
+            if (templates.Count > 0)
+            {
+                return templates[0];
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Sets the template setting for this instance to the given <paramref name="folderName"/>.
+        /// </summary>
+        /// <param name="folderName">Name of the folder in which the template lives.</param>
+        private void SetTemplateSetting(string folderName)
+        {
+            new ModuleController().UpdateTabModuleSetting(this.TabModuleId, "Template", folderName);
         }
 
         /// <summary>

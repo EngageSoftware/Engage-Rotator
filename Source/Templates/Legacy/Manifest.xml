@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EngageManifest Module="Rotator" Type="List">
+  <Title>Legacy</Title>
+  <Description>
+    Mimicks the structure of Engage: Rotator 1.x.
+  </Description>
+  <PreviewImage>Preview.png</PreviewImage>
+  <Stylesheet>Style.css</Stylesheet>
+  <Template>Template.htm</Template>
+  <Settings>
+  </Settings>
+</EngageManifest>

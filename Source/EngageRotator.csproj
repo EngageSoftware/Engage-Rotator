@@ -211,9 +211,6 @@
     <Content Include="Templates\Engage\Manifest.xml" />
     <Content Include="Templates\Engage\Preview.png" />
     <Content Include="Templates\Engage\Style.css" />
-    <Content Include="Templates\Footer.test.html" />
-    <Content Include="Templates\Item.test.html" />
-    <Content Include="Templates\Header.test.html" />
   </ItemGroup>
   <Choose>
     <When Condition=" '$(Configuration)' == 'Debug' ">
@@ -221,6 +218,7 @@
         <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
         <EmbeddedResource Include="JavaScript\jquery-ui.js" />
         <EmbeddedResource Include="JavaScript\Rotator.js" />
+        <Content Include="Templates\Legacy\App_LocalResources\Template.resx" />
       </ItemGroup>
     </When>
     <Otherwise>
@@ -276,6 +274,10 @@
     <Content Include="images\JQueryUiTheme\select.png" />
     <Content Include="images\JQueryUiTheme\select2.png" />
     <Content Include="images\JQueryUiTheme\spinner-bg.gif" />
+    <Content Include="Templates\Legacy\Manifest.xml" />
+    <Content Include="Templates\Legacy\Preview.png" />
+    <Content Include="Templates\Legacy\Style.css" />
+    <Content Include="Templates\Legacy\Template.htm" />
     <Content Include="Templates\Engage\App_LocalResources\Template.resx" />
     <Content Include="Templates\App_LocalResources\Template.resx" />
   </ItemGroup>

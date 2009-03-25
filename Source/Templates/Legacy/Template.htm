@@ -1,0 +1,48 @@
+﻿<div class="rotatorWrapper">
+    <div class="rotator">
+        <Engage:List Type="Content">
+            <div>
+                <div class="rotatorContentWrapper" > <!--style='ContentWrapperStyle'-->
+                    <div class="rotatorContent">
+                        <Engage:Label ResourceKey="ContentHeaderText" />
+                        <span class="rotatorContentHeaderLinkWrapper"><Engage:Link PropertyName="ContentHeaderLink" CssClass="rotatorContentHeaderLink" ResourceKey="ContentHeaderLinkText"/></span>
+	                    <div class="rotatorThumbnailWrapper">
+	                        <Engage:Link PropertyName="LinkUrl" Cssclass="rotatorThumbnailLink">
+		                        <Engage:Image CssClass="rotatorThumbnail" PropertyName="ThumbnailUrl" AlternateText="" /> <!--style='ThumbnailStyle'-->
+	                        </Engage:Link>
+                        </div>
+                        <div class="rotatorContentBodyWrapper">
+                            <span class="rotatorContentTitleWrapper">
+	                            <Engage:Link CssClass="rotatorContentTitleLink" PropertyName="LinkUrl"><Engage:DataEntity PropertyName="Title" /></Engage:Link>
+                            </span>
+                            <div id="rotatorContentDescriptionWrapper" class="rotatorContentDescriptionWrapper">
+                                <span class="rotatorDescription"><Engage:Link PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:DataEntity PropertyName="Description" /></Engage:Link></span>
+	                            <div class="rotatorReadMoreLinkWrapper"><Engage:Link CssClass="rotatorReadMoreLink" ResourceKey="lnkReadMore" PropertyName="LinkUrl" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Engage:List>
+    </div>
+	<div id="controls" class="rotatorControlsWrapper">
+	    <div class="rotatorPositionsWrapper">
+	        <Engage:List Type="ContentPager">
+                <div class="rotatorPosition">
+                    <div id="positionThumbnail">
+                        <Engage:PagerItem Action="NavigateTo">
+                            <Engage:Image PropertyName="PositionThumbnailUrl" CssClass="rotatorPositionThumbnail" AlternateTextPropertyName="Title" />
+                        </Engage:PagerItem>
+                    </div>
+                    <Engage:PagerItem Action="NavigateTo" CssClass="positionTitle">
+                        <div class="rotatorPositionTitle"><Engage:DataEntity PropertyName="Title"/></div>
+                    </Engage:PagerItem>
+                </div>
+            </Engage:List>
+	    </div>
+	    <Engage:RotateBack class="rotatorControlsPreviousLink">&nbsp;
+	    <Engage:RotatePause class="rotatorControlsPauseLink">&nbsp;
+	    <Engage:RotateNext class="rotatorControlsNextLink">&nbsp;
+	    <div class="rotatorPositionCounter"><Engage:Label ResourceKey="lblPositionCounterBegin"/><span><Engage:CurrentIndex /></span><Engage:Label ResourceKey="lblPositionCounterEnd" /> <Engage:TotalCount /></div>
+    </div>
+</div>

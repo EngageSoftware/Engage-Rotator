@@ -406,7 +406,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return this.Settings["Template"] as string;
+                return Utility.GetStringSetting(this.Settings, "Template");
             }
         }
 
