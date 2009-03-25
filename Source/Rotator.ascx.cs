@@ -317,8 +317,6 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
-            base.OnInit(e);
-            this.Load += this.Page_Load;
             this.TemplateProvider = new RepeaterTemplateProvider(
                     this.DesktopModuleName,
                     this.GetTemplateSetting(),
@@ -327,6 +325,9 @@ namespace Engage.Dnn.ContentRotator
                     new ItemPagingState(),
                     ProcessTags,
                     this.GetContentItems);
+
+            base.OnInit(e);
+            this.Load += this.Page_Load;
         }
 
         /// <summary>
