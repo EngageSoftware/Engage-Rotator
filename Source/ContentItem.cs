@@ -15,11 +15,13 @@ namespace Engage.Dnn.ContentRotator
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics;
+    using System.Globalization;
+    using Framework.Templating;
 
     /// <summary>
     /// An item of content to be rotated
     /// </summary>
-    public class ContentItem
+    public class ContentItem : ITemplateable
     {
         /// <summary>
         /// Backing field for <see cref="ContentItemId"/>
@@ -304,6 +306,50 @@ namespace Engage.Dnn.ContentRotator
             else
             {
                 DataProvider.Instance.UpdateContentItem(this.contentItemId, this.description, this.thumbnailUrl, this.linkUrl, this.startDate, this.endDate, this.title, this.positionThumbnailUrl, this.sortOrder);
+            }
+        }
+
+        /// <summary>
+        /// Gets the value of the property with the given <paramref name="propertyName"/>, or <see cref="F:System.String.Empty"/> if a property with that name does not exist on this object or is <c>null</c>.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns>
+        /// The string representation of the value of this instance.
+        /// </returns>
+        public string GetValue(string propertyName)
+        {
+            return this.GetValue(propertyName, null);
+        }
+
+        /// <summary>
+        /// Gets the value of the property with the given <paramref name="propertyName"/>, or <see cref="F:System.String.Empty"/> if a property with that name does not exist on this object or is <c>null</c>.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param><param name="format">A numeric or DateTime format string, or <c>null</c> or <see cref="F:System.String.Empty"/> to apply the default format.</param>
+        /// <returns>
+        /// The string representation of the value of this instance as specified by <paramref name="format"/>.
+        /// </returns>
+        public string GetValue(string propertyName, string format)
+        {
+            switch (propertyName.ToUpperInvariant())
+            {
+                case "DESCRIPTION":
+                    return this.description;
+                case "ENDDATE":
+                    return this.endDate.HasValue ? this.endDate.Value.ToString(format, CultureInfo.CurrentCulture) : string.Empty;
+                case "LINKURL":
+                    return this.linkUrl;
+                case "POSITIONTHUMBNAILURL":
+                    return this.positionThumbnailUrl;
+                case "SORTORDER":
+                    return this.sortOrder.ToString(format, CultureInfo.CurrentCulture);
+                case "STARTDATE":
+                    return this.startDate.ToString(format, CultureInfo.CurrentCulture);
+                case "THUMBNAILURL":
+                    return this.thumbnailUrl;
+                case "TITLE":
+                    return this.title;
+                default:
+                    return string.Empty;
             }
         }
 

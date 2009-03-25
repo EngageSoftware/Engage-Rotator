@@ -325,7 +325,8 @@ namespace Engage.Dnn.ContentRotator
                     this.ItemTemplateSection,
                     string.Empty,
                     new ItemPagingState(),
-                    ProcessTags);
+                    ProcessTags,
+                    this.GetContentItems);
         }
 
         /// <summary>
@@ -350,8 +351,23 @@ namespace Engage.Dnn.ContentRotator
         private static void ProcessTags(Control container, Tag tag, object engageObject, string resourceFile)
         {
 #if DEBUG
-            container.Controls.Add(new LiteralControl("<em>" + (tag.TagType == TagType.Close ? "/" : string.Empty) + tag.LocalName + "</em>"));
+            if (tag.TagType != TagType.Close)
+            {
+                container.Controls.Add(new LiteralControl("<em>" + tag.LocalName + "</em>"));
+            }
 #endif
+        }
+
+        /// <summary>
+        /// Gets a list of the <see cref="ContentItem"/>s for this module.  Does not take the <paramref name="listTag"/> or <paramref name="context"/> into account,
+        /// effectively only supporting one data source.
+        /// </summary>
+        /// <param name="listTag">The Engage:List <see cref="Tag"/> for which to return a data source</param>
+        /// <param name="context">The current <see cref="ITemplateable"/> item being processed, or <c>null</c> if no list is currently being processed</param>
+        /// <returns>A list of the <see cref="ContentItem"/>s for this module.</returns>
+        private IEnumerable<ITemplateable> GetContentItems(Tag listTag, ITemplateable context)
+        {
+            return ContentItem.GetContentItems(this.ModuleId).ConvertAll(delegate(ContentItem input) { return (ITemplateable)input; });
         }
 
         /// <summary>
