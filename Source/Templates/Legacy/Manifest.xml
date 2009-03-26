@@ -4,9 +4,7 @@
   <Description>
     Mimicks the structure of Engage: Rotator 1.x.
   </Description>
-  <PreviewImage>Preview.png</PreviewImage>
   <Stylesheet>Style.css</Stylesheet>
   <Template>Template.htm</Template>
-  <Settings>
-  </Settings>
+  <ResourceFile>App_LocalResources\Template.resx</ResourceFile>
 </EngageManifest>

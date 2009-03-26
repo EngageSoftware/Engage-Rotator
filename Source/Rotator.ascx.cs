@@ -66,23 +66,6 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets or sets the template provider.
-        /// </summary>
-        /// <value>The template provider.</value>
-        protected new RepeaterTemplateProvider TemplateProvider
-        {
-            get
-            {
-                return (RepeaterTemplateProvider)base.TemplateProvider;
-            }
-
-            set
-            {
-                base.TemplateProvider = value;
-            }
-        }
-
-        /// <summary>
         /// Gets the <see cref="CycleOptions"/> for this module instance.
         /// </summary>
         /// <returns>The <see cref="CycleOptions"/> for this module instance</returns>
@@ -318,12 +301,10 @@ namespace Engage.Dnn.ContentRotator
         protected override void OnInit(EventArgs e)
         {
             this.RequiresScriptManager = false;
-            this.TemplateProvider = new RepeaterTemplateProvider(
+            this.TemplateProvider = new TemplateListingProvider(
                     this.DesktopModuleName,
                     this.GetTemplateSetting(),
                     this.ItemTemplateSection,
-                    string.Empty,
-                    new ItemPagingState(),
                     ProcessTags,
                     this.GetContentItems);
 
@@ -393,7 +374,7 @@ namespace Engage.Dnn.ContentRotator
         /// Gets the template from this page's settings.  If no template is set, sets a default.
         /// </summary>
         /// <returns>The template from this page's settings, or <c>null</c> if no valid template is available</returns>
-        private Template GetTemplateSetting()
+        private TemplateInfo GetTemplateSetting()
         {
             TemplateInfo template = null;
             string templateFolderName = Utility.GetStringSetting(this.Settings, "Template");
@@ -414,7 +395,7 @@ namespace Engage.Dnn.ContentRotator
                 this.SetTemplateSetting(template.FolderName);
             }
 
-            return template.Template;
+            return template;
         }
 
         /// <summary>

@@ -9,6 +9,7 @@
   <PreviewImage>Preview.png</PreviewImage>
   <Stylesheet>Style.css</Stylesheet>
   <Template>Template.htm</Template>
+  <ResourceFile>App_LocalResources\Template.resx</ResourceFile>
   <Settings>
     <Setting>
       <Name>ShowContentHeader</Name>

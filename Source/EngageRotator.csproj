@@ -132,7 +132,6 @@
   <ItemGroup>
     <None Include="EngageRotator.5.dnn" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.01.00.SqlDataProvider" />
-    <None Include="StyleTemplates\Manifest.xsd" />
     <None Include="Uninstall.SqlDataProvider" />
     <None Include="EngageRotator.4.dnn" />
     <None Include="EngageRotator.Build" />
@@ -177,31 +176,6 @@
     <Content Include="References\Engage.Dnn.Framework.dll" />
     <Content Include="References\Engage.Framework.dll" />
     <Content Include="References\Microsoft.ApplicationBlocks.Data.dll" />
-    <Content Include="StyleTemplates\Engage\images\item-bg-on.png" />
-    <Content Include="StyleTemplates\Engage\images\item-bg.gif" />
-    <Content Include="StyleTemplates\Engage\Manifest.xml" />
-    <Content Include="StyleTemplates\Engage\Preview.png" />
-    <Content Include="StyleTemplates\Engage\Style.css" />
-    <Content Include="StyleTemplates\Horizontal\horizontal.png" />
-    <Content Include="StyleTemplates\Horizontal\images\bottom-header-bg.gif" />
-    <Content Include="StyleTemplates\Horizontal\images\item-bg-on.png" />
-    <Content Include="StyleTemplates\Horizontal\images\item-bg.gif" />
-    <Content Include="StyleTemplates\Horizontal\images\itembg.gif" />
-    <Content Include="StyleTemplates\Horizontal\images\itembgOn.gif" />
-    <Content Include="StyleTemplates\Horizontal\Manifest.xml" />
-    <Content Include="StyleTemplates\Horizontal\Style.css" />
-    <Content Include="StyleTemplates\ThreeColumn\images\nexth.gif" />
-    <Content Include="StyleTemplates\ThreeColumn\images\pauseh.gif" />
-    <Content Include="StyleTemplates\ThreeColumn\images\previoush.gif" />
-    <Content Include="StyleTemplates\ThreeColumn\Manifest.xml" />
-    <Content Include="StyleTemplates\ThreeColumn\Style.css" />
-    <Content Include="StyleTemplates\ThreeColumn\threecolumn.png" />
-    <Content Include="StyleTemplates\TwoColumn\images\nexth.gif" />
-    <Content Include="StyleTemplates\TwoColumn\images\pauseh.gif" />
-    <Content Include="StyleTemplates\TwoColumn\images\previoush.gif" />
-    <Content Include="StyleTemplates\TwoColumn\Manifest.xml" />
-    <Content Include="StyleTemplates\TwoColumn\Style.css" />
-    <Content Include="StyleTemplates\TwoColumn\twocolumn.png" />
     <Content Include="Templates\Engage\images\item-bg-on.png" />
     <Content Include="Templates\Engage\images\item-bg.gif" />
     <Content Include="Templates\Engage\Template.htm" />
@@ -261,7 +235,6 @@
     <Content Include="Templates\Legacy\Style.css" />
     <Content Include="Templates\Legacy\Template.htm" />
     <Content Include="Templates\Engage\App_LocalResources\Template.resx" />
-    <Content Include="Templates\App_LocalResources\Template.resx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
