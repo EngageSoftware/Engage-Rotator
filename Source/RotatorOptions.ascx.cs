@@ -14,7 +14,6 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Globalization;
     using System.Web.UI.WebControls;
-    using DotNetNuke.Entities.Modules;
     using DotNetNuke.Framework;
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.Localization;
@@ -24,7 +23,7 @@ namespace Engage.Dnn.ContentRotator
     /// <summary>
     /// The code-behind for the control that displays an administrative list of all the <see cref="ContentItem"/>s for this instance of the module
     /// </summary>
-    public partial class RotatorOptions : PortalModuleBase
+    public partial class RotatorOptions : ModuleBase
     {
         /// <summary>
         /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
@@ -32,6 +31,8 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
+            this.RequiresScriptManager = false;
+
             base.OnInit(e);
             this.Load += this.Page_Load;
             this.BackButton.Click += this.BackButton_Click;

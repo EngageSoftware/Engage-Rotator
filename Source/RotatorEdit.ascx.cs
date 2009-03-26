@@ -57,6 +57,8 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
+            this.RequiresScriptManager = false;
+
             base.OnInit(e);
             this.Load += this.Page_Load;
             this.SubmitButton.Click += this.SubmitButton_Click;
