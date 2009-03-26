@@ -172,9 +172,6 @@
     <Content Include="images\rb-corner.gif" />
     <Content Include="images\rt-corner.gif" />
     <Content Include="images\top-header-bg.gif" />
-    <EmbeddedResource Include="JavaScript\jquery.cycle.all.min.js" />
-    <EmbeddedResource Include="JavaScript\jquery-ui.min.js" />
-    <EmbeddedResource Include="JavaScript\Rotator.min.js" />
     <Content Include="References\DotNetNuke.dll" />
     <Content Include="References\DotNetNuke.WebUtility.dll" />
     <Content Include="References\Engage.Dnn.Framework.dll" />
@@ -211,25 +208,10 @@
     <Content Include="Templates\Engage\Manifest.xml" />
     <Content Include="Templates\Engage\Preview.png" />
     <Content Include="Templates\Engage\Style.css" />
-  </ItemGroup>
-  <Choose>
-    <When Condition=" '$(Configuration)' == 'Debug' ">
-      <ItemGroup>
-        <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
-        <EmbeddedResource Include="JavaScript\jquery-ui.js" />
-        <EmbeddedResource Include="JavaScript\Rotator.js" />
-        <Content Include="Templates\Legacy\App_LocalResources\Template.resx" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <None Include="JavaScript\jquery.cycle.all.js" />
-        <None Include="JavaScript\jquery-ui-1.5.3.js" />
-        <None Include="JavaScript\Rotator.js" />
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
-  <ItemGroup>
+    <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
+    <EmbeddedResource Include="JavaScript\jquery-ui.js" />
+    <EmbeddedResource Include="JavaScript\Rotator.js" />
+    <Content Include="Templates\Legacy\App_LocalResources\Template.resx" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_close.gif" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_folder_closed.gif" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_folder_open.gif" />

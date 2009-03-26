@@ -30,9 +30,5 @@ using System.Web.UI;
 [assembly: AssemblyVersion("2.0.0.*")]
 [assembly: AssemblyFileVersion("2.0.0.0")]
 
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.min.js", "text/javascript")]
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui.min.js", "text/javascript")]
-#if DEBUG
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js", "text/javascript")]
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js", "text/javascript")]
-#endif
