@@ -1,5 +1,5 @@
 /*!
-* jQuery UI 1.6rc2.5
+* jQuery UI 1.6rc2.6
 *
 * Copyright (c) 2008 AUTHORS.txt (http://ui.jquery.com/about)
 * Dual licensed under the MIT (MIT-LICENSE.txt)
@@ -15,7 +15,7 @@
     //Helper functions and ui object
     $.ui = {
 
-        version: "1.6rc2.5",
+        version: "1.6rc2.6",
 
         // $.ui.plugin is deprecated.  Use the proxy pattern instead.
         plugin: {
@@ -528,7 +528,7 @@
 
 })(jQuery);
 /*!
-* jQuery UI Datepicker 1.6rc2.5
+* jQuery UI Datepicker 1.6rc2.6
 *
 * Copyright (c) 2008 AUTHORS.txt (http://ui.jquery.com/about)
 * Dual licensed under the MIT (MIT-LICENSE.txt)
@@ -542,7 +542,7 @@
 
 (function($) { // hide the namespace
 
-    $.extend($.ui, { datepicker: { version: "1.6rc2.5"} });
+    $.extend($.ui, { datepicker: { version: "1.6rc2.6"} });
 
     var PROP_NAME = 'datepicker';
 
@@ -2284,11 +2284,11 @@
     $.datepicker = new Datepicker(); // singleton instance
     $.datepicker.initialized = false;
     $.datepicker.uuid = new Date().getTime();
-    $.datepicker.version = "1.6rc2.5";
+    $.datepicker.version = "1.6rc2.6";
 
 })(jQuery);
 /*!
-* jQuery UI Tabs 1.6rc2.5
+* jQuery UI Tabs 1.6rc2.6
 *
 * Copyright (c) 2008 AUTHORS.txt (http://ui.jquery.com/about)
 * Dual licensed under the MIT (MIT-LICENSE.txt)
@@ -2786,7 +2786,7 @@
     });
 
     $.extend($.ui.tabs, {
-        version: '1.6rc2.5',
+        version: '1.6rc2.6',
         getter: 'length',
         defaults: {
             ajaxOptions: null,
