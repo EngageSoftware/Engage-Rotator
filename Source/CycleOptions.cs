@@ -14,6 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Diagnostics;
     using System.Web.Script.Serialization;
+    using System.Web.UI;
     using System.Web.UI.WebControls;
 
     /// <summary>
@@ -59,7 +60,7 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>Backing field for <see cref="NextButton"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string nextButton;
+        private Control nextButton;
 
         /// <summary>Backing field for <see cref="Loop"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -67,7 +68,7 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>Backing field for <see cref="PagerContainer"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string pagerContainer;
+        private Control pagerContainer;
 
         /// <summary>Backing field for <see cref="PagerEvent"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -83,7 +84,7 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>Backing field for <see cref="PreviousButton"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string previousButton;
+        private Control previousButton;
 
         /// <summary>Backing field for <see cref="RandomOrder"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -318,8 +319,8 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets a value indicating the selector for the element to use as click trigger for next slide</summary>
-        public string NextButton
+        /// <summary>Gets or sets a value indicating the ID of the element to use as click trigger for next slide</summary>
+        public Control NextButton
         {
             [DebuggerStepThrough]
             get
@@ -351,7 +352,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>Gets or sets a value indicating the selector for the element to use as pager container</summary>
-        public string PagerContainer
+        public Control PagerContainer
         {
             [DebuggerStepThrough]
             get
@@ -414,8 +415,8 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets a value indicating the selector for the element to use as click trigger for previous slide</summary>
-        public string PreviousButton
+        /// <summary>Gets or sets a value indicating the ID of the element to use as click trigger for previous slide</summary>
+        public Control PreviousButton
         {
             [DebuggerStepThrough]
             get

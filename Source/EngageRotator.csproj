@@ -165,9 +165,9 @@
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_02_glass_65.png" />
     <Content Include="images\lb-corner.gif" />
     <Content Include="images\lt-corner.gif" />
-    <Content Include="images\next.gif" />
-    <Content Include="images\pause.gif" />
-    <Content Include="images\previous.gif" />
+    <Content Include="Templates\Legacy\images\next.gif" />
+    <Content Include="Templates\Legacy\images\pause.gif" />
+    <Content Include="Templates\Legacy\images\previous.gif" />
     <Content Include="images\rb-corner.gif" />
     <Content Include="images\rt-corner.gif" />
     <Content Include="images\top-header-bg.gif" />

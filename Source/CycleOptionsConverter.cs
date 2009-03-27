@@ -68,9 +68,9 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("speed", opts.TransitionSpeed);
             cycleOptions.Add("speedIn", opts.TransitionInSpeed);
             cycleOptions.Add("speedOut", opts.TransitionOutSpeed);
-            cycleOptions.Add("next", opts.NextButton);
-            cycleOptions.Add("prev", opts.PreviousButton);
-            cycleOptions.Add("pager", opts.PagerContainer);
+            cycleOptions.Add("next", (opts.NextButton == null) ? string.Empty : "#" + opts.NextButton.ClientID);
+            cycleOptions.Add("prev", (opts.PreviousButton == null) ? string.Empty : "#" + opts.PreviousButton.ClientID);
+            cycleOptions.Add("pager", (opts.PagerContainer == null) ? string.Empty : "#" + opts.PagerContainer.ClientID);
             cycleOptions.Add("pagerEvent", opts.PagerEvent);
             cycleOptions.Add("height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString());
             cycleOptions.Add("width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString());

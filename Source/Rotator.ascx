@@ -1,7 +1,9 @@
 <%@ Control Language="c#" AutoEventWireup="False" Codebehind="Rotator.ascx.cs" Inherits="Engage.Dnn.ContentRotator.Rotator" %>
-<asp:PlaceHolder ID="ItemTemplateSection" runat="server" />
+<asp:Panel ID="RotatorContainer" runat="server" CssClass="engage-rotator-container">
+    <asp:PlaceHolder ID="ItemTemplateSection" runat="server" />
+</asp:Panel>
 <script type="text/javascript">
     jQuery(function() {
-        jQuery('#<%=this.Parent.ClientID %> .rotate-wrap').cycle(<%= this.CycleOptions.Serialize() %>);
+        jQuery('#<%=this.RotatorContainer.ClientID %> .rotate-wrap').cycle(<%= this.CycleOptions.Serialize() %>);
     });
 </script>

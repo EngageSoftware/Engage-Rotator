@@ -911,7 +911,7 @@ namespace Engage.Dnn.ContentRotator
                 if (manifest != null)
                 {
                     this.TemplateDescriptionLabel.Text = manifest.Description;
-                    this.TemplatePreviewImage.ImageUrl = "~" + manifest.GetRelativePath(manifest.PreviewImage);
+                    this.TemplatePreviewImage.ImageUrl = manifest.GetRelativePath(manifest.PreviewImage, true);
                     this.TemplateDescriptionPanel.Visible = Engage.Utility.HasValue(this.TemplateDescriptionLabel.Text);
                     this.TemplatePreviewImage.Visible = Engage.Utility.HasValue(this.TemplatePreviewImage.ImageUrl);
                 }

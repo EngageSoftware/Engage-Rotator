@@ -1,4 +1,8 @@
-﻿.divRotator a:visited, .divRotator a:link, .divRotator a:active, .divRotator a
+﻿
+
+
+/**** TO BE CLEANED UP ****/
+.divRotator a:visited, .divRotator a:link, .divRotator a:active, .divRotator a
 {color:#000000; font-size:11px; font-weight:600; line-height:0.9; text-decoration:none;}
 .divRotator a:hover{text-decoration: underline; color: #000000;}
 .divRotator img{border-color: black;}
@@ -23,37 +27,13 @@ wbr:after { content: "\00200B" }
 .TitleTextBox{width: 90%;}
 #editContent {overflow: auto; border-top: 1px #ccc solid; padding: 10px 0;}
 
-
-
 .rotatorWrapper{width: 100%; clear: both; overflow: hidden; background: transparent;}
 
 	.rotator{width: 100%; overflow: hidden;}
 		.rotatorContentWrapper{width: 100%; clear: both; overflow: hidden;}
 			.rotatorContent{width: 100%; clear: both; overflow: hidden;}
-				.rotatorThumbnailWrapper{}
-					a.rotatorThumnailLink {}
-						img.rotatorThumnail{}
-				.rotatorContentBodyWrapper{}
-					.rotatorContentTitleWrapper{}
-						a.rotatorContentTitleLink {}
-					.rotatorContentDescriptionWrapper{}
-						.rotatorDescription{}
-				
-	
-	.rotatorControlsWrapper{}
-		.rotatorControlsPreviousLink{background: transparent url(images/previous.gif) no-repeat; height: 6px; width: 16px; cursor: pointer;}
-		.rotatorControlsPauseLink{background: transparent url(images/pause.gif) no-repeat;height: 14px;width: 14px; cursor: pointer;}
-
-		.rotatorPositionsWrapper{}
-			.rotatorPosition{}
 			.rotatorPositionSelected{color: #d00000;}
 			
-				.rotatorPositionThumbnailLink{}
-				.rotatorPositionTitleLink{}
-			
-			
-		.rotatorControlsNextLink{background: transparent url(images/next.gif) no-repeat; height: 6px; width: 16px; cursor: pointer;}
-
 #rotatorContentDescriptionWrapper{padding: 10px 0;}
 
 
@@ -62,6 +42,7 @@ wbr:after { content: "\00200B" }
 	
 /******** Main Rotator Display **********/
 .RotatorBody {overflow:hidden;}
+.rotator-pause-on, .rotator-play-on {display:none;}
 
 /******** Rotator Options (Add/Edit List) ************/
 .divArticleToRotate{overflow: auto; text-align: left; margin: 10px 0 20px 0;}

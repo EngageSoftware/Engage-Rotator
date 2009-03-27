@@ -1,6 +1,6 @@
-﻿<div class="rotatorWrapper">
-    <div class="rotator rotate-wrap">
-        <Engage:List Type="Content">
+﻿<div class="rotatorWrapper legacy-template">
+    <div class="rotator rotate-wrap"><!-- .rotate-wrap is required around content to be rotated -->
+        <Engage:List>
             <div>
                 <div class="rotatorContentWrapper" > <!--style='ContentWrapperStyle'-->
                     <div class="rotatorContent">
@@ -27,7 +27,8 @@
     </div>
 	<div id="controls" class="rotatorControlsWrapper">
 	    <div class="rotatorPositionsWrapper">
-	        <Engage:List Type="ContentPager">
+	        <Engage:Pager />
+	        <Engage:List>
                 <div class="rotatorPosition">
                     <div id="positionThumbnail">
                         <Engage:PagerItem Action="NavigateTo">
@@ -40,9 +41,9 @@
                 </div>
             </Engage:List>
 	    </div>
-	    <Engage:RotateBack class="rotatorControlsPreviousLink">&nbsp;
-	    <Engage:RotatePause class="rotatorControlsPauseLink">&nbsp;
-	    <Engage:RotateNext class="rotatorControlsNextLink">&nbsp;
+	    <Engage:RotateBack CssClass="rotatorControlsPreviousLink"/>&nbsp;
+	    <Engage:RotatePause CssClass="rotatorControlsPauseLink"/>&nbsp;
+	    <Engage:RotateNext CssClass="rotatorControlsNextLink"/>&nbsp;
 	    <div class="rotatorPositionCounter"><Engage:Label ResourceKey="lblPositionCounterBegin"/><span><Engage:CurrentIndex /></span><Engage:Label ResourceKey="lblPositionCounterEnd" /> <Engage:TotalCount /></div>
     </div>
 </div>

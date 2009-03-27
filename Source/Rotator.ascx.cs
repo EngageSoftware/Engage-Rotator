@@ -29,6 +29,11 @@ namespace Engage.Dnn.ContentRotator
     public partial class Rotator : ModuleBase, IActionable
     {
         /// <summary>
+        /// Backing field for <see cref="CycleOptions"/>
+        /// </summary>
+        private CycleOptions cycleOptions;
+
+        /// <summary>
         /// Gets ModuleActions.
         /// </summary>
         public ModuleActionCollection ModuleActions
@@ -73,26 +78,32 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
-                Unit containerWidth = this.RotatorWidth.HasValue ? Unit.Pixel(this.RotatorWidth.Value) : Unit.Empty;
-                int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 0;
-                return new CycleOptions(
-                        this.AutoStop,
-                        this.AutoStopCount, 
-                        this.ContainerResize,
-                        containerHeight, 
-                        containerWidth, 
-                        this.Continuous,
-                        ConvertSecondsToMilliseconds(this.InitialDelay),
-                        ConvertSecondsToMilliseconds(this.RotatorDelay),
-                        this.PauseOnMouseOver,
-                        this.AnimationEffect,
-                        transitionSpeed, 
-                        ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed), 
-                        this.Loop, 
-                        this.RandomOrder, 
-                        this.SimultaneousTransitions,
-                        this.ForceSlidesToFitContainer);
+                if (this.cycleOptions == null)
+                {
+                    Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
+                    Unit containerWidth = this.RotatorWidth.HasValue ? Unit.Pixel(this.RotatorWidth.Value) : Unit.Empty;
+                    int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 0;
+
+                    this.cycleOptions = new CycleOptions(
+                            this.AutoStop,
+                            this.AutoStopCount,
+                            this.ContainerResize,
+                            containerHeight,
+                            containerWidth,
+                            this.Continuous,
+                            ConvertSecondsToMilliseconds(this.InitialDelay),
+                            ConvertSecondsToMilliseconds(this.RotatorDelay),
+                            this.PauseOnMouseOver,
+                            this.AnimationEffect,
+                            transitionSpeed,
+                            ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed),
+                            this.Loop,
+                            this.RandomOrder,
+                            this.SimultaneousTransitions,
+                            this.ForceSlidesToFitContainer);
+                }
+
+                return this.cycleOptions;
             }
         }
 
@@ -305,7 +316,7 @@ namespace Engage.Dnn.ContentRotator
                     this.DesktopModuleName,
                     this.GetTemplateSetting(),
                     this.ItemTemplateSection,
-                    ProcessTags,
+                    this.ProcessTags,
                     this.GetContentItems);
 
             base.OnInit(e);
@@ -324,21 +335,192 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Adds the given <paramref name="control"/> to the given <paramref name="container"/> unless <paramref name="control"/> is <c>null</c>.
+        /// </summary>
+        /// <param name="container">The container to which <paramref name="control"/> is to be added.</param>
+        /// <param name="control">The control to add to <paramref name="container"/>.</param>
+        private static void AddControl(Control container, Control control)
+        {
+            if (control != null)
+            {
+                container.Controls.Add(control);
+            }
+        }
+
+        /// <summary>
         /// Method used to process a token. This method is invoked from the <see cref="TemplateEngine"/> class. Since this control knows
         /// best on how to construct the page. ListingHeader, ListingItem and Listing Footer templates are processed here.
         /// </summary>
         /// <param name="container">The container.</param>
         /// <param name="tag">The tag being processed.</param>
-        /// <param name="engageObject">The engage object.</param>
+        /// <param name="contentItem">The engage object.</param>
         /// <param name="resourceFile">The resource file to use to find localized text.</param>
-        private static void ProcessTags(Control container, Tag tag, object engageObject, string resourceFile)
+        /// <returns>Whether to process the tag's ChildTags collection</returns>
+        private bool ProcessTags(Control container, Tag tag, ITemplateable contentItem, string resourceFile)
         {
-#if DEBUG
-            if (tag.TagType != TagType.Close)
+            if (tag.TagType == TagType.Open)
             {
-                container.Controls.Add(new LiteralControl("<em>" + tag.LocalName + "</em>"));
+                switch (tag.LocalName.ToUpperInvariant())
+                {
+                    case "ROTATEBACK":
+                        AddControl(container, this.CreateBackButton(tag, contentItem, resourceFile));
+                        break;
+                    case "ROTATENEXT":
+                        AddControl(container, this.CreateNextButton(tag, contentItem, resourceFile));
+                        break;
+                    case "PAGER":
+                        AddControl(container, this.CreatePager(tag, contentItem, resourceFile));
+                        break;
+                    case "ROTATEPAUSE":
+                        AddControl(container, this.CreatePauseButton(tag, contentItem, resourceFile));
+                        break;
+                    case "ROTATEPLAY":
+                        AddControl(container, this.CreatePlayButton(tag, contentItem, resourceFile));
+                        break;
+                }
             }
-#endif
+
+            return false;
+        }
+
+        /// <summary>
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
+        /// getting the value of the property of <paramref name="templateItem"/>
+        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Then sets the tag to cycle back when clicked.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>
+        /// The created back button
+        /// </returns>
+        private Control CreateBackButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        {
+            Panel backButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+
+            backButton.ID = "BackButton";
+            this.CycleOptions.PreviousButton = backButton;
+
+            return backButton;
+        }
+
+        /// <summary>
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
+        /// getting the value of the property of <paramref name="templateItem"/>
+        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Then sets the tag to cycle forward when clicked.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>
+        /// The created next button
+        /// </returns>
+        private Control CreateNextButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        {
+            Panel nextButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+
+            nextButton.ID = "NextButton";
+            this.CycleOptions.NextButton = nextButton;
+
+            return nextButton;
+        }
+
+        /// <summary>
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
+        /// getting the value of the property of <paramref name="templateItem"/>
+        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Then sets the tag to pause rotation when clicked.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>
+        /// The created pause button
+        /// </returns>
+        private Control CreatePauseButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        {
+            Panel pauseButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+
+            pauseButton.ID = "PauseButton";
+            pauseButton.CssClass = Engage.Utility.AddCssClass(pauseButton.CssClass, "rotator-pause");
+
+            return pauseButton;
+        }
+
+        /// <summary>
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
+        /// getting the value of the property of <paramref name="templateItem"/>
+        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Then sets the tag to resume rotation when clicked.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>
+        /// The created play button
+        /// </returns>
+        private Control CreatePlayButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        {
+            Panel playButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+
+            playButton.ID = "PlayButton";
+            playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play");
+            playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play-on");
+
+            return playButton;
+        }
+
+        /// <summary>
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
+        /// getting the value of the property of <paramref name="templateItem"/>
+        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Then sets the tag to be the container for an auto-generated pager.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>
+        /// The created pager container
+        /// </returns>
+        private Control CreatePager(Tag tag, ITemplateable templateItem, string resourceFile)
+        {
+            Panel pagerContainer = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+
+            pagerContainer.ID = "Pager";
+            this.CycleOptions.PagerContainer = pagerContainer;
+            this.CycleOptions.PagerEvent = tag.GetAttributeValue("Event") ?? "click";
+
+            return pagerContainer;
+        }
+
+        /// <summary>
+        /// Creates a <see cref="Panel"/> from a tag, setting its CssClass and supplying Text or inner controls, if it has any.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>The created container</returns>
+        private Panel CreateRotatorContainer(Tag tag, ITemplateable templateItem, string resourceFile)
+        {
+            Panel button = new Panel();
+            button.CssClass = tag.GetAttributeValue("CssClass");
+
+            if (tag.HasChildTags)
+            {
+                TemplateEngine.ProcessTags(button, tag.ChildTags, templateItem, resourceFile, this.ProcessTags, this.GetContentItems);
+            }
+            else
+            {
+                string innerText = TemplateEngine.GetLocalizedAttributeValue(tag, resourceFile, "ResourceKey", "Text");
+                if (!string.IsNullOrEmpty(innerText))
+                {
+                    button.Controls.Add(new LiteralControl(innerText));
+                }
+            }
+
+            return button;
         }
 
         /// <summary>
@@ -430,6 +612,7 @@ namespace Engage.Dnn.ContentRotator
             this.AddJQueryReference();
 
             this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.Rotator.js");
         }
     }
 }

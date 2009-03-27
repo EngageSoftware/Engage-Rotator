@@ -32,3 +32,4 @@ using System.Web.UI;
 
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js", "text/javascript")]
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js", "text/javascript")]
+[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.Rotator.js", "text/javascript")]
