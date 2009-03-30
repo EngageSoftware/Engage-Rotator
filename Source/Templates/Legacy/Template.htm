@@ -27,14 +27,12 @@
     </div>
 	<div id="controls" class="rotatorControlsWrapper">
 	    <div class="rotatorPositionsWrapper">
-	        <Engage:Pager />
+	        <Engage:Pager CssClass="pager" Event="mouseover" />
 	        <Engage:List>
                 <div class="rotatorPosition">
-                    <div id="positionThumbnail">
-                        <Engage:PagerItem Action="NavigateTo">
-                            <Engage:Image PropertyName="PositionThumbnailUrl" CssClass="rotatorPositionThumbnail" AlternateTextPropertyName="Title" />
-                        </Engage:PagerItem>
-                    </div>
+                    <Engage:PagerItem Action="NavigateTo">
+                        <Engage:Image PropertyName="PositionThumbnailUrl" CssClass="rotatorPositionThumbnail" AlternateTextPropertyName="Title" />
+                    </Engage:PagerItem>
                     <Engage:PagerItem Action="NavigateTo" CssClass="positionTitle">
                         <div class="rotatorPositionTitle"><Engage:DataEntity PropertyName="Title"/></div>
                     </Engage:PagerItem>

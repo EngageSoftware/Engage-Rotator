@@ -83,6 +83,11 @@ namespace Engage.Dnn.ContentRotator
         private string title;
 
         /// <summary>
+        /// The index of this item in the list by which it was retrieved, or <c>null</c> if it wasn't retrieved in a list
+        /// </summary>
+        private int? itemIndex;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ContentItem"/> class.
         /// </summary>
         public ContentItem()
@@ -348,9 +353,18 @@ namespace Engage.Dnn.ContentRotator
                     return this.thumbnailUrl;
                 case "TITLE":
                     return this.title;
-                default:
-                    return string.Empty;
+
+                // Index is for internal use only, not intended to be documented to the public
+                case "INDEX":
+                    if (this.itemIndex.HasValue)
+                    {
+                        return this.itemIndex.Value.ToString(format, CultureInfo.InvariantCulture);
+                    }
+
+                    break;
             }
+
+            return string.Empty;
         }
 
         /// <summary>
@@ -374,9 +388,10 @@ namespace Engage.Dnn.ContentRotator
             List<ContentItem> items = new List<ContentItem>();
             using (IDataReader reader = DataProvider.Instance.GetContentItems(moduleId, getOutdatedItems))
             {
+                int itemIndex = 0;
                 while (reader.Read())
                 {
-                    items.Add(Fill(reader));
+                    items.Add(Fill(reader, itemIndex++));
                 }
             }
 
@@ -390,6 +405,19 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The <see cref="ContentItem"/> represented by the given <paramref name="contentItemRecord"/></returns>
         private static ContentItem Fill(IDataRecord contentItemRecord)
         {
+            return Fill(contentItemRecord, null);
+        }
+
+        /// <summary>
+        /// Instantiates a <see cref="ContentItem"/> from the given <paramref name="contentItemRecord"/>
+        /// </summary>
+        /// <param name="contentItemRecord">The <see cref="IDataRecord"/> representing the <see cref="ContentItem"/> to instantiate.</param>
+        /// <param name="itemIndex">if set to <c>true</c>, <paramref name="contentItemRecord"/> has an "Index" column with the index of this item in the list of items retrieved.</param>
+        /// <returns>
+        /// The <see cref="ContentItem"/> represented by the given <paramref name="contentItemRecord"/>
+        /// </returns>
+        private static ContentItem Fill(IDataRecord contentItemRecord, int? itemIndex)
+        {
             ContentItem item = new ContentItem();
 
             item.isNew = false;
@@ -402,6 +430,7 @@ namespace Engage.Dnn.ContentRotator
             item.startDate = (DateTime)contentItemRecord["StartDate"];
             item.endDate = contentItemRecord["EndDate"] as DateTime?;
             item.sortOrder = (int)contentItemRecord["SortOrder"];
+            item.itemIndex = itemIndex;
 
             return item;
         }

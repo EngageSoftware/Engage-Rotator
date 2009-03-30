@@ -368,14 +368,17 @@ namespace Engage.Dnn.ContentRotator
                     case "ROTATENEXT":
                         AddControl(container, this.CreateNextButton(tag, contentItem, resourceFile));
                         break;
-                    case "PAGER":
-                        AddControl(container, this.CreatePager(tag, contentItem, resourceFile));
-                        break;
                     case "ROTATEPAUSE":
                         AddControl(container, this.CreatePauseButton(tag, contentItem, resourceFile));
                         break;
                     case "ROTATEPLAY":
                         AddControl(container, this.CreatePlayButton(tag, contentItem, resourceFile));
+                        break;
+                    case "PAGER":
+                        AddControl(container, this.CreatePager(tag, contentItem, resourceFile));
+                        break;
+                    case "PAGERITEM":
+                        AddControl(container, this.CreatePagerItem(tag, contentItem, resourceFile));
                         break;
                 }
             }
@@ -385,19 +388,19 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>
         /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="templateItem"/>
+        /// getting the value of the property of <paramref name="contentItem"/>
         /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
         /// Then sets the tag to cycle back when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created back button
         /// </returns>
-        private Control CreateBackButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        private Control CreateBackButton(Tag tag, ITemplateable contentItem, string resourceFile)
         {
-            Panel backButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+            Panel backButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
 
             backButton.ID = "BackButton";
             this.CycleOptions.PreviousButton = backButton;
@@ -407,19 +410,19 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>
         /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="templateItem"/>
+        /// getting the value of the property of <paramref name="contentItem"/>
         /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
         /// Then sets the tag to cycle forward when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created next button
         /// </returns>
-        private Control CreateNextButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        private Control CreateNextButton(Tag tag, ITemplateable contentItem, string resourceFile)
         {
-            Panel nextButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+            Panel nextButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
 
             nextButton.ID = "NextButton";
             this.CycleOptions.NextButton = nextButton;
@@ -429,43 +432,39 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>
         /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="templateItem"/>
+        /// getting the value of the property of <paramref name="contentItem"/>
         /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
         /// Then sets the tag to pause rotation when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created pause button
         /// </returns>
-        private Control CreatePauseButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        private Control CreatePauseButton(Tag tag, ITemplateable contentItem, string resourceFile)
         {
-            Panel pauseButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
-
-            pauseButton.ID = "PauseButton";
+            Panel pauseButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
             pauseButton.CssClass = Engage.Utility.AddCssClass(pauseButton.CssClass, "rotator-pause");
-
             return pauseButton;
         }
 
         /// <summary>
         /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="templateItem"/>
+        /// getting the value of the property of <paramref name="contentItem"/>
         /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
         /// Then sets the tag to resume rotation when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created play button
         /// </returns>
-        private Control CreatePlayButton(Tag tag, ITemplateable templateItem, string resourceFile)
+        private Control CreatePlayButton(Tag tag, ITemplateable contentItem, string resourceFile)
         {
-            Panel playButton = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+            Panel playButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
 
-            playButton.ID = "PlayButton";
             playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play");
             playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play-on");
 
@@ -474,19 +473,19 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>
         /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="templateItem"/>
+        /// getting the value of the property of <paramref name="contentItem"/>
         /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
         /// Then sets the tag to be the container for an auto-generated pager.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created pager container
         /// </returns>
-        private Control CreatePager(Tag tag, ITemplateable templateItem, string resourceFile)
+        private Control CreatePager(Tag tag, ITemplateable contentItem, string resourceFile)
         {
-            Panel pagerContainer = this.CreateRotatorContainer(tag, templateItem, resourceFile);
+            Panel pagerContainer = this.CreateRotatorContainer(tag, contentItem, resourceFile);
 
             pagerContainer.ID = "Pager";
             this.CycleOptions.PagerContainer = pagerContainer;
@@ -496,20 +495,41 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
+        /// getting the value of the property of <paramref name="contentItem"/>
+        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Then sets the tag to be the container for an auto-generated pager.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>
+        /// The created pager container
+        /// </returns>
+        private Control CreatePagerItem(Tag tag, ITemplateable contentItem, string resourceFile)
+        {
+            Panel pagerItemWrapper = this.CreateRotatorContainer(tag, contentItem, resourceFile);
+
+            pagerItemWrapper.CssClass = Engage.Utility.AddCssClass(pagerItemWrapper.CssClass, "pager-item-" + contentItem.GetValue("INDEX"));
+
+            return pagerItemWrapper;
+        }
+
+        /// <summary>
         /// Creates a <see cref="Panel"/> from a tag, setting its CssClass and supplying Text or inner controls, if it has any.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="templateItem">The object from which to get the property.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>The created container</returns>
-        private Panel CreateRotatorContainer(Tag tag, ITemplateable templateItem, string resourceFile)
+        private Panel CreateRotatorContainer(Tag tag, ITemplateable contentItem, string resourceFile)
         {
             Panel button = new Panel();
             button.CssClass = tag.GetAttributeValue("CssClass");
 
             if (tag.HasChildTags)
             {
-                TemplateEngine.ProcessTags(button, tag.ChildTags, templateItem, resourceFile, this.ProcessTags, this.GetContentItems);
+                TemplateEngine.ProcessTags(button, tag.ChildTags, contentItem, resourceFile, this.ProcessTags, this.GetContentItems);
             }
             else
             {

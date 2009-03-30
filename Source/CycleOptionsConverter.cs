@@ -15,6 +15,7 @@ namespace Engage.Dnn.ContentRotator
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Web.Script.Serialization;
+    using System.Web.UI;
 
     /// <summary>
     /// Implementation of <see cref="JavaScriptConverter"/> for <see cref="CycleOptions"/>
@@ -68,9 +69,9 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("speed", opts.TransitionSpeed);
             cycleOptions.Add("speedIn", opts.TransitionInSpeed);
             cycleOptions.Add("speedOut", opts.TransitionOutSpeed);
-            cycleOptions.Add("next", (opts.NextButton == null) ? string.Empty : "#" + opts.NextButton.ClientID);
-            cycleOptions.Add("prev", (opts.PreviousButton == null) ? string.Empty : "#" + opts.PreviousButton.ClientID);
-            cycleOptions.Add("pager", (opts.PagerContainer == null) ? string.Empty : "#" + opts.PagerContainer.ClientID);
+            cycleOptions.Add("next", GetControlSelector(opts.NextButton));
+            cycleOptions.Add("prev", GetControlSelector(opts.PreviousButton));
+            cycleOptions.Add("pager", GetControlSelector(opts.PagerContainer));
             cycleOptions.Add("pagerEvent", opts.PagerEvent);
             cycleOptions.Add("height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString());
             cycleOptions.Add("width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString());
@@ -89,6 +90,16 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("fastOnEvent", opts.ManuallyTriggeredTransitionSpeed);
 
             return cycleOptions;
+        }
+
+        /// <summary>
+        /// Gets the jQuery selector for the given <paramref name="control"/>, using its <see cref="Control.ID"/>.
+        /// </summary>
+        /// <param name="control">The control for which to get the selector.</param>
+        /// <returns>A jQuery selector for the given control, or <see cref="string.Empty"/> if <paramref name="control"/> is <c>null</c></returns>
+        private static string GetControlSelector(Control control)
+        {
+            return (control == null) ? string.Empty : "#" + control.ClientID;
         }
     }
 }
