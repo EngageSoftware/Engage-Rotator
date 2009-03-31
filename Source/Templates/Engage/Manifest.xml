@@ -12,72 +12,12 @@
   <ResourceFile>App_LocalResources\Template.resx</ResourceFile>
   <Settings>
     <Setting>
-      <Name>ShowContentHeader</Name>
-      <Value>False</Value>
-    </Setting>
-    <Setting>
-      <Name>ShowContentHeaderLink</Name>
-      <Value>False</Value>
-    </Setting>
-    <Setting>
-      <Name>ShowReadMoreLink</Name>
-      <Value>False</Value>
-    </Setting>
-    <Setting>
-      <Name>ControlsShowNextButton</Name>
-      <Value>False</Value>
-    </Setting>
-    <Setting>
-      <Name>ControlsShowPrevButton</Name>
-      <Value>False</Value>
-    </Setting>
-    <Setting>
-      <Name>ControlsShowPauseButton</Name>
-      <Value>False</Value>
-    </Setting>
-    <Setting>
       <Name>UseAnimations</Name>
-      <Value>True</Value>
+      <Value>true</Value>
     </Setting>
     <Setting>
       <Name>AnimationPauseOnMouseOver</Name>
       <Value>True</Value>
-    </Setting>
-    <Setting>
-      <Name>RotatorWidth</Name>
-      <Value/>
-    </Setting>
-    <Setting>
-      <Name>RotatorHeight</Name>
-      <Value/>
-    </Setting>
-    <Setting>
-      <Name>ThumbnailWidth</Name>
-      <Value/>
-    </Setting>
-    <Setting>
-      <Name>ThumbnailHeight</Name>
-      <Value/>
-    </Setting>
-    <Setting>
-      <Name>ControlsTitleDisplayMode</Name>
-      <Value>RotateContent</Value>
-    </Setting>
-    <Setting>
-      <Name>ContentTitleDisplayMode</Name>
-      <Value>None</Value>
-    </Setting>
-    <Setting>
-      <Name>ContentDisplayMode</Name>
-      <Value>None</Value>
-    </Setting>
-    <Setting>
-      <Name>ThumbnailDisplayMode</Name>
-      <Value>Content</Value>
-    </Setting>
-    <Setting>
-      <Name>PositionThumbnailDisplayMode</Name>
-      <Value>None</Value>
     </Setting>
   </Settings>
 </EngageManifest>

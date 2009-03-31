@@ -14,222 +14,6 @@ namespace Engage.Dnn.ContentRotator {
     public partial class RotatorSettings {
         
         /// <summary>
-        /// TemplatesDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TemplatesDropDownList;
-        
-        /// <summary>
-        /// ApplyTemplateButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ApplyTemplateButton;
-        
-        /// <summary>
-        /// TemplateDescriptionPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TemplateDescriptionPanel;
-        
-        /// <summary>
-        /// TemplateDescriptionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TemplateDescriptionLabel;
-        
-        /// <summary>
-        /// TemplatePreviewImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image TemplatePreviewImage;
-        
-        /// <summary>
-        /// RotatorHeightTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RotatorHeightTextBox;
-        
-        /// <summary>
-        /// RotatorWidthTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RotatorWidthTextBox;
-        
-        /// <summary>
-        /// ContentDisplayRadioButtonList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList ContentDisplayRadioButtonList;
-        
-        /// <summary>
-        /// ContentHeightTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ContentHeightTextBox;
-        
-        /// <summary>
-        /// ContentHeightIntegerValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator ContentHeightIntegerValidator;
-        
-        /// <summary>
-        /// ContentWidthTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ContentWidthTextBox;
-        
-        /// <summary>
-        /// ContentWidthIntegerValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator ContentWidthIntegerValidator;
-        
-        /// <summary>
-        /// ContentTitleDisplayRadioButtonList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList ContentTitleDisplayRadioButtonList;
-        
-        /// <summary>
-        /// ThumbnailDisplayRadioButtonList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList ThumbnailDisplayRadioButtonList;
-        
-        /// <summary>
-        /// ThumbnailHeightTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ThumbnailHeightTextBox;
-        
-        /// <summary>
-        /// ThumbnailHeightIntegerValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator ThumbnailHeightIntegerValidator;
-        
-        /// <summary>
-        /// ThumbnailWidthTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ThumbnailWidthTextBox;
-        
-        /// <summary>
-        /// ThumbnailWidthIntegerValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator ThumbnailWidthIntegerValidator;
-        
-        /// <summary>
-        /// PositionTitleDisplayRadioButtonList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList PositionTitleDisplayRadioButtonList;
-        
-        /// <summary>
-        /// PositionThumbnailDisplayRadioButtonList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList PositionThumbnailDisplayRadioButtonList;
-        
-        /// <summary>
-        /// PositionThumbnailHeightTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PositionThumbnailHeightTextBox;
-        
-        /// <summary>
-        /// PositionThumbnailHeightIntegerValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator PositionThumbnailHeightIntegerValidator;
-        
-        /// <summary>
-        /// PositionThumbnailWidthTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PositionThumbnailWidthTextBox;
-        
-        /// <summary>
-        /// PositionThumbnailWidthIntegerValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator PositionThumbnailWidthIntegerValidator;
-        
-        /// <summary>
         /// RotatorDelayTextBox control.
         /// </summary>
         /// <remarks>
@@ -284,33 +68,6 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.CheckBox PauseOnMouseOverCheckBox;
         
         /// <summary>
-        /// RotatorPauseDelayTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RotatorPauseDelayTextBox;
-        
-        /// <summary>
-        /// RotatorPauseDelayIntegerValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator RotatorPauseDelayIntegerValidator;
-        
-        /// <summary>
-        /// RotatorPauseDelayRequiredValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RotatorPauseDelayRequiredValidator;
-        
-        /// <summary>
         /// UseAnimationsCheckBox control.
         /// </summary>
         /// <remarks>
@@ -363,6 +120,24 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator AnimationEffectRequiredValidator;
+        
+        /// <summary>
+        /// RotatorHeightTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RotatorHeightTextBox;
+        
+        /// <summary>
+        /// RotatorWidthTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RotatorWidthTextBox;
         
         /// <summary>
         /// ContainerResizeCheckBox control.
@@ -489,15 +264,6 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ManuallyTriggeredTransitionSpeedRequiredValidator;
-        
-        /// <summary>
-        /// ManifestValidationErrorsPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ManifestValidationErrorsPanel;
         
         /// <summary>
         /// SubmitButton control.

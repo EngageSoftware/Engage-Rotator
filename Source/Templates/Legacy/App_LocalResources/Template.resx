@@ -124,7 +124,7 @@
     <value>Hot Topics</value>
   </data>
   <data name="lblPositionCounterBegin.Text" xml:space="preserve">
-    <value>Item </value>
+    <value />
   </data>
   <data name="lblPositionCounterEnd.Text" xml:space="preserve">
     <value> of </value>

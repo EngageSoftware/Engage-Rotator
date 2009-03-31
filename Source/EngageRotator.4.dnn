@@ -34,6 +34,13 @@
               <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
             </control>
             <control>
+              <key>Template</key>
+              <src>DesktopModules/EngageRotator/TemplateSelection.ascx</src>
+              <type>Edit</type>
+              <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+              <supportsPartialRendering>true</supportsPartialRendering>
+            </control>
+            <control>
               <key>ModSettings</key>
               <src>DesktopModules/EngageRotator/RotatorSettings.ascx</src>
               <type>Edit</type>

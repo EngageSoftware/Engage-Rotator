@@ -93,6 +93,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentItem.cs" />
+    <Compile Include="TemplateSelection.ascx.cs">
+      <DependentUpon>TemplateSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TemplateSelection.ascx.designer.cs">
+      <DependentUpon>TemplateSelection.ascx</DependentUpon>
+    </Compile>
     <Compile Include="DatePickerOptionsConverter.cs" />
     <Compile Include="DatePickerOptions.cs" />
     <Compile Include="CycleOptions.cs" />
@@ -149,6 +156,7 @@
     <Content Include="App_LocalResources\RotatorSettings.ascx.resx">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="TemplateSelection.ascx" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\arrow_up.gif" />
     <Content Include="images\bottom-header-bg.gif" />
@@ -182,6 +190,8 @@
     <Content Include="Templates\Engage\Manifest.xml" />
     <Content Include="Templates\Engage\Preview.png" />
     <Content Include="Templates\Engage\Style.css" />
+    <Content Include="App_LocalResources\TemplateSelection.ascx.resx">
+    </Content>
     <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
     <EmbeddedResource Include="JavaScript\jquery-ui.js" />
     <Content Include="Templates\Legacy\App_LocalResources\Template.resx" />

@@ -57,6 +57,18 @@ namespace Engage.Dnn.ContentRotator
                                         false),
                                 new ModuleAction(
                                         this.GetNextActionID(),
+                                        Localization.GetString("Choose Template", this.LocalResourceFile),
+                                        ModuleActionType.AddContent,
+                                        string.Empty,
+                                        string.Empty,
+                                        this.EditUrl("Template"),
+                                        string.Empty,
+                                        false,
+                                        SecurityAccessLevel.Edit,
+                                        true,
+                                        false),
+                                new ModuleAction(
+                                        this.GetNextActionID(),
                                         Localization.GetString("Rotator Settings", this.LocalResourceFile),
                                         ModuleActionType.AddContent,
                                         string.Empty,
