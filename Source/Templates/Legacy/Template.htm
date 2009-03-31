@@ -30,10 +30,10 @@
 	        <Engage:Pager CssClass="pager" Event="mouseover" />
 	        <Engage:List>
                 <div class="rotatorPosition">
-                    <Engage:PagerItem Action="NavigateTo">
+                    <Engage:PagerItem ClickAction="Rotate">
                         <Engage:Image PropertyName="PositionThumbnailUrl" CssClass="rotatorPositionThumbnail" AlternateTextPropertyName="Title" />
                     </Engage:PagerItem>
-                    <Engage:PagerItem Action="NavigateTo" CssClass="positionTitle">
+                    <Engage:PagerItem Action="URL" CssClass="positionTitle">
                         <div class="rotatorPositionTitle"><Engage:DataEntity PropertyName="Title"/></div>
                     </Engage:PagerItem>
                 </div>
@@ -42,6 +42,6 @@
 	    <Engage:RotateBack CssClass="rotatorControlsPreviousLink"/>&nbsp;
 	    <Engage:RotatePause CssClass="rotatorControlsPauseLink"/>&nbsp;
 	    <Engage:RotateNext CssClass="rotatorControlsNextLink"/>&nbsp;
-	    <div class="rotatorPositionCounter"><Engage:Label ResourceKey="lblPositionCounterBegin"/><span><Engage:CurrentIndex /></span><Engage:Label ResourceKey="lblPositionCounterEnd" /> <Engage:TotalCount /></div>
+	    <div class="rotatorPositionCounter"><Engage:Label ResourceKey="lblPositionCounterBegin"/><Engage:CurrentIndex /><Engage:Label ResourceKey="lblPositionCounterEnd" /> <Engage:TotalCount /></div>
     </div>
 </div>

@@ -13,6 +13,7 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using DotNetNuke.Entities.Modules;
@@ -24,7 +25,7 @@ namespace Engage.Dnn.ContentRotator
     using Templating;
 
     /// <summary>
-    /// Code-behind for the main control displaying rotating content
+    /// The main control displaying rotating content
     /// </summary>
     public partial class Rotator : ModuleBase, IActionable
     {
@@ -315,7 +316,7 @@ namespace Engage.Dnn.ContentRotator
             this.TemplateProvider = new TemplateListingProvider(
                     this.DesktopModuleName,
                     this.GetTemplateSetting(),
-                    this.ItemTemplateSection,
+                    this.RotatorContainer,
                     this.ProcessTags,
                     this.GetContentItems);
 
@@ -380,6 +381,9 @@ namespace Engage.Dnn.ContentRotator
                     case "PAGERITEM":
                         AddControl(container, this.CreatePagerItem(tag, contentItem, resourceFile));
                         break;
+                    case "CURRENTINDEX":
+                        AddControl(container, this.CreateCurrentIndexControl(tag, contentItem, resourceFile));
+                        break;
                 }
             }
 
@@ -387,9 +391,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="contentItem"/>
-        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
         /// Then sets the tag to cycle back when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
@@ -409,9 +411,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="contentItem"/>
-        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
         /// Then sets the tag to cycle forward when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
@@ -431,9 +431,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="contentItem"/>
-        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
         /// Then sets the tag to pause rotation when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
@@ -450,9 +448,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="contentItem"/>
-        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
         /// Then sets the tag to resume rotation when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
@@ -472,9 +468,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="contentItem"/>
-        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
         /// Then sets the tag to be the container for an auto-generated pager.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
@@ -495,24 +489,37 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>,
-        /// getting the value of the property of <paramref name="contentItem"/>
-        /// as defined on the PropertyName attribute of the <paramref name="tag"/>.
-        /// Then sets the tag to be the container for an auto-generated pager.
+        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
+        /// Then sets the tag to be the container for a pager item (which, when clicked, rotates to its associated content item).
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="contentItem">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
-        /// The created pager container
+        /// The created pager item
         /// </returns>
         private Control CreatePagerItem(Tag tag, ITemplateable contentItem, string resourceFile)
         {
             Panel pagerItemWrapper = this.CreateRotatorContainer(tag, contentItem, resourceFile);
-
             pagerItemWrapper.CssClass = Engage.Utility.AddCssClass(pagerItemWrapper.CssClass, "pager-item-" + contentItem.GetValue("INDEX"));
-
             return pagerItemWrapper;
+        }
+
+        /// <summary>
+        /// Creates a <see cref="LiteralControl"/> whose content is the (1-based) index of the given <paramref name="contentItem"/>
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
+        /// <returns>
+        /// The <see cref="LiteralControl"/> instance that was created
+        /// </returns>
+        private Control CreateCurrentIndexControl(Tag tag, ITemplateable contentItem, string resourceFile)
+        {
+            Panel currentItemIndexWrapper = this.CreateRotatorContainer(tag, contentItem, resourceFile);
+            currentItemIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentItemIndexWrapper.CssClass, "current-item-index");
+            currentItemIndexWrapper.Controls.Add(new LiteralControl(1.ToString(CultureInfo.CurrentCulture)));
+            return currentItemIndexWrapper;
         }
 
         /// <summary>
@@ -564,7 +571,7 @@ namespace Engage.Dnn.ContentRotator
         {
             try
             {
-                this.RegisterRotatorJavascript();
+                this.RegisterRotatorJavaScript();
             }
             catch (Exception exc)
             {
@@ -627,12 +634,10 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Adds the references and code to the page to enable the jQuery Cycle plugin
         /// </summary>
-        private void RegisterRotatorJavascript()
+        private void RegisterRotatorJavaScript()
         {
             this.AddJQueryReference();
-
             this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js");
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.Rotator.js");
         }
     }
 }
