@@ -1239,6 +1239,11 @@
                 $(this).getParentRotator().cycle(contentItemIndex);
             }
         });
+
+        $('.total-item-count').each(function(index, elem) {
+            var itemCount = $(elem).getParentRotator().children().length;
+            $(elem).html(itemCount);
+        });
     });
 
     $.fn.cycle.defaults.after = function(nextElement, lastElement, opts) {

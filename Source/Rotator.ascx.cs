@@ -349,6 +349,37 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Creates a <see cref="Label"/> whose content is the (1-based) index of the currently displayed <see cref="ContentItem"/>
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <returns>
+        /// The <see cref="Label"/> instance that was created
+        /// </returns>
+        private static Control CreateCurrentIndexControl(Tag tag)
+        {
+            Label currentItemIndexWrapper = new Label();
+            currentItemIndexWrapper.CssClass = tag.GetAttributeValue("CssClass");
+            currentItemIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentItemIndexWrapper.CssClass, "current-item-index");
+            currentItemIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
+            return currentItemIndexWrapper;
+        }
+
+        /// <summary>
+        /// Creates a <see cref="Label"/> whose content is the total number of <see cref="ContentItem"/>s for this rotator.
+        /// </summary>
+        /// <param name="tag">The tag whose content is being represented.</param>
+        /// <returns>
+        /// The <see cref="Label"/> instance that was created
+        /// </returns>
+        private static Control CreateTotalCountControl(Tag tag)
+        {
+            Label totalCountLabel = new Label();
+            totalCountLabel.CssClass = tag.GetAttributeValue("CssClass");
+            totalCountLabel.CssClass = Engage.Utility.AddCssClass(totalCountLabel.CssClass, "total-item-count");
+            return totalCountLabel;
+        }
+
+        /// <summary>
         /// Method used to process a token. This method is invoked from the <see cref="TemplateEngine"/> class. Since this control knows
         /// best on how to construct the page. ListingHeader, ListingItem and Listing Footer templates are processed here.
         /// </summary>
@@ -382,7 +413,10 @@ namespace Engage.Dnn.ContentRotator
                         AddControl(container, this.CreatePagerItem(tag, contentItem, resourceFile));
                         break;
                     case "CURRENTINDEX":
-                        AddControl(container, this.CreateCurrentIndexControl(tag, contentItem, resourceFile));
+                        AddControl(container, CreateCurrentIndexControl(tag));
+                        break;
+                    case "TOTALCOUNT":
+                        AddControl(container, CreateTotalCountControl(tag));
                         break;
                 }
             }
@@ -503,23 +537,6 @@ namespace Engage.Dnn.ContentRotator
             Panel pagerItemWrapper = this.CreateRotatorContainer(tag, contentItem, resourceFile);
             pagerItemWrapper.CssClass = Engage.Utility.AddCssClass(pagerItemWrapper.CssClass, "pager-item-" + contentItem.GetValue("INDEX"));
             return pagerItemWrapper;
-        }
-
-        /// <summary>
-        /// Creates a <see cref="LiteralControl"/> whose content is the (1-based) index of the given <paramref name="contentItem"/>
-        /// </summary>
-        /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
-        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The <see cref="LiteralControl"/> instance that was created
-        /// </returns>
-        private Control CreateCurrentIndexControl(Tag tag, ITemplateable contentItem, string resourceFile)
-        {
-            Panel currentItemIndexWrapper = this.CreateRotatorContainer(tag, contentItem, resourceFile);
-            currentItemIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentItemIndexWrapper.CssClass, "current-item-index");
-            currentItemIndexWrapper.Controls.Add(new LiteralControl(1.ToString(CultureInfo.CurrentCulture)));
-            return currentItemIndexWrapper;
         }
 
         /// <summary>
