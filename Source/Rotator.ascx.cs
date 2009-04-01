@@ -105,7 +105,7 @@ namespace Engage.Dnn.ContentRotator
                             containerWidth,
                             this.Continuous,
                             ConvertSecondsToMilliseconds(this.InitialDelay),
-                            ConvertSecondsToMilliseconds(this.RotatorDelay),
+                            ConvertSecondsToMilliseconds(this.RotatorDelay) + transitionSpeed,
                             this.PauseOnMouseOver,
                             this.AnimationEffect,
                             transitionSpeed,
@@ -326,7 +326,6 @@ namespace Engage.Dnn.ContentRotator
         {
             this.RequiresScriptManager = false;
             this.TemplateProvider = new TemplateListingProvider(
-                    this.DesktopModuleName,
                     this.GetTemplateSetting(),
                     this.RotatorContainer,
                     this.ProcessTags,

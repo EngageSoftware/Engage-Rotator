@@ -130,6 +130,6 @@
     <value> of </value>
   </data>
   <data name="lnkReadMore.Text" xml:space="preserve">
-    <value>Read More...</value>
+    <value>read more &amp;raquo;</value>
   </data>
 </root>
