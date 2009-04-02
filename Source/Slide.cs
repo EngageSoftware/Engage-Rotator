@@ -1,4 +1,4 @@
-﻿// <copyright file="ContentItem.cs" company="Engage Software">
+﻿// <copyright file="Slide.cs" company="Engage Software">
 // Engage: Rotator - http://www.engagemodules.com
 // Copyright (c) 2004-2009
 // by Engage Software ( http://www.engagesoftware.com )
@@ -19,21 +19,21 @@ namespace Engage.Dnn.ContentRotator
     using Framework.Templating;
 
     /// <summary>
-    /// An item of content to be rotated
+    /// A slide of content to be rotated
     /// </summary>
-    public class ContentItem : ITemplateable
+    public class Slide : ITemplateable
     {
         /// <summary>
-        /// Backing field for <see cref="ContentItemId"/>
+        /// Backing field for <see cref="SlideId"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int contentItemId;
+        private int slideId;
 
         /// <summary>
-        /// Backing field for <see cref="Description"/>
+        /// Backing field for <see cref="Content"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string description;
+        private string content;
 
         /// <summary>
         /// Backing field for <see cref="EndDate"/>
@@ -53,10 +53,10 @@ namespace Engage.Dnn.ContentRotator
         private string linkUrl;
 
         /// <summary>
-        /// Backing field for <see cref="PositionThumbnailUrl"/>
+        /// Backing field for <see cref="PagerImageUrl"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string positionThumbnailUrl;
+        private string pagerImageUrl;
 
         /// <summary>
         /// Backing field for <see cref="SortOrder"/>
@@ -71,10 +71,10 @@ namespace Engage.Dnn.ContentRotator
         private DateTime startDate;
 
         /// <summary>
-        /// Backing field for <see cref="ThumbnailUrl"/>
+        /// Backing field for <see cref="ImageUrl"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string thumbnailUrl;
+        private string imageUrl;
 
         /// <summary>
         /// Backing field for <see cref="Title"/>
@@ -83,38 +83,38 @@ namespace Engage.Dnn.ContentRotator
         private string title;
 
         /// <summary>
-        /// The index of this item in the list by which it was retrieved, or <c>null</c> if it wasn't retrieved in a list
+        /// The index of this slide in the list by which it was retrieved, or <c>null</c> if it wasn't retrieved in a list
         /// </summary>
         private int? itemIndex;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContentItem"/> class.
+        /// Initializes a new instance of the <see cref="Slide"/> class.
         /// </summary>
-        public ContentItem()
+        public Slide()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContentItem"/> class.
+        /// Initializes a new instance of the <see cref="Slide"/> class.
         /// </summary>
-        /// <param name="contentItemId">The ID of this already existing content item.</param>
-        public ContentItem(int contentItemId)
+        /// <param name="slideId">The ID of this already existing slide.</param>
+        public Slide(int slideId)
         {
-            this.contentItemId = contentItemId;
+            this.slideId = slideId;
             this.isNew = false;
         }
 
         /// <summary>
-        /// Gets the ID of this content item.
+        /// Gets the ID of this slide.
         /// </summary>
-        /// <value>The content item ID.</value>
-        public int ContentItemId
+        /// <value>The slide ID.</value>
+        public int SlideId
         {
             [DebuggerStepThrough]
             get
             {
-                Debug.Assert(!this.isNew, "It is invalid to get the ContentItemId on an instance that is not from the database");
-                return this.contentItemId;
+                Debug.Assert(!this.isNew, "It is invalid to get the SlideId on an instance that is not from the database");
+                return this.slideId;
             }
         }
 
@@ -122,18 +122,18 @@ namespace Engage.Dnn.ContentRotator
         /// Gets or sets the main content of this instance.
         /// </summary>
         /// <value>The main HTML content.</value>
-        public string Description
+        public string Content
         {
             [DebuggerStepThrough]
             get
             {
-                return this.description;
+                return this.content;
             }
 
             [DebuggerStepThrough]
             set
             {
-                this.description = value;
+                this.content = value;
             }
         }
 
@@ -179,18 +179,18 @@ namespace Engage.Dnn.ContentRotator
         /// Gets or sets the URL at which the position thumbnail is located
         /// </summary>
         /// <value>The URL at which the position thumbnail is located.</value>
-        public string PositionThumbnailUrl
+        public string PagerImageUrl
         {
             [DebuggerStepThrough]
             get
             {
-                return this.positionThumbnailUrl;
+                return this.pagerImageUrl;
             }
 
             [DebuggerStepThrough]
             set
             {
-                this.positionThumbnailUrl = value;
+                this.pagerImageUrl = value;
             }
         }
 
@@ -236,18 +236,18 @@ namespace Engage.Dnn.ContentRotator
         /// Gets or sets the URL at which the main thumbnail is located.
         /// </summary>
         /// <value>The URL at which the main thumbnail is located.</value>
-        public string ThumbnailUrl
+        public string ImageUrl
         {
             [DebuggerStepThrough]
             get
             {
-                return this.thumbnailUrl;
+                return this.imageUrl;
             }
 
             [DebuggerStepThrough]
             set
             {
-                this.thumbnailUrl = value;
+                this.imageUrl = value;
             }
         }
 
@@ -271,13 +271,13 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets the content item with the given <paramref name="contentItemId"/>.
+        /// Gets the slide with the given <paramref name="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to retrieve.</param>
-        /// <returns>The content item with the given <paramref name="contentItemId"/></returns>
-        public static ContentItem GetContentItem(int contentItemId)
+        /// <param name="slideId">The ID of the slide to retrieve.</param>
+        /// <returns>The slide with the given <paramref name="slideId"/></returns>
+        public static Slide GetSlide(int slideId)
         {
-            using (IDataReader reader = DataProvider.Instance.GetContentItem(contentItemId))
+            using (IDataReader reader = DataProvider.Instance.GetSlide(slideId))
             {
                 if (reader.Read())
                 {
@@ -289,12 +289,12 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Deletes the content item with the given <paramref name="contentItemId"/>.
+        /// Deletes the slide with the given <paramref name="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to delete.</param>
-        public static void Delete(int contentItemId)
+        /// <param name="slideId">The ID of the slide to delete.</param>
+        public static void Delete(int slideId)
         {
-            DataProvider.Instance.DeleteContentItem(contentItemId);
+            DataProvider.Instance.DeleteSlide(slideId);
         }
 
         /// <summary>
@@ -305,12 +305,12 @@ namespace Engage.Dnn.ContentRotator
         {
             if (this.isNew)
             {
-                this.contentItemId = DataProvider.Instance.InsertContentItem(this.description, this.thumbnailUrl, this.linkUrl, this.startDate, this.endDate, moduleId, this.title, this.positionThumbnailUrl, this.sortOrder);
+                this.slideId = DataProvider.Instance.InsertSlide(this.content, this.imageUrl, this.linkUrl, this.startDate, this.endDate, moduleId, this.title, this.pagerImageUrl, this.sortOrder);
                 this.isNew = false;
             }
             else
             {
-                DataProvider.Instance.UpdateContentItem(this.contentItemId, this.description, this.thumbnailUrl, this.linkUrl, this.startDate, this.endDate, this.title, this.positionThumbnailUrl, this.sortOrder);
+                DataProvider.Instance.UpdateSlide(this.slideId, this.content, this.imageUrl, this.linkUrl, this.startDate, this.endDate, this.title, this.pagerImageUrl, this.sortOrder);
             }
         }
 
@@ -335,58 +335,67 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         public string GetValue(string propertyName, string format)
         {
-            switch (propertyName.ToUpperInvariant())
+            if (!string.IsNullOrEmpty(propertyName))
             {
-                case "DESCRIPTION":
-                    return this.description;
-                case "ENDDATE":
-                    return this.endDate.HasValue ? this.endDate.Value.ToString(format, CultureInfo.CurrentCulture) : string.Empty;
-                case "LINKURL":
-                    return this.linkUrl;
-                case "POSITIONTHUMBNAILURL":
-                    return this.positionThumbnailUrl;
-                case "SORTORDER":
-                    return this.sortOrder.ToString(format, CultureInfo.CurrentCulture);
-                case "STARTDATE":
-                    return this.startDate.ToString(format, CultureInfo.CurrentCulture);
-                case "THUMBNAILURL":
-                    return this.thumbnailUrl;
-                case "TITLE":
-                    return this.title;
+                switch (propertyName.ToUpperInvariant())
+                {
+                    case "CONTENT":
+                        return this.content;
+                    case "ENDDATE":
+                    case "END DATE":
+                        return this.endDate.HasValue ? this.endDate.Value.ToString(format, CultureInfo.CurrentCulture) : string.Empty;
+                    case "LINKURL":
+                    case "LINK URL":
+                        return this.linkUrl;
+                    case "PAGERIMAGEURL":
+                    case "PAGER IMAGE URL":
+                        return this.pagerImageUrl;
+                    case "SORTORDER":
+                    case "SORT ORDER":
+                        return this.sortOrder.ToString(format, CultureInfo.CurrentCulture);
+                    case "STARTDATE":
+                    case "START DATE":
+                        return this.startDate.ToString(format, CultureInfo.CurrentCulture);
+                    case "IMAGEURL":
+                    case "IMAGE URL":
+                        return this.imageUrl;
+                    case "TITLE":
+                        return this.title;
 
-                // Index is for internal use only, not intended to be documented to the public
-                case "INDEX":
-                    if (this.itemIndex.HasValue)
-                    {
-                        return this.itemIndex.Value.ToString(format, CultureInfo.InvariantCulture);
-                    }
+                        // Index is for internal use only, not intended to be documented to the public
+                    case "INDEX":
+                        if (this.itemIndex.HasValue)
+                        {
+                            return this.itemIndex.Value.ToString(format, CultureInfo.InvariantCulture);
+                        }
 
-                    break;
+                        break;
+                }
             }
 
             return string.Empty;
         }
 
         /// <summary>
-        /// Gets all of the content items for the given <paramref name="moduleId"/>, getting only items which have started but not ended.
+        /// Gets all of the slides for the given <paramref name="moduleId"/>, getting only slides which have started but not ended.
         /// </summary>
         /// <param name="moduleId">The module id.</param>
-        /// <returns>All of the content items for the given <paramref name="moduleId"/></returns>
-        internal static List<ContentItem> GetContentItems(int moduleId)
+        /// <returns>All of the slides for the given <paramref name="moduleId"/></returns>
+        internal static List<Slide> GetSlides(int moduleId)
         {
-            return GetContentItems(moduleId, false);
+            return GetSlides(moduleId, false);
         }
 
         /// <summary>
-        /// Gets all of the content items for the given <paramref name="moduleId"/>, getting either only items which have started but not ended, or all items if <paramref name="getOutdatedItems"/> is true.
+        /// Gets all of the slides for the given <paramref name="moduleId"/>, getting either only slides which have started but not ended, or all slides if <paramref name="getOutdatedSlides"/> is true.
         /// </summary>
         /// <param name="moduleId">The module id.</param>
-        /// <param name="getOutdatedItems">if set to <c>true</c> gets all content items, regardless of their start date or end date, otherwise only returns items that have started but not ended.</param>
-        /// <returns>All of the content items for the given <paramref name="moduleId"/></returns>
-        internal static List<ContentItem> GetContentItems(int moduleId, bool getOutdatedItems)
+        /// <param name="getOutdatedSlides">if set to <c>true</c> gets all slides, regardless of their start date or end date, otherwise only returns slides that have started but not ended.</param>
+        /// <returns>All of the slides for the given <paramref name="moduleId"/></returns>
+        internal static List<Slide> GetSlides(int moduleId, bool getOutdatedSlides)
         {
-            List<ContentItem> items = new List<ContentItem>();
-            using (IDataReader reader = DataProvider.Instance.GetContentItems(moduleId, getOutdatedItems))
+            List<Slide> items = new List<Slide>();
+            using (IDataReader reader = DataProvider.Instance.GetSlides(moduleId, getOutdatedSlides))
             {
                 int itemIndex = 0;
                 while (reader.Read())
@@ -399,40 +408,40 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Instantiates a <see cref="ContentItem"/> from the given <paramref name="contentItemRecord"/>
+        /// Instantiates a <see cref="Slide"/> from the given <paramref name="slideRecord"/>
         /// </summary>
-        /// <param name="contentItemRecord">The <see cref="IDataRecord"/> representing the <see cref="ContentItem"/> to instantiate.</param>
-        /// <returns>The <see cref="ContentItem"/> represented by the given <paramref name="contentItemRecord"/></returns>
-        private static ContentItem Fill(IDataRecord contentItemRecord)
+        /// <param name="slideRecord">The <see cref="IDataRecord"/> representing the <see cref="Slide"/> to instantiate.</param>
+        /// <returns>The <see cref="Slide"/> represented by the given <paramref name="slideRecord"/></returns>
+        private static Slide Fill(IDataRecord slideRecord)
         {
-            return Fill(contentItemRecord, null);
+            return Fill(slideRecord, null);
         }
 
         /// <summary>
-        /// Instantiates a <see cref="ContentItem"/> from the given <paramref name="contentItemRecord"/>
+        /// Instantiates a <see cref="Slide"/> from the given <paramref name="slideRecord"/>
         /// </summary>
-        /// <param name="contentItemRecord">The <see cref="IDataRecord"/> representing the <see cref="ContentItem"/> to instantiate.</param>
-        /// <param name="itemIndex">if set to <c>true</c>, <paramref name="contentItemRecord"/> has an "Index" column with the index of this item in the list of items retrieved.</param>
+        /// <param name="slideRecord">The <see cref="IDataRecord"/> representing the <see cref="Slide"/> to instantiate.</param>
+        /// <param name="itemIndex">The index of the slide in the query which retrieved it, or <c>null</c> if it was not retrieved in a list.</param>
         /// <returns>
-        /// The <see cref="ContentItem"/> represented by the given <paramref name="contentItemRecord"/>
+        /// The <see cref="Slide"/> represented by the given <paramref name="slideRecord"/>
         /// </returns>
-        private static ContentItem Fill(IDataRecord contentItemRecord, int? itemIndex)
+        private static Slide Fill(IDataRecord slideRecord, int? itemIndex)
         {
-            ContentItem item = new ContentItem();
+            Slide slide = new Slide();
 
-            item.isNew = false;
-            item.contentItemId = (int)contentItemRecord["ContentItemId"];
-            item.description = contentItemRecord["Description"].ToString();
-            item.title = contentItemRecord["Title"].ToString();
-            item.linkUrl = contentItemRecord["LinkUrl"].ToString();
-            item.thumbnailUrl = contentItemRecord["ThumbnailUrl"].ToString();
-            item.positionThumbnailUrl = contentItemRecord["PositionThumbnailUrl"].ToString(); 
-            item.startDate = (DateTime)contentItemRecord["StartDate"];
-            item.endDate = contentItemRecord["EndDate"] as DateTime?;
-            item.sortOrder = (int)contentItemRecord["SortOrder"];
-            item.itemIndex = itemIndex;
+            slide.isNew = false;
+            slide.slideId = (int)slideRecord["ContentItemId"];
+            slide.content = slideRecord["Description"].ToString();
+            slide.title = slideRecord["Title"].ToString();
+            slide.linkUrl = slideRecord["LinkUrl"].ToString();
+            slide.imageUrl = slideRecord["ThumbnailUrl"].ToString();
+            slide.pagerImageUrl = slideRecord["PositionThumbnailUrl"].ToString(); 
+            slide.startDate = (DateTime)slideRecord["StartDate"];
+            slide.endDate = slideRecord["EndDate"] as DateTime?;
+            slide.sortOrder = (int)slideRecord["SortOrder"];
+            slide.itemIndex = itemIndex;
 
-            return item;
+            return slide;
         }
     }
 }

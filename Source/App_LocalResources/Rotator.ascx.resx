@@ -117,11 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblNoHotTopics.Text" xml:space="preserve">
-    <value>There must be at least two pieces of content to rotate.  Please add more content.</value>
-  </data>
-  <data name="Add/Edit Content.Text" xml:space="preserve">
-    <value>Add/Edit Content</value>
+  <data name="Add/Edit Slides.Text" xml:space="preserve">
+    <value>Add/Edit Slides</value>
   </data>
   <data name="Rotator Settings.Text" xml:space="preserve">
     <value>Rotator Settings</value>

@@ -1235,18 +1235,18 @@
             // the first item being all the text matched by the regular expression, 
             // the next being the capture group (the digits in parenthesis)
             if (indexMatches && indexMatches.length === 2) {
-                var contentItemIndex = parseInt(indexMatches[1], 10);
-                $(this).getParentRotator().cycle(contentItemIndex);
+                var slideIndex = parseInt(indexMatches[1], 10);
+                $(this).getParentRotator().cycle(slideIndex);
             }
         });
 
-        $('.total-item-count').each(function(index, elem) {
-            var itemCount = $(elem).getParentRotator().children().length;
-            $(elem).html(itemCount);
+        $('.total-slide-count').each(function(index, elem) {
+            var slideCount = $(elem).getParentRotator().children().length;
+            $(elem).html(slideCount);
         });
     });
 
     $.fn.cycle.defaults.after = function(nextElement, lastElement, opts) {
-        opts.$cont.parents('.engage-rotator-container').find('.current-item-index').html(opts.currSlide + 1);
+        opts.$cont.parents('.engage-rotator-container').find('.current-slide-index').html(opts.currSlide + 1);
     };
 })(jQuery);

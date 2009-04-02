@@ -59,13 +59,13 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator AutoStopCountRequiredValidator;
         
         /// <summary>
-        /// PauseOnMouseOverCheckBox control.
+        /// PauseOnHoverCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox PauseOnMouseOverCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox PauseOnHoverCheckBox;
         
         /// <summary>
         /// UseAnimationsCheckBox control.
@@ -77,67 +77,67 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.CheckBox UseAnimationsCheckBox;
         
         /// <summary>
-        /// AnimationDurationTextBox control.
+        /// TransitionDurationTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AnimationDurationTextBox;
+        protected global::System.Web.UI.WebControls.TextBox TransitionDurationTextBox;
         
         /// <summary>
-        /// AnimationDurationIntegerValidator control.
+        /// TransitionDurationIntegerValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator AnimationDurationIntegerValidator;
+        protected global::System.Web.UI.WebControls.CompareValidator TransitionDurationIntegerValidator;
         
         /// <summary>
-        /// AnimationDurationRequiredValidator control.
+        /// TransitionDurationRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator AnimationDurationRequiredValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TransitionDurationRequiredValidator;
         
         /// <summary>
-        /// AnimationEffectCheckBoxList control.
+        /// TransitionEffectCheckBoxList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList AnimationEffectCheckBoxList;
+        protected global::System.Web.UI.WebControls.CheckBoxList TransitionEffectCheckBoxList;
         
         /// <summary>
-        /// AnimationEffectRequiredValidator control.
+        /// TransitionEffectRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator AnimationEffectRequiredValidator;
+        protected global::System.Web.UI.WebControls.CustomValidator TransitionEffectRequiredValidator;
         
         /// <summary>
-        /// RotatorHeightTextBox control.
+        /// SlideHeightTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RotatorHeightTextBox;
+        protected global::System.Web.UI.WebControls.TextBox SlideHeightTextBox;
         
         /// <summary>
-        /// RotatorWidthTextBox control.
+        /// SlideWidthTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RotatorWidthTextBox;
+        protected global::System.Web.UI.WebControls.TextBox SlideWidthTextBox;
         
         /// <summary>
         /// ContainerResizeCheckBox control.

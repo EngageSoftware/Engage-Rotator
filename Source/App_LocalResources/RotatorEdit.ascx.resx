@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnCancel.Text" xml:space="preserve">
+  <data name="CancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="btnSubmit.Text" xml:space="preserve">
+  <data name="SubmitButton.Text" xml:space="preserve">
     <value>Submit</value>
   </data>
   <data name="CalendarClearStatus.Text" xml:space="preserve">
@@ -202,76 +202,73 @@
   <data name="CalendarYearStatus.Text" xml:space="preserve">
     <value>Show a different year</value>
   </data>
-  <data name="lblDescription.Help" xml:space="preserve">
-    <value>The main content for this content item.</value>
+  <data name="ContentLabel.Help" xml:space="preserve">
+    <value>The main content for this slide.</value>
   </data>
-  <data name="lblDescription.Text" xml:space="preserve">
+  <data name="ContentLabel.Text" xml:space="preserve">
     <value>Content: </value>
   </data>
-  <data name="lblEndDate.Help" xml:space="preserve">
-    <value>The date (and time) after which this content item will stop appearing in the content rotator.  If no time is supplied, it defaults to midnight.  You can leave this blank to display the content item indefinitely.</value>
+  <data name="EndDateLabel.Help" xml:space="preserve">
+    <value>The date (and time) after which this slide will stop appearing in the rotator.  If no time is supplied, it defaults to midnight.  You can leave this field blank to display the slide indefinitely.</value>
   </data>
-  <data name="lblEndDate.Text" xml:space="preserve">
+  <data name="EndDateLabel.Text" xml:space="preserve">
     <value>End Date:</value>
   </data>
-  <data name="lblIdLabel.Help" xml:space="preserve">
-    <value>The Id of the content item.</value>
+  <data name="LinkUrlLabel.Help" xml:space="preserve">
+    <value>The URL that this slide's links should point to.  You can choose a page within this website, or a URL pointing to an external resource, or no URL at all if you leave the URL field blank or "http://," or choose None.</value>
   </data>
-  <data name="lblIdLabel.Text" xml:space="preserve">
-    <value>Id: </value>
-  </data>
-  <data name="lblLinkUrl.Help" xml:space="preserve">
-    <value>The URL that this content item's links should point to.  You can choose a page within this website, or a URL pointing to an external resource, or no URL at all if you leave the URL field blank or "http://," or choose None.</value>
-  </data>
-  <data name="lblLinkUrl.Text" xml:space="preserve">
+  <data name="LinkUrlLabel.Text" xml:space="preserve">
     <value>Link URL: </value>
   </data>
-  <data name="lblPositionThumbnailUrl.Help" xml:space="preserve">
-    <value>The thumbnail to display as the position indicator, along with the content item titles.  You can choose a file that exists on this website, or an external image, or no image at all if you leave the URL field blank or "http://," or choose None.</value>
+  <data name="PagerImageUrlLabel.Help" xml:space="preserve">
+    <value>The image (typically a smaller version of the main image) which can be displayed in a pager.  You can choose a file that exists on this website, or an external image, or no image at all if you leave the URL field blank or "http://," or choose None.</value>
   </data>
-  <data name="lblPositionThumbnailUrl.Text" xml:space="preserve">
-    <value>Position Thumbnail URL: </value>
+  <data name="PagerImageUrlLabel.Text" xml:space="preserve">
+    <value>Pager Image URL: </value>
   </data>
-  <data name="lblSortOrder.Help" xml:space="preserve">
-    <value>Use Sort Order to determine the order in which items are shown.  Items are sorted first be sort order, then by their start date, and lastly (if the other two are the same), by their title.</value>
+  <data name="SortOrderLabel.Help" xml:space="preserve">
+    <value>Use Sort Order to determine the order in which slides are shown.  Slides are sorted first by sort order, then by their start date, and lastly (if the other two are the same), by their title.</value>
   </data>
-  <data name="lblSortOrder.Text" xml:space="preserve">
+  <data name="SortOrderLabel.Text" xml:space="preserve">
     <value>Sort Order</value>
   </data>
-  <data name="lblStartDate.Help" xml:space="preserve">
-    <value>The date (and time) that this content item will start appearing in the content rotator.  If no time is supplied, it defaults to midnight.</value>
+  <data name="StartDateLabel.Help" xml:space="preserve">
+    <value>The date (and time) that this slide will start appearing in the rotator.  If no time is supplied, it defaults to midnight.</value>
   </data>
-  <data name="lblStartDate.Text" xml:space="preserve">
+  <data name="StartDateLabel.Text" xml:space="preserve">
     <value>Start Date:</value>
   </data>
-  <data name="lblThumbnailUrl.Help" xml:space="preserve">
-    <value>The URL pointing to the main thumbnail for this content item.  You can choose a file that exists on this website, or an external image, or no image at all if you leave the URL field blank or "http://," or choose None.</value>
+  <data name="ImageUrlLabel.Help" xml:space="preserve">
+    <value>The URL pointing to the main image for this slide. You can choose a file that exists on this website, or an external image, or no image at all if you leave the URL field blank or "http://," or choose None.</value>
   </data>
-  <data name="lblThumbnailUrl.Text" xml:space="preserve">
-    <value>Content Thumbnail URL:</value>
+  <data name="ImageUrlLabel.Text" xml:space="preserve">
+    <value>Image URL:</value>
   </data>
-  <data name="lblTitle.Help" xml:space="preserve">
-    <value>The title of this content item.</value>
+  <data name="TitleLabel.Help" xml:space="preserve">
+    <value>The title of this slide</value>
   </data>
-  <data name="lblTitle.Text" xml:space="preserve">
+  <data name="TitleLabel.Text" xml:space="preserve">
     <value>Title: </value>
   </data>
-  <data name="rfvSortOrder.Text" xml:space="preserve">
+  <data name="SortOrderRequiredValidator.Text" xml:space="preserve">
     <value>Sort Order is required</value>
   </data>
-  <data name="rfvStartDate.Text" xml:space="preserve">
+  <data name="StartDateRequiredValidator.Text" xml:space="preserve">
     <value>Start Date is required</value>
   </data>
-  <data name="valEndDate.Text" xml:space="preserve">
+  <data name="EndDateTypeValidator.Text" xml:space="preserve">
     <value>End Date is an invalid date</value>
   </data>
-  <data name="valSortOrder.Text" xml:space="preserve">
+  <data name="SortOrderTypeValidator.Text" xml:space="preserve">
     <value>Sort Order must be an integer value</value>
   </data>
-  <data name="valStartDate.Text" xml:space="preserve">
+  <data name="StartDateTypeValidator.Text" xml:space="preserve">
     <value>Start Date is an invalid date</value>
   </data>
-  <data name="valStartEndDate.Text" xml:space="preserve">
+  <data name="StartEndDateCompareValidator.Text" xml:space="preserve">
     <value>Start Date must occur before End Date</value>
+  </data>
+  <data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>Add/Edit Slides</value>
   </data>
 </root>

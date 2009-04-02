@@ -130,7 +130,7 @@
     <value>Auto Stop</value>
   </data>
   <data name="AutoStopCount.Text" xml:space="preserve">
-    <value>Number of items before auto stop</value>
+    <value>Number of slides before auto stop</value>
   </data>
   <data name="Cancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -140,6 +140,9 @@
   </data>
   <data name="Continuous.Text" xml:space="preserve">
     <value>Continuous Rotation</value>
+  </data>
+  <data name="ControlTitle_template.Text" xml:space="preserve">
+    <value>Choose a Template</value>
   </data>
   <data name="Description.Text" xml:space="preserve">
     <value>Description</value>
@@ -184,10 +187,7 @@
     <value>Submit</value>
   </data>
   <data name="Template.Text" xml:space="preserve">
-    <value>Style Template</value>
-  </data>
-  <data name="TemplateHeader.Text" xml:space="preserve">
-    <value>Template Settings&lt;hr/&gt;</value>
+    <value>Choose a Template: </value>
   </data>
   <data name="UseAnimations.Text" xml:space="preserve">
     <value>Use Animations</value>

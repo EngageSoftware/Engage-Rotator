@@ -23,31 +23,31 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.TextBox TitleTextBox;
         
         /// <summary>
-        /// DescriptionTextEditor control.
+        /// ContentTextEditor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.TextEditor DescriptionTextEditor;
+        protected global::DotNetNuke.UI.UserControls.TextEditor ContentTextEditor;
         
         /// <summary>
-        /// ThumbnailUrlControl control.
+        /// ImageUrlControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.UrlControl ThumbnailUrlControl;
+        protected global::DotNetNuke.UI.UserControls.UrlControl ImageUrlControl;
         
         /// <summary>
-        /// PositionThumbnailUrlControl control.
+        /// PagerImageUrlControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.UrlControl PositionThumbnailUrlControl;
+        protected global::DotNetNuke.UI.UserControls.UrlControl PagerImageUrlControl;
         
         /// <summary>
         /// LinkUrlControl control.

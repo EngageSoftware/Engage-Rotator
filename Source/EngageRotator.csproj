@@ -92,7 +92,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentItem.cs" />
+    <Compile Include="Slide.cs" />
     <Compile Include="TemplateSelection.ascx.cs">
       <DependentUpon>TemplateSelection.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,11 +134,12 @@
     <Content Include="RotatorOptions.ascx" />
     <Content Include="Rotator.ascx" />
     <Compile Include="Providers\DataProviders\SqlDataProvider\SqlDataProvider.cs" />
-    <Compile Include="DisplayType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EngageRotator.5.dnn" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.01.00.SqlDataProvider" />
+    <None Include="Templates\Engage Events Templates.docx" />
+    <None Include="Templates\EngageManifest.xsd" />
     <None Include="Uninstall.SqlDataProvider" />
     <None Include="EngageRotator.4.dnn" />
     <None Include="EngageRotator.Build" />

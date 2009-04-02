@@ -123,19 +123,19 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         /// <param name="autoStop">if set to <c>true</c> rotation automatically stops after <paramref name="autoStopCount"/> transitions.</param>
         /// <param name="autoStopCount">The number of transitions after which rotation stops if <paramref name="autoStop"/> is <c>true</c>.</param>
-        /// <param name="containerResize">if set to <c>true</c> automatically resize the container to fit the largest <see cref="ContentItem"/>.</param>
+        /// <param name="containerResize">if set to <c>true</c> automatically resize the container to fit the largest <see cref="Slide"/>.</param>
         /// <param name="containerHeight">Height of the container.</param>
         /// <param name="containerWidth">Width of the container.</param>
         /// <param name="continuous">if set to <c>true</c> start the next transition immediately after the current one completes.</param>
         /// <param name="initialDelay">The additional delay (in milliseconds) for the first transition (hint: can be negative).</param>
         /// <param name="millisecondsBetweenTransitions">The milliseconds between transitions.</param>
-        /// <param name="pauseOnHover">if set to <c>true</c> pause rotation when the mouse is over the content.</param>
+        /// <param name="pauseOnHover">if set to <c>true</c> pause rotation when the mouse is over the slide area.</param>
         /// <param name="transitionEffects">The transition effects.</param>
         /// <param name="transitionSpeed">The transition speed in milliseconds.</param>
         /// <param name="manuallyTriggeredTransitionSpeed">The delay (in milliseconds) for transitions triggered manually (through the pager or previous/next button)</param>
-        /// <param name="loop">if set to <c>true</c> allow slideshow to loop, i.e. start again after going once through the <see cref="ContentItem"/>s.</param>
-        /// <param name="randomOrder">if set to <c>true</c> display items in a random order.</param>
-        /// <param name="simultaneousTransitions">if set to <c>true</c> transition the current item out at the same time as the next item transitions in.</param>
+        /// <param name="loop">if set to <c>true</c> allow slideshow to loop, i.e. start again after going once through the <see cref="Slide"/>s.</param>
+        /// <param name="randomOrder">if set to <c>true</c> display slides in a random order.</param>
+        /// <param name="simultaneousTransitions">if set to <c>true</c> transition the current slide out at the same time as the next item transitions in.</param>
         /// <param name="forceSlidesToFitContainer">if set to <c>true</c> force slides to fit within container.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
         public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer)
@@ -335,7 +335,7 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets a value indicating whether to allow slideshow to loop, i.e. start again after going once through the <see cref="ContentItem"/>s</summary>
+        /// <summary>Gets or sets a value indicating whether to allow slideshow to loop, i.e. start again after going once through the <see cref="Slide"/>s</summary>
         public bool Loop
         {
             [DebuggerStepThrough]
@@ -431,7 +431,7 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets a value indicating whether content is shown in random order or in sequence (not applicable to <see cref="Effects.shuffle"/>)</summary>
+        /// <summary>Gets or sets a value indicating whether slides are shown in random order or in sequence (not applicable to <see cref="Effects.shuffle"/>)</summary>
         public bool RandomOrder
         {
             [DebuggerStepThrough]

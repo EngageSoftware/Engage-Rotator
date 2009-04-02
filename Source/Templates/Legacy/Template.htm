@@ -8,7 +8,7 @@
                         <span class="rotatorContentHeaderLinkWrapper"><Engage:Label CssClass="rotatorContentHeaderLink" ResourceKey="ContentHeaderLinkText"/></span>
 	                    <div class="rotatorThumbnailWrapper">
 	                        <Engage:Link PropertyName="LinkUrl" Cssclass="rotatorThumbnailLink">
-		                        <Engage:Image CssClass="rotatorThumbnail" PropertyName="ThumbnailUrl" AlternateText="" /> <!--style='ThumbnailStyle'-->
+		                        <Engage:Image CssClass="rotatorThumbnail" PropertyName="ImageUrl" AlternateText="" /> <!--style='ThumbnailStyle'-->
 	                        </Engage:Link>
                         </div>
                         <div class="rotatorContentBodyWrapper">
@@ -16,7 +16,7 @@
 	                            <Engage:Link CssClass="rotatorContentTitleLink" PropertyName="LinkUrl"><Engage:DataEntity PropertyName="Title" /></Engage:Link>
                             </span>
                             <div id="rotatorContentDescriptionWrapper" class="rotatorContentDescriptionWrapper">
-                                <span class="rotatorDescription"><Engage:Link PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:DataEntity PropertyName="Description" /></Engage:Link></span>
+                                <span class="rotatorDescription"><Engage:Link PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:DataEntity PropertyName="Content" /></Engage:Link></span>
 	                            <div class="rotatorReadMoreLinkWrapper"><Engage:Link CssClass="rotatorReadMoreLink" ResourceKey="lnkReadMore" PropertyName="LinkUrl" /></div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
 	        <Engage:List>
                 <div class="rotatorPosition">
                     <Engage:PagerItem>
-                        <Engage:Image PropertyName="PositionThumbnailUrl" CssClass="rotatorPositionThumbnail" AlternateTextPropertyName="Title" />
+                        <Engage:Image PropertyName="PagerImageUrl" CssClass="rotatorPositionThumbnail" AlternateTextPropertyName="Title" />
                     </Engage:PagerItem>
                     <Engage:PagerItem CssClass="positionTitle">
                         <div class="rotatorPositionTitle"><Engage:DataEntity PropertyName="Title"/></div>

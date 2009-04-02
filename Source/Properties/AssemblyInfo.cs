@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 using System.Web.UI;
 
 [assembly: AssemblyTitle("Engage: Rotator")]
-[assembly: AssemblyDescription("The Content Rotation Module from Engage Software")]
+[assembly: AssemblyDescription("The DotNetNuke Rotator Module from Engage Software")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Engage Software")]
 [assembly: AssemblyProduct("")]

@@ -16,38 +16,37 @@ namespace Engage.Dnn.ContentRotator
     using DotNetNuke.Services.Exceptions;
 
     /// <summary>
-    /// Code-behind for the control to add and edit content items
+    /// Control to add and edit slides
     /// </summary>
     public partial class RotatorEdit : ModuleBase
     {
         /// <summary>
-        /// Backing field for <see cref="ContentItemId"/>
+        /// Backing field for <see cref="SlideId"/>
         /// </summary>
-        private int? contentItemId;
+        private int? slideId;
 
         /// <summary>
-        /// Gets the ID of the content item being edited. Returns <c>null</c> if creating a new content item
+        /// Gets the ID of the slide being edited. Returns <c>null</c> if creating a new slide
         /// </summary>
-        /// <value>The ID of the content item being edited, or <c>null</c> if the content item is new.</value>
-        private int? ContentItemId
+        /// <value>The ID of the slide being edited, or <c>null</c> if the slide is new.</value>
+        private int? SlideId
         {
             get
             {
-                if (!this.contentItemId.HasValue)
+                if (!this.slideId.HasValue)
                 {
                     int id;
-                    if (int.TryParse(
-                            this.Request.QueryString["id"], NumberStyles.Integer, CultureInfo.InvariantCulture, out id))
+                    if (int.TryParse(this.Request.QueryString["id"], NumberStyles.Integer, CultureInfo.InvariantCulture, out id))
                     {
-                        this.contentItemId = id;
+                        this.slideId = id;
                     }
                     else
                     {
-                        this.contentItemId = null;
+                        this.slideId = null;
                     }
                 }
 
-                return this.contentItemId;
+                return this.slideId;
             }
         }
 
@@ -77,29 +76,29 @@ namespace Engage.Dnn.ContentRotator
                 if (!this.IsPostBack)
                 {
                     this.TitleTextBox.Focus();
-                    ContentItem item = this.ContentItemId.HasValue
-                                               ? ContentItem.GetContentItem(this.ContentItemId.Value)
+                    Slide slide = this.SlideId.HasValue
+                                               ? Slide.GetSlide(this.SlideId.Value)
                                                : null;
 
-                    if (item != null)
+                    if (slide != null)
                     {
-                        this.LoadContentItem(item);
+                        this.LoadSlide(slide);
 
                         // set UrlControls to type Url, so we don't have to convert back to a tabId or fileId
                         this.LinkUrlControl.UrlType = "U";
-                        this.ThumbnailUrlControl.UrlType = "U";
-                        this.PositionThumbnailUrlControl.UrlType = "U";
+                        this.ImageUrlControl.UrlType = "U";
+                        this.PagerImageUrlControl.UrlType = "U";
                     }
                     else
                     {
                         this.TitleTextBox.Text = string.Empty;
-                        this.DescriptionTextEditor.Text = string.Empty;
+                        this.ContentTextEditor.Text = string.Empty;
 
                         // F = file
-                        this.ThumbnailUrlControl.UrlType = "F";
-                        this.ThumbnailUrlControl.Url = string.Empty;
-                        this.PositionThumbnailUrlControl.UrlType = "F";
-                        this.PositionThumbnailUrlControl.Url = string.Empty;
+                        this.ImageUrlControl.UrlType = "F";
+                        this.ImageUrlControl.Url = string.Empty;
+                        this.PagerImageUrlControl.UrlType = "F";
+                        this.PagerImageUrlControl.Url = string.Empty;
 
                         // T = tab
                         this.LinkUrlControl.UrlType = "T";
@@ -140,39 +139,39 @@ namespace Engage.Dnn.ContentRotator
         {
             if (this.Page.IsValid)
             {
-                ContentItem contentItem = this.ContentItemId.HasValue
-                                                  ? new ContentItem(this.contentItemId.Value)
-                                                  : new ContentItem();
+                Slide slide = this.SlideId.HasValue
+                                                  ? new Slide(this.slideId.Value)
+                                                  : new Slide();
 
-                contentItem.Title = this.TitleTextBox.Text;
-                contentItem.Description = this.DescriptionTextEditor.Text;
-                contentItem.StartDate = DateTime.Parse(this.StartDateTextBox.Text, CultureInfo.CurrentCulture);
-                contentItem.EndDate = Engage.Utility.ParseNullableDateTime(this.EndDateTextBox.Text, CultureInfo.CurrentCulture);
-                contentItem.LinkUrl = Dnn.Utility.CreateUrlFromControl(this.LinkUrlControl, this.PortalSettings);
-                contentItem.ThumbnailUrl = Dnn.Utility.CreateUrlFromControl(this.ThumbnailUrlControl, this.PortalSettings);
-                contentItem.PositionThumbnailUrl = Dnn.Utility.CreateUrlFromControl(this.PositionThumbnailUrlControl, this.PortalSettings);
-                contentItem.SortOrder = int.Parse(this.SortOrderTextBox.Text, CultureInfo.CurrentCulture);
+                slide.Title = this.TitleTextBox.Text;
+                slide.Content = this.ContentTextEditor.Text;
+                slide.StartDate = DateTime.Parse(this.StartDateTextBox.Text, CultureInfo.CurrentCulture);
+                slide.EndDate = Engage.Utility.ParseNullableDateTime(this.EndDateTextBox.Text, CultureInfo.CurrentCulture);
+                slide.LinkUrl = Utility.CreateUrlFromControl(this.LinkUrlControl, this.PortalSettings);
+                slide.ImageUrl = Utility.CreateUrlFromControl(this.ImageUrlControl, this.PortalSettings);
+                slide.PagerImageUrl = Utility.CreateUrlFromControl(this.PagerImageUrlControl, this.PortalSettings);
+                slide.SortOrder = int.Parse(this.SortOrderTextBox.Text, CultureInfo.CurrentCulture);
 
-                contentItem.Save(this.ModuleId);
+                slide.Save(this.ModuleId);
 
                 this.Response.Redirect(this.EditUrl("Options"), false);
             }
         }
 
         /// <summary>
-        /// Fills in the form with the information from the given <paramref name="item"/>
+        /// Fills in the form with the information from the given <paramref name="slide"/>
         /// </summary>
-        /// <param name="item">The item whose information should be filled in.</param>
-        private void LoadContentItem(ContentItem item)
+        /// <param name="slide">The slide whose information should be filled in.</param>
+        private void LoadSlide(Slide slide)
         {
-            this.TitleTextBox.Text = item.Title;
-            this.DescriptionTextEditor.Text = item.Description;
-            this.ThumbnailUrlControl.Url = item.ThumbnailUrl;
-            this.LinkUrlControl.Url = item.LinkUrl;
-            this.PositionThumbnailUrlControl.Url = item.PositionThumbnailUrl;
-            this.StartDateTextBox.Text = item.StartDate.ToShortDateString();
-            this.EndDateTextBox.Text = item.EndDate.HasValue ? item.EndDate.Value.ToShortDateString() : string.Empty;
-            this.SortOrderTextBox.Text = item.SortOrder.ToString(CultureInfo.CurrentCulture);
+            this.TitleTextBox.Text = slide.Title;
+            this.ContentTextEditor.Text = slide.Content;
+            this.ImageUrlControl.Url = slide.ImageUrl;
+            this.LinkUrlControl.Url = slide.LinkUrl;
+            this.PagerImageUrlControl.Url = slide.PagerImageUrl;
+            this.StartDateTextBox.Text = slide.StartDate.ToShortDateString();
+            this.EndDateTextBox.Text = slide.EndDate.HasValue ? slide.EndDate.Value.ToShortDateString() : string.Empty;
+            this.SortOrderTextBox.Text = slide.SortOrder.ToString(CultureInfo.CurrentCulture);
         }
 
         /// <summary>

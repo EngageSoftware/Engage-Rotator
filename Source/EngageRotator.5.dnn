@@ -2,7 +2,7 @@
   <packages>
     <package name="Engage: Rotator" type="Module" version="REPLACED BY NANT">
       <friendlyName>Engage: Rotator</friendlyName>
-      <description>The DotNetNuke Content Rotator module by Engage Software (www.engagesoftware.com)</description>
+      <description>The DotNetNuke Rotator module by Engage Software (www.engagesoftware.com)</description>
       <owner>
         <name>Engage Software</name>
         <organization>Engage Software</organization>
@@ -49,7 +49,7 @@
           <desktopModule>
             <moduleName>Engage: Rotator</moduleName>
             <foldername>EngageRotator</foldername>
-            <businessControllerClass>Engage.Dnn.Rotator.Components.FeaturesController</businessControllerClass>
+            <businessControllerClass>Engage.Dnn.ContentRotator.FeaturesController</businessControllerClass>
             <moduleDefinitions>
               <moduleDefinition>
                 <friendlyName>EngageRotator</friendlyName>

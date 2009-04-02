@@ -23,7 +23,7 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Singleton reference to the instantiated object 
         /// </summary>
-        private static readonly DataProvider objProvider = (DataProvider)DotNetNuke.Framework.Reflection.CreateObject("data", "Engage.Dnn.ContentRotator", string.Empty);
+        private static readonly DataProvider instance = (DataProvider)DotNetNuke.Framework.Reflection.CreateObject("data", "Engage.Dnn.ContentRotator", string.Empty);
 
         /// <summary>
         /// Gets the reference to the current instance of the <see cref="DataProvider"/>
@@ -34,58 +34,58 @@ namespace Engage.Dnn.ContentRotator
             [DebuggerStepThrough]
             get
             {
-                return objProvider;
+                return instance;
             }
         }
 
         /// <summary>
-        /// Inserts a new content item.
+        /// Inserts a new slide.
         /// </summary>
-        /// <param name="description">The description.</param>
-        /// <param name="thumbnailUrl">The thumbnail URL.</param>
+        /// <param name="content">The main content being displayed.</param>
+        /// <param name="imageUrl">The URL to the main image.</param>
         /// <param name="linkUrl">The link URL.</param>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <param name="moduleId">The module id.</param>
         /// <param name="title">The title.</param>
-        /// <param name="positionThumbnailUrl">The position thumbnail URL.</param>
+        /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
-        /// <returns>The ID of the content item created in the database</returns>
-        public abstract int InsertContentItem(string description, string thumbnailUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string positionThumbnailUrl, int sortOrder);
+        /// <returns>The ID of the slide created in the database</returns>
+        public abstract int InsertSlide(string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string pagerImageUrl, int sortOrder);
 
         /// <summary>
-        /// Updates the content item with the given <see cref="contentItemId"/>.
+        /// Updates the slide with the given <see cref="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to update.</param>
-        /// <param name="description">The description.</param>
-        /// <param name="thumbnailUrl">The thumbnail URL.</param>
+        /// <param name="slideId">The ID of the slide to update.</param>
+        /// <param name="content">The main content being displayed.</param>
+        /// <param name="imageUrl">The URL to the main image.</param>
         /// <param name="linkUrl">The link URL.</param>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <param name="title">The title.</param>
-        /// <param name="positionThumbnailUrl">The position thumbnail URL.</param>
+        /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
-        public abstract void UpdateContentItem(int contentItemId, string description, string thumbnailUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string positionThumbnailUrl, int sortOrder);
+        public abstract void UpdateSlide(int slideId, string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string pagerImageUrl, int sortOrder);
 
         /// <summary>
-        /// Deletes the content item with the given <paramref name="contentItemId"/>.
+        /// Deletes the slide with the given <paramref name="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to delete.</param>
-        public abstract void DeleteContentItem(int contentItemId);
+        /// <param name="slideId">The ID of the slide to delete.</param>
+        public abstract void DeleteSlide(int slideId);
 
         /// <summary>
-        /// Gets the content item with the given <paramref name="contentItemId"/>.
+        /// Gets the slide with the given <paramref name="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to retrieve.</param>
-        /// <returns>The content item with the given <paramref name="contentItemId"/></returns>
-        public abstract IDataReader GetContentItem(int contentItemId);
+        /// <param name="slideId">The ID of the slide to retrieve.</param>
+        /// <returns>The slide with the given <paramref name="slideId"/></returns>
+        public abstract IDataReader GetSlide(int slideId);
 
         /// <summary>
-        /// Gets all of the content items for the given <paramref name="moduleId"/>, getting either only items which have started but not ended, or all items if <paramref name="getOutdatedItems"/> is true.
+        /// Gets all of the slides for the given <paramref name="moduleId"/>, getting either only slides which have started but not ended, or all slides if <paramref name="getOutdatedSlides"/> is true.
         /// </summary>
         /// <param name="moduleId">The module id.</param>
-        /// <param name="getOutdatedItems">if set to <c>true</c> gets all content items, regardless of their start date or end date, otherwise only returns items that have started but not ended.</param>
-        /// <returns>All of the content items for the given <paramref name="moduleId"/></returns>
-        public abstract IDataReader GetContentItems(int moduleId, bool getOutdatedItems);
+        /// <param name="getOutdatedSlides">if set to <c>true</c> gets all slides, regardless of their start date or end date, otherwise only returns slides that have started but not ended.</param>
+        /// <returns>All of the slides for the given <paramref name="moduleId"/></returns>
+        public abstract IDataReader GetSlides(int moduleId, bool getOutdatedSlides);
     }
 }

@@ -117,43 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnCancel.Text" xml:space="preserve">
+  <data name="CancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="btnSubmit.Text" xml:space="preserve">
+  <data name="SubmitButton.Text" xml:space="preserve">
     <value>Submit</value>
   </data>
-  <data name="lblAnimationDuration.Help" xml:space="preserve">
-    <value>Choose how many seconds the fading animation will last.  You can use decimals to choose to last a fraction of a second.</value>
+  <data name="TransitionDurationLabel.Help" xml:space="preserve">
+    <value>Choose how many seconds the transition animation will last.  You can use decimals to indicate fractions of a second.</value>
   </data>
-  <data name="lblAnimationDuration.Text" xml:space="preserve">
-    <value>Animation Duration: </value>
+  <data name="TransitionDurationLabel.Text" xml:space="preserve">
+    <value>Transition Duration: </value>
   </data>
-  <data name="lblPauseOnMouseOver.Help" xml:space="preserve">
-    <value>Pause the rotation of content when the user's mouse is over the content area.</value>
+  <data name="PauseOnHoverLabel.Help" xml:space="preserve">
+    <value>Pause the rotation of slides when the user's mouse is over the slide area.</value>
   </data>
-  <data name="lblPauseOnMouseOver.Text" xml:space="preserve">
-    <value>Pause on MouseOver: </value>
+  <data name="PauseOnHoverLabel.Text" xml:space="preserve">
+    <value>Pause on Hover: </value>
   </data>
-  <data name="lblRotatorDelay.Help" xml:space="preserve">
-    <value>The number of seconds each item is shown before the next item appears.</value>
+  <data name="RotatorDelayLabel.Help" xml:space="preserve">
+    <value>The number of seconds each slide is shown before the next slide appears.</value>
   </data>
-  <data name="lblRotatorDelay.Text" xml:space="preserve">
+  <data name="RotatorDelayLabel.Text" xml:space="preserve">
     <value>Rotator Delay: </value>
   </data>
-  <data name="lblRotatorHeight.Help" xml:space="preserve">
-    <value>Use this setting to force the area for the rotating content to be a specific height, measured in pixels.</value>
+  <data name="SlideHeightLabel.Help" xml:space="preserve">
+    <value>Use this setting to force the area for the rotating slides to be a specific height, measured in pixels.</value>
   </data>
-  <data name="lblRotatorHeight.Text" xml:space="preserve">
-    <value>Rotator Height: </value>
+  <data name="SlideHeightLabel.Text" xml:space="preserve">
+    <value>Slide Height: </value>
   </data>
-  <data name="lblRotatorWidth.Text" xml:space="preserve">
-    <value>Rotator Width: </value>
+  <data name="SlideWidthLabel.Text" xml:space="preserve">
+    <value>Slide Width: </value>
   </data>
-  <data name="lblUseAnimations.Help" xml:space="preserve">
-    <value>Choose whether to use fading animations when the content item changes.</value>
+  <data name="UseAnimationsLabel.Help" xml:space="preserve">
+    <value>Choose whether to use an animated transition when the slide changes.</value>
   </data>
-  <data name="lblUseAnimations.Text" xml:space="preserve">
+  <data name="UseAnimationsLabel.Text" xml:space="preserve">
     <value>Use Animations: </value>
   </data>
   <data name="pixels.Text" xml:space="preserve">
@@ -162,40 +162,31 @@
   <data name="seconds.Text" xml:space="preserve">
     <value>seconds</value>
   </data>
-  <data name="lblRotationHeader.Text" xml:space="preserve">
-    <value>Rotation Settings&lt;hr/&gt;</value>
+  <data name="TransitionDurationRequiredValidator.Text" xml:space="preserve">
+    <value>Transition Duration is required</value>
   </data>
-  <data name="rfvAnimationDuration.Text" xml:space="preserve">
-    <value>Animation Duration is required</value>
-  </data>
-  <data name="rfvRotatorDelay.Text" xml:space="preserve">
+  <data name="RotatorDelayRequiredValidator.Text" xml:space="preserve">
     <value>Rotator Delay is required</value>
   </data>
-  <data name="valAnimationDuration.Text" xml:space="preserve">
-    <value>Animation Duration must be a number</value>
+  <data name="TransitionDurationTypeValidator.Text" xml:space="preserve">
+    <value>Transition Duration must be a number</value>
   </data>
-  <data name="valContentHeight.Text" xml:space="preserve">
-    <value>Content Height must be an integer</value>
-  </data>
-  <data name="valContentWidth.Text" xml:space="preserve">
-    <value>Content Width must be an integer</value>
-  </data>
-  <data name="valRotatorDelay.Text" xml:space="preserve">
+  <data name="RotatorDelayTypeValidator.Text" xml:space="preserve">
     <value>Rotator Display must be an integer</value>
   </data>
-  <data name="valRotatorHeight.Text" xml:space="preserve">
-    <value>Rotator Height must be an integer</value>
+  <data name="SlideHeightTypeValidator.Text" xml:space="preserve">
+    <value>Slide Height must be an integer</value>
   </data>
-  <data name="valRotatorWidth.Text" xml:space="preserve">
-    <value>Rotator Width must be an integer</value>
+  <data name="SlideWidthTypeValidator.Text" xml:space="preserve">
+    <value>Slide Width must be an integer</value>
   </data>
-  <data name="Content.Header" xml:space="preserve">
+  <data name="ContentTab.Header" xml:space="preserve">
     <value>Content</value>
   </data>
   <data name="None.Text" xml:space="preserve">
     <value>None</value>
   </data>
-  <data name="Rotation.Header" xml:space="preserve">
+  <data name="RotationTab.Header" xml:space="preserve">
     <value>Rotation</value>
   </data>
   <data name="ControlTitle_modsettings.Text" xml:space="preserve">
@@ -205,57 +196,51 @@
     <value>Automatically stop rotation after </value>
   </data>
   <data name="AutoStopEnd.Text" xml:space="preserve">
-    <value> items are displayed</value>
+    <value> slides are displayed</value>
   </data>
-  <data name="lblAutoStop.Help" xml:space="preserve">
-    <value>Choose whether to automatically stop the rotation after a specific number of items are displayed</value>
+  <data name="AutoStopLabel.Help" xml:space="preserve">
+    <value>Choose whether to automatically stop the rotation after a specific number of slides are displayed</value>
   </data>
-  <data name="lblAutoStop.Text" xml:space="preserve">
+  <data name="AutoStopLabel.Text" xml:space="preserve">
     <value>Auto Stop</value>
   </data>
-  <data name="rfvAutoStopCount.Text" xml:space="preserve">
-    <value>Number of items before auto stop is required when checked</value>
+  <data name="AutoStopCountRequiredValidator.Text" xml:space="preserve">
+    <value>Number of slides before auto stop is required when checked</value>
   </data>
-  <data name="valAutoStopCount.Text" xml:space="preserve">
-    <value>Number of items before auto stop must be an integer</value>
+  <data name="AutoStopCountTypeValidator.Text" xml:space="preserve">
+    <value>Number of slides before auto stop must be an integer</value>
   </data>
-  <data name="Advanced.Header" xml:space="preserve">
+  <data name="AdvancedTab.Header" xml:space="preserve">
     <value>Advanced</value>
   </data>
-  <data name="lblAdvancedHeader.Text" xml:space="preserve">
-    <value>Advanced Settings&lt;hr/&gt;</value>
+  <data name="ContainerResizeLabel.Help" xml:space="preserve">
+    <value>Check to automatically resize the container to fit the largest slide</value>
   </data>
-  <data name="lblContainerResize.Help" xml:space="preserve">
-    <value>Check to automatically resize the container to fit the largest content item</value>
-  </data>
-  <data name="lblContainerResize.Text" xml:space="preserve">
+  <data name="ContainerResizeLabel.Text" xml:space="preserve">
     <value>Auto Resize Container</value>
   </data>
-  <data name="lblContinuous.Help" xml:space="preserve">
+  <data name="ContinuousLabel.Help" xml:space="preserve">
     <value>Check to make rotation to occur continuously, i.e. the next transition should start as soon as the current transition ends.</value>
   </data>
-  <data name="lblContinuous.Text" xml:space="preserve">
+  <data name="ContinuousLabel.Text" xml:space="preserve">
     <value>Continuous Rotation</value>
   </data>
-  <data name="lblContentHeader.Text" xml:space="preserve">
-    <value>Content Settings&lt;hr/&gt;</value>
+  <data name="InitialDelayLabel.Help" xml:space="preserve">
+    <value>Choose the additional delay for the first transition.  This number can also be negative to have the initial slide transition more quickly than the rest.</value>
   </data>
-  <data name="lblInitialDelay.Help" xml:space="preserve">
-    <value>Choose the additional delay for the first transition.  This number can also be negative to have the initial item transition more quickly than the rest.</value>
-  </data>
-  <data name="lblInitialDelay.Text" xml:space="preserve">
+  <data name="InitialDelayLabel.Text" xml:space="preserve">
     <value>Additional Initial Delay</value>
   </data>
-  <data name="valInitialDelay.Text" xml:space="preserve">
+  <data name="InitialDelayTypeValidator.Text" xml:space="preserve">
     <value>Additional Initial Delay must be a number</value>
   </data>
   <data name="InitialDelayBegin.Text" xml:space="preserve">
-    <value>Delay first content item an additional </value>
+    <value>Delay first slide an additional </value>
   </data>
-  <data name="lblManuallyTriggeredTransitionSpeed.Help" xml:space="preserve">
+  <data name="ManuallyTriggeredTransitionSpeedLabel.Help" xml:space="preserve">
     <value>Choose whether you would like "triggered" transitions (transitions caused by a pager or the previous or next buttons) to occur with a different speed than the automatic transitions.</value>
   </data>
-  <data name="lblManuallyTriggeredTransitionSpeed.Text" xml:space="preserve">
+  <data name="ManuallyTriggeredTransitionSpeedLabel.Text" xml:space="preserve">
     <value>Triggered Transition Speed</value>
   </data>
   <data name="Loading.Alt" xml:space="preserve">
@@ -264,31 +249,31 @@
   <data name="ManuallyTriggeredTransitionSpeedBegin.Text" xml:space="preserve">
     <value>User triggered transitions should last </value>
   </data>
-  <data name="rfvInitialDelay.Text" xml:space="preserve">
+  <data name="InitialDelayRequiredValidator.Text" xml:space="preserve">
     <value>Additional Initial Delay is required when checked</value>
   </data>
-  <data name="rfvManuallyTriggeredTransitionSpeed.Text" xml:space="preserve">
+  <data name="ManuallyTriggeredTransitionSpeedRequiredValidator.Text" xml:space="preserve">
     <value>Triggered Transition Speed is required when checked</value>
   </data>
-  <data name="valManuallyTriggeredTransitionSpeed.Text" xml:space="preserve">
+  <data name="ManuallyTriggeredTransitionSpeedTypeValidator.Text" xml:space="preserve">
     <value>Triggered Transition Speed must be a number</value>
   </data>
-  <data name="lblLoop.Help" xml:space="preserve">
-    <value>Choose whether to continue the rotation indefinitely, or to just display each item once</value>
+  <data name="LoopLabel.Help" xml:space="preserve">
+    <value>Choose whether to continue the rotation indefinitely, or to just display each slide once</value>
   </data>
-  <data name="lblLoop.Text" xml:space="preserve">
+  <data name="LoopLabel.Text" xml:space="preserve">
     <value>Loop</value>
   </data>
-  <data name="lblRandomOrder.Help" xml:space="preserve">
-    <value>Choose whether the display content items in a random order.  Otherwise items are sorted first by the items' Sort Order field, then their Start Date, and finally, if those two fields are the same, by their Title</value>
+  <data name="RandomOrderLabel.Help" xml:space="preserve">
+    <value>Choose whether the display slides in a random order.  Otherwise slides are sorted first by the slides' Sort Order field, then their Start Date, and finally, if those two fields are the same, by their Title</value>
   </data>
-  <data name="lblRandomOrder.Text" xml:space="preserve">
+  <data name="RandomOrderLabel.Text" xml:space="preserve">
     <value>Random Order</value>
   </data>
-  <data name="lblSimultaneousTransitions.Help" xml:space="preserve">
-    <value>Choose whether the current content item's "out" transitions should happen at the same time as the next content item's "in" transition</value>
+  <data name="SimultaneousTransitionsLabel.Help" xml:space="preserve">
+    <value>Choose whether the current slide's "out" transitions should happen at the same time as the next slide's "in" transition</value>
   </data>
-  <data name="lblSimultaneousTransitions.Text" xml:space="preserve">
+  <data name="SimultaneousTransitionsLabel.Text" xml:space="preserve">
     <value>Simultaneous Transitions</value>
   </data>
   <data name="blindX.Text" xml:space="preserve">
@@ -321,20 +306,17 @@
   <data name="growY.Text" xml:space="preserve">
     <value>Grow Y</value>
   </data>
-  <data name="lblAnimationEffect.Help" xml:space="preserve">
-    <value>Choose one or more effects to use when transitioning items.</value>
+  <data name="TransitionEffectLabel.Help" xml:space="preserve">
+    <value>Choose one or more effects to use when transitioning slides.</value>
   </data>
-  <data name="lblAnimationEffect.Text" xml:space="preserve">
-    <value>Animation Effect(s)</value>
-  </data>
-  <data name="lblForceSlidesToFitContainer.Help" xml:space="preserve">
+  <data name="ForceSlidesToFitContainerLabel.Help" xml:space="preserve">
     <value>Choose whether the slides should be stretched to fit exactly within the container</value>
   </data>
-  <data name="lblForceSlidesToFitContainer.Text" xml:space="preserve">
+  <data name="ForceSlidesToFitContainerLabel.Text" xml:space="preserve">
     <value>Force Slides to Fit Within Container</value>
   </data>
-  <data name="rfvAnimationEffect.Text" xml:space="preserve">
-    <value>At least one Animation Effect is required</value>
+  <data name="TransitionEffectRequired.Text" xml:space="preserve">
+    <value>At least one Transition Effect is required</value>
   </data>
   <data name="scrollDown.Text" xml:space="preserve">
     <value>Scroll Down</value>
@@ -390,7 +372,10 @@
   <data name="zoom.Text" xml:space="preserve">
     <value>Zoom</value>
   </data>
-  <data name="lblRotatorWidth.Help" xml:space="preserve">
-    <value>Use this setting to force the area for the rotating content to be a specific width, measured in pixels.</value>
+  <data name="SlideWidthLabel.Help" xml:space="preserve">
+    <value>Use this setting to force the area for the rotating slides to be a specific width, measured in pixels.</value>
+  </data>
+  <data name="TransitionEffectLabel.Text" xml:space="preserve">
+    <value>Transition Effect(s)</value>
   </data>
 </root>

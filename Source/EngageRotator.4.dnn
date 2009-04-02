@@ -6,10 +6,10 @@
       <foldername>EngageRotator</foldername>
       <modulename>Engage: Rotator</modulename>
       <description>
-        The DotNetNuke Content Rotator module by Engage Software (www.engagesoftware.com)
+        The DotNetNuke Rotator module by Engage Software (www.engagesoftware.com)
       </description>
       <version>REPLACED BY NANT</version>
-      <businesscontrollerclass>Engage.Dnn.Rotator.Components.FeaturesController</businesscontrollerclass>
+      <businesscontrollerclass>Engage.Dnn.ContentRotator.FeaturesController</businesscontrollerclass>
       <resourcefile>Resources.zip</resourcefile>
       <modules>
         <module>
@@ -73,10 +73,10 @@
           <name>Engage.Rotator.dll</name>
         </file>
         <file>
-          <name>Engage.Utility.dll</name>
+          <name>Engage.Framework.dll</name>
         </file>
         <file>
-          <name>Engage.Dnn.Utility.dll</name>
+          <name>Engage.Dnn.Framework.dll</name>
         </file>
       </files>
     </folder>

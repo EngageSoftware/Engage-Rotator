@@ -1,22 +1,19 @@
 ﻿<div class="rotate-wrap">
-    <Engage:List Type="Content">
+    <Engage:List>
         <div>
             <div class="rotatorContentWrapper" > <!--style='ContentWrapperStyle'-->
                 <div class="rotatorContent">
-                    <Engage:DataEntity PropertyName="ContentHeaderText" />
-                    <span class="rotatorContentHeaderLinkWrapper"><Engage:Link PropertyName="ContentHeaderLink" CssClass="rotatorContentHeaderLink"><Engage:DataEntity PropertyName="ContentHeaderLinkText" /></Engage:Link></span>
 	                <div class="rotatorThumbnailWrapper">
 	                    <a href='<Engage:DataEntity PropertyName="LinkUrl"/>' class="rotatorThumbnailLink" title="this is a plain link with embedded tag">
-		                    <Engage:Image CssClass="rotatorThumbnail" PropertyName="ThumbnailUrl" AlternateText="" /> <!--style='ThumbnailStyle'-->
+		                    <Engage:Image CssClass="rotatorThumbnail" PropertyName="ImageUrl" AlternateText="" /> <!--style='ThumbnailStyle'-->
 	                    </a>
-	                    <img src='<Engage:DataEntity PropertyName="PositionThumbnailUrl" />' />
                     </div>
                     <div class="rotatorContentBodyWrapper">
                         <span class="rotatorContentTitleWrapper">
 	                        <Engage:Link CssClass="rotatorContentTitleLink" PropertyName="LinkUrl"><Engage:DataEntity PropertyName="Title" /></Engage:Link>
                         </span>
                         <div id="rotatorContentDescriptionWrapper" class="rotatorContentDescriptionWrapper">
-                            <span class="rotatorDescription"><Engage:Link PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:DataEntity PropertyName="Description" /></Engage:Link></span>
+                            <span class="rotatorDescription"><Engage:Link PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:DataEntity PropertyName="Content" /></Engage:Link></span>
 	                        <div class="rotatorReadMoreLinkWrapper"><Engage:Link CssClass="rotatorReadMoreLink" ResourceKey="ReadMore" PropertyName="LinkUrl" /></div>
                         </div>
                     </div>

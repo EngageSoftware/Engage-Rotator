@@ -2,13 +2,13 @@
 <table class="RotatorOptions">
     <tr>
         <td align="left">
-            <asp:Button ID="NewContentItemButton" runat="server" resourcekey="btnNewContentItem" EnableViewState="false" />
+            <asp:Button ID="NewSlideButton" runat="server" resourcekey="NewSlideButton" EnableViewState="false" />
             &nbsp;
-            <asp:Button ID="BackButton" runat="server" resourcekey="lnkBack" />
+            <asp:Button ID="BackButton" runat="server" resourcekey="BackButton" />
         </td>
     </tr>
     <tr><td>
-        <asp:Repeater ID="ContentItemsRepeater" runat="server">
+        <asp:Repeater ID="SlidesRepeater" runat="server">
             <ItemTemplate>
                 <div class="divArticleToRotate">
                     <div class="topRotatorHeader">
@@ -16,7 +16,7 @@
                         </div>
                         <div class="rotatorHeaderWrapper">
                             <div class="sortOrder Normal">
-                                <asp:Label runat="server" resourcekey="lblOrderLabel" /> (<%#Eval("SortOrder") %>)
+                                <asp:Label runat="server" resourcekey="SortOrder" /> (<%#Eval("SortOrder") %>)
                             </div>
                             <div class="rotatorContentTitleWrapper SubHead">
                                 <%# Eval("Title") %>
@@ -28,27 +28,27 @@
                     <div class="rotatorContent">
                         <div class="rotatorDescription">
                             <div class="rotatorDescriptionTitle SubHead">
-                                <asp:Label runat="server" resourcekey="lblContentHeader" />
+                                <asp:Label runat="server" resourcekey="ContentHeader" />
                             </div>
                             <div class="Normal">
-                                <%# Eval("Description") %>
+                                <%# Eval("Content") %>
                             </div>
                         </div>
                         <div class="rotatorThumbnails">
                             <div class="rotatorThumbnailWrapper">
                                 <div class="rotatorThumbnailTitle SubHead">
-                                    <asp:Label runat="server" resourcekey="lblContentThumbnailHeader" />
+                                    <asp:Label runat="server" resourcekey="ImageHeader" />
                                 </div>
                                 <div class="rotatorThumbnail">
-                                    <img src='<%# Eval("ThumbnailUrl")%>' alt='<%# Eval("ThumbnailUrl")%>' />
+                                    <img src='<%# Eval("ImageUrl")%>' alt='<%# Eval("ImageUrl")%>' />
                                 </div>
                             </div>
                             <div class="rotatorPositionThumbnailWrapper">
                                 <div class="rotatorPositionThumbnailTitle SubHead">
-                                    <asp:Label runat="server" resourcekey="lblPositionThumbnailHeader" />
+                                    <asp:Label runat="server" resourcekey="PagerImageHeader" />
                                 </div>
                                 <div class="rotatorPositionThumbnail">
-                                    <img src='<%# Eval("PositionThumbnailUrl") %>' alt='<%# Eval("PositionThumbnailUrl") %>' />
+                                    <img src='<%# Eval("PagerImageUrl") %>' alt='<%# Eval("PagerImageUrl") %>' />
                                 </div>
                             </div>
                         </div>
@@ -73,8 +73,8 @@
                             </div>
                             <div class="editButtons Normal">
                                 <asp:Button runat="server" resourcekey="Edit" CausesValidation="false" CommandName="Edit" />&nbsp;
-                                <asp:Button ID="DeleteItemButton" runat="server" resourcekey="btnDeleteItem" CausesValidation="false" CommandName="Delete" />
-                                <asp:HiddenField ID="ContentItemIdHiddenField" runat="server" Value='<%# Eval("ContentItemId") %>' />
+                                <asp:Button ID="DeleteSlideButton" runat="server" resourcekey="DeleteSlideButton" CausesValidation="false" CommandName="Delete" />
+                                <asp:HiddenField ID="SlideIdHiddenField" runat="server" Value='<%# Eval("SlideId") %>' />
                             </div>
                         </div>
                         <div class="rb-corner">
@@ -88,7 +88,7 @@
     </td></tr>
     <tr>
         <td colspan="2">
-            <asp:Button ID="BackButton2" runat="server" resourcekey="lnkBack" CssClass="Normal" />
+            <asp:Button ID="BackButton2" runat="server" resourcekey="BackButton" CssClass="Normal" />
         </td>
     </tr>
 </table>

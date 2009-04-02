@@ -14,13 +14,13 @@ namespace Engage.Dnn.ContentRotator {
     public partial class RotatorOptions {
         
         /// <summary>
-        /// NewContentItemButton control.
+        /// NewSlideButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewContentItemButton;
+        protected global::System.Web.UI.WebControls.Button NewSlideButton;
         
         /// <summary>
         /// BackButton control.
@@ -32,13 +32,13 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.Button BackButton;
         
         /// <summary>
-        /// ContentItemsRepeater control.
+        /// SlidesRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ContentItemsRepeater;
+        protected global::System.Web.UI.WebControls.Repeater SlidesRepeater;
         
         /// <summary>
         /// BackButton2 control.

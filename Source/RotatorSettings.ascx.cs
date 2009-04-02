@@ -65,9 +65,9 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to automatically resize the container to fit the largest <see cref="ContentItem"/>.
+        /// Gets a value indicating whether to automatically resize the container to fit the largest <see cref="Slide"/>.
         /// </summary>
-        /// <value><c>true</c> if the option to automatically resize the container to fit the largest <see cref="ContentItem"/> is set; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if the option to automatically resize the container to fit the largest <see cref="Slide"/> is set; otherwise, <c>false</c>.</value>
         private bool ContainerResize
         {
             get
@@ -89,10 +89,10 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to pause rotation when the content is moused over.
+        /// Gets a value indicating whether to pause rotation when the slides are hovered over.
         /// </summary>
-        /// <value><c>true</c> if the module is set to pause rotation when the content is moused over; otherwise, <c>false</c>.</value>
-        private bool PauseOnMouseOver
+        /// <value><c>true</c> if the module is set to pause rotation when the slides are hovered over; otherwise, <c>false</c>.</value>
+        private bool PauseOnHover
         {
             get
             {
@@ -149,9 +149,9 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to loop rotation, or just display each item once.
+        /// Gets a value indicating whether to loop rotation, or just display each slide once.
         /// </summary>
-        /// <value><c>true</c> if the module is set to only show each item once; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if the module is set to only show each slide once; otherwise, <c>false</c>.</value>
         private bool Loop
         {
             get
@@ -161,9 +161,9 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to display items in a random order.
+        /// Gets a value indicating whether to display slides in a random order.
         /// </summary>
-        /// <value><c>true</c> if the module is set to display items in a random order; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if the module is set to display slides in a random order; otherwise, <c>false</c>.</value>
         private bool RandomOrder
         {
             get
@@ -197,7 +197,29 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets the setting for the delay between each item.
+        /// Gets the height in pixels for the slide container, or <c>null</c> to 
+        /// </summary>
+        private int? SlideHeight
+        {
+            get
+            {
+                return Utility.GetIntSetting(this.Settings, "ContentHeight");
+            }
+        }
+
+        /// <summary>
+        /// Gets the width in pixels for the slide container
+        /// </summary>
+        private int? SlideWidth
+        {
+            get
+            {
+                return Utility.GetIntSetting(this.Settings, "ContentWidth");
+            }
+        }
+
+        /// <summary>
+        /// Gets the setting for the delay between each slide.
         /// </summary>
         /// <value>The rotator delay (in seconds).</value>
         private int RotatorDelay
@@ -234,7 +256,7 @@ namespace Engage.Dnn.ContentRotator
             this.InitialDelayCheckBox.CheckedChanged += this.InitialDelayCheckBox_CheckedChanged;
             this.ManuallyTriggeredTransitionSpeedCheckBox.CheckedChanged += this.ManuallyTriggeredTransitionSpeedCheckBox_CheckedChanged;
             this.UseAnimationsCheckBox.CheckedChanged += this.UseAnimationsCheckBox_CheckedChanged;
-            this.AnimationEffectRequiredValidator.ServerValidate += this.AnimationEffectRequiredValidator_ServerValidate;
+            this.TransitionEffectRequiredValidator.ServerValidate += this.AnimationEffectRequiredValidator_ServerValidate;
         }
 
         /// <summary>
@@ -313,7 +335,7 @@ namespace Engage.Dnn.ContentRotator
                 {
                     this.SetupAnimationEffectsListControl();
 
-                    this.PauseOnMouseOverCheckBox.Checked = this.PauseOnMouseOver;
+                    this.PauseOnHoverCheckBox.Checked = this.PauseOnHover;
                     this.RotatorDelayTextBox.Text = this.RotatorDelay.ToString(CultureInfo.CurrentCulture);
 
                     this.AutoStopCheckBox.Checked = this.AutoStop;
@@ -321,8 +343,8 @@ namespace Engage.Dnn.ContentRotator
                     this.ProcessAutoStopVisibility();
 
                     this.UseAnimationsCheckBox.Checked = this.UseAnimations;
-                    this.AnimationDurationTextBox.Text = this.AnimationDuration.ToString(CultureInfo.CurrentCulture);
-                    this.PauseOnMouseOverCheckBox.Checked = this.PauseOnMouseOver;
+                    this.TransitionDurationTextBox.Text = this.AnimationDuration.ToString(CultureInfo.CurrentCulture);
+                    this.PauseOnHoverCheckBox.Checked = this.PauseOnHover;
                     this.ProcessAnimationsVisibility();
 
                     this.ContainerResizeCheckBox.Checked = this.ContainerResize;
@@ -335,6 +357,13 @@ namespace Engage.Dnn.ContentRotator
                     this.InitialDelayTextBox.Text = this.InitialDelay.ToString(CultureInfo.CurrentCulture);
                     this.InitialDelayCheckBox.Checked = this.InitialDelay != 0;
                     this.ProcessInitialDelayVisibility();
+
+                    this.SlideHeightTextBox.Text = this.SlideHeight.HasValue
+                                                           ? this.SlideHeight.Value.ToString(CultureInfo.CurrentCulture)
+                                                           : string.Empty;
+                    this.SlideWidthTextBox.Text = this.SlideWidth.HasValue
+                                                           ? this.SlideWidth.Value.ToString(CultureInfo.CurrentCulture)
+                                                           : string.Empty;
 
                     this.ManuallyTriggeredTransitionSpeedTextBox.Text = this.ManuallyTriggeredTransitionSpeed.ToString(CultureInfo.CurrentCulture);
                     this.ManuallyTriggeredTransitionSpeedCheckBox.Checked = this.ManuallyTriggeredTransitionSpeed != 0;
@@ -373,13 +402,13 @@ namespace Engage.Dnn.ContentRotator
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorDelayTextBox.Text));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStop", this.AutoStopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStopCount", this.AutoStopCountTextBox.Text);
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnMouseOverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnHoverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "UseAnimations", this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", ConvertCurrentCultureDecimalToInvariantCulture(this.AnimationDurationTextBox.Text));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", ConvertCurrentCultureDecimalToInvariantCulture(this.TransitionDurationTextBox.Text));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationEffect", this.GetSelectedEffects().ToString());
 
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorHeight", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorHeightTextBox.Text, null));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorWidth", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorWidthTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeight", ConvertCurrentCultureIntegerToInvariantCulture(this.SlideHeightTextBox.Text, null));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentWidth", ConvertCurrentCultureIntegerToInvariantCulture(this.SlideWidthTextBox.Text, null));
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ForceSlidesToFitContainer", this.ForceSlidesToFitContainerCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
@@ -435,17 +464,17 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Handles the ServerValidate event of the AnimationEffectRequiredValidator control.
+        /// Handles the ServerValidate event of the TransitionEffectRequiredValidator control.
         /// </summary>
         /// <param name="source">The source of the event.</param>
         /// <param name="args">The <see cref="System.Web.UI.WebControls.ServerValidateEventArgs"/> instance containing the event data.</param>
         private void AnimationEffectRequiredValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            args.IsValid = this.AnimationEffectCheckBoxList.SelectedIndex > -1;
+            args.IsValid = this.TransitionEffectCheckBoxList.SelectedIndex > -1;
         }
 
         /// <summary>
-        /// Fills <see cref="AnimationEffectCheckBoxList"/> and selects the initial values
+        /// Fills <see cref="TransitionEffectCheckBoxList"/> and selects the initial values
         /// </summary>
         private void SetupAnimationEffectsListControl()
         {
@@ -454,22 +483,22 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Fills <see cref="AnimationEffectCheckBoxList"/>.
+        /// Fills <see cref="TransitionEffectCheckBoxList"/>.
         /// </summary>
         private void FillAnimationEffectsListControl()
         {
-            this.AnimationEffectCheckBoxList.DataSource = Enum.GetNames(typeof(Effects));
-            this.AnimationEffectCheckBoxList.DataBind();
-            this.AnimationEffectCheckBoxList.Items.Remove(Effects.None.ToString());
-            Utility.LocalizeListControl(this.AnimationEffectCheckBoxList, this.LocalResourceFile);
+            this.TransitionEffectCheckBoxList.DataSource = Enum.GetNames(typeof(Effects));
+            this.TransitionEffectCheckBoxList.DataBind();
+            this.TransitionEffectCheckBoxList.Items.Remove(Effects.None.ToString());
+            Utility.LocalizeListControl(this.TransitionEffectCheckBoxList, this.LocalResourceFile);
         }
 
         /// <summary>
-        /// Selects the initial values of <see cref="AnimationEffectCheckBoxList"/>.
+        /// Selects the initial values of <see cref="TransitionEffectCheckBoxList"/>.
         /// </summary>
         private void SelectAnimationEffectsValues()
         {
-            foreach (ListItem item in this.AnimationEffectCheckBoxList.Items)
+            foreach (ListItem item in this.TransitionEffectCheckBoxList.Items)
             {
                 Effects itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
                 item.Selected = (this.AnimationEffect & itemEffect) != 0;
@@ -477,13 +506,13 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets the effects selected in <see cref="AnimationEffectCheckBoxList"/>.
+        /// Gets the effects selected in <see cref="TransitionEffectCheckBoxList"/>.
         /// </summary>
         /// <returns>The selected animation transition effects</returns>
         private Effects GetSelectedEffects()
         {
             Effects effects = Effects.None;
-            foreach (ListItem item in this.AnimationEffectCheckBoxList.Items)
+            foreach (ListItem item in this.TransitionEffectCheckBoxList.Items)
             {
                 if (item.Selected)
                 {
@@ -537,13 +566,13 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void ProcessAnimationsVisibility()
         {
-            this.AnimationDurationTextBox.Enabled =
-                    this.AnimationDurationIntegerValidator.Enabled =
-                    this.AnimationDurationRequiredValidator.Enabled = 
-                    this.AnimationEffectCheckBoxList.Enabled = 
-                    this.AnimationEffectRequiredValidator.Enabled = this.UseAnimationsCheckBox.Checked;
+            this.TransitionDurationTextBox.Enabled =
+                    this.TransitionDurationIntegerValidator.Enabled =
+                    this.TransitionDurationRequiredValidator.Enabled = 
+                    this.TransitionEffectCheckBoxList.Enabled = 
+                    this.TransitionEffectRequiredValidator.Enabled = this.UseAnimationsCheckBox.Checked;
 
-            SetDisabledCssClass(this.AnimationDurationTextBox);
+            SetDisabledCssClass(this.TransitionDurationTextBox);
         }
 
         /// <summary>

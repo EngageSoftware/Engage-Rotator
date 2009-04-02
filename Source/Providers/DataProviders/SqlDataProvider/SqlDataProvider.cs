@@ -91,27 +91,27 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Inserts a new content item.
+        /// Inserts a new slide.
         /// </summary>
-        /// <param name="description">The description.</param>
-        /// <param name="thumbnailUrl">The thumbnail URL.</param>
+        /// <param name="content">The main content being displayed.</param>
+        /// <param name="imageUrl">The URL to the main image.</param>
         /// <param name="linkUrl">The link URL.</param>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <param name="moduleId">The module id.</param>
         /// <param name="title">The title.</param>
-        /// <param name="positionThumbnailUrl">The position thumbnail URL.</param>
+        /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
         /// <returns>
-        /// The ID of the content item created in the database
+        /// The ID of the slide created in the database
         /// </returns>
-        public override int InsertContentItem(string description, string thumbnailUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string positionThumbnailUrl, int sortOrder)
+        public override int InsertSlide(string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string pagerImageUrl, int sortOrder)
         {
             return (int)(decimal)this.ExecuteScalar(
                 "InsertContentItem",
-                Engage.Utility.CreateTextParam("@description", description),
-                Engage.Utility.CreateVarcharParam("@thumbnailUrl", thumbnailUrl, TextFieldSize),
-                Engage.Utility.CreateVarcharParam("@positionThumbnailUrl", positionThumbnailUrl, TextFieldSize),
+                Engage.Utility.CreateTextParam("@description", content),
+                Engage.Utility.CreateVarcharParam("@thumbnailUrl", imageUrl, TextFieldSize),
+                Engage.Utility.CreateVarcharParam("@positionThumbnailUrl", pagerImageUrl, TextFieldSize),
                 Engage.Utility.CreateVarcharParam("@linkUrl", linkUrl, TextFieldSize),
                 Engage.Utility.CreateDateTimeParam("@startDate", startDate),
                 Engage.Utility.CreateDateTimeParam("@endDate", endDate),
@@ -121,73 +121,77 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Updates the content item with the given <see cref="contentItemId"/>.
+        /// Updates the slide with the given <see cref="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to update.</param>
-        /// <param name="description">The description.</param>
-        /// <param name="thumbnailUrl">The thumbnail URL.</param>
+        /// <param name="slideId">The ID of the slide to update.</param>
+        /// <param name="content">The main content being displayed.</param>
+        /// <param name="imageUrl">The URL to the main image.</param>
         /// <param name="linkUrl">The link URL.</param>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <param name="title">The title.</param>
-        /// <param name="positionThumbnailUrl">The position thumbnail URL.</param>
+        /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
-        public override void UpdateContentItem(int contentItemId, string description, string thumbnailUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string positionThumbnailUrl, int sortOrder)
+        public override void UpdateSlide(int slideId, string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string pagerImageUrl, int sortOrder)
         {
             this.ExecuteNonQuery(
                 "UpdateContentItem",
-                Engage.Utility.CreateIntegerParam("@contentItemId", contentItemId),
-                Engage.Utility.CreateTextParam("@description", description),
-                Engage.Utility.CreateVarcharParam("@thumbnailUrl", thumbnailUrl, TextFieldSize),
+                Engage.Utility.CreateIntegerParam("@contentItemId", slideId),
+                Engage.Utility.CreateTextParam("@description", content),
+                Engage.Utility.CreateVarcharParam("@thumbnailUrl", imageUrl, TextFieldSize),
                 Engage.Utility.CreateVarcharParam("@linkUrl", linkUrl, TextFieldSize),
                 Engage.Utility.CreateDateTimeParam("@startDate", startDate),
                 Engage.Utility.CreateDateTimeParam("@endDate", endDate),
                 Engage.Utility.CreateVarcharParam("@title", title, TextFieldSize),
-                Engage.Utility.CreateVarcharParam("@positionThumbnailUrl", positionThumbnailUrl, TextFieldSize),
+                Engage.Utility.CreateVarcharParam("@positionThumbnailUrl", pagerImageUrl, TextFieldSize),
                 Engage.Utility.CreateIntegerParam("@sortOrder", sortOrder));
         }
 
         /// <summary>
-        /// Deletes the content item with the given <paramref name="contentItemId"/>.
+        /// Deletes the slide with the given <paramref name="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to delete.</param>
-        public override void DeleteContentItem(int contentItemId)
+        /// <param name="slideId">The ID of the slide to delete.</param>
+        public override void DeleteSlide(int slideId)
         {
             this.ExecuteNonQuery(
                 "DeleteContentItem",
-                Engage.Utility.CreateIntegerParam("@contentItemId", contentItemId));
+                Engage.Utility.CreateIntegerParam("@contentItemId", slideId));
         }
 
         /// <summary>
-        /// Gets the content item with the given <paramref name="contentItemId"/>.
+        /// Gets the slide with the given <paramref name="slideId"/>.
         /// </summary>
-        /// <param name="contentItemId">The ID of the content item to retrieve.</param>
-        /// <returns>The content item with the given <paramref name="contentItemId"/></returns>
-        public override IDataReader GetContentItem(int contentItemId)
+        /// <param name="slideId">The ID of the slide to retrieve.</param>
+        /// <returns>
+        /// The slide with the given <paramref name="slideId"/>
+        /// </returns>
+        public override IDataReader GetSlide(int slideId)
         {
             return this.ExecuteReader(
                 "GetContentItem",
-                Engage.Utility.CreateIntegerParam("@contentItemId", contentItemId));
+                Engage.Utility.CreateIntegerParam("@contentItemId", slideId));
         }
 
         /// <summary>
-        /// Gets all of the content items for the given <paramref name="moduleId"/>, getting either only items which have started but not ended, or all items if <paramref name="getOutdatedItems"/> is true.
+        /// Gets all of the slides for the given <paramref name="moduleId"/>, getting either only slides which have started but not ended, or all slides if <paramref name="getOutdatedSlides"/> is true.
         /// </summary>
         /// <param name="moduleId">The module id.</param>
-        /// <param name="getOutdatedItems">if set to <c>true</c> gets all content items, regardless of their start date or end date, otherwise only returns items that have started but not ended.</param>
-        /// <returns>All of the content items for the given <paramref name="moduleId"/></returns>
-        public override IDataReader GetContentItems(int moduleId, bool getOutdatedItems)
+        /// <param name="getOutdatedSlides">if set to <c>true</c> gets all slides, regardless of their start date or end date, otherwise only returns slides that have started but not ended.</param>
+        /// <returns>
+        /// All of the slides for the given <paramref name="moduleId"/>
+        /// </returns>
+        public override IDataReader GetSlides(int moduleId, bool getOutdatedSlides)
         {
             return this.ExecuteReader(
                 "GetContentItems",
                 Engage.Utility.CreateIntegerParam("@moduleId", moduleId),
-                Engage.Utility.CreateBitParam("@getOutdatedItems", getOutdatedItems));
+                Engage.Utility.CreateBitParam("@getOutdatedItems", getOutdatedSlides));
         }
 
         /// <summary>
         /// Executes a SQL stored procedure without returning any value.
         /// </summary>
-        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "InsertContentItem" is translated to "dnn_EngageRotator_spInsertContentItem."</param>
+        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "InsertSlide" is translated to "dnn_EngageRotator_spInsertSlide."</param>
         /// <param name="parameters">The parameters for this query.</param>
         private void ExecuteNonQuery(string storedProcedureName, params SqlParameter[] parameters)
         {
@@ -201,7 +205,7 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Executes a SQL stored procedure, returning the results as a <see cref="SqlDataReader"/>.
         /// </summary>
-        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "GetGetContentItem" is translated to "dnn_EngageRotator_spGetContentItem."</param>
+        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "GetSlide" is translated to "dnn_EngageRotator_spGetSlide."</param>
         /// <param name="parameters">The parameters for this query.</param>
         /// <returns>A <see cref="SqlDataReader"/> with the results of the stored procedure call</returns>
         private SqlDataReader ExecuteReader(string storedProcedureName, params SqlParameter[] parameters)
@@ -216,7 +220,7 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Executes a SQL stored procedure, returning a single value.
         /// </summary>
-        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "InsertContentItem" is translated to "dnn_EngageRotator_spInsertContentItem."</param>
+        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "InsertSlide" is translated to "dnn_EngageRotator_spInsertSlide."</param>
         /// <param name="parameters">The parameters for this query.</param>
         /// <returns>The single value returned from the stored procedure call</returns>
         private object ExecuteScalar(string storedProcedureName, params SqlParameter[] parameters)

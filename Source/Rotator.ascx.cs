@@ -25,7 +25,7 @@ namespace Engage.Dnn.ContentRotator
     using Templating;
 
     /// <summary>
-    /// The main control displaying rotating content
+    /// The main control displaying rotating slides
     /// </summary>
     public partial class Rotator : ModuleBase, IActionable
     {
@@ -45,7 +45,7 @@ namespace Engage.Dnn.ContentRotator
                         {
                                 new ModuleAction(
                                         this.GetNextActionID(),
-                                        Localization.GetString("Add/Edit Content", this.LocalResourceFile),
+                                        Localization.GetString("Add/Edit Slides", this.LocalResourceFile),
                                         ModuleActionType.AddContent,
                                         string.Empty,
                                         string.Empty,
@@ -93,8 +93,8 @@ namespace Engage.Dnn.ContentRotator
             {
                 if (this.cycleOptions == null)
                 {
-                    Unit containerHeight = this.RotatorHeight.HasValue ? Unit.Pixel(this.RotatorHeight.Value) : Unit.Empty;
-                    Unit containerWidth = this.RotatorWidth.HasValue ? Unit.Pixel(this.RotatorWidth.Value) : Unit.Empty;
+                    Unit containerHeight = this.SlideHeight.HasValue ? Unit.Pixel(this.SlideHeight.Value) : Unit.Empty;
+                    Unit containerWidth = this.SlideWidth.HasValue ? Unit.Pixel(this.SlideWidth.Value) : Unit.Empty;
                     int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 0;
 
                     this.cycleOptions = new CycleOptions(
@@ -106,7 +106,7 @@ namespace Engage.Dnn.ContentRotator
                             this.Continuous,
                             ConvertSecondsToMilliseconds(this.InitialDelay),
                             ConvertSecondsToMilliseconds(this.RotatorDelay) + transitionSpeed,
-                            this.PauseOnMouseOver,
+                            this.PauseOnHover,
                             this.AnimationEffect,
                             transitionSpeed,
                             ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed),
@@ -168,9 +168,9 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to automatically resize the container to fit the largest <see cref="ContentItem"/>.
+        /// Gets a value indicating whether to automatically resize the container to fit the largest <see cref="Slide"/>.
         /// </summary>
-        /// <value><c>true</c> if the option to automatically resize the container to fit the largest <see cref="ContentItem"/> is set; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if the option to automatically resize the container to fit the largest <see cref="Slide"/> is set; otherwise, <c>false</c>.</value>
         private bool ContainerResize
         {
             get
@@ -216,9 +216,9 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to loop rotation, or just display each item once.
+        /// Gets a value indicating whether to loop rotation, or just display each slide once.
         /// </summary>
-        /// <value><c>true</c> if the module is set to only show each item once; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if the module is set to only show each slide once; otherwise, <c>false</c>.</value>
         private bool Loop
         {
             get
@@ -228,9 +228,9 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to display items in a random order.
+        /// Gets a value indicating whether to display slides in a random order.
         /// </summary>
-        /// <value><c>true</c> if the module is set to display items in a random order; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if the module is set to display slides in a random order; otherwise, <c>false</c>.</value>
         private bool RandomOrder
         {
             get
@@ -240,9 +240,10 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether PauseOnMouseOver.
+        /// Gets a value indicating whether to pause rotation when the slides are hovered over.
         /// </summary>
-        private bool PauseOnMouseOver
+        /// <value><c>true</c> if the module is set to pause rotation when the slides are hovered over; otherwise, <c>false</c>.</value>
+        private bool PauseOnHover
         {
             get
             {
@@ -262,24 +263,24 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets Rotator Height.
+        /// Gets the height in pixels for the slide container, or <c>null</c> to 
         /// </summary>
-        private int? RotatorHeight
+        private int? SlideHeight
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "RotatorHeight");
+                return Utility.GetIntSetting(this.Settings, "ContentHeight");
             }
         }
 
         /// <summary>
-        /// Gets Rotator Width.
+        /// Gets the width in pixels for the slide container
         /// </summary>
-        private int? RotatorWidth
+        private int? SlideWidth
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "RotatorWidth");
+                return Utility.GetIntSetting(this.Settings, "ContentWidth");
             }
         }
 
@@ -329,7 +330,7 @@ namespace Engage.Dnn.ContentRotator
                     this.GetTemplateSetting(),
                     this.RotatorContainer,
                     this.ProcessTags,
-                    this.GetContentItems);
+                    this.GetSlides);
 
             base.OnInit(e);
             this.Load += this.Page_Load;
@@ -360,7 +361,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <see cref="Label"/> whose content is the (1-based) index of the currently displayed <see cref="ContentItem"/>
+        /// Creates a <see cref="Label"/> whose content is the (1-based) index of the currently displayed <see cref="Slide"/>
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <returns>
@@ -368,15 +369,15 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private static Control CreateCurrentIndexControl(Tag tag)
         {
-            Label currentItemIndexWrapper = new Label();
-            currentItemIndexWrapper.CssClass = tag.GetAttributeValue("CssClass");
-            currentItemIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentItemIndexWrapper.CssClass, "current-item-index");
-            currentItemIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
-            return currentItemIndexWrapper;
+            Label currentSlideIndexWrapper = new Label();
+            currentSlideIndexWrapper.CssClass = tag.GetAttributeValue("CssClass");
+            currentSlideIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentSlideIndexWrapper.CssClass, "current-slide-index");
+            currentSlideIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
+            return currentSlideIndexWrapper;
         }
 
         /// <summary>
-        /// Creates a <see cref="Label"/> whose content is the total number of <see cref="ContentItem"/>s for this rotator.
+        /// Creates a <see cref="Label"/> whose content is the total number of <see cref="Slide"/>s for this rotator.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <returns>
@@ -386,42 +387,41 @@ namespace Engage.Dnn.ContentRotator
         {
             Label totalCountLabel = new Label();
             totalCountLabel.CssClass = tag.GetAttributeValue("CssClass");
-            totalCountLabel.CssClass = Engage.Utility.AddCssClass(totalCountLabel.CssClass, "total-item-count");
+            totalCountLabel.CssClass = Engage.Utility.AddCssClass(totalCountLabel.CssClass, "total-slide-count");
             return totalCountLabel;
         }
 
         /// <summary>
-        /// Method used to process a token. This method is invoked from the <see cref="TemplateEngine"/> class. Since this control knows
-        /// best on how to construct the page. ListingHeader, ListingItem and Listing Footer templates are processed here.
+        /// Processes template tokens not automatically processed by the <see cref="TemplateEngine"/>, i.e. tokens specific to Rotator functionality.
         /// </summary>
-        /// <param name="container">The container.</param>
+        /// <param name="container">The container to which content is added.</param>
         /// <param name="tag">The tag being processed.</param>
-        /// <param name="contentItem">The engage object.</param>
+        /// <param name="slide">The slide being processed (or <c>null</c>).</param>
         /// <param name="resourceFile">The resource file to use to find localized text.</param>
         /// <returns>Whether to process the tag's ChildTags collection</returns>
-        private bool ProcessTags(Control container, Tag tag, ITemplateable contentItem, string resourceFile)
+        private bool ProcessTags(Control container, Tag tag, ITemplateable slide, string resourceFile)
         {
             if (tag.TagType == TagType.Open)
             {
                 switch (tag.LocalName.ToUpperInvariant())
                 {
                     case "ROTATEBACK":
-                        AddControl(container, this.CreateBackButton(tag, contentItem, resourceFile));
+                        AddControl(container, this.CreateBackButton(tag, slide, resourceFile));
                         break;
                     case "ROTATENEXT":
-                        AddControl(container, this.CreateNextButton(tag, contentItem, resourceFile));
+                        AddControl(container, this.CreateNextButton(tag, slide, resourceFile));
                         break;
                     case "ROTATEPAUSE":
-                        AddControl(container, this.CreatePauseButton(tag, contentItem, resourceFile));
+                        AddControl(container, this.CreatePauseButton(tag, slide, resourceFile));
                         break;
                     case "ROTATEPLAY":
-                        AddControl(container, this.CreatePlayButton(tag, contentItem, resourceFile));
+                        AddControl(container, this.CreatePlayButton(tag, slide, resourceFile));
                         break;
                     case "PAGER":
-                        AddControl(container, this.CreatePager(tag, contentItem, resourceFile));
+                        AddControl(container, this.CreatePager(tag, slide, resourceFile));
                         break;
                     case "PAGERITEM":
-                        AddControl(container, this.CreatePagerItem(tag, contentItem, resourceFile));
+                        AddControl(container, this.CreatePagerItem(tag, slide, resourceFile));
                         break;
                     case "CURRENTINDEX":
                         AddControl(container, CreateCurrentIndexControl(tag));
@@ -440,14 +440,14 @@ namespace Engage.Dnn.ContentRotator
         /// Then sets the tag to cycle back when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created back button
         /// </returns>
-        private Control CreateBackButton(Tag tag, ITemplateable contentItem, string resourceFile)
+        private Control CreateBackButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel backButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
+            Panel backButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
             backButton.ID = "BackButton";
             this.CycleOptions.PreviousButton = backButton;
@@ -460,14 +460,14 @@ namespace Engage.Dnn.ContentRotator
         /// Then sets the tag to cycle forward when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created next button
         /// </returns>
-        private Control CreateNextButton(Tag tag, ITemplateable contentItem, string resourceFile)
+        private Control CreateNextButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel nextButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
+            Panel nextButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
             nextButton.ID = "NextButton";
             this.CycleOptions.NextButton = nextButton;
@@ -480,14 +480,14 @@ namespace Engage.Dnn.ContentRotator
         /// Then sets the tag to pause rotation when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created pause button
         /// </returns>
-        private Control CreatePauseButton(Tag tag, ITemplateable contentItem, string resourceFile)
+        private Control CreatePauseButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel pauseButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
+            Panel pauseButton = this.CreateRotatorContainer(tag, slide, resourceFile);
             pauseButton.CssClass = Engage.Utility.AddCssClass(pauseButton.CssClass, "rotator-pause");
             return pauseButton;
         }
@@ -497,14 +497,14 @@ namespace Engage.Dnn.ContentRotator
         /// Then sets the tag to resume rotation when clicked.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created play button
         /// </returns>
-        private Control CreatePlayButton(Tag tag, ITemplateable contentItem, string resourceFile)
+        private Control CreatePlayButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel playButton = this.CreateRotatorContainer(tag, contentItem, resourceFile);
+            Panel playButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
             playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play");
             playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play-on");
@@ -517,14 +517,14 @@ namespace Engage.Dnn.ContentRotator
         /// Then sets the tag to be the container for an auto-generated pager.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created pager container
         /// </returns>
-        private Control CreatePager(Tag tag, ITemplateable contentItem, string resourceFile)
+        private Control CreatePager(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel pagerContainer = this.CreateRotatorContainer(tag, contentItem, resourceFile);
+            Panel pagerContainer = this.CreateRotatorContainer(tag, slide, resourceFile);
 
             pagerContainer.ID = "Pager";
             this.CycleOptions.PagerContainer = pagerContainer;
@@ -535,18 +535,18 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>
         /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
-        /// Then sets the tag to be the container for a pager item (which, when clicked, rotates to its associated content item).
+        /// Then sets the tag to be the container for a pager item (which, when clicked, rotates to its associated slide).
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The created pager item
         /// </returns>
-        private Control CreatePagerItem(Tag tag, ITemplateable contentItem, string resourceFile)
+        private Control CreatePagerItem(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel pagerItemWrapper = this.CreateRotatorContainer(tag, contentItem, resourceFile);
-            pagerItemWrapper.CssClass = Engage.Utility.AddCssClass(pagerItemWrapper.CssClass, "pager-item-" + contentItem.GetValue("INDEX"));
+            Panel pagerItemWrapper = this.CreateRotatorContainer(tag, slide, resourceFile);
+            pagerItemWrapper.CssClass = Engage.Utility.AddCssClass(pagerItemWrapper.CssClass, "pager-item-" + slide.GetValue("INDEX"));
             return pagerItemWrapper;
         }
 
@@ -554,17 +554,17 @@ namespace Engage.Dnn.ContentRotator
         /// Creates a <see cref="Panel"/> from a tag, setting its CssClass and supplying Text or inner controls, if it has any.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
-        /// <param name="contentItem">The object from which to get the property.</param>
+        /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>The created container</returns>
-        private Panel CreateRotatorContainer(Tag tag, ITemplateable contentItem, string resourceFile)
+        private Panel CreateRotatorContainer(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel button = new Panel();
             button.CssClass = tag.GetAttributeValue("CssClass");
 
             if (tag.HasChildTags)
             {
-                TemplateEngine.ProcessTags(button, tag.ChildTags, contentItem, resourceFile, this.ProcessTags, this.GetContentItems);
+                TemplateEngine.ProcessTags(button, tag.ChildTags, slide, resourceFile, this.ProcessTags, this.GetSlides);
             }
             else
             {
@@ -579,15 +579,15 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a list of the <see cref="ContentItem"/>s for this module.  Does not take the <paramref name="listTag"/> or <paramref name="context"/> into account,
+        /// Gets a list of the <see cref="Slide"/>s for this module.  Does not take the <paramref name="listTag"/> or <paramref name="context"/> into account,
         /// effectively only supporting one data source.
         /// </summary>
         /// <param name="listTag">The Engage:List <see cref="Tag"/> for which to return a data source</param>
         /// <param name="context">The current <see cref="ITemplateable"/> item being processed, or <c>null</c> if no list is currently being processed</param>
-        /// <returns>A list of the <see cref="ContentItem"/>s for this module.</returns>
-        private IEnumerable<ITemplateable> GetContentItems(Tag listTag, ITemplateable context)
+        /// <returns>A list of the <see cref="Slide"/>s for this module.</returns>
+        private IEnumerable<ITemplateable> GetSlides(Tag listTag, ITemplateable context)
         {
-            return ContentItem.GetContentItems(this.ModuleId).ConvertAll(delegate(ContentItem input) { return (ITemplateable)input; });
+            return Slide.GetSlides(this.ModuleId).ConvertAll(delegate(Slide input) { return (ITemplateable)input; });
         }
 
         /// <summary>
