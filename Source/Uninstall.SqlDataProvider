@@ -1,2 +1,25 @@
 ﻿IF EXISTS (SELECT * FROM sysobjects where id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_ContentItem'))
 DROP TABLE {databaseOwner}{objectQualifier}EngageRotator_ContentItem
+
+IF EXISTS (SELECT * FROM sysobjects where id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_Slide'))
+DROP TABLE {databaseOwner}{objectQualifier}EngageRotator_Slide
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spInsertSlide'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spInsertSlide
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spUpdateSlide'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spUpdateSlide
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spDeleteSlide'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spDeleteSlide
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spGetSlide'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetSlide
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spGetSlides'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetSlides
+GO

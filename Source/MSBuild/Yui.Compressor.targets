@@ -20,7 +20,7 @@
     <ItemGroup>
       <!-- Replace the items in the EmbeddedResource collection with our minified versions -->
       <!-- Remove is only available in MSBuild 3.5, this won't work on 2.0 -->
-      <EmbeddedResource Remove="@(EmbeddedResource)" Condition="'%(Extension)'=='.js'" />      
+      <EmbeddedResource Remove="@(EmbeddedResource)" Condition="'%(Extension)'=='.js'" />
       <EmbeddedResource Include="@(Resources)" />
       
       <!-- FileWrites is the list of files to delete when performing a Clean -->

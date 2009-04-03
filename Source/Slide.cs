@@ -421,7 +421,7 @@ namespace Engage.Dnn.ContentRotator
         /// Instantiates a <see cref="Slide"/> from the given <paramref name="slideRecord"/>
         /// </summary>
         /// <param name="slideRecord">The <see cref="IDataRecord"/> representing the <see cref="Slide"/> to instantiate.</param>
-        /// <param name="itemIndex">The index of the slide in the query which retrieved it, or <c>null</c> if it was not retrieved in a list.</param>
+        /// <param name="itemIndex">The index of the slide record in the query which retrieved it, or <c>null</c> if it was not retrieved in a list.</param>
         /// <returns>
         /// The <see cref="Slide"/> represented by the given <paramref name="slideRecord"/>
         /// </returns>
@@ -430,12 +430,12 @@ namespace Engage.Dnn.ContentRotator
             Slide slide = new Slide();
 
             slide.isNew = false;
-            slide.slideId = (int)slideRecord["ContentItemId"];
-            slide.content = slideRecord["Description"].ToString();
+            slide.slideId = (int)slideRecord["SlideId"];
+            slide.content = slideRecord["Content"].ToString();
             slide.title = slideRecord["Title"].ToString();
             slide.linkUrl = slideRecord["LinkUrl"].ToString();
-            slide.imageUrl = slideRecord["ThumbnailUrl"].ToString();
-            slide.pagerImageUrl = slideRecord["PositionThumbnailUrl"].ToString(); 
+            slide.imageUrl = slideRecord["ImageUrl"].ToString();
+            slide.pagerImageUrl = slideRecord["PagerImageUrl"].ToString(); 
             slide.startDate = (DateTime)slideRecord["StartDate"];
             slide.endDate = slideRecord["EndDate"] as DateTime?;
             slide.sortOrder = (int)slideRecord["SortOrder"];

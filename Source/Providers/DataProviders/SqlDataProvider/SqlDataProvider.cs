@@ -108,10 +108,10 @@ namespace Engage.Dnn.ContentRotator
         public override int InsertSlide(string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string pagerImageUrl, int sortOrder)
         {
             return (int)(decimal)this.ExecuteScalar(
-                "InsertContentItem",
-                Engage.Utility.CreateTextParam("@description", content),
-                Engage.Utility.CreateVarcharParam("@thumbnailUrl", imageUrl, TextFieldSize),
-                Engage.Utility.CreateVarcharParam("@positionThumbnailUrl", pagerImageUrl, TextFieldSize),
+                "InsertSlide",
+                Engage.Utility.CreateTextParam("@content", content),
+                Engage.Utility.CreateVarcharParam("@imageUrl", imageUrl, TextFieldSize),
+                Engage.Utility.CreateVarcharParam("@pagerImageUrl", pagerImageUrl, TextFieldSize),
                 Engage.Utility.CreateVarcharParam("@linkUrl", linkUrl, TextFieldSize),
                 Engage.Utility.CreateDateTimeParam("@startDate", startDate),
                 Engage.Utility.CreateDateTimeParam("@endDate", endDate),
@@ -135,15 +135,15 @@ namespace Engage.Dnn.ContentRotator
         public override void UpdateSlide(int slideId, string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string pagerImageUrl, int sortOrder)
         {
             this.ExecuteNonQuery(
-                "UpdateContentItem",
-                Engage.Utility.CreateIntegerParam("@contentItemId", slideId),
-                Engage.Utility.CreateTextParam("@description", content),
-                Engage.Utility.CreateVarcharParam("@thumbnailUrl", imageUrl, TextFieldSize),
+                "UpdateSlide",
+                Engage.Utility.CreateIntegerParam("@slideId", slideId),
+                Engage.Utility.CreateTextParam("@content", content),
+                Engage.Utility.CreateVarcharParam("@imageUrl", imageUrl, TextFieldSize),
                 Engage.Utility.CreateVarcharParam("@linkUrl", linkUrl, TextFieldSize),
                 Engage.Utility.CreateDateTimeParam("@startDate", startDate),
                 Engage.Utility.CreateDateTimeParam("@endDate", endDate),
                 Engage.Utility.CreateVarcharParam("@title", title, TextFieldSize),
-                Engage.Utility.CreateVarcharParam("@positionThumbnailUrl", pagerImageUrl, TextFieldSize),
+                Engage.Utility.CreateVarcharParam("@pagerImageUrl", pagerImageUrl, TextFieldSize),
                 Engage.Utility.CreateIntegerParam("@sortOrder", sortOrder));
         }
 
@@ -154,8 +154,8 @@ namespace Engage.Dnn.ContentRotator
         public override void DeleteSlide(int slideId)
         {
             this.ExecuteNonQuery(
-                "DeleteContentItem",
-                Engage.Utility.CreateIntegerParam("@contentItemId", slideId));
+                "DeleteSlide",
+                Engage.Utility.CreateIntegerParam("@slideId", slideId));
         }
 
         /// <summary>
@@ -168,8 +168,8 @@ namespace Engage.Dnn.ContentRotator
         public override IDataReader GetSlide(int slideId)
         {
             return this.ExecuteReader(
-                "GetContentItem",
-                Engage.Utility.CreateIntegerParam("@contentItemId", slideId));
+                "GetSlide",
+                Engage.Utility.CreateIntegerParam("@slideId", slideId));
         }
 
         /// <summary>
@@ -183,9 +183,9 @@ namespace Engage.Dnn.ContentRotator
         public override IDataReader GetSlides(int moduleId, bool getOutdatedSlides)
         {
             return this.ExecuteReader(
-                "GetContentItems",
+                "GetSlides",
                 Engage.Utility.CreateIntegerParam("@moduleId", moduleId),
-                Engage.Utility.CreateBitParam("@getOutdatedItems", getOutdatedSlides));
+                Engage.Utility.CreateBitParam("@getOutdatedSlides", getOutdatedSlides));
         }
 
         /// <summary>
