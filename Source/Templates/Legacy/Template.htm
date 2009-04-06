@@ -1,23 +1,24 @@
-﻿<div class="rotatorWrapper legacy-template">
-    <div class="rotator rotate-wrap"><!-- .rotate-wrap is required around content to be rotated -->
+﻿<Engage:Comment>This template is an example of using the verbose style of databinding syntax and the descriptive tag and attribute names</Engage:Comment>
+<div class="rotatorWrapper legacy-template">
+    <div class="rotator rotate-wrap"><Engage:Comment>.rotate-wrap is required around content to be rotated</Engage:Comment>
         <Engage:List>
             <div>
-                <div class="rotatorContentWrapper" > <!--style='ContentWrapperStyle'-->
+                <div class="rotatorContentWrapper">
                     <div class="rotatorContent">
-                        <Engage:Label ResourceKey="ContentHeaderText" />
-                        <span class="rotatorContentHeaderLinkWrapper"><Engage:Label CssClass="rotatorContentHeaderLink" ResourceKey="ContentHeaderLinkText"/></span>
+                        <Engage:Label Text-PropertyName="ContentHeaderText" />
+                        <span class="rotatorContentHeaderLinkWrapper"><Engage:Label CssClass="rotatorContentHeaderLink" Text-ResourceKey="ContentHeaderLinkText"/></span>
 	                    <div class="rotatorThumbnailWrapper">
-	                        <Engage:Link PropertyName="LinkUrl" Cssclass="rotatorThumbnailLink">
-		                        <Engage:Image CssClass="rotatorThumbnail" PropertyName="ImageUrl" AlternateText="" /> <!--style='ThumbnailStyle'-->
+	                        <Engage:Link NavigateUrl="%#LinkUrl%" Cssclass="rotatorThumbnailLink">
+		                        <Engage:Image CssClass="rotatorThumbnail" ImageUrl-PropertyName="ImageUrl" AlternateText="%#Title%" />
 	                        </Engage:Link>
                         </div>
                         <div class="rotatorContentBodyWrapper">
                             <span class="rotatorContentTitleWrapper">
-	                            <Engage:Link CssClass="rotatorContentTitleLink" PropertyName="LinkUrl"><Engage:DataEntity PropertyName="Title" /></Engage:Link>
+	                            <Engage:Link CssClass="rotatorContentTitleLink" NavigateUrl-PropertyName="LinkUrl"><Engage:Literal Text-PropertyName="Title" /></Engage:Link>
                             </span>
                             <div id="rotatorContentDescriptionWrapper" class="rotatorContentDescriptionWrapper">
-                                <span class="rotatorDescription"><Engage:Link PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:DataEntity PropertyName="Content" /></Engage:Link></span>
-	                            <div class="rotatorReadMoreLinkWrapper"><Engage:Link CssClass="rotatorReadMoreLink" ResourceKey="lnkReadMore" PropertyName="LinkUrl" /></div>
+                                <span class="rotatorDescription"><Engage:Link NavigateUrl-PropertyName="LinkUrl" CssClass='rotatorDescriptionLink'><Engage:Literal Text="%#Content%" /></Engage:Link></span>
+	                            <div class="rotatorReadMoreLinkWrapper"><Engage:Link CssClass="rotatorReadMoreLink" Text-ResourceKey="ReadMore" NavigateUrl-PropertyName="LinkUrl" /></div>
                             </div>
                         </div>
                     </div>
@@ -30,10 +31,10 @@
 	        <Engage:List>
                 <div class="rotatorPosition">
                     <Engage:PagerItem>
-                        <Engage:Image PropertyName="PagerImageUrl" CssClass="rotatorPositionThumbnail" AlternateTextPropertyName="Title" />
+                        <Engage:Image ImageUrl-PropertyName="PagerImageUrl" CssClass="rotatorPositionThumbnail" AlternateText-PropertyName="Title" />
                     </Engage:PagerItem>
                     <Engage:PagerItem CssClass="positionTitle">
-                        <div class="rotatorPositionTitle"><Engage:DataEntity PropertyName="Title"/></div>
+                        <div class="rotatorPositionTitle"><Engage:Literal Text="%#Title%"/></div>
                     </Engage:PagerItem>
                 </div>
             </Engage:List>
@@ -41,6 +42,6 @@
 	    <Engage:RotateBack CssClass="rotatorControlsPreviousLink"/>&nbsp;
 	    <Engage:RotatePause CssClass="rotatorControlsPauseLink"/>&nbsp;
 	    <Engage:RotateNext CssClass="rotatorControlsNextLink"/>&nbsp;
-	    <div class="rotatorPositionCounter"><Engage:Label ResourceKey="lblPositionCounterBegin"/><Engage:CurrentIndex /><Engage:Label ResourceKey="lblPositionCounterEnd" /> <Engage:TotalCount /></div>
+	    <div class="rotatorPositionCounter"><Engage:Label Text="%$PositionCounterBegin%"/><Engage:CurrentIndex /><Engage:Label Text="%$PositionCounterMiddle%" /><Engage:TotalCount /><Engage:Label Text="%$PositionCounterEnd%" /></div>
     </div>
 </div>

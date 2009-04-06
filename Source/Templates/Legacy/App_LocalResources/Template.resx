@@ -123,13 +123,16 @@
   <data name="ContentHeaderText.Text" xml:space="preserve">
     <value>Hot Topics</value>
   </data>
-  <data name="lblPositionCounterBegin.Text" xml:space="preserve">
+  <data name="PositionCounterBegin.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="lblPositionCounterEnd.Text" xml:space="preserve">
+  <data name="PositionCounterEnd.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PositionCounterMiddle.Text" xml:space="preserve">
     <value> of </value>
   </data>
-  <data name="lnkReadMore.Text" xml:space="preserve">
+  <data name="ReadMore.Text" xml:space="preserve">
     <value>read more &amp;raquo;</value>
   </data>
 </root>

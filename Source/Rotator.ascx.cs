@@ -528,7 +528,7 @@ namespace Engage.Dnn.ContentRotator
 
             pagerContainer.ID = "Pager";
             this.CycleOptions.PagerContainer = pagerContainer;
-            this.CycleOptions.PagerEvent = tag.GetAttributeValue("Event") ?? "click";
+            this.CycleOptions.PagerEvent = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Event") ?? "click";
 
             return pagerContainer;
         }
@@ -560,7 +560,7 @@ namespace Engage.Dnn.ContentRotator
         private Panel CreateRotatorContainer(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel button = new Panel();
-            button.CssClass = tag.GetAttributeValue("CssClass");
+            button.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
 
             if (tag.HasChildTags)
             {
@@ -568,7 +568,7 @@ namespace Engage.Dnn.ContentRotator
             }
             else
             {
-                string innerText = TemplateEngine.GetLocalizedAttributeValue(tag, resourceFile, "ResourceKey", "Text");
+                string innerText = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Text");
                 if (!string.IsNullOrEmpty(innerText))
                 {
                     button.Controls.Add(new LiteralControl(innerText));
