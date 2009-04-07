@@ -254,11 +254,11 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Gets RotatorDelay.
         /// </summary>
-        private int RotatorDelay
+        private decimal RotatorDelay
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
+                return Utility.GetDecimalSetting(this.Settings, "RotatorDelay", 8m);
             }
         }
 
@@ -364,13 +364,15 @@ namespace Engage.Dnn.ContentRotator
         /// Creates a <see cref="Label"/> whose content is the (1-based) index of the currently displayed <see cref="Slide"/>
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="slide">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The <see cref="Label"/> instance that was created
         /// </returns>
-        private static Control CreateCurrentIndexControl(Tag tag)
+        private static Control CreateCurrentIndexControl(Tag tag, ITemplateable slide, string resourceFile)
         {
             Label currentSlideIndexWrapper = new Label();
-            currentSlideIndexWrapper.CssClass = tag.GetAttributeValue("CssClass");
+            currentSlideIndexWrapper.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
             currentSlideIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentSlideIndexWrapper.CssClass, "current-slide-index");
             currentSlideIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
             return currentSlideIndexWrapper;
@@ -380,13 +382,15 @@ namespace Engage.Dnn.ContentRotator
         /// Creates a <see cref="Label"/> whose content is the total number of <see cref="Slide"/>s for this rotator.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
+        /// <param name="slide">The object from which to get the property.</param>
+        /// <param name="resourceFile">The resource file from which to get localized resources.</param>
         /// <returns>
         /// The <see cref="Label"/> instance that was created
         /// </returns>
-        private static Control CreateTotalCountControl(Tag tag)
+        private static Control CreateTotalCountControl(Tag tag, ITemplateable slide, string resourceFile)
         {
             Label totalCountLabel = new Label();
-            totalCountLabel.CssClass = tag.GetAttributeValue("CssClass");
+            totalCountLabel.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
             totalCountLabel.CssClass = Engage.Utility.AddCssClass(totalCountLabel.CssClass, "total-slide-count");
             return totalCountLabel;
         }
@@ -424,10 +428,10 @@ namespace Engage.Dnn.ContentRotator
                         AddControl(container, this.CreatePagerItem(tag, slide, resourceFile));
                         break;
                     case "CURRENTINDEX":
-                        AddControl(container, CreateCurrentIndexControl(tag));
+                        AddControl(container, CreateCurrentIndexControl(tag, slide, resourceFile));
                         break;
                     case "TOTALCOUNT":
-                        AddControl(container, CreateTotalCountControl(tag));
+                        AddControl(container, CreateTotalCountControl(tag, slide, resourceFile));
                         break;
                 }
             }

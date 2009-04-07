@@ -222,11 +222,11 @@ namespace Engage.Dnn.ContentRotator
         /// Gets the setting for the delay between each slide.
         /// </summary>
         /// <value>The rotator delay (in seconds).</value>
-        private int RotatorDelay
+        private decimal RotatorDelay
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "RotatorDelay", 8);
+                return Utility.GetDecimalSetting(this.Settings, "RotatorDelay", 8m);
             }
         }
 
@@ -256,7 +256,7 @@ namespace Engage.Dnn.ContentRotator
             this.InitialDelayCheckBox.CheckedChanged += this.InitialDelayCheckBox_CheckedChanged;
             this.ManuallyTriggeredTransitionSpeedCheckBox.CheckedChanged += this.ManuallyTriggeredTransitionSpeedCheckBox_CheckedChanged;
             this.UseAnimationsCheckBox.CheckedChanged += this.UseAnimationsCheckBox_CheckedChanged;
-            this.TransitionEffectRequiredValidator.ServerValidate += this.AnimationEffectRequiredValidator_ServerValidate;
+            this.TransitionEffectRequiredValidator.ServerValidate += this.TransitionEffectRequiredValidator_ServerValidate;
         }
 
         /// <summary>
@@ -286,16 +286,6 @@ namespace Engage.Dnn.ContentRotator
             }
 
             return value.ToString(CultureInfo.InvariantCulture);
-        }
-
-        /// <summary>
-        /// Converts <paramref name="valueText"/> from <see cref="CultureInfo.CurrentCulture"/> to <see cref="CultureInfo.InvariantCulture"/>.
-        /// </summary>
-        /// <param name="valueText">The text representing an <see cref="int"/> value in the <see cref="CultureInfo.CurrentCulture"/>.</param>
-        /// <returns><paramref name="valueText"/> represented in the <see cref="CultureInfo.InvariantCulture"/></returns>
-        private static string ConvertCurrentCultureIntegerToInvariantCulture(string valueText)
-        {
-            return ConvertCurrentCultureIntegerToInvariantCulture(valueText, default(int));
         }
 
         /// <summary>
@@ -399,9 +389,9 @@ namespace Engage.Dnn.ContentRotator
             {
                 ModuleController modules = new ModuleController();
 
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", ConvertCurrentCultureIntegerToInvariantCulture(this.RotatorDelayTextBox.Text));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", ConvertCurrentCultureDecimalToInvariantCulture(this.RotatorDelayTextBox.Text));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStop", this.AutoStopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStopCount", this.AutoStopCountTextBox.Text);
+                modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStopCount", ConvertCurrentCultureDecimalToInvariantCulture(this.AutoStopCountTextBox.Text));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnHoverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "UseAnimations", this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", ConvertCurrentCultureDecimalToInvariantCulture(this.TransitionDurationTextBox.Text));
@@ -424,7 +414,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of the AutoStopCheckBox control.
+        /// Handles the <see cref="CheckBox.CheckedChanged"/> event of the <see cref="AutoStopCheckBox"/> control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
@@ -434,7 +424,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of the InitialDelayCheckBox control.
+        /// Handles the <see cref="CheckBox.CheckedChanged"/> event of the <see cref="InitialDelayCheckBox"/> control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
@@ -444,7 +434,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of the ManuallyTriggeredTransitionSpeedCheckBox control.
+        /// Handles the <see cref="CheckBox.CheckedChanged"/> event of the <see cref="ManuallyTriggeredTransitionSpeedCheckBox"/> control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
@@ -454,7 +444,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of the UseAnimationsCheckBox control.
+        /// Handles the <see cref="CheckBox.CheckedChanged"/> event of the <see cref="UseAnimationsCheckBox"/> control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
@@ -464,11 +454,11 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Handles the ServerValidate event of the TransitionEffectRequiredValidator control.
+        /// Handles the <see cref="CustomValidator.ServerValidate"/> event of the <see cref="TransitionEffectRequiredValidator"/> control.
         /// </summary>
         /// <param name="source">The source of the event.</param>
         /// <param name="args">The <see cref="System.Web.UI.WebControls.ServerValidateEventArgs"/> instance containing the event data.</param>
-        private void AnimationEffectRequiredValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        private void TransitionEffectRequiredValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = this.TransitionEffectCheckBoxList.SelectedIndex > -1;
         }

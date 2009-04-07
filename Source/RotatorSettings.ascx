@@ -16,7 +16,7 @@
                         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="RotatorDelayLabel" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn leftAlign">
                             <asp:Textbox ID="RotatorDelayTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
-                            <asp:CompareValidator runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="RotatorDelayTextBox" Display="None" EnableClientScript="false" resourcekey="RotatorDelayTypeValidator" />
+                            <asp:CompareValidator runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="RotatorDelayTextBox" Display="None" EnableClientScript="false" resourcekey="RotatorDelayTypeValidator" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="RotatorDelayTextBox" Display="None" EnableClientScript="false" resourcekey="RotatorDelayRequiredValidator" />
                         </td>
                     </tr>

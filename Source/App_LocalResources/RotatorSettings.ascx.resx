@@ -220,7 +220,7 @@
     <value>Auto Resize Container</value>
   </data>
   <data name="ContinuousLabel.Help" xml:space="preserve">
-    <value>Check to make rotation to occur continuously, i.e. the next transition should start as soon as the current transition ends.</value>
+    <value>Check to make rotation occur continuously, i.e. the next transition should start as soon as the current transition ends.</value>
   </data>
   <data name="ContinuousLabel.Text" xml:space="preserve">
     <value>Continuous Rotation</value>

@@ -138,7 +138,8 @@
   <ItemGroup>
     <None Include="EngageRotator.5.dnn" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.01.00.SqlDataProvider" />
-    <None Include="Templates\Engage Events Templates.docx" />
+    <None Include="Templates\Engage Rotator Templates.docx" />
+    <None Include="Templates\Engage Rotator Templates.pdf" />
     <None Include="Templates\EngageManifest.xsd" />
     <None Include="Uninstall.SqlDataProvider" />
     <None Include="EngageRotator.4.dnn" />
