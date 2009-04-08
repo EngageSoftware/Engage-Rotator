@@ -158,6 +158,8 @@
     <Content Include="App_LocalResources\RotatorSettings.ascx.resx">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="JavaScript\jquery-1.2.6-vsdoc.js" />
+    <None Include="JavaScript\jquery-1.2.6.js" />
     <Content Include="TemplateSelection.ascx" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\arrow_up.gif" />

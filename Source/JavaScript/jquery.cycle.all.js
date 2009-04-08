@@ -1207,20 +1207,20 @@
 
         $('.rotator-pause').click(function() {
             $(this)
-            .addClass('rotator-pause-on')
-            .getParentRotator().cycle('pause');
+                .addClass('rotator-pause-on')
+                .getParentRotator().cycle('pause');
 
             $('.rotator-play')
-            .removeClass('rotator-play-on');
+                .removeClass('rotator-play-on');
         });
 
         $('.rotator-play').click(function() {
             $(this)
-            .addClass('rotator-play-on')
-            .getParentRotator().cycle('resume');
+                .addClass('rotator-play-on')
+                .getParentRotator().cycle('resume');
 
             $('rotator-pause')
-            .removeClass('rotator-pause-on');
+                .removeClass('rotator-pause-on');
         });
 
         // *= is contains
@@ -1248,5 +1248,7 @@
 
     $.fn.cycle.defaults.after = function(nextElement, lastElement, opts) {
         opts.$cont.parents('.engage-rotator-container').find('.current-slide-index').html(opts.currSlide + 1);
+        $('div.pager-item-on').removeClass('pager-item-on');
+        $('div.pager-item-' + opts.currSlide).addClass('pager-item-on');
     };
 })(jQuery);
