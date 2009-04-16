@@ -1,7 +1,7 @@
 <%@ Control Language="c#" AutoEventWireup="false" Codebehind="TemplateSelection.ascx.cs" Inherits="Engage.Dnn.ContentRotator.TemplateSelection" %>
 <div class="Normal">
     <asp:Label ResourceKey="Template" runat="server" EnableViewState="false" />
-    <asp:DropDownList ID="TemplatesDropDownList" runat="server" CssClass="NormalTextBox" AutoPostBack="true" />
+    <asp:DropDownList ID="TemplatesDropDownList" runat="server" AutoPostBack="true" />
     <fieldset id="TemplateDescriptionPanel" runat="server">
         <legend><asp:Label runat="server" resourcekey="Description" /></legend>
         <asp:Label ID="TemplateDescriptionLabel" runat="server" />

@@ -188,16 +188,12 @@
     <Content Include="References\Engage.Dnn.Framework.dll" />
     <Content Include="References\Engage.Framework.dll" />
     <Content Include="References\Microsoft.ApplicationBlocks.Data.dll" />
-    <Content Include="Templates\Engage\images\item-bg-on.png" />
-    <Content Include="Templates\Engage\images\item-bg.gif" />
-    <Content Include="Templates\Engage\Template.htm" />
-    <Content Include="Templates\Engage\Manifest.xml" />
-    <Content Include="Templates\Engage\Preview.png" />
-    <Content Include="Templates\Engage\Style.css" />
     <Content Include="App_LocalResources\TemplateSelection.ascx.resx">
     </Content>
     <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
     <EmbeddedResource Include="JavaScript\jquery-ui.js" />
+    <Content Include="Templates\TwoColumn\App_LocalResources\Template.resx" />
+    <Content Include="Templates\ThreeColumn\App_LocalResources\Template.resx" />
     <Content Include="Templates\Legacy\App_LocalResources\Template.resx" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_close.gif" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_folder_closed.gif" />
@@ -244,10 +240,18 @@
     <Content Include="images\JQueryUiTheme\select2.png" />
     <Content Include="images\JQueryUiTheme\spinner-bg.gif" />
     <Content Include="Templates\Legacy\Manifest.xml" />
-    <Content Include="Templates\Legacy\Preview.png" />
     <Content Include="Templates\Legacy\Style.css" />
     <Content Include="Templates\Legacy\Template.htm" />
-    <Content Include="Templates\Engage\App_LocalResources\Template.resx" />
+    <Content Include="Templates\ThreeColumn\Manifest.xml" />
+    <Content Include="Templates\ThreeColumn\Preview.jpg" />
+    <Content Include="Templates\ThreeColumn\Style.css" />
+    <Content Include="Templates\ThreeColumn\Template.htm" />
+    <Content Include="Templates\TwoColumn\images\next.gif" />
+    <Content Include="Templates\TwoColumn\images\prev.gif" />
+    <Content Include="Templates\TwoColumn\Manifest.xml" />
+    <Content Include="Templates\TwoColumn\Preview.jpg" />
+    <Content Include="Templates\TwoColumn\Style.css" />
+    <Content Include="Templates\TwoColumn\Template.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" Condition="'$(Solutions.VSVersion)' == '8.0'" />

@@ -1,0 +1,18 @@
+
+.temp1 .wrap{overflow:visible;height:100%;}
+	.temp1 .body{}
+		.temp1 .thumb{float:left;width:39%;overflow:hidden;}
+		.temp1 .content{float:right;width:59%;overflow:hidden;}
+			.temp1 .slidetitle{margin:0;padding:0;}
+			.temp1 .content_body{}
+			.temp1 .link{}
+	.temp1 .pager_wrap{clear:both;width:100%;}
+		.temp1 .pager_prev{float:left;width:5%;background: url(images/prev.gif) no-repeat bottom left; width:24px;height:23px;cursor: pointer;margin-top:20px;}
+		.temp1 .pager_items_wrap{float:left;width:auto; margin-left:3%; margin-right:3%;}
+			.temp1 .pager_items{}
+				.temp1 .pager_items div{display:inline;padding:2px;cursor: pointer;}
+			.temp1 .pager{}
+			.temp1 .pager-item-on img{border:solid 2px #666 !important;}
+			.RotatorOptions .rotatorThumbnail, .rotatorPositionThumbnail {padding:2px;}
+		.temp1 .pager_next{float:right;width:5%;background: url(images/next.gif) no-repeat bottom left;width:24px;height:23px;cursor: pointer;margin-top:20px;}
+		

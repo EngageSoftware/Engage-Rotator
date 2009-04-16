@@ -1,0 +1,30 @@
+ <div class="temp-2 wrap">
+ 	<div class="rotate-wrap"><engage:comment>.rotate-wrap is required around content to be rotated</engage:comment>
+    <engage:list>
+            <div>
+            	<div class="body">
+					<div class="content_body_wrap">
+						<div class="thumb"><engage:img class="rotatorThumbnail" src="%#ImageUrl%" alt="" /></div>
+						<div class="content">
+							<h2 class="slidetitle"><engage:literal text="%#Title%"/></h2>
+							<div class="content_body"><engage:literal text="%#Content%"/></div>
+							<div class="link"><engage:a class="rotatorReadMoreLink" text="%$ReadMore%" href="%#LinkUrl%"/></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       </engage:list>
+</div>
+	<div class="pager_wrap">
+		<div class="pager_items_wrap">
+			<div class="pager_items">
+				<engage:list>
+					<Engage:PagerItem>
+                        <h3><Engage:Literal Text="%#Title%"/></h3>
+                    </Engage:PagerItem>
+                 </engage:list>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div style="clear:both"></div>

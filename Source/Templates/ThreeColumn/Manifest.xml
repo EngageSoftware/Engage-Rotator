@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
+  <Title>Three Column</Title>
+  <Description>
+    Displays the slide in three columns;  content image, content, and pager title list. 
+    The content image and the content itself take up 70% of the total content pane width, while the pager list takes up the remaining 30%. 
+    The content image is 39% of the 70% of total content pane width. The content is 59% of the 70% of total content pane width. 
+    The pager title list takes up the remaining 30% of the total content pane width, and displays as a vertical list with a dashed line border separating each slide title. 
+    The selected slide title will have a slight gray background color to indicate which slide is being displayed.
+  </Description>
+  <Stylesheet>Style.css</Stylesheet>
+  <Template>Template.htm</Template>
+  <ResourceFile>App_LocalResources\Template.resx</ResourceFile>
+  <PreviewImage>Preview.jpg</PreviewImage>
+</EngageManifest>

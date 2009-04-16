@@ -326,7 +326,7 @@ namespace Engage.Dnn.ContentRotator
         protected override void OnInit(EventArgs e)
         {
             this.RequiresScriptManager = false;
-            this.TemplateProvider = new TemplateListingProvider(
+            this.TemplateProvider = new TemplateProvider(
                     this.GetTemplateSetting(),
                     this.RotatorContainer,
                     this.ProcessTags,
@@ -645,7 +645,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>A valid template, or <c>null</c> if there are no valid templates available</returns>
         private TemplateInfo GetDefaultTemplate()
         {
-            IList<TemplateInfo> templates = this.GetTemplates();
+            IList<TemplateInfo> templates = this.GetTemplates(TemplateType.List);
             if (templates.Count > 0)
             {
                 return templates[0];

@@ -13,9 +13,12 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
     using System.Threading;
+    using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using System.Xml;
     using System.Xml.Schema;
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Services.Exceptions;
@@ -131,9 +134,9 @@ namespace Engage.Dnn.ContentRotator
 
                     this.Response.Redirect(Globals.NavigateURL(this.TabId));
                 }
-                catch (XmlSchemaValidationException)
+                catch (XmlSchemaValidationException exc)
                 {
-                    this.ShowManifestValidationErrorMessage();
+                    this.ShowManifestValidationErrorMessage(exc);
                 }
             }
             catch (ThreadAbortException)
@@ -160,10 +163,21 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void FillTemplatesList()
         {
-            this.TemplatesDropDownList.DataSource = this.GetTemplates();
-            this.TemplatesDropDownList.DataTextField = "Title";
-            this.TemplatesDropDownList.DataValueField = "FolderName";
-            this.TemplatesDropDownList.DataBind();
+            try
+            {
+                this.TemplatesDropDownList.DataSource = this.GetTemplates(TemplateType.List);
+                this.TemplatesDropDownList.DataTextField = "Title";
+                this.TemplatesDropDownList.DataValueField = "FolderName";
+                this.TemplatesDropDownList.DataBind();
+            }
+            catch (XmlException exc)
+            {
+                this.ShowManifestValidationErrorMessage(exc);
+            }
+            catch (XmlSchemaValidationException exc)
+            {
+                this.ShowManifestValidationErrorMessage(exc);
+            }
         }
 
         /// <summary>
@@ -192,9 +206,13 @@ namespace Engage.Dnn.ContentRotator
                     this.TemplatePreviewImage.Visible = false;
                 }
             }
-            catch (XmlSchemaValidationException)
+            catch (XmlException exc)
             {
-                this.ShowManifestValidationErrorMessage();
+                this.ShowManifestValidationErrorMessage(exc);
+            }
+            catch (XmlSchemaValidationException exc)
+            {
+                this.ShowManifestValidationErrorMessage(exc);
             }
         }
 
@@ -240,9 +258,22 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Displays the error message that the selected template's manifest does not pass validation
         /// </summary>
-        private void ShowManifestValidationErrorMessage()
+        /// <param name="exc">The <see cref="Exception"/> created from the validation error.</param>
+        private void ShowManifestValidationErrorMessage(Exception exc)
         {
-            this.ManifestValidationErrorsPanel.Controls.Add(new LiteralControl("<ul><li>" + Localization.GetString("ManifestValidation", this.LocalResourceFile) + "</li></ul>"));
+            StringBuilder validationMessage = new StringBuilder("<ul>");
+            validationMessage.AppendFormat("<li>{0}</li>", Localization.GetString("ManifestValidation", this.LocalResourceFile));
+            if (exc != null)
+            {
+                validationMessage.AppendFormat("<li>{0}</li>", HttpUtility.HtmlEncode(exc.Message));
+                if (exc.InnerException != null)
+                {
+                    validationMessage.AppendFormat("<li>{0}</li>", HttpUtility.HtmlEncode(exc.InnerException.Message));
+                }
+            }
+
+            validationMessage.Append("</ul>");
+            this.ManifestValidationErrorsPanel.Controls.Add(new LiteralControl(validationMessage.ToString()));
             this.TemplateDescriptionPanel.Visible = false;
             this.TemplatePreviewImage.Visible = false;
         }

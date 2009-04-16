@@ -1,0 +1,13 @@
+.temp-2.wrap{overflow:auto;height:100%;}
+.temp-2 .rotate-wrap{width:70%;float:left;}
+	.temp-2 .body{}
+		.temp-2 .content_body_wrap{padding:10px;}
+			.temp-2 .thumb{float:left;width:39%;overflow:hidden;}
+			.temp-2 .content{float:right;width:59%;overflow:hidden;}
+				.temp-2 .slidetitle {margin:0;}
+				.temp-2 .content_body{}
+				.temp-2 .link{}
+	.temp-2 .pager_wrap{float:right;width:30%;}
+		.temp-2 .pager_items div{padding:5px 10px;border-bottom:1px dashed #999;cursor:pointer;}
+			.temp-2 .pager{}
+			.temp-2 .pager_items div.pager-item-on {background:#eee; !important;}
