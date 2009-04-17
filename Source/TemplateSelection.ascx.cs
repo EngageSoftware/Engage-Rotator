@@ -190,10 +190,11 @@ namespace Engage.Dnn.ContentRotator
                 TemplateInfo manifest = this.GetTemplate(this.TemplatesDropDownList.SelectedValue);
                 if (manifest != null)
                 {
+                    this.TemplateTitleLabel.Text = manifest.Title;
                     this.TemplateDescriptionLabel.Text = manifest.Description;
                     this.TemplatePreviewImage.ImageUrl = manifest.GetRelativePath(manifest.PreviewImage, true);
                     this.TemplateDescriptionPanel.Visible = Engage.Utility.HasValue(manifest.Description);
-                    this.TemplatePreviewImage.Visible = Engage.Utility.HasValue(manifest.PreviewImage);
+                    this.TemplatePreviewImagePanel.Visible = Engage.Utility.HasValue(manifest.PreviewImage);
 
                     this.SettingsGrid.DataSource = this.GetChangedSettings(manifest.Settings);
                     this.SettingsGrid.DataBind();

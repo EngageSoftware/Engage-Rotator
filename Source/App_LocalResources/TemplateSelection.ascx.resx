@@ -147,6 +147,9 @@
   <data name="Description.Text" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="Preview.Text" xml:space="preserve">
+    <value>Preview</value>
+  </data>
   <data name="ForceSlidesToFitContainer.Text" xml:space="preserve">
     <value>Force Slides to Fit Within Container</value>
   </data>
@@ -184,10 +187,10 @@
     <value>Simultaneous Transitions</value>
   </data>
   <data name="Submit.Text" xml:space="preserve">
-    <value>Submit</value>
+    <value>Apply</value>
   </data>
   <data name="Template.Text" xml:space="preserve">
-    <value>Choose a Template: </value>
+    <value>Select a Template: </value>
   </data>
   <data name="UseAnimations.Text" xml:space="preserve">
     <value>Use Animations</value>

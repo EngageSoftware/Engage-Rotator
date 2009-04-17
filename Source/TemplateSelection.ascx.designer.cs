@@ -32,6 +32,15 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TemplateDescriptionPanel;
         
         /// <summary>
+        /// TemplateTitleLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TemplateTitleLabel;
+        
+        /// <summary>
         /// TemplateDescriptionLabel control.
         /// </summary>
         /// <remarks>
@@ -39,15 +48,6 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label TemplateDescriptionLabel;
-        
-        /// <summary>
-        /// TemplatePreviewImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image TemplatePreviewImage;
         
         /// <summary>
         /// SettingsExplanationLabel control.
@@ -68,15 +68,6 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.GridView SettingsGrid;
         
         /// <summary>
-        /// ManifestValidationErrorsPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ManifestValidationErrorsPanel;
-        
-        /// <summary>
         /// SubmitButton control.
         /// </summary>
         /// <remarks>
@@ -93,5 +84,32 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CancelButton;
+        
+        /// <summary>
+        /// ManifestValidationErrorsPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ManifestValidationErrorsPanel;
+        
+        /// <summary>
+        /// TemplatePreviewImagePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel TemplatePreviewImagePanel;
+        
+        /// <summary>
+        /// TemplatePreviewImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image TemplatePreviewImage;
     }
 }
