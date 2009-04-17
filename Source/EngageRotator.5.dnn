@@ -99,11 +99,11 @@
             </assembly>
             <assembly>
               <name>Engage.Framework.dll</name>
-              <version>2.0.6</version>
+              <version>3.1.0</version>
             </assembly>
             <assembly>
               <name>Engage.Dnn.Framework.dll</name>
-              <version>1.1.0</version>
+              <version>3.1.0</version>
             </assembly>
           </assemblies>
         </component>
