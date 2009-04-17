@@ -204,7 +204,7 @@ namespace Engage.Dnn.ContentRotator
                 else
                 {
                     this.TemplateDescriptionPanel.Visible = false;
-                    this.TemplatePreviewImage.Visible = false;
+                    this.TemplatePreviewImagePanel.Visible = false;
                 }
             }
             catch (XmlException exc)
