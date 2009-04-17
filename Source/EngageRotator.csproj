@@ -160,6 +160,7 @@
     </Content>
     <None Include="JavaScript\jquery-1.2.6-vsdoc.js" />
     <None Include="JavaScript\jquery-1.2.6.js" />
+    <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_01_flat_75.png" />
     <Content Include="TemplateSelection.ascx" />
     <Content Include="images\bottom-header-bg.gif" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_arrows_leftright.gif" />
@@ -189,9 +190,6 @@
     <Content Include="Templates\TwoColumn\App_LocalResources\Template.resx" />
     <Content Include="Templates\ThreeColumn\App_LocalResources\Template.resx" />
     <Content Include="Templates\Legacy\App_LocalResources\Template.resx" />
-    <Content Include="images\JQueryUiTheme\222222_11x11_icon_close.gif" />
-    <Content Include="images\JQueryUiTheme\222222_11x11_icon_folder_closed.gif" />
-    <Content Include="images\JQueryUiTheme\222222_11x11_icon_folder_open.gif" />
     <Content Include="images\JQueryUiTheme\454545_11x11_icon_arrows_leftright.gif" />
     <Content Include="images\JQueryUiTheme\454545_11x11_icon_arrows_updown.gif" />
     <Content Include="images\JQueryUiTheme\454545_11x11_icon_close.gif" />
@@ -216,23 +214,8 @@
     <Content Include="images\JQueryUiTheme\888888_7x7_arrow_left.gif" />
     <Content Include="images\JQueryUiTheme\888888_7x7_arrow_right.gif" />
     <Content Include="images\JQueryUiTheme\888888_7x7_arrow_up.gif" />
-    <Content Include="images\JQueryUiTheme\bg.gif" />
-    <Content Include="images\JQueryUiTheme\custom_background.png" />
-    <Content Include="images\JQueryUiTheme\custom_hex.png" />
-    <Content Include="images\JQueryUiTheme\custom_hsb_b.png" />
-    <Content Include="images\JQueryUiTheme\custom_hsb_h.png" />
-    <Content Include="images\JQueryUiTheme\custom_hsb_s.png" />
-    <Content Include="images\JQueryUiTheme\custom_indic.gif" />
-    <Content Include="images\JQueryUiTheme\custom_rgb_b.png" />
-    <Content Include="images\JQueryUiTheme\custom_rgb_g.png" />
-    <Content Include="images\JQueryUiTheme\custom_rgb_r.png" />
-    <Content Include="images\JQueryUiTheme\custom_submit.png" />
     <Content Include="images\JQueryUiTheme\dadada_40x100_textures_02_glass_75.png" />
     <Content Include="images\JQueryUiTheme\e6e6e6_40x100_textures_02_glass_75.png" />
-    <Content Include="images\JQueryUiTheme\progress-bg.gif" />
-    <Content Include="images\JQueryUiTheme\select.png" />
-    <Content Include="images\JQueryUiTheme\select2.png" />
-    <Content Include="images\JQueryUiTheme\spinner-bg.gif" />
     <Content Include="Templates\Legacy\Manifest.xml" />
     <Content Include="Templates\Legacy\Style.css" />
     <Content Include="Templates\Legacy\Template.htm" />
