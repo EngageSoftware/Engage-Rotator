@@ -161,8 +161,6 @@
     <None Include="JavaScript\jquery-1.2.6-vsdoc.js" />
     <None Include="JavaScript\jquery-1.2.6.js" />
     <Content Include="TemplateSelection.ascx" />
-    <Content Include="images\arrow_down.gif" />
-    <Content Include="images\arrow_up.gif" />
     <Content Include="images\bottom-header-bg.gif" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_arrows_leftright.gif" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_arrows_updown.gif" />
@@ -175,13 +173,9 @@
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_right.gif" />
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_up.gif" />
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_02_glass_65.png" />
-    <Content Include="images\lb-corner.gif" />
-    <Content Include="images\lt-corner.gif" />
     <Content Include="Templates\Legacy\images\next.gif" />
     <Content Include="Templates\Legacy\images\pause.gif" />
     <Content Include="Templates\Legacy\images\previous.gif" />
-    <Content Include="images\rb-corner.gif" />
-    <Content Include="images\rt-corner.gif" />
     <Content Include="images\top-header-bg.gif" />
     <Content Include="References\DotNetNuke.dll" />
     <Content Include="References\DotNetNuke.WebUtility.dll" />
