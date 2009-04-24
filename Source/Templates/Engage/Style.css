@@ -1,0 +1,5 @@
+.engage-template{overflow:hidden;width:780px;}
+	.engage-template .rotate-wrap{width:530px;float:left;overflow:hidden;position:relative;z-index:1;}
+	.engage-template .pager-items{float:right;width:249px;cursor:pointer;position:relative;z-index:2;}
+		.engage-template h2.slide-title{margin:0;background: url(images/item-title-bg.gif) repeat-x;height:36px;padding:12px 0 0 15px;font-size:14px;font-weight:bold;font-family: Helvetica, Arial, sans-serif;color:#000;border:1px #bdbe89 solid;}
+		.engage-template .pager-item-on h2.slide-title{background: url(images/item-title-bg-on.gif) no-repeat;border:none;margin-left:0;border-right:1px #a75f10 solid;color:#fff;margin-left:-10px;padding-left:25px;}

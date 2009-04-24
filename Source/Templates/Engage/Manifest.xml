@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
+  <Title>Engage</Title>
+  <Description>
+	&lt;p>Displays the slide in a two-column format: content and pager title list.&lt;/p>
+	&lt;p>The &lt;strong>total width&lt;/strong> of the slide (content and pager title) is &lt;strong>780px&lt;/strong>.&lt;/p>
+    &lt;p>The content takes up &lt;strong>530px&lt;/strong> of the total width, while the pager list takes up the remaining &lt;strong>250px&lt;/strong>. 
+    The pager title list item has the height of 48px.&lt;/p>
+  </Description>
+  <Stylesheet>Style.css</Stylesheet>
+  <Template>Template.htm</Template>
+  <PreviewImage>Preview.jpg</PreviewImage>
+</EngageManifest>

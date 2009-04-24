@@ -175,6 +175,12 @@
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_right.gif" />
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_up.gif" />
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_02_glass_65.png" />
+    <Content Include="Templates\Engage\images\item-title-bg-on.gif" />
+    <Content Include="Templates\Engage\images\item-title-bg.gif" />
+    <Content Include="Templates\Engage\Manifest.xml" />
+    <Content Include="Templates\Engage\Preview.jpg" />
+    <Content Include="Templates\Engage\Style.css" />
+    <Content Include="Templates\Engage\Template.htm" />
     <Content Include="Templates\Legacy\images\next.gif" />
     <Content Include="Templates\Legacy\images\pause.gif" />
     <Content Include="Templates\Legacy\images\previous.gif" />
