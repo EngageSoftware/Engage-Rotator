@@ -95,7 +95,7 @@ namespace Engage.Dnn.ContentRotator
                 {
                     Unit containerHeight = this.SlideHeight.HasValue ? Unit.Pixel(this.SlideHeight.Value) : Unit.Empty;
                     Unit containerWidth = this.SlideWidth.HasValue ? Unit.Pixel(this.SlideWidth.Value) : Unit.Empty;
-                    int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 0;
+                    int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 1;
 
                     this.cycleOptions = new CycleOptions(
                             this.AutoStop,

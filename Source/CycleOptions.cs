@@ -106,14 +106,6 @@ namespace Engage.Dnn.ContentRotator
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private Effects transitionEffects = Effects.fade;
 
-        /// <summary>Backing field for <see cref="TransitionInSpeed"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int? transitionInSpeed;
-
-        /// <summary>Backing field for <see cref="TransitionOutSpeed"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int? transitionOutSpeed;
-
         /// <summary>Backing field for <see cref="TransitionSpeed"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int transitionSpeed = 1000;
@@ -496,38 +488,6 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 this.transitionEffects = value;
-            }
-        }
-
-        /// <summary>Gets or sets a value indicating the speed of the 'in' transition</summary>
-        public int? TransitionInSpeed
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.transitionInSpeed;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.transitionInSpeed = value;
-            }
-        }
-
-        /// <summary>Gets or sets a value indicating the speed of the 'out' transition</summary>
-        public int? TransitionOutSpeed
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.transitionOutSpeed;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.transitionOutSpeed = value;
             }
         }
 

@@ -67,8 +67,6 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("timeout", opts.MillisecondsBetweenTransitions);
             cycleOptions.Add("continuous", opts.Continuous);
             cycleOptions.Add("speed", opts.TransitionSpeed);
-            cycleOptions.Add("speedIn", opts.TransitionInSpeed);
-            cycleOptions.Add("speedOut", opts.TransitionOutSpeed);
             cycleOptions.Add("next", GetControlSelector(opts.NextButton));
             cycleOptions.Add("prev", GetControlSelector(opts.PreviousButton));
             cycleOptions.Add("pager", GetControlSelector(opts.PagerContainer));
