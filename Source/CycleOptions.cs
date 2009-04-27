@@ -195,18 +195,6 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether clearType corrections should be applied (for IE)
-        /// </summary>
-        /// <value><c>true</c> if clearType corrections should be applied (for IE); otherwise, <c>false</c>.</value>
-        public bool ClearType
-        {
-            get
-            {
-                return this.transitionEffects == Effects.fade;
-            }
-        }
-
         /// <summary>Gets or sets a value indicating container height, defaults to "auto"</summary>
         public Unit ContainerHeight
         {

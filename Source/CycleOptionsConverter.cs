@@ -85,7 +85,6 @@ namespace Engage.Dnn.ContentRotator
             cycleOptions.Add("autostop", opts.AutoStop);
             cycleOptions.Add("autostopCount", opts.AutoStopCount);
             cycleOptions.Add("delay", opts.InitialDelay);
-            cycleOptions.Add("cleartype", opts.ClearType);
             cycleOptions.Add("nowrap", !opts.Loop);
             cycleOptions.Add("fastOnEvent", opts.ManuallyTriggeredTransitionSpeed);
 
