@@ -160,7 +160,10 @@
     </Content>
     <None Include="JavaScript\jquery-1.2.6-vsdoc.js" />
     <None Include="JavaScript\jquery-1.2.6.js" />
+    <Content Include="images\arrow_down.gif" />
+    <Content Include="images\arrow_up.gif" />
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_01_flat_75.png" />
+    <Content Include="images\tab-bg.gif" />
     <Content Include="ReleaseNotes_2.0.0.htm" />
     <Content Include="TemplateSelection.ascx" />
     <Content Include="images\bottom-header-bg.gif" />

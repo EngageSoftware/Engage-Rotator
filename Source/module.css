@@ -21,9 +21,6 @@
 wbr:after { content: "\00200B" }
 .TitleTextBox{width: 90%;}
 #editContent {overflow: auto; border-top: 1px #ccc solid; padding: 10px 0;}
-
-
-
 .engage-rotator-container{clear:both;}
 	.rotate-wrap{clear:both;}
 		.rotatorContentWrapper{clear:both;overflow:hidden;}
@@ -40,9 +37,9 @@ wbr:after { content: "\00200B" }
 /******** Rotator Options (Add/Edit List) ************/
 		.sortOrder{float: left; width: 120px; padding: 5px 0;}
 		.RotatorOptions .rotatorContentTitleWrapper{float: left; padding: 4px 0;}
-.rotatorThumbnails {float: right; text-align: left; width: 48%;}
-	.rotatorThumbnailTitle{border-bottom: 1px #8fb9d0 solid; padding: 10px 0;}
-	.rotatorPositionThumbnailTitle{border-bottom: 1px #8fb9d0 solid; padding: 10px 0;}
+.rotatorThumbnails{float:right;text-align:left;width:48%;overflow:hidden;}
+	.rotatorThumbnailTitle{border-bottom: 1px #8fb9d0 solid; padding-bottom:10px;}
+	.rotatorPositionThumbnailTitle{border-bottom:1px #8fb9d0 solid;padding-bottom:10px;}
 .RotatorOptions .rotatorReadMoreLinkWrapper{border-left: 1px #8fb9d0 solid; border-right: 1px #8fb9d0 solid;}
 
 .RotatorOptions{}
@@ -57,31 +54,32 @@ wbr:after { content: "\00200B" }
 		.RotatorOptions .editContent{border:1px #8fb9d0 solid;border-top:none;overflow:hidden;padding:8px 15px;background:#e8f6fd;}
 				.RotatorOptions .startEndDate{float:left;width:50%;}
 				.RotatorOptions .editButtons{float:right;width:50%;text-align:right;}
-			.RotatorOptions .rotatorDescription{float:left;width:50%;}
-				.RotatorOptions .rotatorDescriptionTitle{border-bottom:1px #8fb9d0 solid;}
+			.RotatorOptions .rotatorDescription{float:left;width:50%;overflow:hidden;}
+				.RotatorOptions .rotatorDescriptionTitle{border-bottom:1px #8fb9d0 solid;padding-bottom:10px;}
 			.RotatorOptions .rotatorThumbnail, .RotatorOptions .rotatorPositionThumbnail{}
-				.RotatorOptions .rotatorThumbnailWrapper{float:left;}
-				.RotatorOptions .rotatorPositionThumbnailWrapper{float:left;}
+				.RotatorOptions .rotatorThumbnailWrapper{float:left;width:48%;overflow:hidden;}
+				.RotatorOptions .rotatorPositionThumbnailWrapper{float:right;width:48%;overflow:hidden;}
 .ro-bottom{}
 
 /*================Choose Templates==================*/
 .template-slection-wrap{width:750px;}
 	.ts-select-template{float:left;font-size:14px;width:750px;}
 	.ts-template-info{clear:both;}
-		.ts-leftcol{width:260px;float:left;padding:15px 25px 15px 0;}
-			.ts-description{font-size:12px;padding:10px 0;border-bottom:dashed 1px #666;}
-				.ts-description fieldset{border:none;padding:0;margin:0;}
-				.ts-description legend{font-size:18px;padding:0;}
+		.ts-leftcol{width:260px;float:left;padding:25px 25px 15px 0;}
+			.ts-description{font-size:12px;padding:0;border-bottom:dotted 1px #666;}
+				.ts-description fieldset{border:none;padding:0 0 10px 0;margin:0;}
+				.ts-description fieldset h2{font-size:18px;font-weight:bold;border-bottom:1px #ccc solid;padding-bottom:5px;margin:0;}
+				.ts-description h3.template-title{font-size:16px;font-weight:bold;}
 			.settings-table{padding:15px 0;}
 				.settings-table table{border-bottom:dashed 1px #666;}
 				.settings-table .SubSubHead {font-size:11px;font-weight:normal;padding:5px;font-style:italic;}
 				.DataGrid_Header th{font-size:12px;color:#333;text-align:left;padding:5px 0;}
 				.DataGrid_Item td,.DataGrid_AlternatingItem td{text-align:left;padding:0 5px;color:#000;}
 				.DataGrid_AlternatingItem td{color:#333;}
-			.ts-buttons{float:left;padding:10px;}
+			.ts-buttons{float:left;padding:10px 10px 10px 0;}
 		.ts-rightcol{width:450px;float:right;padding:25px 0 15px 0;}
-			.ts-preview span{font-size:18px;padding:10px 0;}
-				.ts-preview img{padding:10px 0;}
+			.ts-rightcol h2{font-size:18px;font-weight:bold;border-bottom:1px #ccc solid;padding-bottom:5px;margin:0;}
+			.ts-preview img{padding:10px 0;overflow:auto;width:100%;}
 
 /****************** Rotator Settings ******************/
 .SettingsContainer {min-width:600px;}
@@ -103,33 +101,28 @@ wbr:after { content: "\00200B" }
 
 /*UI tabs*/
 .ui-tabs-nav {
-	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1.1em;
-	float: left;
-	position: relative;
-	z-index: 1;
-	border-right: 1px solid #d3d3d3;
-	bottom: -1px;
+	/*resets*/margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;list-style:none;
+	float:left;
+	position:relative;
+	z-index:1;
 }
 .ui-tabs-nav ul {
-	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
+	/*resets*/margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;list-style:none;border-left:1px solid #d3d3d3;overflow:hidden;
 }
 .ui-tabs-nav li {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
-	float: left;
-	border: 1px solid #d3d3d3;
-	border-right: none;
+	float:left;
+	border-right:1px solid #d3d3d3;
+	border-top:2px #999 solid;
 }
 .ui-tabs-nav li a {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
 	float: left;
-	font-size: 1em;
-	font-weight: normal;
-	text-decoration: none;
-	padding: .5em 1.7em;
-	color: #555555;
-	background: #e6e6e6 url(images/JQueryUiTheme/e6e6e6_40x100_textures_02_glass_75.png) 0 50% repeat-x;
+	font-weight:bold;
+	text-decoration:none;
+	padding:.5em 1.7em;
+	color:#000;
+	background: #ccc url(images/tab-bg.gif) repeat-x;
 }
 .ui-tabs-nav li a:hover {
 	background: #dadada url(images/JQueryUiTheme/dadada_40x100_textures_02_glass_75.png) 0 50% repeat-x;
@@ -137,6 +130,7 @@ wbr:after { content: "\00200B" }
 }
 .ui-tabs-nav li.ui-tabs-selected {
 	border-bottom-color: #ffffff;
+	border-top:2px #000 solid;
 }
 .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs-nav li.ui-tabs-selected a:hover {
 	background: #ffffff url(images/JQueryUiTheme/ffffff_40x100_textures_02_glass_65.png) 0 50% repeat-x;
