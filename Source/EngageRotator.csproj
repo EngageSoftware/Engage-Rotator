@@ -65,7 +65,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
@@ -160,6 +162,8 @@
     </Content>
     <None Include="JavaScript\jquery-1.2.6-vsdoc.js" />
     <None Include="JavaScript\jquery-1.2.6.js" />
+    <Content Include="References\System.Web.Extensions.dll" />
+    <Content Include="ReleaseNotes_2.0.1.htm" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\arrow_up.gif" />
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_01_flat_75.png" />
