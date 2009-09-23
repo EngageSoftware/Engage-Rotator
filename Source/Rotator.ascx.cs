@@ -41,7 +41,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return new ModuleActionCollection(new ModuleAction[]
+                return new ModuleActionCollection(new[]
                         {
                                 new ModuleAction(
                                         this.GetNextActionID(),
@@ -114,9 +114,8 @@ namespace Engage.Dnn.ContentRotator
                             this.RandomOrder,
                             this.SimultaneousTransitions,
                             this.ForceSlidesToFitContainer,
-                            this.HasNoBackgroundColor,
+                            this.DisableAddingBackgroundColorForClearTypeFix,
                             this.RandomizeEffects,
-                            this.ReverseTransitions,
                             this.ManualTransitionTrumpsActiveTransition);
                 }
 
@@ -324,13 +323,13 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether to disable the ClearType fix that requires a background color
+        /// Gets a value indicating whether to disable the ClearType fix that adds a background color to each slide
         /// </summary>
-        private bool HasNoBackgroundColor
+        private bool DisableAddingBackgroundColorForClearTypeFix
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "HasNoBackgroundColor", false);
+                return Utility.GetBoolSetting(this.Settings, "DisableAddingBackgroundColorForClearTypeFix", false);
             }
         }
 
@@ -342,17 +341,6 @@ namespace Engage.Dnn.ContentRotator
             get
             {
                 return Utility.GetBoolSetting(this.Settings, "RandomizeEffects", true);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to reverse the animation of the transition
-        /// </summary>
-        private bool ReverseTransitions
-        {
-            get
-            {
-                return Utility.GetBoolSetting(this.Settings, "ReverseTransitions", false);
             }
         }
 

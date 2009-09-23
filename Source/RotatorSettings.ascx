@@ -13,7 +13,7 @@
             <ContentTemplate>
                 <table class="settingsTable Normal">
                     <tr>
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="RotatorDelayLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="RotatorDelayLabel" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn DNNAlignleft">
                             <asp:Textbox ID="RotatorDelayTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
                             <asp:CompareValidator runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="RotatorDelayTextBox" Display="None" EnableClientScript="false" resourcekey="RotatorDelayTypeValidator" />
@@ -21,7 +21,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="AutoStopLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="AutoStopLabel" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn DNNAlignleft">
                             <asp:CheckBox ID="AutoStopCheckBox" runat="server" AutoPostBack="true"/><asp:Label runat="server" ResourceKey="AutoStopBegin.Text" /><asp:TextBox ID="AutoStopCountTextBox" runat="server" CssClass="NormalTextBox inlineTextbox" AutoCompleteType="Disabled"/><asp:Label runat="server" ResourceKey="AutoStopEnd.Text" />
                             <asp:CompareValidator ID="AutoStopCountIntegerValidator" runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="AutoStopCountTextBox" Display="None" EnableClientScript="false" resourcekey="AutoStopCountTypeValidator" />
@@ -29,19 +29,19 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="PauseOnHoverLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="PauseOnHoverLabel" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn DNNAlignleft">
                             <asp:CheckBox id="PauseOnHoverCheckBox" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="UseAnimationsLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="UseAnimationsLabel" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn DNNAlignleft">
                             <asp:Checkbox ID="UseAnimationsCheckBox" runat="server" AutoPostBack="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="TransitionDurationLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="TransitionDurationLabel" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn DNNAlignleft">
                             <asp:Textbox ID="TransitionDurationTextBox" runat="server" CssClass="NormalTextBox" AutoCompleteType="Disabled"/><asp:Label runat="server" resourcekey="seconds" />
                             <asp:CompareValidator id="TransitionDurationIntegerValidator" runat="server" Type="Double" Operator="DataTypeCheck" ControlToValidate="TransitionDurationTextBox" Display="None" EnableClientScript="false" resourcekey="TransitionDurationTypeValidator"/>
@@ -53,6 +53,12 @@
                         <td class="contentColumn DNNAlignleft">
                             <asp:CheckBoxList ID="TransitionEffectCheckBoxList" runat="server" RepeatLayout="Table" RepeatDirection="Horizontal" RepeatColumns="3" CssClass="transitionEffectsCheckBoxes Normal" />
                             <asp:CustomValidator ID="TransitionEffectRequiredValidator" runat="server" Display="None" resourcekey="TransitionEffectRequired" ClientValidationFunction="AnimationEffectRequiredValidator_ClientValidate" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="RandomizeEffectsLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn DNNAlignleft">
+                            <asp:CheckBox ID="RandomizeEffectsCheckBox" runat="server" />
                         </td>
                     </tr>
                 </table>
@@ -121,6 +127,18 @@
                         <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="SimultaneousTransitionsLabel" runat="server" EnableViewState="false" /></td>
                         <td class="contentColumn DNNAlignleft">
                             <asp:CheckBox ID="SimultaneousTransitionsCheckBox" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="DisableAddingBackgroundColorForClearTypeFixLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn DNNAlignleft">
+                            <asp:CheckBox ID="DisableAddingBackgroundColorForClearTypeFixCheckBox" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="SubHead nowrap DNNAlignright"><dnn:Label ResourceKey="ManualTransitionTrumpsActiveTransitionLabel" runat="server" EnableViewState="false" /></td>
+                        <td class="contentColumn DNNAlignleft">
+                            <asp:CheckBox ID="ManualTransitionTrumpsActiveTransitionCheckBox" runat="server" />
                         </td>
                     </tr>
                     <tr>

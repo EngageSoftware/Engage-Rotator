@@ -12,7 +12,6 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
-    using System.Diagnostics;
     using System.Globalization;
     using System.Web.UI;
     using System.Web.UI.WebControls;
@@ -243,6 +242,39 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets a value indicating whether to disable the ClearType fix that adds a background color to each slide
+        /// </summary>
+        private bool DisableAddingBackgroundColorForClearTypeFix
+        {
+            get
+            {
+                return Utility.GetBoolSetting(this.Settings, "DisableAddingBackgroundColorForClearTypeFix", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to randomize the order of the transition effects when <see cref="AnimationEffect"/> is set to multiple effects
+        /// </summary>
+        private bool RandomizeEffects
+        {
+            get
+            {
+                return Utility.GetBoolSetting(this.Settings, "RandomizeEffects", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether a manual transition trumps an active transition
+        /// </summary>
+        private bool ManualTransitionTrumpsActiveTransition
+        {
+            get
+            {
+                return Utility.GetBoolSetting(this.Settings, "ManualTransitionTrumpsActiveTransition", true);
+            }
+        }
+
+        /// <summary>
         /// Raises the <see cref="Control.Init"/> event.
         /// </summary>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
@@ -358,6 +390,10 @@ namespace Engage.Dnn.ContentRotator
                     this.ManuallyTriggeredTransitionSpeedTextBox.Text = this.ManuallyTriggeredTransitionSpeed.ToString(CultureInfo.CurrentCulture);
                     this.ManuallyTriggeredTransitionSpeedCheckBox.Checked = this.ManuallyTriggeredTransitionSpeed != 0;
                     this.ProcessManuallyTriggeredTransitionSpeedVisibility();
+
+                    this.DisableAddingBackgroundColorForClearTypeFixCheckBox.Checked = this.DisableAddingBackgroundColorForClearTypeFix;
+                    this.RandomizeEffectsCheckBox.Checked = this.RandomizeEffects;
+                    this.ManualTransitionTrumpsActiveTransitionCheckBox.Checked = this.ManualTransitionTrumpsActiveTransition;
                 }
 
                 this.RegisterTabsContainer();
@@ -387,7 +423,7 @@ namespace Engage.Dnn.ContentRotator
         {
             if (this.Page.IsValid)
             {
-                ModuleController modules = new ModuleController();
+                var modules = new ModuleController();
 
                 modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", ConvertCurrentCultureDecimalToInvariantCulture(this.RotatorDelayTextBox.Text));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStop", this.AutoStopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
@@ -408,6 +444,9 @@ namespace Engage.Dnn.ContentRotator
                 modules.UpdateTabModuleSetting(this.TabModuleId, "SimultaneousTransitions", this.SimultaneousTransitionsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "InitialDelay", this.InitialDelayCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.InitialDelayTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
                 modules.UpdateTabModuleSetting(this.TabModuleId, "ManuallyTriggeredTransitionSpeed", this.ManuallyTriggeredTransitionSpeedCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.ManuallyTriggeredTransitionSpeedTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "RandomizeEffects", this.RandomizeEffectsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "DisableAddingBackgroundColorForClearTypeFix", this.DisableAddingBackgroundColorForClearTypeFixCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
+                modules.UpdateTabModuleSetting(this.TabModuleId, "ManualTransitionTrumpsActiveTransition", this.ManualTransitionTrumpsActiveTransitionCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
 
                 this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
             }
@@ -490,7 +529,7 @@ namespace Engage.Dnn.ContentRotator
         {
             foreach (ListItem item in this.TransitionEffectCheckBoxList.Items)
             {
-                Effects itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
+                var itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
                 item.Selected = (this.AnimationEffect & itemEffect) != 0;
             }
         }
@@ -506,7 +545,7 @@ namespace Engage.Dnn.ContentRotator
             {
                 if (item.Selected)
                 {
-                    Effects itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
+                    var itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
                     effects |= itemEffect;
                 }
             }

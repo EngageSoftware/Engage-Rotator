@@ -30,7 +30,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return new ReadOnlyCollection<Type>(new Type[] { typeof(CycleOptions) });
+                return new ReadOnlyCollection<Type>(new[] { typeof(CycleOptions) });
             }
         }
 
@@ -56,41 +56,40 @@ namespace Engage.Dnn.ContentRotator
         /// <exception cref="InvalidOperationException"><paramref name="obj"/> must be of the <see cref="CycleOptions"/> type</exception>
         public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
         {
-            CycleOptions opts = obj as CycleOptions;
+            var opts = obj as CycleOptions;
             if (opts == null)
             {
                 throw new InvalidOperationException("object must be of the CycleOptions type");
             }
 
-            IDictionary<string, object> cycleOptions = new Dictionary<string, object>(24);
-            cycleOptions.Add("fx", opts.TransitionEffects.ToString());
-            cycleOptions.Add("timeout", opts.MillisecondsBetweenTransitions);
-            cycleOptions.Add("continuous", opts.Continuous);
-            cycleOptions.Add("speed", opts.TransitionSpeed);
-            cycleOptions.Add("next", GetControlSelector(opts.NextButton));
-            cycleOptions.Add("prev", GetControlSelector(opts.PreviousButton));
-            cycleOptions.Add("pager", GetControlSelector(opts.PagerContainer));
-            cycleOptions.Add("pagerEvent", opts.PagerEvent);
-            cycleOptions.Add("height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString());
-            cycleOptions.Add("width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString());
-            cycleOptions.Add("startingSlide", opts.StartingSlideIndex);
-            cycleOptions.Add("sync", opts.SimultaneousTransitions);
-            cycleOptions.Add("random", opts.RandomOrder);
-            cycleOptions.Add("fit", opts.ForceSlidesToFitContainer);
-            cycleOptions.Add("containerResize", opts.ContainerResize);
-            cycleOptions.Add("pause", opts.PauseOnHover);
-            cycleOptions.Add("pauseOnPagerHover", opts.PauseOnPagerHover);
-            cycleOptions.Add("autostop", opts.AutoStop);
-            cycleOptions.Add("autostopCount", opts.AutoStopCount);
-            cycleOptions.Add("delay", opts.InitialDelay);
-            cycleOptions.Add("nowrap", !opts.Loop);
-            cycleOptions.Add("fastOnEvent", opts.ManuallyTriggeredTransitionSpeed);
-            cycleOptions.Add("cleartypeNoBg", opts.HasNoBackgroundColor);
-            cycleOptions.Add("randomizeEffects", opts.RandomizeEffects);
-            cycleOptions.Add("rev", opts.ReverseTransitions);
-            cycleOptions.Add("manualTrump", opts.ManualTransitionTrumpsActiveTransition);
-
-            return cycleOptions;
+            return new Dictionary<string, object>(26)
+                       {
+                               { "fx", opts.TransitionEffects.ToString() },
+                               { "timeout", opts.MillisecondsBetweenTransitions },
+                               { "continuous", opts.Continuous },
+                               { "speed", opts.TransitionSpeed },
+                               { "next", GetControlSelector(opts.NextButton) },
+                               { "prev", GetControlSelector(opts.PreviousButton) },
+                               { "pager", GetControlSelector(opts.PagerContainer) },
+                               { "pagerEvent", opts.PagerEvent },
+                               { "height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString() },
+                               { "width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString() },
+                               { "startingSlide", opts.StartingSlideIndex },
+                               { "sync", opts.SimultaneousTransitions },
+                               { "random", opts.RandomOrder },
+                               { "fit", opts.ForceSlidesToFitContainer },
+                               { "containerResize", opts.ContainerResize },
+                               { "pause", opts.PauseOnHover },
+                               { "pauseOnPagerHover", opts.PauseOnPagerHover },
+                               { "autostop", opts.AutoStop },
+                               { "autostopCount", opts.AutoStopCount },
+                               { "delay", opts.InitialDelay },
+                               { "nowrap", !opts.Loop },
+                               { "fastOnEvent", opts.ManuallyTriggeredTransitionSpeed },
+                               { "cleartypeNoBg", opts.DisableAddingBackgroundColorForClearTypeFix },
+                               { "randomizeEffects", opts.RandomizeEffects },
+                               { "manualTrump", opts.ManualTransitionTrumpsActiveTransition }
+                       };
         }
 
         /// <summary>

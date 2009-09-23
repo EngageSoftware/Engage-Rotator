@@ -40,12 +40,11 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="randomOrder">if set to <c>true</c> display slides in a random order.</param>
         /// <param name="simultaneousTransitions">if set to <c>true</c> transition the current slide out at the same time as the next item transitions in.</param>
         /// <param name="forceSlidesToFitContainer">if set to <c>true</c> force slides to fit within container.</param>
-        /// <param name="hasNoBackgroundColor">if set to <c>true</c> do not apply the ClearType fix which requires a background color.</param>
+        /// <param name="disableAddingBackgroundColorForClearTypeFix">if set to <c>true</c> do not apply the ClearType fix which adds a background color to each slide.</param>
         /// <param name="randomizeEffects">if set to <c>true</c> randomize the order of transition effects.</param>
-        /// <param name="reverseTransitions">if set to <c>true</c> animate the transitions in reverse.</param>
         /// <param name="manualTransitionTrumpsActiveTransition">if set to <c>true</c> a manual transition trumps an active transition, rather than being ignored during an active transition.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be <c>null</c> if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer, bool hasNoBackgroundColor, bool randomizeEffects, bool reverseTransitions, bool manualTransitionTrumpsActiveTransition)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer, bool disableAddingBackgroundColorForClearTypeFix, bool randomizeEffects, bool manualTransitionTrumpsActiveTransition)
         {
             this.PagerEvent = "click";
 
@@ -70,9 +69,8 @@ namespace Engage.Dnn.ContentRotator
             this.RandomOrder = randomOrder;
             this.SimultaneousTransitions = simultaneousTransitions;
             this.ForceSlidesToFitContainer = forceSlidesToFitContainer;
-            this.HasNoBackgroundColor = hasNoBackgroundColor;
+            this.DisableAddingBackgroundColorForClearTypeFix = disableAddingBackgroundColorForClearTypeFix;
             this.RandomizeEffects = randomizeEffects;
-            this.ReverseTransitions = reverseTransitions;
             this.ManualTransitionTrumpsActiveTransition = manualTransitionTrumpsActiveTransition;
         }
 
@@ -231,7 +229,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>Gets or sets a value indicating whether to disable extra cleartype fixing (leave <c>false</c> to force background color setting on slides)</summary>
-        public bool HasNoBackgroundColor
+        public bool DisableAddingBackgroundColorForClearTypeFix
         {
             get;
             set;
@@ -239,13 +237,6 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>Gets or sets a value indicating whether to make the effect sequence random.  Valid when multiple effects are used</summary>
         public bool RandomizeEffects
-        {
-            get;
-            set;
-        }
-
-        /// <summary>Gets or sets a value indicating whether to cause animations to transition in reverse</summary>
-        public bool ReverseTransitions
         {
             get;
             set;

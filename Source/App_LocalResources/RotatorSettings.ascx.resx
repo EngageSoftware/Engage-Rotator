@@ -202,7 +202,7 @@
     <value>Choose whether to automatically stop the rotation after a specific number of slides are displayed</value>
   </data>
   <data name="AutoStopLabel.Text" xml:space="preserve">
-    <value>Auto Stop</value>
+    <value>Auto Stop:</value>
   </data>
   <data name="AutoStopCountRequiredValidator.Text" xml:space="preserve">
     <value>Number of slides before auto stop is required when checked</value>
@@ -217,19 +217,19 @@
     <value>Check to automatically resize the container to fit the largest slide</value>
   </data>
   <data name="ContainerResizeLabel.Text" xml:space="preserve">
-    <value>Auto Resize Container</value>
+    <value>Auto Resize Container:</value>
   </data>
   <data name="ContinuousLabel.Help" xml:space="preserve">
     <value>Check to make rotation occur continuously, i.e. the next transition should start as soon as the current transition ends.</value>
   </data>
   <data name="ContinuousLabel.Text" xml:space="preserve">
-    <value>Continuous Rotation</value>
+    <value>Continuous Rotation:</value>
   </data>
   <data name="InitialDelayLabel.Help" xml:space="preserve">
     <value>Choose the additional delay for the first transition.  This number can also be negative to have the initial slide transition more quickly than the rest.</value>
   </data>
   <data name="InitialDelayLabel.Text" xml:space="preserve">
-    <value>Additional Initial Delay</value>
+    <value>Additional Initial Delay:</value>
   </data>
   <data name="InitialDelayTypeValidator.Text" xml:space="preserve">
     <value>Additional Initial Delay must be a number</value>
@@ -241,7 +241,7 @@
     <value>Choose whether you would like "triggered" transitions (transitions caused by a pager or the previous or next buttons) to occur with a different speed than the automatic transitions.</value>
   </data>
   <data name="ManuallyTriggeredTransitionSpeedLabel.Text" xml:space="preserve">
-    <value>Triggered Transition Speed</value>
+    <value>Triggered Transition Speed:</value>
   </data>
   <data name="Loading.Alt" xml:space="preserve">
     <value>Loading...</value>
@@ -262,19 +262,19 @@
     <value>Choose whether to continue the rotation indefinitely, or to just display each slide once</value>
   </data>
   <data name="LoopLabel.Text" xml:space="preserve">
-    <value>Loop</value>
+    <value>Loop:</value>
   </data>
   <data name="RandomOrderLabel.Help" xml:space="preserve">
     <value>Choose whether the display slides in a random order.  Otherwise slides are sorted first by the slides' Sort Order field, then their Start Date, and finally, if those two fields are the same, by their Title</value>
   </data>
   <data name="RandomOrderLabel.Text" xml:space="preserve">
-    <value>Random Order</value>
+    <value>Random Order:</value>
   </data>
   <data name="SimultaneousTransitionsLabel.Help" xml:space="preserve">
     <value>Choose whether the current slide's "out" transitions should happen at the same time as the next slide's "in" transition</value>
   </data>
   <data name="SimultaneousTransitionsLabel.Text" xml:space="preserve">
-    <value>Simultaneous Transitions</value>
+    <value>Simultaneous Transitions:</value>
   </data>
   <data name="blindX.Text" xml:space="preserve">
     <value>Blinds X</value>
@@ -313,7 +313,7 @@
     <value>Choose whether the slides should be stretched to fit exactly within the container</value>
   </data>
   <data name="ForceSlidesToFitContainerLabel.Text" xml:space="preserve">
-    <value>Force Slides to Fit Within Container</value>
+    <value>Force Slides to Fit Within Container:</value>
   </data>
   <data name="TransitionEffectRequired.Text" xml:space="preserve">
     <value>At least one Transition Effect is required</value>
@@ -376,6 +376,24 @@
     <value>Use this setting to force the area for the rotating slides to be a specific width, measured in pixels.</value>
   </data>
   <data name="TransitionEffectLabel.Text" xml:space="preserve">
-    <value>Transition Effect(s)</value>
+    <value>Transition Effect(s):</value>
+  </data>
+  <data name="DisableAddingBackgroundColorForClearTypeFixLabel.Help" xml:space="preserve">
+    <value>In some transitions, ClearType in Internet Explorer will cause text to render poorly.  Rotator adds a background color to each slide, by default, to help maximize the font quality.  Checking this box will cause Rotator to no longer add that background color.</value>
+  </data>
+  <data name="DisableAddingBackgroundColorForClearTypeFixLabel.Text" xml:space="preserve">
+    <value>Disable ClearType Fix that Adds a Background Color to Each Slide:</value>
+  </data>
+  <data name="ManualTransitionTrumpsActiveTransitionLabel.Help" xml:space="preserve">
+    <value>Choose whether "triggered" transisions (transitions caused by a pager or the previous or next buttons) should interrupt an active transition.  If this is not checked, "triggered" transitions will be ignored if they occur during an active transition.</value>
+  </data>
+  <data name="ManualTransitionTrumpsActiveTransitionLabel.Text" xml:space="preserve">
+    <value>Triggered Transitions Interrupt Active Transitions:</value>
+  </data>
+  <data name="RandomizeEffectsLabel.Help" xml:space="preserve">
+    <value>If multiple effects are chosen, choose whether the effects should be used in the above order, or in a random order.</value>
+  </data>
+  <data name="RandomizeEffectsLabel.Text" xml:space="preserve">
+    <value>Randomize Effects Order:</value>
   </data>
 </root>
