@@ -33,7 +33,7 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Backing field for <see cref="AnimationEffect"/>
         /// </summary>
-        private Effects animationEffect = Effects.None;
+        private Effects animationEffect = Effects.none;
 
         /// <summary>
         /// Gets the duration of the transition animation.
@@ -55,7 +55,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                if (this.animationEffect == Effects.None)
+                if (this.animationEffect == Effects.none)
                 {
                     this.animationEffect = Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
                 }
@@ -479,7 +479,7 @@ namespace Engage.Dnn.ContentRotator
         {
             this.TransitionEffectCheckBoxList.DataSource = Enum.GetNames(typeof(Effects));
             this.TransitionEffectCheckBoxList.DataBind();
-            this.TransitionEffectCheckBoxList.Items.Remove(Effects.None.ToString());
+            this.TransitionEffectCheckBoxList.Items.Remove(Effects.none.ToString());
             Utility.LocalizeListControl(this.TransitionEffectCheckBoxList, this.LocalResourceFile);
         }
 
@@ -501,7 +501,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The selected animation transition effects</returns>
         private Effects GetSelectedEffects()
         {
-            Effects effects = Effects.None;
+            Effects effects = Effects.none;
             foreach (ListItem item in this.TransitionEffectCheckBoxList.Items)
             {
                 if (item.Selected)
@@ -511,7 +511,6 @@ namespace Engage.Dnn.ContentRotator
                 }
             }
 
-            Debug.Assert(effects != Effects.None, "Page validation required that an effect has been selected");
             return effects;
         }
 

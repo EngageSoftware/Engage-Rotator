@@ -183,7 +183,7 @@
   <data name="ContentTab.Header" xml:space="preserve">
     <value>Content</value>
   </data>
-  <data name="None.Text" xml:space="preserve">
+  <data name="none.Text" xml:space="preserve">
     <value>None</value>
   </data>
   <data name="RotationTab.Header" xml:space="preserve">

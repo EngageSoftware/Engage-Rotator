@@ -20,10 +20,14 @@ namespace Engage.Dnn.ContentRotator
     [Flags]
     public enum Effects
     {
+// ReSharper disable InconsistentNaming
+
         /// <summary>
         /// No effect.
         /// </summary>
-        None = 0x0,
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "none",
+                Justification = "Name needs to match name in Cycle plugin")]
+        none = 0x0,
 
         /// <summary>
         /// Slides to and from right side
@@ -201,5 +205,7 @@ namespace Engage.Dnn.ContentRotator
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "fade",
                 Justification = "Name needs to match name in Cycle plugin")]
         fadeZoom = 0x4000000
+
+// ReSharper restore InconsistentNaming
     }
 }
