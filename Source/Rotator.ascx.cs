@@ -113,7 +113,11 @@ namespace Engage.Dnn.ContentRotator
                             this.Loop,
                             this.RandomOrder,
                             this.SimultaneousTransitions,
-                            this.ForceSlidesToFitContainer);
+                            this.ForceSlidesToFitContainer,
+                            this.HasNoBackgroundColor,
+                            this.RandomizeEffects,
+                            this.ReverseTransitions,
+                            this.ManualTransitionTrumpsActiveTransition);
                 }
 
                 return this.cycleOptions;
@@ -309,13 +313,57 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Gets a value indicating whether UseAnimations.
+        /// Gets a value indicating whether to use animations to transition between slides.
         /// </summary>
         private bool UseAnimations
         {
             get
             {
                 return Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to disable the ClearType fix that requires a background color
+        /// </summary>
+        private bool HasNoBackgroundColor
+        {
+            get
+            {
+                return Utility.GetBoolSetting(this.Settings, "HasNoBackgroundColor", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to randomize the order of the transition effects when <see cref="AnimationEffect"/> is set to multiple effects
+        /// </summary>
+        private bool RandomizeEffects
+        {
+            get
+            {
+                return Utility.GetBoolSetting(this.Settings, "RandomizeEffects", true);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether to reverse the animation of the transition
+        /// </summary>
+        private bool ReverseTransitions
+        {
+            get
+            {
+                return Utility.GetBoolSetting(this.Settings, "ReverseTransitions", false);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether a manual transition trumps an active transition
+        /// </summary>
+        private bool ManualTransitionTrumpsActiveTransition
+        {
+            get
+            {
+                return Utility.GetBoolSetting(this.Settings, "ManualTransitionTrumpsActiveTransition", true);
             }
         }
 

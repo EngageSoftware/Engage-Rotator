@@ -12,7 +12,6 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
-    using System.Diagnostics;
     using System.Web.Script.Serialization;
     using System.Web.UI;
     using System.Web.UI.WebControls;
@@ -22,94 +21,6 @@ namespace Engage.Dnn.ContentRotator
     /// </summary>
     public class CycleOptions
     {
-        /// <summary>Backing field for <see cref="AutoStop"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool autoStop;
-
-        /// <summary>Backing field for <see cref="AutoStopCount"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int autoStopCount;
-
-        /// <summary>Backing field for <see cref="ContainerHeight"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Unit containerHeight = Unit.Empty;
-
-        /// <summary>Backing field for <see cref="ContainerWidth"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Unit containerWidth = Unit.Empty;
-
-        /// <summary>Backing field for <see cref="ContainerResize"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool containerResize = true;
-
-        /// <summary>Backing field for <see cref="Continuous"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool continuous;
-
-        /// <summary>Backing field for <see cref="InitialDelay"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private decimal initialDelay;
-
-        /// <summary>Backing field for <see cref="ManuallyTriggeredTransitionSpeed"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int manuallyTriggeredTransitionSpeed;
-
-        /// <summary>Backing field for <see cref="MillisecondsBetweenTransitions"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int millisecondsBetweenTransitions = 4000;
-
-        /// <summary>Backing field for <see cref="NextButton"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Control nextButton;
-
-        /// <summary>Backing field for <see cref="Loop"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool loop;
-
-        /// <summary>Backing field for <see cref="PagerContainer"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Control pagerContainer;
-
-        /// <summary>Backing field for <see cref="PagerEvent"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string pagerEvent = "click";
-
-        /// <summary>Backing field for <see cref="PauseOnHover"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool pauseOnHover;
-
-        /// <summary>Backing field for <see cref="PauseOnPagerHover"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool pauseOnPagerHover;
-
-        /// <summary>Backing field for <see cref="PreviousButton"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Control previousButton;
-
-        /// <summary>Backing field for <see cref="RandomOrder"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool randomOrder;
-
-        /// <summary>Backing field for <see cref="SimultaneousTransitions"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool simultaneousTransitions = true;
-
-        /// <summary>Backing field for <see cref="ForceSlidesToFitContainer"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool forceSlidesToFitContainer;
-
-        /// <summary>Backing field for <see cref="StartingSlideIndex"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int startingSlideIndex;
-
-        /// <summary>Backing field for <see cref="TransitionEffects"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Effects transitionEffects = Effects.fade;
-
-        /// <summary>Backing field for <see cref="TransitionSpeed"/></summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int transitionSpeed = 1000;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CycleOptions"/> class.
         /// </summary>
@@ -129,382 +40,222 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="randomOrder">if set to <c>true</c> display slides in a random order.</param>
         /// <param name="simultaneousTransitions">if set to <c>true</c> transition the current slide out at the same time as the next item transitions in.</param>
         /// <param name="forceSlidesToFitContainer">if set to <c>true</c> force slides to fit within container.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be null if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer)
+        /// <param name="hasNoBackgroundColor">if set to <c>true</c> do not apply the ClearType fix which requires a background color.</param>
+        /// <param name="randomizeEffects">if set to <c>true</c> randomize the order of transition effects.</param>
+        /// <param name="reverseTransitions">if set to <c>true</c> animate the transitions in reverse.</param>
+        /// <param name="manualTransitionTrumpsActiveTransition">if set to <c>true</c> a manual transition trumps an active transition, rather than being ignored during an active transition.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be <c>null</c> if <paramref name="autoStop"/> is <c>true</c></exception>
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer, bool hasNoBackgroundColor, bool randomizeEffects, bool reverseTransitions, bool manualTransitionTrumpsActiveTransition)
         {
+            this.PagerEvent = "click";
+
             if (autoStop && !autoStopCount.HasValue)
             {
                 throw new ArgumentNullException("autoStopCount", "autoStopCount must not be null if autoStop is true");
             }
 
-            this.autoStop = autoStop;
-            this.autoStopCount = autoStop ? autoStopCount.Value : 0;
-            this.containerResize = containerResize;
-            this.containerHeight = containerHeight;
-            this.containerWidth = containerWidth;
-            this.continuous = continuous;
-            this.initialDelay = initialDelay;
-            this.millisecondsBetweenTransitions = millisecondsBetweenTransitions;
-            this.pauseOnHover = pauseOnHover;
-            this.transitionEffects = transitionEffects;
-            this.transitionSpeed = transitionSpeed;
-            this.manuallyTriggeredTransitionSpeed = manuallyTriggeredTransitionSpeed;
-            this.loop = loop;
-            this.randomOrder = randomOrder;
-            this.simultaneousTransitions = simultaneousTransitions;
-            this.forceSlidesToFitContainer = forceSlidesToFitContainer;
+            this.AutoStop = autoStop;
+            this.AutoStopCount = autoStop ? autoStopCount.Value : 0;
+            this.ContainerResize = containerResize;
+            this.ContainerHeight = containerHeight;
+            this.ContainerWidth = containerWidth;
+            this.Continuous = continuous;
+            this.InitialDelay = initialDelay;
+            this.MillisecondsBetweenTransitions = millisecondsBetweenTransitions;
+            this.PauseOnHover = pauseOnHover;
+            this.TransitionEffects = transitionEffects;
+            this.TransitionSpeed = transitionSpeed;
+            this.ManuallyTriggeredTransitionSpeed = manuallyTriggeredTransitionSpeed;
+            this.Loop = loop;
+            this.RandomOrder = randomOrder;
+            this.SimultaneousTransitions = simultaneousTransitions;
+            this.ForceSlidesToFitContainer = forceSlidesToFitContainer;
+            this.HasNoBackgroundColor = hasNoBackgroundColor;
+            this.RandomizeEffects = randomizeEffects;
+            this.ReverseTransitions = reverseTransitions;
+            this.ManualTransitionTrumpsActiveTransition = manualTransitionTrumpsActiveTransition;
         }
 
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>
         public bool AutoStop
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.autoStop;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.autoStop = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the number of transitions to display before stopping when <see cref="AutoStop"/> is <c>true</c></summary>
         public int AutoStopCount
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.autoStopCount;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.autoStopCount = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating container height, defaults to "auto"</summary>
         public Unit ContainerHeight
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.containerHeight;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.containerHeight = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating container width, defaults to <see cref="Unit.Empty"/></summary>
         public Unit ContainerWidth
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.containerWidth;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.containerWidth = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether to resize the container to fit largest slide</summary>
         public bool ContainerResize
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.containerResize;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.containerResize = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether to start the next transition immediately after the current one completes</summary>
         public bool Continuous
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.continuous;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.continuous = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the additional delay (in ms) for the first transition (hint: can be negative)</summary>
         public decimal InitialDelay
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.initialDelay;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.initialDelay = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the time in ms for transitions triggered manually (via <see cref="PagerContainer"/> or <see cref="PreviousButton"/>/<see cref="NextButton"/>)</summary>
         public int ManuallyTriggeredTransitionSpeed
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.manuallyTriggeredTransitionSpeed;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.manuallyTriggeredTransitionSpeed = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the time in milliseconds between slide transitions (0 to disable auto advance)</summary>
         public int MillisecondsBetweenTransitions
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.millisecondsBetweenTransitions;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.millisecondsBetweenTransitions = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the ID of the element to use as click trigger for next slide</summary>
         public Control NextButton
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.nextButton;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.nextButton = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether to allow slideshow to loop, i.e. start again after going once through the <see cref="Slide"/>s</summary>
         public bool Loop
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.loop;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.loop = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the selector for the element to use as pager container</summary>
         public Control PagerContainer
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.pagerContainer;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.pagerContainer = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the name of event which drives the pager navigation</summary>
         public string PagerEvent
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.pagerEvent;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.pagerEvent = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether to enable "pause on hover"</summary>
         public bool PauseOnHover
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.pauseOnHover;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.pauseOnHover = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether to pause when hovering over pager link</summary>
         public bool PauseOnPagerHover
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.pauseOnPagerHover;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.pauseOnPagerHover = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the ID of the element to use as click trigger for previous slide</summary>
         public Control PreviousButton
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.previousButton;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.previousButton = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether slides are shown in random order or in sequence (not applicable to <see cref="Effects.shuffle"/>)</summary>
         public bool RandomOrder
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.randomOrder;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.randomOrder = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether in/out transitions should occur simultaneously</summary>
         public bool SimultaneousTransitions
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.simultaneousTransitions;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.simultaneousTransitions = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating whether to force slides to fit within the container</summary>
         public bool ForceSlidesToFitContainer
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.forceSlidesToFitContainer;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.forceSlidesToFitContainer = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the zero-based index of the first slide to be displayed</summary>
         public int StartingSlideIndex
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.startingSlideIndex;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.startingSlideIndex = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the transition effect or effects</summary>
         public Effects TransitionEffects
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.transitionEffects;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.transitionEffects = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>Gets or sets a value indicating the speed of the transition in ms</summary>
         public int TransitionSpeed
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.transitionSpeed;
-            }
+            get;
+            set;
+        }
 
-            [DebuggerStepThrough]
-            set
-            {
-                this.transitionSpeed = value;
-            }
+        /// <summary>Gets or sets a value indicating whether to disable extra cleartype fixing (leave <c>false</c> to force background color setting on slides)</summary>
+        public bool HasNoBackgroundColor
+        {
+            get;
+            set;
+        }
+
+        /// <summary>Gets or sets a value indicating whether to make the effect sequence random.  Valid when multiple effects are used</summary>
+        public bool RandomizeEffects
+        {
+            get;
+            set;
+        }
+
+        /// <summary>Gets or sets a value indicating whether to cause animations to transition in reverse</summary>
+        public bool ReverseTransitions
+        {
+            get;
+            set;
+        }
+
+        /// <summary>Gets or sets a value indicating whether to cause a manual transition to stop an active transition instead of being ignored.</summary>
+        public bool ManualTransitionTrumpsActiveTransition
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -513,7 +264,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The serialized JSON string</returns>
         public string Serialize()
         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
             serializer.RegisterConverters(new JavaScriptConverter[] { new CycleOptionsConverter() });
             return serializer.Serialize(this);
         }
