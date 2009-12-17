@@ -169,6 +169,7 @@
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_01_flat_75.png" />
     <Content Include="images\tab-bg.gif" />
     <Content Include="ReleaseNotes_2.0.0.htm" />
+    <Content Include="ReleaseNotes_2.0.2.htm" />
     <Content Include="TemplateSelection.ascx" />
     <Content Include="images\bottom-header-bg.gif" />
     <Content Include="images\JQueryUiTheme\222222_11x11_icon_arrows_leftright.gif" />
