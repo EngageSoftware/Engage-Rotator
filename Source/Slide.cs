@@ -361,6 +361,9 @@ namespace Engage.Dnn.ContentRotator
                         return this.imageUrl;
                     case "TITLE":
                         return this.title;
+                    case "SLIDEID":
+                    case "SLIDE ID":
+                        return this.slideId.ToString(format, CultureInfo.CurrentCulture);
 
                         // Index is for internal use only, not intended to be documented to the public
                     case "INDEX":

@@ -24,6 +24,13 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element minOccurs="0" name="Scripts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Script" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:all>
       <xs:attribute name="Module" type="xs:string" use="required" />
       <xs:attribute name="Type" use="required">
