@@ -162,6 +162,7 @@
     </Content>
     <None Include="JavaScript\jquery-1.2.6-vsdoc.js" />
     <None Include="JavaScript\jquery-1.2.6.js" />
+    <Content Include="ReleaseNotes_2.1.0.htm" />
     <Content Include="References\System.Web.Extensions.dll" />
     <Content Include="ReleaseNotes_2.0.1.htm" />
     <Content Include="images\arrow_down.gif" />
