@@ -22,7 +22,8 @@ wbr:after { content: "\00200B" }
 .TitleTextBox{width: 90%;}
 #editContent {overflow: auto; border-top: 1px #ccc solid; padding: 10px 0;}
 .engage-rotator-container{clear:both;}
-	.rotate-wrap{clear:both;}
+	.rotate-wrap{clear:both;position:relative;}
+	.rotate-wrap > *{position:absolute;top:0;left:0;} /*stack the direct children of .rotate-wrap until the jQuery kicks in.  Doesn't work in IE 6*/
 		.rotatorContentWrapper{clear:both;overflow:hidden;}
 
 .rotatorWrapper{width: 100%; clear: both; overflow: hidden; background: transparent;}
