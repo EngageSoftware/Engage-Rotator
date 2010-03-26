@@ -15,6 +15,7 @@ namespace Engage.Dnn.ContentRotator
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
+    using DotNetNuke.Common.Utilities;
     using DotNetNuke.Framework.Providers;
     using Microsoft.ApplicationBlocks.Data;
 
@@ -53,26 +54,22 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         public SqlDataProvider()
         {
-            // Read the configuration specific information for this provider
-            ProviderConfiguration providerConfiguration = ProviderConfiguration.GetProviderConfiguration("data");
-            Provider objProvider = (Provider)providerConfiguration.Providers[providerConfiguration.DefaultProvider];
-            if (!String.IsNullOrEmpty(objProvider.Attributes["connectionStringName"]) && !String.IsNullOrEmpty(ConfigurationManager.AppSettings[objProvider.Attributes["connectionStringName"]]))
+            ProviderConfiguration dataProviderConfigurationSection = ProviderConfiguration.GetProviderConfiguration("data");
+            var defaultDataProviderConfiguration = (Provider)dataProviderConfigurationSection.Providers[dataProviderConfigurationSection.DefaultProvider];
+            this.connectionString = Config.GetConnectionString();
+            if (string.IsNullOrEmpty(this.connectionString))
             {
-                this.connectionString = ConfigurationManager.AppSettings[objProvider.Attributes["connectionStringName"]];
-            }
-            else
-            {
-                this.connectionString = objProvider.Attributes["connectionString"];
+                this.connectionString = defaultDataProviderConfiguration.Attributes["connectionString"];
             }
 
-            this.objectQualifier = objProvider.Attributes["objectQualifier"];
-            if (!String.IsNullOrEmpty(this.objectQualifier) && !this.objectQualifier.EndsWith("_", StringComparison.OrdinalIgnoreCase))
+            this.objectQualifier = defaultDataProviderConfiguration.Attributes["objectQualifier"];
+            if (!string.IsNullOrEmpty(this.objectQualifier) && !this.objectQualifier.EndsWith("_", StringComparison.OrdinalIgnoreCase))
             {
                 this.objectQualifier += "_";
             }
 
-            this.databaseOwner = objProvider.Attributes["databaseOwner"];
-            if (!String.IsNullOrEmpty(this.databaseOwner) && !this.databaseOwner.EndsWith(".", StringComparison.OrdinalIgnoreCase))
+            this.databaseOwner = defaultDataProviderConfiguration.Attributes["databaseOwner"];
+            if (!string.IsNullOrEmpty(this.databaseOwner) && !this.databaseOwner.EndsWith(".", StringComparison.OrdinalIgnoreCase))
             {
                 this.databaseOwner += ".";
             }
