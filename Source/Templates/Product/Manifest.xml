@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
+  <Title>Product</Title>
+  <Description>
+    Displays the image on the left and the content on the right.
+    The image is 39% of the total content pane width and the content is 59% of the total content pane width. 
+    The pager images appear at the bottom in a horizontal row (with a width of 90% of the total content pane) with a previous and next button on either end.  
+    It is advised to make pager images proportionate to the width of the area and number of slides used for best results. 
+    The pager image for the current slide will have a small border around it.
+  </Description>
+  <Stylesheet>Style.css</Stylesheet>
+  <Template>Template.htm</Template>
+  <ResourceFile>App_LocalResources\Template.resx</ResourceFile>
+  <PreviewImage>Preview.jpg</PreviewImage>
+</EngageManifest>

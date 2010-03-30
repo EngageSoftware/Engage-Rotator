@@ -1,0 +1,22 @@
+<div class="ribbon-wrap">
+    <div class="rotate-wrap">
+        <Engage:List>
+            <div class="content-wrap">
+                <div class="image"><Engage:img src="%#ImageUrl%" alt="%#Title%" /></div>
+                <div class="title_body">
+                    <h2><Engage:Literal Text="%#Title%" /></h2>
+                    <p>
+                        <Engage:Literal Text="%#Content%" />
+                        <Engage:a href="%#LinkURL%" target="_blank">View Link for <Engage:Literal Text="%#Title%" /></Engage:a>
+                    </p>
+                </div>
+            </div>
+        </Engage:List>
+    </div>
+    <div class="pager">
+        <Engage:RotateBack CssClass="back" Text="Back" />
+        <Engage:RotatePause Text="Pause" />
+        <Engage:RotatePlay Text="Play" />
+        <Engage:RotateNext CssClass="next" Text="Next" />
+    </div>
+</div>

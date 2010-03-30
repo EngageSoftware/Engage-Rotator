@@ -1,0 +1,34 @@
+<div class="News">
+	<div class="top-half">
+        <div class="rotate-wrap"><engage:comment>.rotate-wrap is required around content to be rotated</engage:comment>
+            <engage:list>
+				<div class="image"><engage:img class="rotatorThumbnail" src="%#ImageUrl%" alt="" /></div>
+			</engage:list>
+        </div>
+        <div class="rotate-wrap"><engage:comment>.rotate-wrap is required around content to be rotated</engage:comment>
+			<engage:list>
+                <div class="content">
+                    <h2 class="slidetitle"><engage:literal text="%#Title%"/></h2>
+                    <div class="content_body"><engage:literal text="%#Content%"/></div>
+                    <Engage:a href="%#LinkURL%" target="_blank">View Link for <Engage:Literal Text="%#Title%" /></Engage:a>
+                </div>
+            </engage:list>
+        </div>
+        
+    </div>
+	<div class="bottom-half">
+        <div class="rotate-wrap"><engage:comment>.rotate-wrap is required around content to be rotated</engage:comment>
+			<div class="pager_wrap">
+                    <div class="pager_items_wrap">
+                        <div class="pager_items">
+                            <engage:list>
+                                <Engage:PagerItem>
+                                    <Engage:Image ImageUrl-PropertyName="PagerImageUrl" CssClass="rotatorPositionThumbnail" AlternateText-PropertyName="Title" />
+                                    
+                             </engage:list>
+                        </div>
+                    </div>
+        	</div>
+        </div>
+    </div>
+</div>

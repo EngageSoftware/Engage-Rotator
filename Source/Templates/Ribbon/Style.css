@@ -1,0 +1,14 @@
+.ribbon-wrap{position:relative;width:530px;height:139px;border:2px solid #999;padding:3px;overflow:hidden; }
+	.ribbon-wrap .rotate-wrap{width:100%;float:left;position:relative;z-index:1;}
+		.ribbon-wrap .content-wrap .title_body {background: url(images/body-bg.png) top left;position:absolute;top:0px;left:20px;width:195px;height:100%;padding:0 15px;}
+			.ribbon-wrap .content-wrap .title_body h2 {color:#fff;font-size:16px;font-weight:bold;padding:10px 0 5px 0;}
+			.ribbon-wrap .content-wrap .title_body p {color:#eee;}	
+	.ribbon-wrap .pager {position:absolute;bottom:10px;right:10px;width:100px;z-index:999;clear:both;}
+		.ribbon-wrap .pager .back,
+		.ribbon-wrap .pager .next, 
+		.ribbon-wrap .pager .rotator-pause,
+		.ribbon-wrap .pager .rotator-play{text-indent:-5000px;float:left;height:20px;width:33px;cursor:pointer;}
+		.ribbon-wrap .pager .back {background: url(images/back.png) no-repeat; }
+		.ribbon-wrap .pager .rotator-pause {background: url(images/pause.png) no-repeat;}
+		.ribbon-wrap .pager .rotator-play {background: url(images/play.png) no-repeat;}
+		.ribbon-wrap .pager .next {background:url(images/next.png) no-repeat;}

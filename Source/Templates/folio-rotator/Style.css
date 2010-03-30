@@ -1,0 +1,6 @@
+.folio-template{overflow:hidden;width:100%;}
+.folio-template .rotate-wrap{width:100%;float:left;overflow:hidden;position:relative;z-index:1;}
+	.folio-template .engage-content p{margin:0;}
+	.folio-template .footer{position:absolute;bottom:0;right:0;width:100%;background: transparent url(images/footer-bg.png) repeat top left;height:auto;}
+		.folio-template .title{color:#fff;padding:10px 15px 2px;font-size:16px;}
+		.folio-template .desc{color:#fff;padding:0 15px 10px;font-size:12px;}			

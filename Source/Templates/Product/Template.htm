@@ -1,0 +1,33 @@
+<div class="Product">
+	<div class="top-half">
+        <div class="rotate-wrap"><engage:comment>.rotate-wrap is required around content to be rotated</engage:comment>
+            <engage:list>
+                    <div class="image"><engage:img class="rotatorThumbnail" src="%#ImageUrl%" alt="" /></div>
+               </engage:list>
+        </div>
+        <div class="pager_wrap">
+            <Engage:RotateBack CssClass="pager_prev"/>
+                <div class="pager_items_wrap">
+                    <div class="pager_items">
+                        <engage:list>
+                            <Engage:PagerItem>
+                                <Engage:Image ImageUrl-PropertyName="PagerImageUrl" CssClass="rotatorPositionThumbnail" AlternateText-PropertyName="Title" />
+                                
+                         </engage:list>
+                    </div>
+                </div>
+            <Engage:RotateNext CssClass="pager_next"/>
+        </div>
+    </div>
+	<div class="bottom-half">
+        <div class="rotate-wrap"><engage:comment>.rotate-wrap is required around content to be rotated</engage:comment>
+            <engage:list>
+                <div class="content">
+                    <h2 class="slidetitle"><engage:literal text="%#Title%"/></h2>
+                    <div class="content_body"><engage:literal text="%#Content%"/></div>
+                </div>
+            </engage:list>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>

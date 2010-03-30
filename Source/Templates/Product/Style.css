@@ -1,0 +1,20 @@
+
+.Product{overflow:visible;height:100%;width:100%;padding:10px;}
+	.Product .top-half{position:relative;}
+		.Product .top-half .slidetitle{color:#fff;}
+	.Product .bottom-half{clear:both;padding:20px 0 0;}
+
+		.Product .image{width:100%;overflow:hidden;}
+		.Product .content{width:100%;overflow:hidden;}
+			.Product .slidetitle{margin:0;padding:0;}
+			.Product .content_body{}
+			.Product .link{}
+	.Product .pager_wrap{clear:both;width:100%;overflow:hidden;background: transparent url(images/footer-bg.png) repeat top left;position:absolute;bottom:0px;z-index:9999;}
+	.Product .pager_prev, .Product .pager_next{width:5%;width:31px;height:63px;cursor: pointer;padding:5px 0;}
+		.Product .pager_prev{float:left;background: #222 url(images/prev.gif) no-repeat center left;}
+		.Product .pager_items_wrap{float:left;width:auto; margin-left:3%; margin-right:3%;padding:8px 0 0;}
+			.Product .pager_items div{display:inline;padding:2px;cursor: pointer;}
+				.Product .pager-item-on img{border:solid 1px #ccc !important;}
+				.RotatorOptions .rotatorThumbnail, .rotatorPositionThumbnail {padding:2px;}
+		.Product .pager_next{float:right;background: #222 url(images/next.gif) no-repeat center left;}
+		

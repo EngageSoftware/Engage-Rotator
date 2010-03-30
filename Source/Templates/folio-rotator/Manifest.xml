@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
+  <Title>Folio Rotator</Title>
+  <Description>
+	&lt;p>Displays the slide at 902px wide.&lt;/p>
+	&lt;p>This template features title and description (content) on top of the image selected with a semi-transparent black background.&lt;/p>
+    &lt;p>This template is designed especially for Engage:Folio, but can be used with any skin. to change the dimensions of the template, simply open up the style.css and alter away!&lt;/p>
+  </Description>
+  <Stylesheet>Style.css</Stylesheet>
+  <Template>Template.htm</Template>
+  <PreviewImage>Preview.jpg</PreviewImage>
+</EngageManifest>

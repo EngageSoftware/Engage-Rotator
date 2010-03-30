@@ -1,0 +1,18 @@
+.News{overflow:visible;height:100%;width:100%;border:solid 1px #ccc;}
+	.News .top-half{padding:15px;border-bottom:1px solid #ccc;}
+		.News .top-half .slidetitle{color:#fff;}
+	.News .bottom-half{clear:both;height:74px;background:#EAEFF2;border-top:1px solid #fff;position:relative;}
+
+		.News .image{width:100%;overflow:hidden;}
+		.News .content{width:100%;overflow:hidden;}
+			.News .slidetitle{margin:0;padding:0;}
+			.News .content_body{}
+			.News .link{}
+	.News .pager_wrap{clear:both;width:100%;}
+	.News .pager_prev, .News .pager_next{width:5%;width:31px;height:63px;cursor: pointer;padding:5px 0;}
+		.News .pager_prev{float:left;background: #222 url(images/prev.gif) no-repeat center left;}
+		.News .pager_items_wrap{float:left;width:auto; margin-left:3%; margin-right:3%;padding:0;position:absolute;bottom:-92px;z-index:-9999px;}
+			.News .pager_items div{display:inline;padding:8px;cursor: pointer;}
+				.News .pager-item-on img{background: transparent url(images/sel-bg.png) no-repeat top center;}
+				.News .RotatorOptions .rotatorThumbnail, .News .rotatorPositionThumbnail {padding:24px 16px;}
+		.News .pager_next{float:right;background: #222 url(images/next.gif) no-repeat center left;}
