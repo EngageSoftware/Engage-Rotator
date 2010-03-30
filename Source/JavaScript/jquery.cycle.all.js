@@ -1317,7 +1317,7 @@ $.fn.cycle.defaults = {
                 .addClass('rotator-play-on')
                 .getParentRotator().cycle('resume');
 
-            $('rotator-pause')
+            $('.rotator-pause')
                 .removeClass('rotator-pause-on');
         });
 
