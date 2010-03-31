@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
   <Title>Ribbon</Title>
-  <Description></Description>
+  <Description>
+	<![CDATA[<p>Displays the image with the title and content of your slide in a transparent black ribbon over the left side of your slide.</p>
+  <p>Currently this template is a set height and width, but that can be easily altered via the included Style.css file, or via the portal stylesheet.</p>
+  <p>There are semi-transparent controls to move forward and backward, as well as play and pause in the lower right hand corner of the slide.</p>]]>
+  </Description>
   <Stylesheet>Style.css</Stylesheet>
   <Template>Template.htm</Template>
-  <PreviewImage></PreviewImage>
+  <ResourceFile>App_LocalResources\Template.resx</ResourceFile>
+  <PreviewImage>Preview.jpg</PreviewImage>
 </EngageManifest>

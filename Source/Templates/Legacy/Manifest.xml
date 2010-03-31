@@ -2,8 +2,8 @@
 <EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
   <Title>Legacy</Title>
   <Description>
-    Mimicks the structure of Engage: Rotator 1.x.  Displays a constant header title and link, then the image, title, content, and "read more", all wrapped in links.
-    Outside of the rotator are the pager images and titles, followed by previous, pause, and next links, and finally the position counter ("1 of 2").
+    <![CDATA[<p>Mimicks the structure of Engage: Rotator 1.x.  Displays a constant header title and link, then the image, title, content, and "read more", all wrapped in links.
+    Outside of the rotator are the pager images and titles, followed by previous, pause, and next links, and finally the position counter ("1 of 2").</p>]]>
   </Description>
   <Stylesheet>Style.css</Stylesheet>
   <Template>Template.htm</Template>

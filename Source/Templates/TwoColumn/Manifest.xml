@@ -2,11 +2,11 @@
 <EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
   <Title>Two Column</Title>
   <Description>
-    Displays the image on the left and the content on the right.
-    The image is 39% of the total content pane width and the content is 59% of the total content pane width. 
-    The pager images appear at the bottom in a horizontal row (with a width of 90% of the total content pane) with a previous and next button on either end.  
-    It is advised to make pager images proportionate to the width of the area and number of slides used for best results. 
-    The pager image for the current slide will have a small border around it.
+    <![CDATA[<p>Displays the image on the left and the content on the right.</p>
+    <p>The image is 39% of the total content pane width and the content is 59% of the total content pane width. </p>
+    <p>The pager images appear at the bottom in a horizontal row (with a width of 90% of the total content pane) with a previous and next button on either end.  </p>
+    <p>It is advised to make pager images proportionate to the width of the area and number of slides used for best results. </p>
+    <p>The pager image for the current slide will have a small border around it.</p>]]>
   </Description>
   <Stylesheet>Style.css</Stylesheet>
   <Template>Template.htm</Template>
