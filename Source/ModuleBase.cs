@@ -11,6 +11,13 @@
 
 namespace Engage.Dnn.ContentRotator
 {
+#if TRIAL
+    using System;
+    using System.Web.UI;
+
+    using Licensing;
+#endif
+
     /// <summary>
     /// The base class for all module controls in Rotator
     /// </summary>
@@ -27,5 +34,18 @@ namespace Engage.Dnn.ContentRotator
                 return "Engage: Rotator";
             }
         }
+
+#if TRIAL
+        /// <summary>
+        /// Raises the <see cref="Control.Init"/> event.
+        /// </summary>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        protected override void OnInit(System.EventArgs e)
+        {
+            this.LicenseProvider = new TrialLicenseProvider(FeaturesController.ModuleLicenseKey);
+
+            base.OnInit(e);
+        }
+#endif
     }
 }
