@@ -15,7 +15,7 @@
     <include name="Engage.Dnn.Framework_Source.zip"/>
   </patternset>
   <property name="projectDllName" value="Engage.${projectName}.dll" />
-  <property name="solutionFile" value="Engage${projectName}2008.sln"/>
+  <property name="solutionFile" value="Engage${projectName}_VS2008.sln"/>
   <property name="binDirectory" value="..\..\bin" overwrite="false"/> <!-- binDirectory is readonly if set from the command line (i.e. during Team Build CI) -->
   <property name="trialBinDirectory" value="${binDirectory}\..\trialBin"/>
   <property name="currentBinDirectory" value="${binDirectory}"/>
@@ -248,14 +248,6 @@
     <delete file="${packageDirectory}/${sourcePackageFileName}.zip" failonerror="false"/>
   </target>
   <target name="get-project-specific-dependencies" description="Puts source packages for any dependencies that can't be retrieved through the normal get-dependency-source target in dependencyPackageDirectory">
-    <xmlpeek file="EngageSurvey.csproj" property="engageSurveyFrameworkProjectFile" xpath="/x:Project/x:ItemGroup/x:ProjectReference[x:Name='Engage.Survey']/@Include">
-      <namespaces>
-        <namespace prefix="x" uri="http://schemas.microsoft.com/developer/msbuild/2003"/>
-      </namespaces>
-    </xmlpeek>
-    <property name="engageSurveyFrameworkDirectory" value="${path::get-directory-name(engageSurveyFrameworkProjectFile)}"/>
-    <nant buildfile="${path::combine(engageSurveyFrameworkDirectory, 'Engage.Survey.Build')}"/>
-    <copy file="${path::combine(engageSurveyFrameworkDirectory, '../package/Engage.Survey_Source.zip')}" todir="${dependencyPackageDirectory}"/>
   </target>
   <target name="project-specific-tasks" description="Place tasks specific to the current project in this task">
   </target>
