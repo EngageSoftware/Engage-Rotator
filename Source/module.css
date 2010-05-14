@@ -101,22 +101,22 @@ wbr:after { content: "\00200B" }
 */
 
 /*UI tabs*/
-.ui-tabs-nav {
+.RotatorContent .ui-tabs-nav {
 	/*resets*/margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;list-style:none;
 	float:left;
 	position:relative;
 	z-index:1;
 }
-.ui-tabs-nav ul {
+.RotatorContent .ui-tabs-nav ul {
 	/*resets*/margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;list-style:none;border-left:1px solid #d3d3d3;overflow:hidden;
 }
-.ui-tabs-nav li {
+.RotatorContent .ui-tabs-nav li {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
 	float:left;
 	border-right:1px solid #d3d3d3;
 	border-top:2px #999 solid;
 }
-.ui-tabs-nav li a {
+.RotatorContent .ui-tabs-nav li a {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
 	float: left;
 	font-weight:bold;
@@ -125,19 +125,19 @@ wbr:after { content: "\00200B" }
 	color:#000;
 	background: #ccc url(images/tab-bg.gif) repeat-x;
 }
-.ui-tabs-nav li a:hover {
+.RotatorContent .ui-tabs-nav li a:hover {
 	background: #dadada url(images/JQueryUiTheme/dadada_40x100_textures_02_glass_75.png) 0 50% repeat-x;
 	color: #212121;
 }
-.ui-tabs-nav li.ui-tabs-selected {
+.RotatorContent .ui-tabs-nav li.ui-tabs-selected {
 	border-bottom-color: #ffffff;
 	border-top:2px #000 solid;
 }
-.ui-tabs-nav li.ui-tabs-selected a, .ui-tabs-nav li.ui-tabs-selected a:hover {
+.RotatorContent .ui-tabs-nav li.ui-tabs-selected a, .RotatorContent .ui-tabs-nav li.ui-tabs-selected a:hover {
 	background: #ffffff url(images/JQueryUiTheme/ffffff_40x100_textures_02_glass_65.png) 0 50% repeat-x;
 	color: #212121;
 }
-.ui-tabs-panel {
+.RotatorContent .ui-tabs-panel {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
 	font-family: Verdana,Arial,sans-serif;
 	clear:left;
@@ -147,13 +147,13 @@ wbr:after { content: "\00200B" }
 	padding: 1.5em 1.7em;	
 	font-size: 1.1em;
 }
-.ui-tabs-hide {
+.RotatorContent .ui-tabs-hide {
 	display: none;/* for accessible hiding: position: absolute; left: -99999999px*/;
 }
 
 /*datepicker*/
 /* Main Style Sheet for jQuery UI date picker */
-.ui-datepicker-div, .ui-datepicker-inline, #ui-datepicker-div {
+.RotatorContent .ui-datepicker-div, .RotatorContent .ui-datepicker-inline, .RotatorContent #ui-datepicker-div {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
 	font-family: Verdana,Arial,sans-serif;
 	background: #ffffff url(images/JQueryUiTheme/ffffff_40x100_textures_01_flat_75.png) 0 0 repeat-x;
@@ -163,33 +163,33 @@ wbr:after { content: "\00200B" }
 	padding: 2.5em .5em .5em .5em;
 	position: relative;
 }
-.ui-datepicker-div, #ui-datepicker-div {
+.RotatorContent .ui-datepicker-div,.RotatorContent  #ui-datepicker-div {
 	z-index: 9999; /*must have*/
 	display: none;
 }
-.ui-datepicker-inline {
+.RotatorContent .ui-datepicker-inline {
 	float: left;
 	display: block;
 }
-.ui-datepicker-control {
+.RotatorContent .ui-datepicker-control {
 	display: none;
 }
-.ui-datepicker-current {
+.RotatorContent .ui-datepicker-current {
 	display: none;
 }
-.ui-datepicker-next, .ui-datepicker-prev {
+.RotatorContent .ui-datepicker-next,.RotatorContent  .ui-datepicker-prev {
 	position: absolute;
 	left: .5em;
 	top: .5em;
 	background: #e6e6e6 url(images/JQueryUiTheme/e6e6e6_40x100_textures_02_glass_75.png) 0 50% repeat-x;
 }
-.ui-datepicker-next {
+.RotatorContent .ui-datepicker-next {
 	left: 14.6em;
 }
-.ui-datepicker-next:hover, .ui-datepicker-prev:hover {
+.RotatorContent .ui-datepicker-next:hover,.RotatorContent  .ui-datepicker-prev:hover {
 	background: #dadada url(images/JQueryUiTheme/dadada_40x100_textures_02_glass_75.png) 0 50% repeat-x;
 }
-.ui-datepicker-next a, .ui-datepicker-prev a {
+.RotatorContent .ui-datepicker-next a,.RotatorContent  .ui-datepicker-prev a {
 	text-indent: -999999px;
 	width: 1.3em;
 	height: 1.4em;
@@ -199,22 +199,22 @@ wbr:after { content: "\00200B" }
 	border: 1px solid #d3d3d3;
 	cursor: pointer;
 }
-.ui-datepicker-next a {
+.RotatorContent .ui-datepicker-next a {
 	background: url(images/JQueryUiTheme/888888_7x7_arrow_right.gif) 50% 50% no-repeat;
 }
-.ui-datepicker-prev a:hover {
+.RotatorContent .ui-datepicker-prev a:hover {
 	background: url(images/JQueryUiTheme/454545_7x7_arrow_left.gif) 50% 50% no-repeat;
 }
-.ui-datepicker-next a:hover {
+.RotatorContent .ui-datepicker-next a:hover {
 	background: url(images/JQueryUiTheme/454545_7x7_arrow_right.gif) 50% 50% no-repeat;
 }
-.ui-datepicker-prev a:active {
+.RotatorContent .ui-datepicker-prev a:active {
 	background: url(images/JQueryUiTheme/454545_7x7_arrow_left.gif) 50% 50% no-repeat;
 }
-.ui-datepicker-next a:active {
+.RotatorContent .ui-datepicker-next a:active {
 	background: url(images/JQueryUiTheme/454545_7x7_arrow_right.gif) 50% 50% no-repeat;
 }
-.ui-datepicker-header select {
+.RotatorContent .ui-datepicker-header select {
 	border: 1px solid #d3d3d3;
 	color: #555555;
 	background: #e6e6e6;
@@ -224,22 +224,22 @@ wbr:after { content: "\00200B" }
 	top: .5em;
 	margin: 0 !important;
 }
-.ui-datepicker-header option:focus, .ui-datepicker-header option:hover {
+.RotatorContent .ui-datepicker-header option:focus,.RotatorContent .ui-datepicker-header option:hover {
 	background: #dadada;
 }
-.ui-datepicker-header select.ui-datepicker-new-month {
+.RotatorContent .ui-datepicker-header select.ui-datepicker-new-month {
 	width: 7em;
 	left: 2.2em;
 }
-.ui-datepicker-header select.ui-datepicker-new-year {
+.RotatorContent .ui-datepicker-header select.ui-datepicker-new-year {
 	width: 5em;
 	left: 9.4em;
 }
-table.ui-datepicker {
+.RotatorContent table.ui-datepicker {
 	width: 15.5em;
 	text-align: right;
 }
-table.ui-datepicker td a {
+.RotatorContent table.ui-datepicker td a {
 	padding: .1em .3em .1em 0;
 	display: block;
 	color: #555555;
@@ -247,27 +247,27 @@ table.ui-datepicker td a {
 	cursor: pointer;
 	border: 1px solid #ffffff;
 }
-table.ui-datepicker td a:hover {
+.RotatorContent table.ui-datepicker td a:hover {
 	border: 1px solid #999999;
 	color: #212121;
 	background: #dadada url(images/JQueryUiTheme/dadada_40x100_textures_02_glass_75.png) 0 50% repeat-x;
 }
-table.ui-datepicker td a:active {
+.RotatorContent table.ui-datepicker td a:active {
 	border: 1px solid #aaaaaa;
 	color: #212121;
 	background: #ffffff url(images/JQueryUiTheme/ffffff_40x100_textures_02_glass_65.png) 0 50% repeat-x;
 }
-table.ui-datepicker .ui-datepicker-title-row td {
+.RotatorContent table.ui-datepicker .ui-datepicker-title-row td {
 	padding: .3em 0;
 	text-align: center;
 	font-size: .9em;
 	color: #222222;
 	text-transform: uppercase;
 }
-table.ui-datepicker .ui-datepicker-title-row td a {
+.RotatorContent table.ui-datepicker .ui-datepicker-title-row td a {
 	color: #222222;
 }
-.ui-datepicker-cover {
+.RotatorContent .ui-datepicker-cover {
 	display: none;
 	display/**/: block;
 	position: absolute;
@@ -284,135 +284,135 @@ Generic ThemeRoller Classes
 */
 
 /*component global class*/
-.ui-component {
+.RotatorContent .ui-component {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
 	font-family: Verdana,Arial,sans-serif;
 	font-size: 1.1em;
 }
 /*component content styles*/
-.ui-component-content {
+.RotatorContent .ui-component-content {
 	border: 1px solid #aaaaaa;
 	background: #ffffff url(images/JQueryUiTheme/ffffff_40x100_textures_01_flat_75.png) 0 0 repeat-x;
 	color: #222222;
 }
-.ui-component-content a {
+.RotatorContent .ui-component-content a {
 	color: #222222;
 	text-decoration: underline;
 }
 /*component states*/
-.ui-default-state {
+.RotatorContent .ui-default-state {
 	border: 1px solid #d3d3d3;
 	background: #e6e6e6 url(images/JQueryUiTheme/e6e6e6_40x100_textures_02_glass_75.png) 0 50% repeat-x;
 	font-weight: normal;
 	color: #555555 !important;
 }
-.ui-default-state a {
+.RotatorContent .ui-default-state a {
 	color: #555555;
 }
-.ui-default-state:hover, .ui-hover-state {
+.RotatorContent .ui-default-state:hover,.RotatorContent  .ui-hover-state {
 	border: 1px solid #999999;
 	background: #dadada url(images/JQueryUiTheme/dadada_40x100_textures_02_glass_75.png) 0 50% repeat-x;
 	font-weight: normal;
 	color: #212121 !important;
 }
-.ui-hover-state a {
+.RotatorContent .ui-hover-state a {
 	color: #212121;
 }
-.ui-default-state:active, .ui-active-state {
+.RotatorContent .ui-default-state:active, .RotatorContent .ui-active-state {
 	border: 1px solid #aaaaaa;
 	background: #ffffff url(images/JQueryUiTheme/ffffff_40x100_textures_02_glass_65.png) 0 50% repeat-x;
 	font-weight: normal;
 	color: #212121 !important;
 	outline: none;
 }
-.ui-active-state a {
+.RotatorContent .ui-active-state a {
 	color: #212121;
 	outline: none;
 }
 /*icons*/
-.ui-arrow-right-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_right.gif) no-repeat 50% 50%;}
-.ui-arrow-right-default:hover, .ui-arrow-right-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_right.gif) no-repeat 50% 50%;}
-.ui-arrow-right-default:active, .ui-arrow-right-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_right.gif) no-repeat 50% 50%;}
-.ui-arrow-right-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-right-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-right-default:hover, .RotatorContent .ui-arrow-right-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-right-default:active, .RotatorContent .ui-arrow-right-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-right-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_right.gif) no-repeat 50% 50%;}
 
-.ui-arrow-left-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_left.gif) no-repeat 50% 50%;}
-.ui-arrow-left-default:hover, .ui-arrow-left-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_left.gif) no-repeat 50% 50%;}
-.ui-arrow-left-default:active, .ui-arrow-left-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_left.gif) no-repeat 50% 50%;}
-.ui-arrow-left-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-left-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-left-default:hover, .RotatorContent .ui-arrow-left-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-left-default:active, .RotatorContent .ui-arrow-left-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-left-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_left.gif) no-repeat 50% 50%;}
 
-.ui-arrow-down-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_down.gif) no-repeat 50% 50%;}
-.ui-arrow-down-default:hover, .ui-arrow-down-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_down.gif) no-repeat 50% 50%;}
-.ui-arrow-down-default:active, .ui-arrow-down-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_down.gif) no-repeat 50% 50%;}
-.ui-arrow-down-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-down-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-down-default:hover, .RotatorContent .ui-arrow-down-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-down-default:active, .RotatorContent .ui-arrow-down-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-down-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_down.gif) no-repeat 50% 50%;}
 
-.ui-arrow-up-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_up.gif) no-repeat 50% 50%;}
-.ui-arrow-up-default:hover, .ui-arrow-up-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_up.gif) no-repeat 50% 50%;}
-.ui-arrow-up-default:active, .ui-arrow-up-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_up.gif) no-repeat 50% 50%;}
-.ui-arrow-up-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-up-default {background: url(images/JQueryUiTheme/888888_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-up-default:hover, .RotatorContent .ui-arrow-up-hover {background: url(images/JQueryUiTheme/454545_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-up-default:active, .RotatorContent .ui-arrow-up-active {background: url(images/JQueryUiTheme/454545_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrow-up-content {background: url(images/JQueryUiTheme/222222_7x7_arrow_up.gif) no-repeat 50% 50%;}
 
-.ui-close-default {background: url(images/JQueryUiTheme/888888_11x11_icon_close.gif) no-repeat 50% 50%;}
-.ui-close-default:hover, .ui-close-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
-.ui-close-default:active, .ui-close-active {background: url(images/JQueryUiTheme/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
-.ui-close-content {background: url(images/JQueryUiTheme/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-close-default {background: url(images/JQueryUiTheme/888888_11x11_icon_close.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-close-default:hover, .RotatorContent .ui-close-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-close-default:active, .RotatorContent .ui-close-active {background: url(images/JQueryUiTheme/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-close-content {background: url(images/JQueryUiTheme/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
 
-.ui-folder-closed-default {background: url(images/JQueryUiTheme/888888_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
-.ui-folder-closed-default:hover, .ui-folder-closed-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
-.ui-folder-closed-default:active, .ui-folder-closed-active {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
-.ui-folder-closed-content {background: url(images/JQueryUiTheme/888888_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-closed-default {background: url(images/JQueryUiTheme/888888_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-closed-default:hover, .RotatorContent .ui-folder-closed-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-closed-default:active, .RotatorContent .ui-folder-closed-active {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-closed-content {background: url(images/JQueryUiTheme/888888_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
 
-.ui-folder-open-default {background: url(images/JQueryUiTheme/888888_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
-.ui-folder-open-default:hover, .ui-folder-open-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
-.ui-folder-open-default:active, .ui-folder-open-active {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
-.ui-folder-open-content {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-open-default {background: url(images/JQueryUiTheme/888888_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-open-default:hover, .RotatorContent .ui-folder-open-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-open-default:active, .RotatorContent .ui-folder-open-active {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-folder-open-content {background: url(images/JQueryUiTheme/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
 
-.ui-doc-default {background: url(images/JQueryUiTheme/888888_11x11_icon_doc.gif) no-repeat 50% 50%;}
-.ui-doc-default:hover, .ui-doc-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_doc.gif) no-repeat 50% 50%;}
-.ui-doc-default:active, .ui-doc-active {background: url(images/JQueryUiTheme/454545_11x11_icon_doc.gif) no-repeat 50% 50%;}
-.ui-doc-content {background: url(images/JQueryUiTheme/222222_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-doc-default {background: url(images/JQueryUiTheme/888888_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-doc-default:hover, .RotatorContent .ui-doc-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-doc-default:active, .RotatorContent .ui-doc-active {background: url(images/JQueryUiTheme/454545_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-doc-content {background: url(images/JQueryUiTheme/222222_11x11_icon_doc.gif) no-repeat 50% 50%;}
 
-.ui-arrows-leftright-default {background: url(images/JQueryUiTheme/888888_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
-.ui-arrows-leftright-default:hover, .ui-arrows-leftright-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
-.ui-arrows-leftright-default:active, .ui-arrows-leftright-active {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
-.ui-arrows-leftright-content {background: url(images/JQueryUiTheme/222222_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-leftright-default {background: url(images/JQueryUiTheme/888888_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-leftright-default:hover, .RotatorContent .ui-arrows-leftright-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-leftright-default:active, .RotatorContent .ui-arrows-leftright-active {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-leftright-content {background: url(images/JQueryUiTheme/222222_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
 
-.ui-arrows-updown-default {background: url(images/JQueryUiTheme/888888_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
-.ui-arrows-updown-default:hover, .ui-arrows-updown-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
-.ui-arrows-updown-default:active, .ui-arrows-updown-active {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
-.ui-arrows-updown-content {background: url(images/JQueryUiTheme/222222_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-updown-default {background: url(images/JQueryUiTheme/888888_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-updown-default:hover, .RotatorContent .ui-arrows-updown-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-updown-default:active, .RotatorContent .ui-arrows-updown-active {background: url(images/JQueryUiTheme/454545_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-arrows-updown-content {background: url(images/JQueryUiTheme/222222_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
 
-.ui-minus-default {background: url(images/JQueryUiTheme/888888_11x11_icon_minus.gif) no-repeat 50% 50%;}
-.ui-minus-default:hover, .ui-minus-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_minus.gif) no-repeat 50% 50%;}
-.ui-minus-default:active, .ui-minus-active {background: url(images/JQueryUiTheme/454545_11x11_icon_minus.gif) no-repeat 50% 50%;}
-.ui-minus-content {background: url(images/JQueryUiTheme/222222_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-minus-default {background: url(images/JQueryUiTheme/888888_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-minus-default:hover, .RotatorContent .ui-minus-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-minus-default:active, .RotatorContent .ui-minus-active {background: url(images/JQueryUiTheme/454545_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-minus-content {background: url(images/JQueryUiTheme/222222_11x11_icon_minus.gif) no-repeat 50% 50%;}
 
-.ui-plus-default {background: url(images/JQueryUiTheme/888888_11x11_icon_plus.gif) no-repeat 50% 50%;}
-.ui-plus-default:hover, .ui-plus-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_plus.gif) no-repeat 50% 50%;}
-.ui-plus-default:active, .ui-plus-active {background: url(images/JQueryUiTheme/454545_11x11_icon_plus.gif) no-repeat 50% 50%;}
-.ui-plus-content {background: url(images/JQueryUiTheme/222222_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-plus-default {background: url(images/JQueryUiTheme/888888_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-plus-default:hover, .RotatorContent .ui-plus-hover {background: url(images/JQueryUiTheme/454545_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-plus-default:active, .RotatorContent .ui-plus-active {background: url(images/JQueryUiTheme/454545_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.RotatorContent .ui-plus-content {background: url(images/JQueryUiTheme/222222_11x11_icon_plus.gif) no-repeat 50% 50%;}
 
 /*hidden elements*/
-.ui-hidden {
+.RotatorContent .ui-hidden {
 	display: none;/* for accessible hiding: position: absolute; left: -99999999px*/;
 }
-.ui-accessible-hidden {
+.RotatorContent .ui-accessible-hidden {
 	 position: absolute; left: -99999999px;
 }
 /*reset styles*/
-.ui-reset {
+.RotatorContent .ui-reset {
 	/*resets*/margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none;
 }
 /*clearfix class*/
-.ui-clearfix:after {
+.RotatorContent .ui-clearfix:after {
     content: "."; 
     display: block; 
     height: 0; 
     clear: both; 
     visibility: hidden;
 }
-.ui-clearfix {display: inline-block;}
+.RotatorContent .ui-clearfix {display: inline-block;}
 /* Hides from IE-mac \*/
-* html .ui-clearfix {height: 1%;}
-.ui-clearfix {display: block;}
+* html .RotatorContent .ui-clearfix {height: 1%;}
+.RotatorContent .ui-clearfix {display: block;}
 /* End hide from IE-mac */
 
 /* Note: for resizable styles, use the styles listed above in the dialog section */
