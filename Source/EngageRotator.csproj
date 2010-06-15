@@ -150,6 +150,7 @@
       <DependentUpon>RotatorEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Providers\DataProviders\DataProvider.cs" />
+    <Content Include="ReleaseNotes_2.2.0.htm" />
     <Content Include="Licenses\EULA-Enterprise.txt" />
     <Content Include="Licenses\EULA-Professional.txt" />
     <Content Include="Licenses\EULA-Standard.txt" />
