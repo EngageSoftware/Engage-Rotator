@@ -116,7 +116,8 @@ namespace Engage.Dnn.ContentRotator
                             this.ForceSlidesToFitContainer,
                             this.DisableAddingBackgroundColorForClearTypeFix,
                             this.RandomizeEffects,
-                            this.ManualTransitionTrumpsActiveTransition);
+                            this.ManualTransitionTrumpsActiveTransition,
+                            this.RotatorContainer);
                 }
 
                 return this.cycleOptions;
@@ -489,8 +490,7 @@ namespace Engage.Dnn.ContentRotator
         {
             Panel backButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            backButton.ID = "BackButton";
-            this.CycleOptions.PreviousButton = backButton;
+            backButton.CssClass = "rotator-prev";
 
             return backButton;
         }
@@ -509,8 +509,7 @@ namespace Engage.Dnn.ContentRotator
         {
             Panel nextButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            nextButton.ID = "NextButton";
-            this.CycleOptions.NextButton = nextButton;
+            nextButton.CssClass = "rotator-next";
 
             return nextButton;
         }
@@ -566,8 +565,7 @@ namespace Engage.Dnn.ContentRotator
         {
             Panel pagerContainer = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            pagerContainer.ID = "Pager";
-            this.CycleOptions.PagerContainer = pagerContainer;
+            pagerContainer.CssClass = "rotator-pager";
             this.CycleOptions.PagerEvent = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Event") ?? "click";
 
             return pagerContainer;

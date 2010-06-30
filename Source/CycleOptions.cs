@@ -43,8 +43,9 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="disableAddingBackgroundColorForClearTypeFix">if set to <c>true</c> do not apply the ClearType fix which adds a background color to each slide.</param>
         /// <param name="randomizeEffects">if set to <c>true</c> randomize the order of transition effects.</param>
         /// <param name="manualTransitionTrumpsActiveTransition">if set to <c>true</c> a manual transition trumps an active transition, rather than being ignored during an active transition.</param>
+        /// <param name="containerElement">The <see cref="Control"/> wrapping the rotator.</param>
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be <c>null</c> if <paramref name="autoStop"/> is <c>true</c></exception>
-        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer, bool disableAddingBackgroundColorForClearTypeFix, bool randomizeEffects, bool manualTransitionTrumpsActiveTransition)
+        public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer, bool disableAddingBackgroundColorForClearTypeFix, bool randomizeEffects, bool manualTransitionTrumpsActiveTransition, Control containerElement)
         {
             this.PagerEvent = "click";
 
@@ -72,6 +73,7 @@ namespace Engage.Dnn.ContentRotator
             this.DisableAddingBackgroundColorForClearTypeFix = disableAddingBackgroundColorForClearTypeFix;
             this.RandomizeEffects = randomizeEffects;
             this.ManualTransitionTrumpsActiveTransition = manualTransitionTrumpsActiveTransition;
+            this.ContainerElement = containerElement;
         }
 
         /// <summary>Gets or sets a value indicating whether to end slideshow after <see cref="AutoStopCount"/> transitions</summary>
@@ -83,6 +85,13 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>Gets or sets a value indicating the number of transitions to display before stopping when <see cref="AutoStop"/> is <c>true</c></summary>
         public int AutoStopCount
+        {
+            get;
+            set;
+        }
+
+        /// <summary>Gets or sets a value indicating the element wrapping the rotator</summary>
+        public Control ContainerElement
         {
             get;
             set;
@@ -137,22 +146,8 @@ namespace Engage.Dnn.ContentRotator
             set;
         }
 
-        /// <summary>Gets or sets a value indicating the ID of the element to use as click trigger for next slide</summary>
-        public Control NextButton
-        {
-            get;
-            set;
-        }
-
         /// <summary>Gets or sets a value indicating whether to allow slideshow to loop, i.e. start again after going once through the <see cref="Slide"/>s</summary>
         public bool Loop
-        {
-            get;
-            set;
-        }
-
-        /// <summary>Gets or sets a value indicating the selector for the element to use as pager container</summary>
-        public Control PagerContainer
         {
             get;
             set;
@@ -174,13 +169,6 @@ namespace Engage.Dnn.ContentRotator
 
         /// <summary>Gets or sets a value indicating whether to pause when hovering over pager link</summary>
         public bool PauseOnPagerHover
-        {
-            get;
-            set;
-        }
-
-        /// <summary>Gets or sets a value indicating the ID of the element to use as click trigger for previous slide</summary>
-        public Control PreviousButton
         {
             get;
             set;
