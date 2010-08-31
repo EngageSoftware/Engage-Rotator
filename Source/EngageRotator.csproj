@@ -20,7 +20,8 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,11 +75,13 @@
       <HintPath>..\..\bin\DotNetNuke.WebUtility.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Engage.Dnn.Framework, Version=1.1.0.30545, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Engage.Dnn.Framework, Version=3.1.6.25461, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Framework\Engage.Dnn.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="Engage.Framework, Version=2.0.6.30532, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Engage.Framework, Version=3.1.4.25459, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Framework\Engage.Framework.dll</HintPath>
     </Reference>
     <Reference Include="microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
@@ -87,12 +90,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -150,6 +156,9 @@
       <DependentUpon>RotatorEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Providers\DataProviders\DataProvider.cs" />
+    <Content Include="References\Framework\Engage.Dnn.Framework.dll" />
+    <Content Include="References\Framework\Engage.Events.dll" />
+    <Content Include="References\Framework\Engage.Framework.dll" />
     <Content Include="ReleaseNotes_2.2.0.htm" />
     <Content Include="Licenses\EULA-Enterprise.txt" />
     <Content Include="Licenses\EULA-Professional.txt" />
@@ -233,8 +242,6 @@
     <Content Include="images\top-header-bg.gif" />
     <Content Include="References\DotNetNuke.dll" />
     <Content Include="References\DotNetNuke.WebUtility.dll" />
-    <Content Include="References\Engage.Dnn.Framework.dll" />
-    <Content Include="References\Engage.Framework.dll" />
     <Content Include="References\Microsoft.ApplicationBlocks.Data.dll" />
     <Content Include="App_LocalResources\TemplateSelection.ascx.resx">
     </Content>
