@@ -1,6 +1,6 @@
 .element-template{overflow:hidden;width:950px;padding-top:20px;}
  	.element-template .rotate-wrap{width:950px;overflow:hidden;position:relative;z-index:1;}
-    	.element-template .engage-content{width:950px;}
+    	.element-template .engage-content{width:950px;background-color:transparent !important;}
             	.element-template .element-info{float:left;width:450px;}
                 	.element-template .title{font-size:30px;text-shadow:1px 1px 1px #555;}
                     .element-template .desc{padding-top:15px;}
