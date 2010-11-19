@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
+  <Title>Pure Rotator</Title>
+  <Description>
+	&lt;p>Displays the slide's content at 938px wide by 370px tall with a black gradient background.&lt;/p>
+	&lt;p>This template features content displayed with a black gradient background used to highlight the content. Each slide features your selected image to the left (at max width of 545px) and title and description (content) to the right. There is also pagers included in the lower left for quick navigation between slides.&lt;/p>
+  &lt;p>This template is designed especially for Engage:Pure 2.0 to be used within the Banner pane, but can be used with any skin. The template was designed with fixed dimensions intentially; to change the dimensions of the template, simply open up the style.css and alter away!&lt;/p>
+  </Description>
+  <Stylesheet>Style.css</Stylesheet>
+  <Template>Template.htm</Template>
+  <PreviewImage>Preview.jpg</PreviewImage>
+</EngageManifest>

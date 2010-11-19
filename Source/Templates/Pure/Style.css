@@ -1,0 +1,11 @@
+.pure-template{overflow:hidden;width:938px;height:370px;background: transparent url(images/pure-rtr-bg.jpg) no-repeat center;position:relative;display:block;}
+ 	.pure-template .rotate-wrap{width:938px;height:370px;overflow:hidden;position:relative;z-index:1;}
+		.pure-template .rotate-wrap .engage-content{background-color:transparent !important;}
+        	.image-content{float:left;width:545px;}
+            .pure-info{float:right;width:373px;padding:50px 20px 0 0;}
+             	.title{color:#fff;}
+                .desc{color:#fff;}
+	.pure-template .rotator-footer{width:900px;height:29px;position:absolute;bottom:10px;left:20px;z-index:2;}
+		.pure-template .rotator-footer .pager-items{display:inline-block;float:left;padding:5px 10px 0 0;}
+			.pure-template .rotator-footer .pager-items div{background:#7A7A7A;width:10px;height:10px;overflow:hidden;display:inline;float:left;color:#7A7A7A;cursor:pointer;margin:0 3px;}
+			.pure-template .rotator-footer .pager-item-on{background:#fff !important;color:#fff !important;}

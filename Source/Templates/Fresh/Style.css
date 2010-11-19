@@ -1,0 +1,10 @@
+.fresh-template-wrap{overflow:hidden;width:960px;}
+	.rotate-back-button{background: url(images/back-btn.png) no-repeat top center;float:left;width:38px;height:340px;cursor:pointer;}
+	.fresh-template{overflow:hidden;width:882px;float:left;}
+		.fresh-template .rotate-wrap{width:880px;height:340px;margin:0 auto;background:#fff;border:solid 1px #ccc;overflow:hidden;position:relative;z-index:1;}
+			.fresh-template .rotate-wrap .engage-content{z-index:2;background: #fff url(images/bg-gradient.jpg) repeat-x bottom left;width:870px !important;height:330px !important;overflow:hidden;border:solid 5px #fff;}
+				.fresh-template .desc{}	
+					.fresh-template .desc p{margin:0;}
+	.rotate-next-button{background: url(images/next-btn.png) no-repeat top center;float:left;width:38px;height:340px;cursor:pointer;}
+	.rotator-footer{width:880px;height:28px;background:url(images/shadow.png) no-repeat center;margin:0 auto;clear:both;}					
+	

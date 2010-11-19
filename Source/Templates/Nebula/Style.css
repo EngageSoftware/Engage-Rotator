@@ -1,0 +1,11 @@
+.nebula-template{overflow:hidden;background:#9f9f9f;padding:5px;position:relative;}
+	.nebula-template .rotate-wrap{overflow:hidden;position:relative;z-index:1;height:194px;}
+		.nebula-template .rotate-wrap .engage-content{z-index:2;overflow:hidden;}
+			.nebula-template .info{background: url(images/nebula-info-bg.png) repeat top left;overflow:hidden;position:absolute;bottom:0;left:0;padding:5px 10px;width:610px;}	
+				.nebula-template .info p{margin:0;}
+			.nebula-template .info .title{float:left;}
+			.nebula-template .info .desc {float:left;padding-left:10px;}
+			
+	.nebula-template  .pager-items{text-align:right;width:300px;background: url(images/nebula-info-bg.png) repeat top left;overflow:hidden;position:absolute;bottom:5px;right:5px;padding:5px 10px;z-index:3;}
+		.nebula-template  .pager-items a{padding:0 2px;color:#9f9f9f;}
+		.nebula-template  .pager-items a.activeSlide{color:#019FC1;}
