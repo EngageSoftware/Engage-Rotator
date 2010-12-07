@@ -16,6 +16,9 @@ namespace Engage.Dnn.ContentRotator
     using System.Data;
     using System.Diagnostics;
     using System.Globalization;
+
+    using DotNetNuke.Common;
+
     using Framework.Templating;
 
     /// <summary>
@@ -30,57 +33,9 @@ namespace Engage.Dnn.ContentRotator
         private int slideId;
 
         /// <summary>
-        /// Backing field for <see cref="Content"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string content;
-
-        /// <summary>
-        /// Backing field for <see cref="EndDate"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private DateTime? endDate;
-
-        /// <summary>
         /// <c>true</c> if this instance does not exist in the database; otherwise <c>false</c>
         /// </summary>
         private bool isNew = true;
-
-        /// <summary>
-        /// Backing field for <see cref="LinkUrl"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string linkUrl;
-
-        /// <summary>
-        /// Backing field for <see cref="PagerImageUrl"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string pagerImageUrl;
-
-        /// <summary>
-        /// Backing field for <see cref="SortOrder"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int sortOrder;
-
-        /// <summary>
-        /// Backing field for <see cref="StartDate"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private DateTime startDate;
-
-        /// <summary>
-        /// Backing field for <see cref="ImageUrl"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string imageUrl;
-
-        /// <summary>
-        /// Backing field for <see cref="Title"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string title;
 
         /// <summary>
         /// The index of this slide in the list by which it was retrieved, or <c>null</c> if it wasn't retrieved in a list
@@ -119,155 +74,84 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets the ID of the module to which this slide belongs.
+        /// </summary>
+        /// <value>The module ID.</value>
+        public int ModuleId { get; private set; }
+
+        /// <summary>
         /// Gets or sets the main content of this instance.
         /// </summary>
         /// <value>The main HTML content.</value>
-        public string Content
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.content;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.content = value;
-            }
-        }
+        public string Content { get; set; }
 
         /// <summary>
         /// Gets or sets when this instance stops being displayed.
         /// </summary>
         /// <value>When this instance stops being displayed.</value>
-        public DateTime? EndDate
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.endDate;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.endDate = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the URL to which links in this instance point.
-        /// </summary>
-        /// <value>The URL to which links in this instance point.</value>
-        public string LinkUrl
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.linkUrl;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.linkUrl = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the URL at which the position thumbnail is located
-        /// </summary>
-        /// <value>The URL at which the position thumbnail is located.</value>
-        public string PagerImageUrl
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.pagerImageUrl;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.pagerImageUrl = value;
-            }
-        }
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// Gets or sets the relative sort order of this instance.
         /// </summary>
         /// <value>The relative sort order of this instance.</value>
-        public int SortOrder
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.sortOrder;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.sortOrder = value;
-            }
-        }
+        public int SortOrder { get; set; }
 
         /// <summary>
         /// Gets or sets when this instance starts displaying.
         /// </summary>
         /// <value>When this instance starts displaying.</value>
-        public DateTime StartDate
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.startDate;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.startDate = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the URL at which the main thumbnail is located.
-        /// </summary>
-        /// <value>The URL at which the main thumbnail is located.</value>
-        public string ImageUrl
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.imageUrl;
-            }
-
-            [DebuggerStepThrough]
-            set
-            {
-                this.imageUrl = value;
-            }
-        }
+        public DateTime StartDate { get; set; }
 
         /// <summary>
         /// Gets or sets the title of this instance.
         /// </summary>
         /// <value>The title.</value>
-        public string Title
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return this.title;
-            }
+        public string Title { get; set; }
 
-            [DebuggerStepThrough]
-            set
-            {
-                this.title = value;
-            }
+        /// <summary>
+        /// Gets or sets the DNN-style URL to which links in this instance point.
+        /// </summary>
+        /// <value>A DNN-style URL (just a number for a tab ID, or real URL, or <see cref="string.Empty"/>).</value>
+        public string Link { get; set; }
+
+        /// <summary>
+        /// Gets or sets the DNN-style URL at which the position thumbnail is located
+        /// </summary>
+        /// <value>A DNN-style URL (FileID=57, or real URL, or <see cref="string.Empty"/>).</value>
+        public string PagerImageLink { get; set; }
+
+        /// <summary>
+        /// Gets or sets the DNN-style URL at which the main thumbnail is located.
+        /// </summary>
+        /// <value>A DNN-style URL (FileID=57, or real URL, or <see cref="string.Empty"/>).</value>
+        public string ImageLink { get; set; }
+
+        /// <summary>
+        /// Gets the URL to which this slide links.
+        /// </summary>
+        /// <value>The URL for the link.</value>
+        public string LinkUrl
+        {
+            get { return this.ResolveDnnLink(this.Link); }
+        }
+
+        /// <summary>
+        /// Gets the URL at which the pager thumbnail is located.
+        /// </summary>
+        /// <value>A URL to the image.</value>
+        public string PagerImageUrl
+        {
+            get { return this.ResolveDnnLink(this.PagerImageLink); }
+        }
+
+        /// <summary>
+        /// Gets the URL at which the main thumbnail is located.
+        /// </summary>
+        /// <value>A URL to the image.</value>
+        public string ImageUrl
+        {
+            get { return this.ResolveDnnLink(this.ImageLink); }
         }
 
         /// <summary>
@@ -305,12 +189,12 @@ namespace Engage.Dnn.ContentRotator
         {
             if (this.isNew)
             {
-                this.slideId = DataProvider.Instance.InsertSlide(this.content, this.imageUrl, this.linkUrl, this.startDate, this.endDate, moduleId, this.title, this.pagerImageUrl, this.sortOrder);
+                this.slideId = DataProvider.Instance.InsertSlide(this.Content, this.ImageLink, this.Link, this.StartDate, this.EndDate, moduleId, this.Title, this.PagerImageLink, this.SortOrder);
                 this.isNew = false;
             }
             else
             {
-                DataProvider.Instance.UpdateSlide(this.slideId, this.content, this.imageUrl, this.linkUrl, this.startDate, this.endDate, this.title, this.pagerImageUrl, this.sortOrder);
+                DataProvider.Instance.UpdateSlide(this.slideId, this.Content, this.ImageLink, this.Link, this.StartDate, this.EndDate, this.Title, this.PagerImageLink, this.SortOrder);
             }
         }
 
@@ -340,27 +224,27 @@ namespace Engage.Dnn.ContentRotator
                 switch (propertyName.ToUpperInvariant())
                 {
                     case "CONTENT":
-                        return this.content;
+                        return this.Content;
                     case "ENDDATE":
                     case "END DATE":
-                        return this.endDate.HasValue ? this.endDate.Value.ToString(format, CultureInfo.CurrentCulture) : string.Empty;
+                        return this.EndDate.HasValue ? this.EndDate.Value.ToString(format, CultureInfo.CurrentCulture) : string.Empty;
                     case "LINKURL":
                     case "LINK URL":
-                        return this.linkUrl;
+                        return this.LinkUrl;
                     case "PAGERIMAGEURL":
                     case "PAGER IMAGE URL":
-                        return this.pagerImageUrl;
+                        return this.PagerImageUrl;
                     case "SORTORDER":
                     case "SORT ORDER":
-                        return this.sortOrder.ToString(format, CultureInfo.CurrentCulture);
+                        return this.SortOrder.ToString(format, CultureInfo.CurrentCulture);
                     case "STARTDATE":
                     case "START DATE":
-                        return this.startDate.ToString(format, CultureInfo.CurrentCulture);
+                        return this.StartDate.ToString(format, CultureInfo.CurrentCulture);
                     case "IMAGEURL":
                     case "IMAGE URL":
-                        return this.imageUrl;
+                        return this.ImageUrl;
                     case "TITLE":
-                        return this.title;
+                        return this.Title;
                     case "SLIDEID":
                     case "SLIDE ID":
                         return this.slideId.ToString(format, CultureInfo.CurrentCulture);
@@ -397,7 +281,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>All of the slides for the given <paramref name="moduleId"/></returns>
         internal static List<Slide> GetSlides(int moduleId, bool getOutdatedSlides)
         {
-            List<Slide> items = new List<Slide>();
+            var items = new List<Slide>();
             using (IDataReader reader = DataProvider.Instance.GetSlides(moduleId, getOutdatedSlides))
             {
                 int itemIndex = 0;
@@ -430,21 +314,31 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private static Slide Fill(IDataRecord slideRecord, int? itemIndex)
         {
-            Slide slide = new Slide();
+            return new Slide
+                {
+                    isNew = false,
+                    slideId = (int)slideRecord["SlideId"],
+                    Content = slideRecord["Content"].ToString(),
+                    Title = slideRecord["Title"].ToString(),
+                    Link = slideRecord["LinkUrl"].ToString(),
+                    ImageLink = slideRecord["ImageUrl"].ToString(),
+                    PagerImageLink = slideRecord["PagerImageUrl"].ToString(),
+                    StartDate = (DateTime)slideRecord["StartDate"],
+                    EndDate = slideRecord["EndDate"] as DateTime?,
+                    SortOrder = (int)slideRecord["SortOrder"],
+                    ModuleId = (int)slideRecord["ModuleId"],
+                    itemIndex = itemIndex
+                };
+        }
 
-            slide.isNew = false;
-            slide.slideId = (int)slideRecord["SlideId"];
-            slide.content = slideRecord["Content"].ToString();
-            slide.title = slideRecord["Title"].ToString();
-            slide.linkUrl = slideRecord["LinkUrl"].ToString();
-            slide.imageUrl = slideRecord["ImageUrl"].ToString();
-            slide.pagerImageUrl = slideRecord["PagerImageUrl"].ToString(); 
-            slide.startDate = (DateTime)slideRecord["StartDate"];
-            slide.endDate = slideRecord["EndDate"] as DateTime?;
-            slide.sortOrder = (int)slideRecord["SortOrder"];
-            slide.itemIndex = itemIndex;
-
-            return slide;
+        /// <summary>
+        /// Resolves a DNN-style link (tab ID, FileID=57, plain URL) into a useable URL.
+        /// </summary>
+        /// <param name="link">The link (one of: an integer [as a tab ID], <c>FileID=#</c>, <c>http://...</c> or <see cref="string.Empty"/>).</param>
+        /// <returns>A URL pointing to the resource</returns>
+        private string ResolveDnnLink(string link)
+        {
+            return Globals.LinkClick(link, Globals.GetPortalSettings().ActiveTab.TabID, this.ModuleId, false, false);
         }
     }
 }

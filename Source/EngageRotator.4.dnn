@@ -67,6 +67,10 @@
           <name>2.0.0.SqlDataProvider</name>
         </file>
         <file>
+          <path>Providers\DataProviders\SqlDataProvider</path>
+          <name>2.3.0.SqlDataProvider</name>
+        </file>
+        <file>
           <name>Uninstall.SqlDataProvider</name>
         </file>
         <file>

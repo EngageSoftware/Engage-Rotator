@@ -13,16 +13,28 @@
     </tr>
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="ImageUrlLabel" runat="server" EnableViewState="false" /></td>
-        <td class="contentColumn leftAlign"><dnn:Url ID="ImageUrlControl" runat="server" UrlType="F" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true"/></td>
-    </tr><%-- UrlType is F for File --%>
+        <td class="contentColumn leftAlign">
+            <asp:UpdatePanel runat="server" UpdateMode="Conditional"><ContentTemplate>
+                <dnn:Url ID="ImageUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true"/>
+            </ContentTemplate></asp:UpdatePanel>
+        </td>
+    </tr>
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="PagerImageUrlLabel" runat="server" EnableViewState="false" /></td>
-        <td class="contentColumn leftAlign"><dnn:Url ID="PagerImageUrlControl" runat="server" UrlType="F" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true"/></td>
-    </tr><%-- UrlType is F for File --%>
+        <td class="contentColumn leftAlign">
+            <asp:UpdatePanel runat="server" UpdateMode="Conditional"><ContentTemplate>
+                <dnn:Url ID="PagerImageUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true"/>
+            </ContentTemplate></asp:UpdatePanel>
+        </td>
+    </tr>
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="LinkUrlLabel" runat="server" EnableViewState="false" /></td>
-        <td class="contentColumn leftAlign"><dnn:Url ID="LinkUrlControl" runat="server" UrlType="T" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowNone="true" ShowTabs="true" ShowUrls="true"/></td>
-    </tr><%-- UrlType is T for Tab --%>
+        <td class="contentColumn leftAlign">
+            <asp:UpdatePanel runat="server" UpdateMode="Conditional"><ContentTemplate>
+                <dnn:Url ID="LinkUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowNone="true" ShowTabs="true" ShowUrls="true"/>
+            </ContentTemplate></asp:UpdatePanel>
+        </td>
+    </tr>
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="StartDateLabel" runat="server" EnableViewState="false" /></td>
         <td class="contentColumn leftAlign">

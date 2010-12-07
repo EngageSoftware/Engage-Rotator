@@ -17,7 +17,7 @@
                             <div class="rotatorThumbnails">
                                 <div class="rotatorThumbnailWrapper">
                                     <div class="rotatorThumbnailTitle SubHead"><asp:Label runat="server" resourcekey="ImageHeader" /></div>
-                                    <div class="rotatorThumbnail"><img src='<%# Eval("ImageUrl")%>' alt='<%# Eval("ImageUrl")%>' /></div>
+                                    <div class="rotatorThumbnail"><img src='<%# Eval("ImageUrl") %>' alt='<%# Eval("ImageUrl") %>' /></div>
                                 </div>
                                 <div class="rotatorPositionThumbnailWrapper">
                                     <div class="rotatorPositionThumbnailTitle SubHead"><asp:Label runat="server" resourcekey="PagerImageHeader" /></div>

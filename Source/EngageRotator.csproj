@@ -179,6 +179,7 @@
     <None Include="EngageRotator.5.dnn" />
     <None Include="Migrated rules for EngageRotator.ruleset" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.01.00.SqlDataProvider" />
+    <None Include="Providers\DataProviders\SqlDataProvider\2.3.0.SqlDataProvider" />
     <None Include="Templates\Engage Rotator Templates.docx" />
     <None Include="Templates\Engage Rotator Templates.pdf" />
     <None Include="Templates\EngageManifest.xsd" />

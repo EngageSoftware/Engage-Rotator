@@ -13,6 +13,7 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Globalization;
+
     using DotNetNuke.Services.Exceptions;
 
     /// <summary>
@@ -56,8 +57,6 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
-            this.RequiresScriptManager = false;
-
             base.OnInit(e);
             this.Load += this.Page_Load;
             this.SubmitButton.Click += this.SubmitButton_Click;
@@ -83,27 +82,10 @@ namespace Engage.Dnn.ContentRotator
                     if (slide != null)
                     {
                         this.LoadSlide(slide);
-
-                        // set UrlControls to type Url, so we don't have to convert back to a tabId or fileId
-                        this.LinkUrlControl.UrlType = "U";
-                        this.ImageUrlControl.UrlType = "U";
-                        this.PagerImageUrlControl.UrlType = "U";
                     }
                     else
                     {
-                        this.TitleTextBox.Text = string.Empty;
-                        this.ContentTextEditor.Text = string.Empty;
-
-                        // N = None
-                        this.ImageUrlControl.UrlType = "N";
-                        this.ImageUrlControl.Url = string.Empty;
-                        this.PagerImageUrlControl.UrlType = "N";
-                        this.PagerImageUrlControl.Url = string.Empty;
-                        this.LinkUrlControl.UrlType = "N";
-                        this.LinkUrlControl.Url = string.Empty;
-
                         this.StartDateTextBox.Text = DateTime.Today.ToShortDateString();
-                        this.EndDateTextBox.Text = string.Empty;
 
                         // 5 is database default
                         this.SortOrderTextBox.Text = 5.ToString(CultureInfo.InvariantCulture);
@@ -145,9 +127,9 @@ namespace Engage.Dnn.ContentRotator
                 slide.Content = this.ContentTextEditor.Text;
                 slide.StartDate = DateTime.Parse(this.StartDateTextBox.Text, CultureInfo.CurrentCulture);
                 slide.EndDate = Engage.Utility.ParseNullableDateTime(this.EndDateTextBox.Text, CultureInfo.CurrentCulture);
-                slide.LinkUrl = Utility.CreateUrlFromControl(this.LinkUrlControl, this.PortalSettings);
-                slide.ImageUrl = Utility.CreateUrlFromControl(this.ImageUrlControl, this.PortalSettings);
-                slide.PagerImageUrl = Utility.CreateUrlFromControl(this.PagerImageUrlControl, this.PortalSettings);
+                slide.Link = this.LinkUrlControl.Url;
+                slide.ImageLink = this.ImageUrlControl.Url;
+                slide.PagerImageLink = this.PagerImageUrlControl.Url;
                 slide.SortOrder = int.Parse(this.SortOrderTextBox.Text, CultureInfo.CurrentCulture);
 
                 slide.Save(this.ModuleId);
@@ -164,9 +146,9 @@ namespace Engage.Dnn.ContentRotator
         {
             this.TitleTextBox.Text = slide.Title;
             this.ContentTextEditor.Text = slide.Content;
-            this.ImageUrlControl.Url = slide.ImageUrl;
-            this.LinkUrlControl.Url = slide.LinkUrl;
-            this.PagerImageUrlControl.Url = slide.PagerImageUrl;
+            this.ImageUrlControl.Url = slide.ImageLink;
+            this.LinkUrlControl.Url = slide.Link;
+            this.PagerImageUrlControl.Url = slide.PagerImageLink;
             this.StartDateTextBox.Text = slide.StartDate.ToShortDateString();
             this.EndDateTextBox.Text = slide.EndDate.HasValue ? slide.EndDate.Value.ToShortDateString() : string.Empty;
             this.SortOrderTextBox.Text = slide.SortOrder.ToString(CultureInfo.CurrentCulture);
