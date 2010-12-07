@@ -224,6 +224,12 @@
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_right.gif" />
     <Content Include="images\JQueryUiTheme\222222_7x7_arrow_up.gif" />
     <Content Include="images\JQueryUiTheme\ffffff_40x100_textures_02_glass_65.png" />
+    <Content Include="Templates\Element\images\next.png" />
+    <Content Include="Templates\Element\images\prev.png" />
+    <Content Include="Templates\Element\Manifest.xml" />
+    <Content Include="Templates\Element\Preview.jpg" />
+    <Content Include="Templates\Element\Style.css" />
+    <Content Include="Templates\Element\Template.htm" />
     <Content Include="Templates\Engage\images\item-title-bg-on.gif" />
     <Content Include="Templates\Engage\images\item-title-bg.gif" />
     <Content Include="Templates\Engage\Manifest.xml" />
@@ -237,6 +243,14 @@
     <Content Include="Templates\Folio\Preview.jpg" />
     <Content Include="Templates\Folio\Style.css" />
     <Content Include="Templates\Folio\Template.htm" />
+    <Content Include="Templates\Fresh\images\back-btn.png" />
+    <Content Include="Templates\Fresh\images\bg-gradient.jpg" />
+    <Content Include="Templates\Fresh\images\next-btn.png" />
+    <Content Include="Templates\Fresh\images\shadow.png" />
+    <Content Include="Templates\Fresh\Manifest.xml" />
+    <Content Include="Templates\Fresh\Preview.jpg" />
+    <Content Include="Templates\Fresh\Style.css" />
+    <Content Include="Templates\Fresh\Template.htm" />
     <Content Include="Templates\Legacy\images\next.gif" />
     <Content Include="Templates\Legacy\images\pause.gif" />
     <Content Include="Templates\Legacy\images\previous.gif" />
@@ -248,6 +262,11 @@
     </Content>
     <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
     <EmbeddedResource Include="JavaScript\jquery-ui.js" />
+    <Content Include="Templates\Nebula\images\nebula-info-bg.png" />
+    <Content Include="Templates\Nebula\Manifest.xml" />
+    <Content Include="Templates\Nebula\Preview.jpg" />
+    <Content Include="Templates\Nebula\Style.css" />
+    <Content Include="Templates\Nebula\Template.htm" />
     <Content Include="Templates\Product\App_LocalResources\Template.resx" />
     <Content Include="Templates\News\App_LocalResources\Template.resx" />
     <Content Include="Templates\News\images\footer-bg.png" />
@@ -265,6 +284,16 @@
     <Content Include="Templates\Product\Preview.jpg" />
     <Content Include="Templates\Product\Style.css" />
     <Content Include="Templates\Product\Template.htm" />
+    <Content Include="Templates\Prototype\images\shadow.png" />
+    <Content Include="Templates\Prototype\Manifest.xml" />
+    <Content Include="Templates\Prototype\Preview.jpg" />
+    <Content Include="Templates\Prototype\Style.css" />
+    <Content Include="Templates\Prototype\Template.htm" />
+    <Content Include="Templates\Pure\images\pure-rtr-bg.jpg" />
+    <Content Include="Templates\Pure\Manifest.xml" />
+    <Content Include="Templates\Pure\Preview.jpg" />
+    <Content Include="Templates\Pure\Style.css" />
+    <Content Include="Templates\Pure\Template.htm" />
     <Content Include="Templates\Ribbon\images\back.png" />
     <Content Include="Templates\Ribbon\images\body-bg.png" />
     <Content Include="Templates\Ribbon\images\next.png" />
