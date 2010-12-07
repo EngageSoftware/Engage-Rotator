@@ -13,9 +13,10 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Globalization;
+    using System.Linq;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-    using DotNetNuke.Entities.Modules;
+
     using DotNetNuke.Services.Exceptions;
     using Globals = DotNetNuke.Common.Globals;
 
@@ -40,9 +41,10 @@ namespace Engage.Dnn.ContentRotator
         /// <value>The duration of the animation (in seconds).</value>
         private decimal AnimationDuration
         {
+// ReSharper disable PossibleInvalidOperationException
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+                return ModuleSettings.AnimationDuration.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -56,7 +58,7 @@ namespace Engage.Dnn.ContentRotator
             {
                 if (this.animationEffect == Effects.none)
                 {
-                    this.animationEffect = Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
+                    this.animationEffect = ModuleSettings.AnimationEffect.GetValueAsEnumFor<Effects>(this).Value;
                 }
 
                 return this.animationEffect;
@@ -71,7 +73,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
+                return ModuleSettings.ContainerResize.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -83,7 +85,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "Continuous", false);
+                return ModuleSettings.Continuous.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -95,7 +97,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
+                return ModuleSettings.PauseOnHover.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -107,7 +109,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "AutoStop", false);
+                return ModuleSettings.AutoStop.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -119,7 +121,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
+                return ModuleSettings.AutoStopCount.GetValueAsInt32For(this).Value;
             }
         }
 
@@ -131,7 +133,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
+                return ModuleSettings.InitialDelay.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -143,7 +145,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
+                return ModuleSettings.ManuallyTriggeredTransitionSpeed.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -155,7 +157,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "Loop", true);
+                return ModuleSettings.Loop.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -167,7 +169,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "RandomOrder", false);
+                return ModuleSettings.RandomOrder.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -179,7 +181,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
+                return ModuleSettings.SimultaneousTransitions.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -191,7 +193,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
+                return ModuleSettings.ForceSlidesToFitContainer.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -202,7 +204,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "ContentHeight");
+                return ModuleSettings.SlideHeight.GetValueAsInt32For(this);
             }
         }
 
@@ -213,7 +215,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "ContentWidth");
+                return ModuleSettings.SlideWidth.GetValueAsInt32For(this);
             }
         }
 
@@ -225,7 +227,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "RotatorDelay", 8m);
+                return ModuleSettings.RotatorDelay.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -237,7 +239,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
+                return ModuleSettings.UseAnimations.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -248,7 +250,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "DisableAddingBackgroundColorForClearTypeFix", false);
+                return ModuleSettings.DisableAddingBackgroundColorForClearTypeFix.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -259,7 +261,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "RandomizeEffects", true);
+                return ModuleSettings.RandomizeEffects.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -270,8 +272,10 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "ManualTransitionTrumpsActiveTransition", true);
+                return ModuleSettings.ManualTransitionTrumpsActiveTransition.GetValueAsBooleanFor(this).Value;
             }
+
+// ReSharper restore PossibleInvalidOperationException
         }
 
         /// <summary>
@@ -421,35 +425,33 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (this.Page.IsValid)
+            if (!this.Page.IsValid)
             {
-                var modules = new ModuleController();
-
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RotatorDelay", ConvertCurrentCultureDecimalToInvariantCulture(this.RotatorDelayTextBox.Text));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStop", this.AutoStopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AutoStopCount", ConvertCurrentCultureDecimalToInvariantCulture(this.AutoStopCountTextBox.Text));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationPauseOnMouseOver", this.PauseOnHoverCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "UseAnimations", this.UseAnimationsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationDuration", ConvertCurrentCultureDecimalToInvariantCulture(this.TransitionDurationTextBox.Text));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "AnimationEffect", this.GetSelectedEffects().ToString());
-
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentHeight", ConvertCurrentCultureIntegerToInvariantCulture(this.SlideHeightTextBox.Text, null));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContentWidth", ConvertCurrentCultureIntegerToInvariantCulture(this.SlideWidthTextBox.Text, null));
-
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ContainerResize", this.ContainerResizeCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ForceSlidesToFitContainer", this.ForceSlidesToFitContainerCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "Continuous", this.ContinuousCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "Loop", this.LoopCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RandomOrder", this.RandomOrderCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "SimultaneousTransitions", this.SimultaneousTransitionsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "InitialDelay", this.InitialDelayCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.InitialDelayTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ManuallyTriggeredTransitionSpeed", this.ManuallyTriggeredTransitionSpeedCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.ManuallyTriggeredTransitionSpeedTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "RandomizeEffects", this.RandomizeEffectsCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "DisableAddingBackgroundColorForClearTypeFix", this.DisableAddingBackgroundColorForClearTypeFixCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-                modules.UpdateTabModuleSetting(this.TabModuleId, "ManualTransitionTrumpsActiveTransition", this.ManualTransitionTrumpsActiveTransitionCheckBox.Checked.ToString(CultureInfo.InvariantCulture));
-
-                this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
+                return;
             }
+
+            ModuleSettings.RotatorDelay.Set(this, ConvertCurrentCultureDecimalToInvariantCulture(this.RotatorDelayTextBox.Text));
+            ModuleSettings.AutoStop.Set(this, this.AutoStopCheckBox.Checked);
+            ModuleSettings.AutoStopCount.Set(this, ConvertCurrentCultureDecimalToInvariantCulture(this.AutoStopCountTextBox.Text));
+            ModuleSettings.PauseOnHover.Set(this, this.PauseOnHoverCheckBox.Checked);
+            ModuleSettings.UseAnimations.Set(this, this.UseAnimationsCheckBox.Checked);
+            ModuleSettings.AnimationDuration.Set(this, ConvertCurrentCultureDecimalToInvariantCulture(this.TransitionDurationTextBox.Text));
+            ModuleSettings.AnimationEffect.Set(this, this.GetSelectedEffects().ToString());
+            ModuleSettings.SlideHeight.Set(this, ConvertCurrentCultureIntegerToInvariantCulture(this.SlideHeightTextBox.Text, null));
+            ModuleSettings.SlideWidth.Set(this, ConvertCurrentCultureIntegerToInvariantCulture(this.SlideWidthTextBox.Text, null));
+            ModuleSettings.ContainerResize.Set(this, this.ContainerResizeCheckBox.Checked);
+            ModuleSettings.ForceSlidesToFitContainer.Set(this, this.ForceSlidesToFitContainerCheckBox.Checked);
+            ModuleSettings.Continuous.Set(this, this.ContinuousCheckBox.Checked);
+            ModuleSettings.Loop.Set(this, this.LoopCheckBox.Checked);
+            ModuleSettings.RandomOrder.Set(this, this.RandomOrderCheckBox.Checked);
+            ModuleSettings.SimultaneousTransitions.Set(this, this.SimultaneousTransitionsCheckBox.Checked);
+            ModuleSettings.InitialDelay.Set(this, this.InitialDelayCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.InitialDelayTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
+            ModuleSettings.ManuallyTriggeredTransitionSpeed.Set(this, this.ManuallyTriggeredTransitionSpeedCheckBox.Checked ? ConvertCurrentCultureDecimalToInvariantCulture(this.ManuallyTriggeredTransitionSpeedTextBox.Text) : 0m.ToString(CultureInfo.InvariantCulture));
+            ModuleSettings.RandomizeEffects.Set(this, this.RandomizeEffectsCheckBox.Checked);
+            ModuleSettings.DisableAddingBackgroundColorForClearTypeFix.Set(this, this.DisableAddingBackgroundColorForClearTypeFixCheckBox.Checked);
+            ModuleSettings.ManualTransitionTrumpsActiveTransition.Set(this, this.ManualTransitionTrumpsActiveTransitionCheckBox.Checked);
+
+            this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
         }
 
         /// <summary>
@@ -540,17 +542,9 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The selected animation transition effects</returns>
         private Effects GetSelectedEffects()
         {
-            Effects effects = Effects.none;
-            foreach (ListItem item in this.TransitionEffectCheckBoxList.Items)
-            {
-                if (item.Selected)
-                {
-                    var itemEffect = (Effects)Enum.Parse(typeof(Effects), item.Value);
-                    effects |= itemEffect;
-                }
-            }
-
-            return effects;
+            return (from ListItem item in this.TransitionEffectCheckBoxList.Items
+                    where item.Selected
+                    select (Effects)Enum.Parse(typeof(Effects), item.Value)).Aggregate(Effects.none, (current, itemEffect) => current | itemEffect);
         }
 
         /// <summary>

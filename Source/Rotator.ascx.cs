@@ -14,6 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using System.Linq;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using DotNetNuke.Entities.Modules;
@@ -129,9 +130,10 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private decimal AnimationDuration
         {
+// ReSharper disable PossibleInvalidOperationException
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "AnimationDuration", 0.3m);
+                return ModuleSettings.AnimationDuration.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -143,19 +145,19 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetEnumSetting(this.Settings, "AnimationEffect", Effects.fade);
+                return ModuleSettings.AnimationEffect.GetValueAsEnumFor<Effects>(this).Value;
             }
         }
 
         /// <summary>
-        /// Gets a value indicating whether to stop rotation after a certain number of transitions.
+        /// Gets a value indicating whether to stop rotation after a certain number of transitions (<see cref="AutoStopCount"/>).
         /// </summary>
         /// <value><c>true</c> if the module is set to stop rotation after a certain number of transitions; otherwise, <c>false</c>.</value>
         private bool AutoStop
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "AutoStop", false);
+                return ModuleSettings.AutoStop.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -167,7 +169,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "AutoStopCount", 100);
+                return ModuleSettings.AutoStopCount.GetValueAsInt32For(this).Value;
             }
         }
 
@@ -179,7 +181,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "ContainerResize", true);
+                return ModuleSettings.ContainerResize.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -191,7 +193,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "Continuous", false);
+                return ModuleSettings.Continuous.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -203,7 +205,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "InitialDelay", 0);
+                return ModuleSettings.InitialDelay.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -215,7 +217,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "ManuallyTriggeredTransitionSpeed", 0);
+                return ModuleSettings.ManuallyTriggeredTransitionSpeed.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -227,7 +229,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "Loop", true);
+                return ModuleSettings.Loop.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -239,7 +241,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "RandomOrder", false);
+                return ModuleSettings.RandomOrder.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -251,7 +253,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "AnimationPauseOnMouseOver", true);
+                return ModuleSettings.PauseOnHover.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -262,7 +264,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetDecimalSetting(this.Settings, "RotatorDelay", 8m);
+                return ModuleSettings.RotatorDelay.GetValueAsDecimalFor(this).Value;
             }
         }
 
@@ -273,7 +275,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "ContentHeight");
+                return ModuleSettings.SlideHeight.GetValueAsInt32For(this);
             }
         }
 
@@ -284,7 +286,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetIntSetting(this.Settings, "ContentWidth");
+                return ModuleSettings.SlideWidth.GetValueAsInt32For(this);
             }
         }
 
@@ -296,7 +298,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "SimultaneousTransitions", true);
+                return ModuleSettings.SimultaneousTransitions.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -308,7 +310,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "ForceSlidesToFitContainer", false);
+                return ModuleSettings.ForceSlidesToFitContainer.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -319,7 +321,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "UseAnimations", true);
+                return ModuleSettings.UseAnimations.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -330,7 +332,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "DisableAddingBackgroundColorForClearTypeFix", false);
+                return ModuleSettings.DisableAddingBackgroundColorForClearTypeFix.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -341,7 +343,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "RandomizeEffects", true);
+                return ModuleSettings.RandomizeEffects.GetValueAsBooleanFor(this).Value;
             }
         }
 
@@ -352,8 +354,10 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetBoolSetting(this.Settings, "ManualTransitionTrumpsActiveTransition", true);
+                return ModuleSettings.ManualTransitionTrumpsActiveTransition.GetValueAsBooleanFor(this).Value;
             }
+
+// ReSharper restore PossibleInvalidOperationException
         }
 
         /// <summary>
@@ -408,7 +412,7 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private static Control CreateCurrentIndexControl(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Label currentSlideIndexWrapper = new Label();
+            var currentSlideIndexWrapper = new Label();
             currentSlideIndexWrapper.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
             currentSlideIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentSlideIndexWrapper.CssClass, "current-slide-index");
             currentSlideIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
@@ -426,7 +430,7 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private static Control CreateTotalCountControl(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Label totalCountLabel = new Label();
+            var totalCountLabel = new Label();
             totalCountLabel.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
             totalCountLabel.CssClass = Engage.Utility.AddCssClass(totalCountLabel.CssClass, "total-slide-count");
             return totalCountLabel;
@@ -625,7 +629,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>A list of the <see cref="Slide"/>s for this module.</returns>
         private IEnumerable<ITemplateable> GetSlides(Tag listTag, ITemplateable context)
         {
-            return Slide.GetSlides(this.ModuleId).ConvertAll(delegate(Slide input) { return (ITemplateable)input; });
+            return Slide.GetSlides(this.ModuleId).ConvertAll(input => (ITemplateable)input);
         }
 
         /// <summary>
@@ -652,7 +656,7 @@ namespace Engage.Dnn.ContentRotator
         private TemplateInfo GetTemplateSetting()
         {
             TemplateInfo template = null;
-            string templateFolderName = Utility.GetStringSetting(this.Settings, "Template");
+            string templateFolderName = ModuleSettings.TemplateFolderName.GetValueAsStringFor(this);
             if (!string.IsNullOrEmpty(templateFolderName))
             {
                 template = this.GetTemplate(templateFolderName);
@@ -679,13 +683,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>A valid template, or <c>null</c> if there are no valid templates available</returns>
         private TemplateInfo GetDefaultTemplate()
         {
-            IList<TemplateInfo> templates = this.GetTemplates(TemplateType.List);
-            if (templates.Count > 0)
-            {
-                return templates[0];
-            }
-
-            return null;
+            return this.GetTemplates(TemplateType.List).FirstOrDefault();
         }
 
         /// <summary>
@@ -694,7 +692,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="folderName">Name of the folder in which the template lives.</param>
         private void SetTemplateSetting(string folderName)
         {
-            new ModuleController().UpdateTabModuleSetting(this.TabModuleId, "Template", folderName);
+            ModuleSettings.TemplateFolderName.Set(this, folderName);
         }
 
         /// <summary>

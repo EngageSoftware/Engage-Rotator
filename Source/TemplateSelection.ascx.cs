@@ -39,7 +39,7 @@ namespace Engage.Dnn.ContentRotator
         {
             get
             {
-                return Utility.GetStringSetting(this.Settings, "Template");
+                return ModuleSettings.TemplateFolderName.GetValueAsStringFor(this);
             }
         }
 
@@ -66,7 +66,7 @@ namespace Engage.Dnn.ContentRotator
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                KeyValuePair<string, Pair<string, string>> settingInfo = (KeyValuePair<string, Pair<string, string>>)e.Row.DataItem;
+                var settingInfo = (KeyValuePair<string, Pair<string, string>>)e.Row.DataItem;
 
                 // new setting value
                 e.Row.Cells[1].Text = settingInfo.Value.First;
@@ -118,14 +118,14 @@ namespace Engage.Dnn.ContentRotator
         {
             try
             {
-                ModuleController modules = new ModuleController();
-                modules.UpdateTabModuleSetting(this.TabModuleId, "Template", this.TemplatesDropDownList.SelectedValue);
+                ModuleSettings.TemplateFolderName.Set(this, this.TemplatesDropDownList.SelectedValue);
 
                 try
                 {
                     TemplateInfo manifest = this.GetTemplate(this.TemplatesDropDownList.SelectedValue);
                     if (manifest.Settings != null)
                     {
+                        var modules = new ModuleController();
                         foreach (KeyValuePair<string, string> setting in manifest.Settings)
                         {
                             modules.UpdateTabModuleSetting(this.TabModuleId, setting.Key, setting.Value);
