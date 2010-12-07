@@ -94,14 +94,12 @@ namespace Engage.Dnn.ContentRotator
                         this.TitleTextBox.Text = string.Empty;
                         this.ContentTextEditor.Text = string.Empty;
 
-                        // F = file
-                        this.ImageUrlControl.UrlType = "F";
+                        // N = None
+                        this.ImageUrlControl.UrlType = "N";
                         this.ImageUrlControl.Url = string.Empty;
-                        this.PagerImageUrlControl.UrlType = "F";
+                        this.PagerImageUrlControl.UrlType = "N";
                         this.PagerImageUrlControl.Url = string.Empty;
-
-                        // T = tab
-                        this.LinkUrlControl.UrlType = "T";
+                        this.LinkUrlControl.UrlType = "N";
                         this.LinkUrlControl.Url = string.Empty;
 
                         this.StartDateTextBox.Text = DateTime.Today.ToShortDateString();
