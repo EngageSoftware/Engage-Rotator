@@ -1,9 +1,9 @@
 <%@ Control Language="c#" AutoEventWireup="false" Codebehind="RotatorOptions.ascx.cs" Inherits="Engage.Dnn.ContentRotator.RotatorOptions" %>
 <div class="RotatorOptions">
-	<div class="ro-top"><asp:Button ID="NewSlideButton" runat="server" resourcekey="NewSlideButton" EnableViewState="false" />&nbsp;<asp:Button ID="BackButton" runat="server" resourcekey="BackButton" /></div>            
+    <div class="ro-top"><asp:Button ID="NewSlideButton" runat="server" resourcekey="NewSlideButton" EnableViewState="false" />&nbsp;<asp:Button ID="BackButton" runat="server" resourcekey="BackButton" /></div>            
     <div class="ro-body">
-		<asp:Repeater ID="SlidesRepeater" runat="server">
-			<ItemTemplate>
+        <asp:Repeater ID="SlidesRepeater" runat="server">
+            <ItemTemplate>
                     <div class="divArticleToRotate">
                         <div class="topRotatorHeader">
                             <div class="sortOrder Normal"><asp:Label runat="server" resourcekey="SortOrder" /> (<%#Eval("SortOrder") %>)</div>
@@ -40,9 +40,9 @@
                             </div>
                         </div>
                     </div>
-			</ItemTemplate>
-		</asp:Repeater>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
-	<div class="ro-bottom"><asp:Button ID="BackButton2" runat="server" resourcekey="BackButton" CssClass="Normal" /></div>
+    <div class="ro-bottom"><asp:Button ID="BackButton2" runat="server" resourcekey="BackButton" CssClass="Normal" /></div>
 
 </div>
