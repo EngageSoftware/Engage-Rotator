@@ -490,7 +490,7 @@ namespace Engage.Dnn.ContentRotator
         {
             Panel backButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            backButton.CssClass = "rotator-prev";
+            backButton.CssClass = Engage.Utility.AddCssClass(backButton.CssClass, "rotator-prev");
 
             return backButton;
         }
@@ -509,7 +509,7 @@ namespace Engage.Dnn.ContentRotator
         {
             Panel nextButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            nextButton.CssClass = "rotator-next";
+            nextButton.CssClass = Engage.Utility.AddCssClass(nextButton.CssClass, "rotator-next");
 
             return nextButton;
         }
@@ -565,7 +565,7 @@ namespace Engage.Dnn.ContentRotator
         {
             Panel pagerContainer = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            pagerContainer.CssClass = "rotator-pager";
+            pagerContainer.CssClass = Engage.Utility.AddCssClass(pagerContainer.CssClass, "rotator-pager");
             this.CycleOptions.PagerEvent = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Event") ?? "click";
 
             return pagerContainer;
@@ -597,7 +597,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The created container</returns>
         private Panel CreateRotatorContainer(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel button = new Panel();
+            var button = new Panel();
             button.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
 
             if (tag.HasChildTags)
