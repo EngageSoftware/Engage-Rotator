@@ -29,7 +29,7 @@
                             </div>
                             <div class="rotatorReadMoreLink Normal">
                                 <asp:Label runat="server" resourcekey="Link" />
-                                <asp:PlaceHolder runat="server" Visible='<%# !string.IsNullOrEmpty((string)Eval("LinkUrl")) %>'>
+                                <asp:PlaceHolder runat="server" Visible='<%# !string.IsNullOrEmpty((string)Eval("Link")) %>'>
                                     <asp:HyperLink runat="server" NavigateUrl='<%# Eval("LinkUrl") %>' Text='<%#GetPlainUrl((string)Eval("Link")) %>' />
                                     
                                     <asp:PlaceHolder runat="server" Visible='<%#(bool)Eval("TrackLink") %>'>
@@ -42,7 +42,7 @@
                                         </fieldset>
                                     </asp:PlaceHolder>
                                 </asp:PlaceHolder>
-                                <asp:PlaceHolder runat="server" Visible='<%# string.IsNullOrEmpty((string)Eval("LinkUrl")) %>'>
+                                <asp:PlaceHolder runat="server" Visible='<%# string.IsNullOrEmpty((string)Eval("Link")) %>'>
                                     <%= Localize("No Link") %>
                                 </asp:PlaceHolder>
                             </div>
