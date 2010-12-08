@@ -1,4 +1,6 @@
 <%@ Control Language="c#" AutoEventWireup="false" Codebehind="RotatorOptions.ascx.cs" Inherits="Engage.Dnn.ContentRotator.RotatorOptions" %>
+<%@ Import Namespace="Globals=DotNetNuke.Common.Globals" %>
+<%@ Register TagPrefix="dnn" TagName="UrlTracking" Src="~/controls/URLTrackingControl.ascx" %>
 <div class="RotatorOptions">
     <div class="ro-top"><asp:Button ID="NewSlideButton" runat="server" resourcekey="NewSlideButton" EnableViewState="false" />&nbsp;<asp:Button ID="BackButton" runat="server" resourcekey="BackButton" /></div>            
     <div class="ro-body">
@@ -24,7 +26,25 @@
                                     <div class="rotatorPositionThumbnail"><img src='<%# Eval("PagerImageUrl") %>' alt='<%# Eval("PagerImageUrl") %>' /></div>
                                 </div>
                             </div>
-                            <div class="rotatorReadMoreLink Normal"><asp:Label runat="server" resourcekey="Link" /><asp:HyperLink runat="server" NavigateUrl='<%# Eval("LinkUrl") %>' Text='<%# Eval("LinkUrl") %>' /></div>
+                            <div class="rotatorReadMoreLink Normal">
+                                <asp:Label runat="server" resourcekey="Link" />
+                                <asp:PlaceHolder runat="server" Visible='<%# !string.IsNullOrEmpty((string)Eval("LinkUrl")) %>'>
+                                    <asp:HyperLink runat="server" NavigateUrl='<%# Eval("LinkUrl") %>' Text='<%#GetPlainUrl((string)Eval("Link")) %>' />
+                                    
+                                    <asp:PlaceHolder runat="server" Visible='<%#(bool)Eval("TrackLink") %>'>
+                                        <fieldset class="urlTrackingWrap">
+                                            <legend><a href="#" class="view-url-tracking"><%= HttpUtility.HtmlEncode(Localize("View Link Statistics")) %></a></legend>
+                                            <asp:HiddenField runat="server" Value="false" />
+                                            <div class="urlTracking">
+                                                <dnn:UrlTracking runat="server" URL='<%# Eval("Link") %>' FormattedURL='<%# GetPlainUrl((string)Eval("Link")) %>' ModuleID='<%# ModuleId %>' />
+                                            </div>
+                                        </fieldset>
+                                    </asp:PlaceHolder>
+                                </asp:PlaceHolder>
+                                <asp:PlaceHolder runat="server" Visible='<%# string.IsNullOrEmpty((string)Eval("LinkUrl")) %>'>
+                                    <%= Localize("No Link") %>
+                                </asp:PlaceHolder>
+                            </div>
                         </div>
                         <div class="editContent">
                             <div class="startEndDate Normal">
@@ -46,3 +66,33 @@
     <div class="ro-bottom"><asp:Button ID="BackButton2" runat="server" resourcekey="BackButton" CssClass="Normal" /></div>
 
 </div>
+<script type="text/javascript">
+    jQuery(function ($) {
+        var isEnclosingSectionOpen = function ($elem) {
+            return $elem.closest('.rotatorReadMoreLink').find('input[type="hidden"]').val() === 'true';
+        };
+        
+        $('.urlTracking').filter(function () {
+            return !isEnclosingSectionOpen($(this));
+        }).hide();
+
+        $('.view-url-tracking')
+            .filter(function () {
+                return !isEnclosingSectionOpen($(this));
+            }).addClass('expand-link')
+            .end().filter(function () {
+                return isEnclosingSectionOpen($(this));
+            }).addClass('collapse-link')
+            .end().click(function (event) {
+                var $viewUrlTrackingLink = $(this),
+                    $wrappingSection = $viewUrlTrackingLink.closest('.rotatorReadMoreLink')
+                    $isOpenedHiddenField = $wrappingSection.find('input[type="hidden"]'),
+                    $urlTrackingSection = $wrappingSection.find('.urlTracking');
+
+                event.preventDefault();
+                $urlTrackingSection.slideToggle();
+                $viewUrlTrackingLink.toggleClass('expand-link collapse-link');
+                $isOpenedHiddenField.val($viewUrlTrackingLink.hasClass('collapse-link'));
+        });
+    });
+</script>

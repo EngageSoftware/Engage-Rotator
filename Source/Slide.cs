@@ -133,7 +133,7 @@ namespace Engage.Dnn.ContentRotator
         /// <value>The URL for the link.</value>
         public string LinkUrl
         {
-            get { return this.ResolveDnnLink(this.Link); }
+            get { return this.ResolveDnnLink(this.Link, false); }
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Engage.Dnn.ContentRotator
         /// <value>A URL to the image.</value>
         public string PagerImageUrl
         {
-            get { return this.ResolveDnnLink(this.PagerImageLink); }
+            get { return this.ResolveDnnLink(this.PagerImageLink, true); }
         }
 
         /// <summary>
@@ -151,8 +151,14 @@ namespace Engage.Dnn.ContentRotator
         /// <value>A URL to the image.</value>
         public string ImageUrl
         {
-            get { return this.ResolveDnnLink(this.ImageLink); }
+            get { return this.ResolveDnnLink(this.ImageLink, true); }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the <see cref="Link"/> should be tracked by <c>LinkClick</c>.
+        /// </summary>
+        /// <value><c>true</c> if the <see cref="Link"/> should be tracked; otherwise, <c>false</c>.</value>
+        public bool TrackLink { get; set; }
 
         /// <summary>
         /// Gets the slide with the given <paramref name="slideId"/>.
@@ -189,12 +195,12 @@ namespace Engage.Dnn.ContentRotator
         {
             if (this.isNew)
             {
-                this.slideId = DataProvider.Instance.InsertSlide(this.Content, this.ImageLink, this.Link, this.StartDate, this.EndDate, moduleId, this.Title, this.PagerImageLink, this.SortOrder);
+                this.slideId = DataProvider.Instance.InsertSlide(this.Content, this.ImageLink, this.Link, this.StartDate, this.EndDate, moduleId, this.Title, this.PagerImageLink, this.SortOrder, this.TrackLink);
                 this.isNew = false;
             }
             else
             {
-                DataProvider.Instance.UpdateSlide(this.slideId, this.Content, this.ImageLink, this.Link, this.StartDate, this.EndDate, this.Title, this.PagerImageLink, this.SortOrder);
+                DataProvider.Instance.UpdateSlide(this.slideId, this.Content, this.ImageLink, this.Link, this.StartDate, this.EndDate, this.Title, this.PagerImageLink, this.SortOrder, this.TrackLink);
             }
         }
 
@@ -248,8 +254,6 @@ namespace Engage.Dnn.ContentRotator
                     case "SLIDEID":
                     case "SLIDE ID":
                         return this.slideId.ToString(format, CultureInfo.CurrentCulture);
-
-                        // Index is for internal use only, not intended to be documented to the public
                     case "INDEX":
                         if (this.itemIndex.HasValue)
                         {
@@ -327,6 +331,7 @@ namespace Engage.Dnn.ContentRotator
                     EndDate = slideRecord["EndDate"] as DateTime?,
                     SortOrder = (int)slideRecord["SortOrder"],
                     ModuleId = (int)slideRecord["ModuleId"],
+                    TrackLink = (bool)slideRecord["TrackLink"],
                     itemIndex = itemIndex
                 };
         }
@@ -335,10 +340,11 @@ namespace Engage.Dnn.ContentRotator
         /// Resolves a DNN-style link (tab ID, FileID=57, plain URL) into a useable URL.
         /// </summary>
         /// <param name="link">The link (one of: an integer [as a tab ID], <c>FileID=#</c>, <c>http://...</c> or <see cref="string.Empty"/>).</param>
+        /// <param name="isImageLink">if set to <c>true</c> the <paramref name="link"/> is one of <see cref="ImageLink"/> or <see cref="PagerImageLink"/>.</param>
         /// <returns>A URL pointing to the resource</returns>
-        private string ResolveDnnLink(string link)
+        private string ResolveDnnLink(string link, bool isImageLink)
         {
-            return Globals.LinkClick(link, Globals.GetPortalSettings().ActiveTab.TabID, this.ModuleId, false, false);
+            return Globals.LinkClick(link, Globals.GetPortalSettings().ActiveTab.TabID, this.ModuleId, isImageLink ? false : this.TrackLink, false);
         }
     }
 }

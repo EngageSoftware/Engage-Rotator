@@ -157,6 +157,8 @@
       <DependentUpon>RotatorEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Providers\DataProviders\DataProvider.cs" />
+    <Content Include="images\collapse.gif" />
+    <Content Include="images\expand.gif" />
     <Content Include="References\Framework\Engage.Dnn.Framework.dll" />
     <Content Include="References\Framework\Engage.Events.dll" />
     <Content Include="References\Framework\Engage.Framework.dll" />

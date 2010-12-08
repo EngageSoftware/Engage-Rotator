@@ -14,6 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Globalization;
 
+    using DotNetNuke.Common.Utilities;
     using DotNetNuke.Services.Exceptions;
 
     /// <summary>
@@ -128,11 +129,21 @@ namespace Engage.Dnn.ContentRotator
                 slide.StartDate = DateTime.Parse(this.StartDateTextBox.Text, CultureInfo.CurrentCulture);
                 slide.EndDate = Engage.Utility.ParseNullableDateTime(this.EndDateTextBox.Text, CultureInfo.CurrentCulture);
                 slide.Link = this.LinkUrlControl.Url;
+                slide.TrackLink = this.LinkUrlControl.Track;
                 slide.ImageLink = this.ImageUrlControl.Url;
                 slide.PagerImageLink = this.PagerImageUrlControl.Url;
                 slide.SortOrder = int.Parse(this.SortOrderTextBox.Text, CultureInfo.CurrentCulture);
 
                 slide.Save(this.ModuleId);
+
+                new UrlController().UpdateUrl(
+                    this.PortalId,
+                    slide.Link,
+                    this.LinkUrlControl.UrlType,
+                    this.LinkUrlControl.Log,
+                    slide.TrackLink,
+                    this.ModuleId,
+                    false);
 
                 this.Response.Redirect(this.EditUrl("Options"), false);
             }
@@ -163,7 +174,7 @@ namespace Engage.Dnn.ContentRotator
 
             this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js");
 
-            DatePickerOptions datePickerOptions = new DatePickerOptions(CultureInfo.CurrentCulture, this.LocalResourceFile);
+            var datePickerOptions = new DatePickerOptions(CultureInfo.CurrentCulture, this.LocalResourceFile);
             this.Page.ClientScript.RegisterClientScriptBlock(typeof(RotatorEdit), "datepicker options", "var datePickerOpts = " + datePickerOptions.Serialize() + ";", true);
         }
     }

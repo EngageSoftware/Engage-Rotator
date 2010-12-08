@@ -50,8 +50,9 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="title">The title.</param>
         /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
+        /// <param name="trackLink">Whether to track clicks to <paramref name="linkUrl"/></param>
         /// <returns>The ID of the slide created in the database</returns>
-        public abstract int InsertSlide(string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string pagerImageUrl, int sortOrder);
+        public abstract int InsertSlide(string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string pagerImageUrl, int sortOrder, bool trackLink);
 
         /// <summary>
         /// Updates the slide with the given <see cref="slideId"/>.
@@ -65,7 +66,8 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="title">The title.</param>
         /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
-        public abstract void UpdateSlide(int slideId, string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string pagerImageUrl, int sortOrder);
+        /// <param name="trackLink">Whether to track clicks to <paramref name="linkUrl"/></param>
+        public abstract void UpdateSlide(int slideId, string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string pagerImageUrl, int sortOrder, bool trackLink);
 
         /// <summary>
         /// Deletes the slide with the given <paramref name="slideId"/>.

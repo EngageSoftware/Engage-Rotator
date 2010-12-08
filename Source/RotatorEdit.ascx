@@ -31,7 +31,7 @@
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="LinkUrlLabel" runat="server" EnableViewState="false" /></td>
         <td class="contentColumn leftAlign">
             <asp:UpdatePanel runat="server" UpdateMode="Conditional"><ContentTemplate>
-                <dnn:Url ID="LinkUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowNone="true" ShowTabs="true" ShowUrls="true"/>
+                <dnn:Url ID="LinkUrlControl" runat="server" UrlType="N" ShowTrack="true" ShowLog="true" ShowNewWindow="false" ShowUsers="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowNone="true" ShowTabs="true" ShowUrls="true"/>
             </ContentTemplate></asp:UpdatePanel>
         </td>
     </tr>

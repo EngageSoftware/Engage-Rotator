@@ -26,6 +26,16 @@ namespace Engage.Dnn.ContentRotator
     public partial class RotatorOptions : ModuleBase
     {
         /// <summary>
+        /// Gets the plain URL version of a link.
+        /// </summary>
+        /// <param name="link">The link to convert into a URL.</param>
+        /// <returns>A URL pointing to the <paramref name="link"/> without LinkClick tracking</returns>
+        protected string GetPlainUrl(string link)
+        {
+            return Globals.LinkClick(link, this.TabId, this.ModuleId, false, false);
+        }
+
+        /// <summary>
         /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
         /// </summary>
         /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>

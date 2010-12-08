@@ -156,4 +156,10 @@
   <data name="ControlTitle_options.Text" xml:space="preserve">
     <value>Manage Slides</value>
   </data>
+  <data name="View Link Statistics.Text" xml:space="preserve">
+    <value>View Link Statistics</value>
+  </data>
+  <data name="No Link.Text" xml:space="preserve">
+    <value>No Link</value>
+  </data>
 </root>

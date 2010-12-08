@@ -1,14 +1,20 @@
-﻿IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spGetSlide'))
+﻿IF NOT EXISTS (SELECT NULL FROM syscolumns WHERE [name] = 'TrackLink' AND id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_Slide'))
+BEGIN
+    ALTER TABLE {databaseOwner}{objectQualifier}EngageRotator_Slide
+        ADD TrackLink bit NOT NULL CONSTRAINT {objectQualifier}DF_EngageRotator_Slide_TrackLink DEFAULT 0
+END
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spGetSlide'))
 DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetSlide
 GO
 
 CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetSlide
-	@slideId int
+    @slideId int
 AS
 BEGIN
-	SELECT SlideId, [Content], ImageUrl, LinkUrl, StartDate, EndDate, Title, PagerImageUrl, SortOrder, ModuleId
-	FROM {databaseOwner}{objectQualifier}EngageRotator_Slide
-	WHERE SlideId = @slideId
+    SELECT SlideId, [Content], ImageUrl, LinkUrl, StartDate, EndDate, Title, PagerImageUrl, SortOrder, ModuleId, TrackLink
+    FROM {databaseOwner}{objectQualifier}EngageRotator_Slide
+    WHERE SlideId = @slideId
 END
 GO
 
@@ -17,14 +23,69 @@ DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetSlides
 GO
 
 CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spGetSlides
-	@moduleId int,
-	@getOutdatedSlides bit
+    @moduleId int,
+    @getOutdatedSlides bit
 AS
 BEGIN
-	SELECT SlideId, [Content], ImageUrl, LinkUrl, StartDate, EndDate, Title, PagerImageUrl, SortOrder, ModuleId
-	FROM {databaseOwner}{objectQualifier}EngageRotator_Slide
-	WHERE ModuleId = @moduleId
-	AND (@getOutdatedSlides = 1 OR (StartDate < GETDATE() and (EndDate IS NULL OR EndDate > GETDATE())))
-	ORDER BY SortOrder, StartDate, Title
+    SELECT SlideId, [Content], ImageUrl, LinkUrl, StartDate, EndDate, Title, PagerImageUrl, SortOrder, ModuleId, TrackLink
+    FROM {databaseOwner}{objectQualifier}EngageRotator_Slide
+    WHERE ModuleId = @moduleId
+    AND (@getOutdatedSlides = 1 OR (StartDate < GETDATE() and (EndDate IS NULL OR EndDate > GETDATE())))
+    ORDER BY SortOrder, StartDate, Title
+END
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spInsertSlide'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spInsertSlide
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spInsertSlide
+    @content ntext, 
+    @linkUrl nvarchar(255), 
+    @startDate datetime, 
+    @endDate datetime, 
+    @moduleId int, 
+    @title nvarchar(255), 
+    @imageUrl nvarchar(255), 
+    @pagerImageUrl nvarchar(255), 
+    @sortOrder int,
+    @trackLink bit
+AS
+BEGIN
+    INSERT INTO {databaseOwner}{objectQualifier}EngageRotator_Slide([Content], LinkUrl, StartDate, EndDate, ModuleId, Title, ImageUrl, PagerImageUrl, SortOrder, TrackLink)
+    VALUES (@content, @linkUrl, @startDate, @endDate, @moduleId, @title, @imageUrl, @pagerImageUrl, @sortOrder, @trackLink)
+    
+    SELECT SCOPE_IDENTITY()
+END
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = OBJECT_ID(N'{databaseOwner}{objectQualifier}EngageRotator_spUpdateSlide'))
+DROP PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spUpdateSlide
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}EngageRotator_spUpdateSlide
+    @slideId int,
+    @content ntext, 
+    @linkUrl nvarchar(255), 
+    @startDate datetime, 
+    @endDate datetime, 
+    @title nvarchar(255), 
+    @imageUrl nvarchar(255), 
+    @pagerImageUrl nvarchar(255), 
+    @sortOrder int,
+    @trackLink bit
+AS
+BEGIN
+    UPDATE {databaseOwner}{objectQualifier}EngageRotator_Slide
+    SET [Content] = @content, 
+    LinkUrl = @linkUrl, 
+    StartDate = @startDate, 
+    EndDate = @endDate, 
+    Title = @title, 
+    ImageUrl = @imageUrl, 
+    PagerImageUrl = @pagerImageUrl, 
+    SortOrder = @sortOrder,
+    TrackLink = @trackLink
+    WHERE SlideId = @slideId
 END
 GO

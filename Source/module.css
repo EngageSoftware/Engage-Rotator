@@ -52,6 +52,11 @@ wbr:after { content: "\00200B" }
 			.RotatorOptions .rotatorDescription{}
 			.RotatorOptions .rotatorThumbnails{}
 			.RotatorOptions .rotatorReadMoreLink{clear:both;}
+			.RotatorOptions .rotatorReadMoreLink .urlTrackingWrap{border:1px #ccc solid;background:#eee;margin:10px 0;}
+			    .RotatorOptions .rotatorReadMoreLink .view-url-tracking{padding-left:15px;display:block;}
+			    .RotatorOptions .rotatorReadMoreLink .collapse-link{background:transparent url(images/collapse.gif) no-repeat;}
+			    .RotatorOptions .rotatorReadMoreLink .expand-link{background:transparent url(images/expand.gif) no-repeat;}
+			    .RotatorOptions .rotatorReadMoreLink .urlTracking{width:660px;overflow:auto;padding:10px;}
 		.RotatorOptions .editContent{border:1px #8fb9d0 solid;border-top:none;overflow:hidden;padding:8px 15px;background:#e8f6fd;}
 				.RotatorOptions .startEndDate{float:left;width:50%;}
 				.RotatorOptions .editButtons{float:right;width:50%;text-align:right;}

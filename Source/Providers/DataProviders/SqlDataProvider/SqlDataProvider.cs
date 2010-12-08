@@ -12,7 +12,6 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
-    using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
     using DotNetNuke.Common.Utilities;
@@ -99,10 +98,11 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="title">The title.</param>
         /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
+        /// <param name="trackLink">Whether to track clicks to <paramref name="linkUrl"/></param>
         /// <returns>
         /// The ID of the slide created in the database
         /// </returns>
-        public override int InsertSlide(string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string pagerImageUrl, int sortOrder)
+        public override int InsertSlide(string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, int moduleId, string title, string pagerImageUrl, int sortOrder, bool trackLink)
         {
             return (int)(decimal)this.ExecuteScalar(
                 "InsertSlide",
@@ -114,7 +114,8 @@ namespace Engage.Dnn.ContentRotator
                 Engage.Utility.CreateDateTimeParam("@endDate", endDate),
                 Engage.Utility.CreateIntegerParam("@moduleId", moduleId),
                 Engage.Utility.CreateVarcharParam("@title", title, TextFieldSize),
-                Engage.Utility.CreateIntegerParam("@sortOrder", sortOrder));
+                Engage.Utility.CreateIntegerParam("@sortOrder", sortOrder),
+                Engage.Utility.CreateBitParam("@trackLink", trackLink));
         }
 
         /// <summary>
@@ -129,7 +130,8 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="title">The title.</param>
         /// <param name="pagerImageUrl">The URL to the pager image.</param>
         /// <param name="sortOrder">The sort order.</param>
-        public override void UpdateSlide(int slideId, string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string pagerImageUrl, int sortOrder)
+        /// <param name="trackLink">Whether to track clicks to <paramref name="linkUrl"/></param>
+        public override void UpdateSlide(int slideId, string content, string imageUrl, string linkUrl, DateTime startDate, DateTime? endDate, string title, string pagerImageUrl, int sortOrder, bool trackLink)
         {
             this.ExecuteNonQuery(
                 "UpdateSlide",
@@ -141,7 +143,8 @@ namespace Engage.Dnn.ContentRotator
                 Engage.Utility.CreateDateTimeParam("@endDate", endDate),
                 Engage.Utility.CreateVarcharParam("@title", title, TextFieldSize),
                 Engage.Utility.CreateVarcharParam("@pagerImageUrl", pagerImageUrl, TextFieldSize),
-                Engage.Utility.CreateIntegerParam("@sortOrder", sortOrder));
+                Engage.Utility.CreateIntegerParam("@sortOrder", sortOrder),
+                Engage.Utility.CreateBitParam("@trackLink", trackLink));
         }
 
         /// <summary>
