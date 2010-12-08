@@ -230,16 +230,16 @@ namespace Engage.Dnn.ContentRotator
                 switch (propertyName.ToUpperInvariant())
                 {
                     case "CONTENT":
-                        return this.Content;
+                        return TemplateEngine.FormatString(this.Content, format ?? "RAW");
                     case "ENDDATE":
                     case "END DATE":
                         return this.EndDate.HasValue ? this.EndDate.Value.ToString(format, CultureInfo.CurrentCulture) : string.Empty;
                     case "LINKURL":
                     case "LINK URL":
-                        return this.LinkUrl;
+                        return TemplateEngine.FormatString(this.LinkUrl, format ?? "RAW");
                     case "PAGERIMAGEURL":
                     case "PAGER IMAGE URL":
-                        return this.PagerImageUrl;
+                        return TemplateEngine.FormatString(this.PagerImageUrl, format ?? "RAW");
                     case "SORTORDER":
                     case "SORT ORDER":
                         return this.SortOrder.ToString(format, CultureInfo.CurrentCulture);
@@ -248,9 +248,9 @@ namespace Engage.Dnn.ContentRotator
                         return this.StartDate.ToString(format, CultureInfo.CurrentCulture);
                     case "IMAGEURL":
                     case "IMAGE URL":
-                        return this.ImageUrl;
+                        return TemplateEngine.FormatString(this.ImageUrl, format ?? "RAW");
                     case "TITLE":
-                        return this.Title;
+                        return TemplateEngine.FormatString(this.Title, format ?? "HTML");
                     case "SLIDEID":
                     case "SLIDE ID":
                         return this.slideId.ToString(format, CultureInfo.CurrentCulture);
