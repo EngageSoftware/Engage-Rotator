@@ -3,7 +3,7 @@
 <%@ Import Namespace="Engage.Dnn.ContentRotator" %>
 <%@ Register TagPrefix="dnn" TagName="UrlTracking" Src="~/controls/URLTrackingControl.ascx" %>
 <div class="RotatorOptions">
-    <div class="ro-top"><asp:Button ID="NewSlideButton" runat="server" resourcekey="NewSlideButton" EnableViewState="false" />&nbsp;<asp:Button ID="BackButton" runat="server" resourcekey="BackButton" /></div>            
+    <div class="ro-top"><asp:Button ID="NewSlideButton" runat="server" resourcekey="NewSlideButton" EnableViewState="false" CssClass="Normal" />&nbsp;<asp:Button ID="BackButton" runat="server" resourcekey="BackButton" CssClass="Normal" /></div>            
     <div class="ro-body">
         <asp:Repeater ID="SlidesRepeater" runat="server">
             <ItemTemplate>
@@ -63,6 +63,9 @@
                     </div>
             </ItemTemplate>
         </asp:Repeater>
+        <asp:PlaceHolder ID="NoSlidesSection" runat="server" Visible="false">
+            <%= Localize("No Slides") %>
+        </asp:PlaceHolder>
     </div>
     <div class="ro-bottom"><asp:Button ID="BackButton2" runat="server" resourcekey="BackButton" CssClass="Normal" /></div>
 </div>

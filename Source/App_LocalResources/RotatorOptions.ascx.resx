@@ -162,4 +162,7 @@
   <data name="No Link.Text" xml:space="preserve">
     <value>No Link</value>
   </data>
+  <data name="No Slides.Text" xml:space="preserve">
+    <value>There are no slides defined for this module.  Please click the Add New Slide button to get started creator your rotator content.</value>
+  </data>
 </root>

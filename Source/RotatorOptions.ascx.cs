@@ -13,6 +13,7 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Globalization;
+    using System.Linq;
     using System.Web.UI.WebControls;
 
     using DotNetNuke.Services.Exceptions;
@@ -136,7 +137,7 @@ namespace Engage.Dnn.ContentRotator
         {
             if (e != null)
             {
-                Button deleteSlideButton = (Button)e.Item.FindControl("DeleteSlideButton");
+                var deleteSlideButton = (Button)e.Item.FindControl("DeleteSlideButton");
                 ClientAPI.AddButtonConfirm(deleteSlideButton, Localization.GetString("DeleteConfirm.Text", this.LocalResourceFile));
             }
         }
@@ -146,8 +147,11 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         private void BindData()
         {
-            this.SlidesRepeater.DataSource = Slide.GetSlides(this.ModuleId, true);
+            var slides = Slide.GetSlides(this.ModuleId, true);
+            this.SlidesRepeater.DataSource = slides;
             this.SlidesRepeater.DataBind();
+
+            this.NoSlidesSection.Visible = !slides.Any();
         }
 
         /// <summary>
@@ -157,7 +161,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The ID of the <see cref="Slide"/></returns>
         private int GetIdFromIndex(int rowIndex)
         {
-            HiddenField slideIdHiddenField = (HiddenField)this.SlidesRepeater.Items[rowIndex].FindControl("SlideIdHiddenField");
+            var slideIdHiddenField = (HiddenField)this.SlidesRepeater.Items[rowIndex].FindControl("SlideIdHiddenField");
             return int.Parse(slideIdHiddenField.Value, CultureInfo.InvariantCulture);
         }
     }

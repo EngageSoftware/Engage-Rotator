@@ -40,6 +40,15 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.Repeater SlidesRepeater;
         
         /// <summary>
+        /// NoSlidesSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder NoSlidesSection;
+        
+        /// <summary>
         /// BackButton2 control.
         /// </summary>
         /// <remarks>
