@@ -27,8 +27,8 @@ using System.Web.UI;
 [assembly: Guid("3d5900ae-111a-45be-96b3-d9e4606ca793")]
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyVersion("2.2.0.*")]
-[assembly: AssemblyFileVersion("2.2.0.0")]
+[assembly: AssemblyVersion("2.3.0.*")]
+[assembly: AssemblyFileVersion("2.3.0.0")]
 
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js", "text/javascript")]
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js", "text/javascript")]
