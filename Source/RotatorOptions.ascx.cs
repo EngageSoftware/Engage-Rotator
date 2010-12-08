@@ -14,7 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Globalization;
     using System.Web.UI.WebControls;
-    using DotNetNuke.Framework;
+
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.Localization;
     using DotNetNuke.UI.Utilities;
@@ -36,12 +36,22 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
+        /// Gets the URL to the rotator options script.
+        /// </summary>
+        /// <returns>The URL to the script</returns>
+        protected string GetRotatorOptionsScriptUrl()
+        {
+            return this.Page.ClientScript.GetWebResourceUrl(typeof(RotatorOptions), "Engage.Dnn.ContentRotator.JavaScript.jquery.rotator-options.js");
+        }
+
+        /// <summary>
         /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
         /// </summary>
         /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
             this.RequiresScriptManager = false;
+            Utility.AddJQueryReference(this.Page);
 
             base.OnInit(e);
             this.Load += this.Page_Load;
@@ -61,12 +71,7 @@ namespace Engage.Dnn.ContentRotator
         {
             try
             {
-                if (AJAX.IsInstalled())
-                {
-                    AJAX.RegisterScriptManager();
-                }
-
-                if (!this.Page.IsPostBack)
+                if (!this.IsPostBack)
                 {
                     this.BindData();
                 }
