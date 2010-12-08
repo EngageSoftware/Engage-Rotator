@@ -23,34 +23,10 @@ namespace Engage.Dnn.ContentRotator
     public class DatePickerOptions
     {
         /// <summary>
-        /// Backing field for <see cref="ClearStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string clearStatus;
-
-        /// <summary>
-        /// Backing field for <see cref="ClearText"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string clearText;
-
-        /// <summary>
-        /// Backing field for <see cref="CloseStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string closeStatus;
-
-        /// <summary>
         /// Backing field for <see cref="CloseText"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string closeText;
-
-        /// <summary>
-        /// Backing field for <see cref="CurrentStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string currentStatus;
 
         /// <summary>
         /// Backing field for <see cref="CurrentText"/>
@@ -63,12 +39,6 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string dateFormat;
-
-        /// <summary>
-        /// Backing field for <see cref="DateStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string dateStatus;
 
         /// <summary>
         /// Backing field for <see cref="GetDayNames"/> and <see cref="SetDayNames"/>
@@ -89,22 +59,10 @@ namespace Engage.Dnn.ContentRotator
         private string[] dayNamesShort;
 
         /// <summary>
-        /// Backing field for <see cref="DayStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string dayStatus;
-
-        /// <summary>
         /// Backing field for <see cref="FirstDay"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int firstDay;
-
-        /// <summary>
-        /// Backing field for <see cref="InitStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string initStatus;
 
         /// <summary>
         /// Backing field for <see cref="IsRightToLeft"/>
@@ -125,28 +83,10 @@ namespace Engage.Dnn.ContentRotator
         private string[] monthNamesShort;
 
         /// <summary>
-        /// Backing field for <see cref="MonthStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string monthStatus;
-
-        /// <summary>
-        /// Backing field for <see cref="NextStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string nextStatus;
-
-        /// <summary>
         /// Backing field for <see cref="NextText"/>
         /// </summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string nextText;
-
-        /// <summary>
-        /// Backing field for <see cref="PreviousStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string previousStatus;
 
         /// <summary>
         /// Backing field for <see cref="PreviousText"/>
@@ -155,47 +95,16 @@ namespace Engage.Dnn.ContentRotator
         private string previousText;
 
         /// <summary>
-        /// Backing field for <see cref="WeekHeader"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string weekHeader;
-
-        /// <summary>
-        /// Backing field for <see cref="WeekStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string weekStatus;
-
-        /// <summary>
-        /// Backing field for <see cref="YearStatus"/>
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string yearStatus;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="DatePickerOptions"/> class.
         /// </summary>
         /// <param name="displayCulture">The culture which should control the date format.</param>
         /// <param name="resourceFile">The resource file from which strings should be retrieved.</param>
         public DatePickerOptions(CultureInfo displayCulture, string resourceFile)
         {
-            this.clearStatus = Localization.GetString("CalendarClearStatus.Text", resourceFile);
-            this.clearText = Localization.GetString("CalendarClearText.Text", resourceFile);
-            this.closeStatus = Localization.GetString("CalendarCloseStatus.Text", resourceFile);
             this.closeText = Localization.GetString("CalendarCloseText.Text", resourceFile);
-            this.currentStatus = Localization.GetString("CalendarCurrentStatus.Text", resourceFile);
             this.currentText = Localization.GetString("CalendarCurrentText.Text", resourceFile);
-            this.dateStatus = Localization.GetString("CalendarDateStatus.Text", resourceFile);
-            this.dayStatus = Localization.GetString("CalendarDayStatus.Text", resourceFile);
-            this.initStatus = Localization.GetString("CalendarInitStatus.Text", resourceFile);
-            this.monthStatus = Localization.GetString("CalendarMonthStatus.Text", resourceFile);
-            this.nextStatus = Localization.GetString("CalendarNextStatus.Text", resourceFile);
             this.nextText = Localization.GetString("CalendarNextText.Text", resourceFile);
-            this.previousStatus = Localization.GetString("CalendarPrevStatus.Text", resourceFile);
             this.previousText = Localization.GetString("CalendarPrevText.Text", resourceFile);
-            this.weekHeader = Localization.GetString("CalendarWeekHeader.Text", resourceFile);
-            this.weekStatus = Localization.GetString("CalendarWeekStatus.Text", resourceFile);
-            this.yearStatus = Localization.GetString("CalendarYearStatus.Text", resourceFile);
 
             DateTimeFormatInfo dateTimeFormat = displayCulture.DateTimeFormat;
             this.dateFormat = ConvertToDatePickerFormatString(dateTimeFormat.ShortDatePattern);
@@ -209,48 +118,6 @@ namespace Engage.Dnn.ContentRotator
             this.isRightToLeft = displayCulture.TextInfo.IsRightToLeft;
         }
 
-        /// <summary>Gets or sets Status text for clear link</summary>
-        public string ClearStatus
-        {
-            get
-            {
-                return this.clearStatus;
-            }
-
-            set
-            {
-                this.clearStatus = value;
-            }
-        }
-
-        /// <summary>Gets or sets Display text for clear link</summary>
-        public string ClearText
-        {
-            get
-            {
-                return this.clearText;
-            }
-
-            set
-            {
-                this.clearText = value;
-            }
-        }
-
-        /// <summary>Gets or sets Status text for close link</summary>
-        public string CloseStatus
-        {
-            get
-            {
-                return this.closeStatus;
-            }
-
-            set
-            {
-                this.closeStatus = value;
-            }
-        }
-
         /// <summary>Gets or sets Display text for close link</summary>
         public string CloseText
         {
@@ -262,20 +129,6 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 this.closeText = value;
-            }
-        }
-
-        /// <summary>Gets or sets Status text for current month link</summary>
-        public string CurrentStatus
-        {
-            get
-            {
-                return this.currentStatus;
-            }
-
-            set
-            {
-                this.currentStatus = value;
             }
         }
 
@@ -307,34 +160,6 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets Status text for the date selection</summary>
-        public string DateStatus
-        {
-            get
-            {
-                return this.dateStatus;
-            }
-
-            set
-            {
-                this.dateStatus = value;
-            }
-        }
-
-        /// <summary>Gets or sets Status text for the day of the week selection</summary>
-        public string DayStatus
-        {
-            get
-            {
-                return this.dayStatus;
-            }
-
-            set
-            {
-                this.dayStatus = value;
-            }
-        }
-
         /// <summary>Gets or sets The first day of the week, Sun = 0, Mon = 1, ...</summary>
         public int FirstDay
         {
@@ -349,20 +174,6 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets Initial Status text on opening</summary>
-        public string InitStatus
-        {
-            get
-            {
-                return this.initStatus;
-            }
-
-            set
-            {
-                this.initStatus = value;
-            }
-        }
-
         /// <summary>Gets or sets a value indicating whether it is a right-to-left language</summary>
         public bool IsRightToLeft
         {
@@ -374,34 +185,6 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 this.isRightToLeft = value;
-            }
-        }
-
-        /// <summary>Gets or sets Status text for selecting a month</summary>
-        public string MonthStatus
-        {
-            get
-            {
-                return this.monthStatus;
-            }
-
-            set
-            {
-                this.monthStatus = value;
-            }
-        }
-
-        /// <summary>Gets or sets Status text for next month link</summary>
-        public string NextStatus
-        {
-            get
-            {
-                return this.nextStatus;
-            }
-
-            set
-            {
-                this.nextStatus = value;
             }
         }
 
@@ -421,20 +204,6 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets or sets Status text for previous month link</summary>
-        public string PreviousStatus
-        {
-            get
-            {
-                return this.previousStatus;
-            }
-
-            set
-            {
-                this.previousStatus = value;
-            }
-        }
-
         /// <summary>
         /// Gets or sets Display text for previous month link
         /// </summary>
@@ -448,48 +217,6 @@ namespace Engage.Dnn.ContentRotator
             set
             {
                 this.previousText = value;
-            }
-        }
-
-        /// <summary>Gets or sets Header for the week of the year column</summary>
-        public string WeekHeader
-        {
-            get
-            {
-                return this.weekHeader;
-            }
-
-            set
-            {
-                this.weekHeader = value;
-            }
-        }
-
-        /// <summary>Gets or sets Status text for the week of the year column</summary>
-        public string WeekStatus
-        {
-            get
-            {
-                return this.weekStatus;
-            }
-
-            set
-            {
-                this.weekStatus = value;
-            }
-        }
-
-        /// <summary>Gets or sets Status text for selecting a year</summary>
-        public string YearStatus
-        {
-            get
-            {
-                return this.yearStatus;
-            }
-
-            set
-            {
-                this.yearStatus = value;
             }
         }
 
@@ -589,7 +316,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The serialized JSON string</returns>
         public string Serialize()
         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
             serializer.RegisterConverters(new JavaScriptConverter[] { new DatePickerOptionsConverter() });
             return serializer.Serialize(this);
         }

@@ -66,5 +66,8 @@
 <asp:ValidationSummary runat="server" ShowMessageBox="true" ShowSummary="false" />
 
 <script type="text/javascript">
-    jQuery(function() { jQuery('.DatePicker').datepicker(datePickerOpts); });
+    (function ($) {
+        $(function() { $('.DatePicker').datepicker(datePickerOpts); });
+        $(window).load(function () { $('#ui-datepicker-div').wrap('<div class="ModEngageRotatorC" />'); });
+    }(jQuery));
 </script>
