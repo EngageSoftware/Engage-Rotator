@@ -15,7 +15,7 @@
     <include name="Engage.Dnn.Framework_Source.zip"/>
   </patternset>
   <property name="projectDllName" value="Engage.${projectName}.dll" />
-  <property name="solutionFile" value="Engage${projectName}_VS2008.sln"/>
+  <property name="solutionFile" value="Engage${projectName}_VS2010.sln"/>
   <property name="binDirectory" value="..\..\bin" overwrite="false"/> <!-- binDirectory is readonly if set from the command line (i.e. during Team Build CI) -->
   <property name="trialBinDirectory" value="${binDirectory}\..\trialBin"/>
   <property name="currentBinDirectory" value="${binDirectory}"/>
@@ -99,7 +99,6 @@
         <arg value="/p:Platform=&quot;Any CPU&quot;" />
         <arg value="/p:OutputPath=&quot;${currentBinDirectory}&quot;" />
         <arg value="/m" /> <!-- multicore -->
-        <arg value="/noconsolelogger" />
       </exec>
     </if>
   </target>
