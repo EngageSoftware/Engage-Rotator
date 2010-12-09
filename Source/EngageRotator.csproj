@@ -120,6 +120,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2.3.0.txt" />
     <Content Include="App_LocalResources\Rotator.ascx.resx">
       <SubType>Designer</SubType>
     </Content>

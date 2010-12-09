@@ -20,6 +20,7 @@
             </resourceFile>
           </resourceFiles>
         </component>
+        <component type="Cleanup" version="2.3.0" fileName="2.3.0.txt"/>
         <component type="Script">
           <scripts>
             <basePath>DesktopModules\EngageRotator</basePath>
