@@ -157,6 +157,7 @@
       <DependentUpon>RotatorEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Providers\DataProviders\DataProvider.cs" />
+    <Content Include="ReleaseNotes_2.3.0.htm" />
     <Content Include="images\collapse.gif" />
     <Content Include="images\expand.gif" />
     <Content Include="images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
