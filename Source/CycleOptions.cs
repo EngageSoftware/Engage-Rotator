@@ -47,7 +47,7 @@ namespace Engage.Dnn.ContentRotator
         /// <exception cref="ArgumentNullException"><paramref name="autoStopCount"/> must not be <c>null</c> if <paramref name="autoStop"/> is <c>true</c></exception>
         public CycleOptions(bool autoStop, int? autoStopCount, bool containerResize, Unit containerHeight, Unit containerWidth, bool continuous, int initialDelay, int millisecondsBetweenTransitions, bool pauseOnHover, Effects transitionEffects, int transitionSpeed, int manuallyTriggeredTransitionSpeed, bool loop, bool randomOrder, bool simultaneousTransitions, bool forceSlidesToFitContainer, bool disableAddingBackgroundColorForClearTypeFix, bool randomizeEffects, bool manualTransitionTrumpsActiveTransition, Control containerElement)
         {
-            this.PagerEvent = "click";
+            this.PagerEvent = null;
 
             if (autoStop && !autoStopCount.HasValue)
             {

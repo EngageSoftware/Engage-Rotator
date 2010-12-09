@@ -62,34 +62,40 @@ namespace Engage.Dnn.ContentRotator
                 throw new InvalidOperationException("object must be of the CycleOptions type");
             }
 
-            return new Dictionary<string, object>(26)
-                       {
-                               { "fx", opts.TransitionEffects.ToString() },
-                               { "timeout", opts.MillisecondsBetweenTransitions },
-                               { "continuous", opts.Continuous },
-                               { "speed", opts.TransitionSpeed },
-                               { "next", string.Format("#{0} .rotator-next", opts.ContainerElement.ClientID) },
-                               { "prev", string.Format("#{0} .rotator-prev", opts.ContainerElement.ClientID) },
-                               { "pager", string.Format("#{0} .rotator-pager", opts.ContainerElement.ClientID) },
-                               { "pagerEvent", opts.PagerEvent },
-                               { "height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString() },
-                               { "width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString() },
-                               { "startingSlide", opts.StartingSlideIndex },
-                               { "sync", opts.SimultaneousTransitions },
-                               { "random", opts.RandomOrder },
-                               { "fit", opts.ForceSlidesToFitContainer },
-                               { "containerResize", opts.ContainerResize },
-                               { "pause", opts.PauseOnHover },
-                               { "pauseOnPagerHover", opts.PauseOnPagerHover },
-                               { "autostop", opts.AutoStop },
-                               { "autostopCount", opts.AutoStopCount },
-                               { "delay", opts.InitialDelay },
-                               { "nowrap", !opts.Loop },
-                               { "fastOnEvent", opts.ManuallyTriggeredTransitionSpeed },
-                               { "cleartypeNoBg", opts.DisableAddingBackgroundColorForClearTypeFix },
-                               { "randomizeEffects", opts.RandomizeEffects },
-                               { "manualTrump", opts.ManualTransitionTrumpsActiveTransition }
-                       };
+            var cycleOptions = new Dictionary<string, object>(26)
+                {
+                    { "fx", opts.TransitionEffects.ToString() },
+                    { "timeout", opts.MillisecondsBetweenTransitions },
+                    { "continuous", opts.Continuous },
+                    { "speed", opts.TransitionSpeed },
+                    { "next", string.Format("#{0} .rotator-next", opts.ContainerElement.ClientID) },
+                    { "prev", string.Format("#{0} .rotator-prev", opts.ContainerElement.ClientID) },
+                    { "pager", string.Format("#{0} .rotator-pager", opts.ContainerElement.ClientID) },
+                    { "height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString() },
+                    { "width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString() },
+                    { "startingSlide", opts.StartingSlideIndex },
+                    { "sync", opts.SimultaneousTransitions },
+                    { "random", opts.RandomOrder },
+                    { "fit", opts.ForceSlidesToFitContainer },
+                    { "containerResize", opts.ContainerResize },
+                    { "pause", opts.PauseOnHover },
+                    { "pauseOnPagerHover", opts.PauseOnPagerHover },
+                    { "autostop", opts.AutoStop },
+                    { "autostopCount", opts.AutoStopCount },
+                    { "delay", opts.InitialDelay },
+                    { "nowrap", !opts.Loop },
+                    { "fastOnEvent", opts.ManuallyTriggeredTransitionSpeed },
+                    { "cleartypeNoBg", opts.DisableAddingBackgroundColorForClearTypeFix },
+                    { "randomizeEffects", opts.RandomizeEffects },
+                    { "manualTrump", opts.ManualTransitionTrumpsActiveTransition }
+                };
+
+            if (!string.IsNullOrEmpty(opts.PagerEvent))
+            {
+                cycleOptions.Add("pagerEvent", opts.PagerEvent);
+            }
+
+            return cycleOptions;
         }
 
         /// <summary>
