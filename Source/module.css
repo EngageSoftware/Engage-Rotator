@@ -94,7 +94,7 @@ wbr:after { content: "\00200B" }
 	.rs-btn{padding-top:15px;clear:both;}
 
 /*
- * jQuery UI CSS Framework 1.8.6
+ * jQuery UI CSS Framework 1.8.7
  *
  * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT or GPL Version 2 licenses.
@@ -106,7 +106,7 @@ wbr:after { content: "\00200B" }
 /* Layout helpers
 ----------------------------------*/
 .RotatorContent .ui-helper-hidden, .ModEngageRotatorC .ui-helper-hidden { display: none; }
-.RotatorContent .ui-helper-hidden-accessible, .ModEngageRotatorC .ui-helper-hidden-accessible { position: absolute; left: -99999999px; }
+.RotatorContent .ui-helper-hidden-accessible, .ModEngageRotatorC .ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px,1px,1px,1px); }
 .RotatorContent .ui-helper-reset, .ModEngageRotatorC .ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
 .RotatorContent .ui-helper-clearfix:after, .ModEngageRotatorC .ui-helper-clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 .RotatorContent .ui-helper-clearfix, .ModEngageRotatorC .ui-helper-clearfix { display: inline-block; }
@@ -137,7 +137,7 @@ wbr:after { content: "\00200B" }
 
 
 /*
- * jQuery UI CSS Framework 1.8.6
+ * jQuery UI CSS Framework 1.8.7
  *
  * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT or GPL Version 2 licenses.
@@ -388,7 +388,7 @@ wbr:after { content: "\00200B" }
 /* Overlays */
 .RotatorContent .ui-widget-overlay , .ModEngageRotatorC .ui-widget-overlay { background: #666666 url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat; opacity: .50;filter:Alpha(Opacity=50); }
 .RotatorContent .ui-widget-shadow , .ModEngageRotatorC .ui-widget-shadow { margin: -5px 0 0 -5px; padding: 5px; background: #000000 url(images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x; opacity: .20;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }/*
- * jQuery UI Tabs 1.8.6
+ * jQuery UI Tabs 1.8.7
  *
  * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT or GPL Version 2 licenses.
@@ -406,7 +406,7 @@ wbr:after { content: "\00200B" }
 .RotatorContent .ui-tabs .ui-tabs-panel , .ModEngageRotatorC .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
 .RotatorContent .ui-tabs .ui-tabs-hide , .ModEngageRotatorC .ui-tabs .ui-tabs-hide { display: none !important; }
 /*
- * jQuery UI Datepicker 1.8.6
+ * jQuery UI Datepicker 1.8.7
  *
  * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT or GPL Version 2 licenses.
@@ -414,7 +414,7 @@ wbr:after { content: "\00200B" }
  *
  * http://docs.jquery.com/UI/Datepicker#theming
  */
-.RotatorContent .ui-datepicker , .ModEngageRotatorC .ui-datepicker { width: 17em; padding: .2em .2em 0; }
+.RotatorContent .ui-datepicker , .ModEngageRotatorC .ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; }
 .RotatorContent .ui-datepicker .ui-datepicker-header , .ModEngageRotatorC .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
 .RotatorContent .ui-datepicker .ui-datepicker-prev, .ModEngageRotatorC .ui-datepicker .ui-datepicker-prev, .RotatorContent .ui-datepicker .ui-datepicker-next , .ModEngageRotatorC .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
 .RotatorContent .ui-datepicker .ui-datepicker-prev-hover, .ModEngageRotatorC .ui-datepicker .ui-datepicker-prev-hover, .RotatorContent .ui-datepicker .ui-datepicker-next-hover , .ModEngageRotatorC .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
