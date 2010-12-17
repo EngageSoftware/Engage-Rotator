@@ -1,0 +1,11 @@
+.serene-template-wrap{overflow:hidden;width:960px;position:relative;}
+	.serene-template{overflow:hidden;width:960px;float:left;}
+		.serene-template .rotate-wrap{width:958px;height:288px;background:#fff;border:solid 1px #ccc;overflow:hidden;position:relative;z-index:1;}
+			.serene-template .rotate-wrap .engage-content{z-index:2;background:#fff;width:948px !important;height:278px; !important;overflow:hidden;border:solid 5px #fff;}
+				.serene-template .info{background: url(images/info-bg.png) repeat top left;position:absolute;top:0;width:260px;height:288px;border-right:solid 3px #fff;padding:20px;}
+					.serene-template h2.title{color:#fff;text-align:left;}
+					.serene-template .desc{color:#fff;text-align:left;}	
+		.serene-template-wrap .rotator-footer{position:absolute;bottom:10px;left:10px;z-index:3;}
+    		.serene-template-wrap .pagers a{color:#ccc;padding:0 5px;}
+			.serene-template-wrap .pagers a.activeSlide{color:#fff;text-decoration:underline;}
+					

@@ -309,6 +309,11 @@
     <Content Include="Templates\Ribbon\Preview.jpg" />
     <Content Include="Templates\Ribbon\Style.css" />
     <Content Include="Templates\Ribbon\Template.htm" />
+    <Content Include="Templates\Serene\images\info-bg.png" />
+    <Content Include="Templates\Serene\Manifest.xml" />
+    <Content Include="Templates\Serene\Preview.jpg" />
+    <Content Include="Templates\Serene\Style.css" />
+    <Content Include="Templates\Serene\Template.htm" />
     <Content Include="Templates\TwoColumn\App_LocalResources\Template.resx" />
     <Content Include="Templates\ThreeColumn\App_LocalResources\Template.resx" />
     <Content Include="Templates\Legacy\App_LocalResources\Template.resx" />
