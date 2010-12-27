@@ -133,7 +133,7 @@
         <exclude name="${referencesDirectory}/System.Web.Extensions.dll"/>
         <exclude name="${referencesDirectory}/*.Design.dll"/>
         <exclude name="${referencesDirectory}/Telerik.Web.UI.dll"/>
-        <exclude name="${referencesDirectory}/Engage.Events.dll"/>
+        <exclude name="${referencesDirectory}/**/Engage.Events.dll"/>
       </fileset>
     </copy>
 
