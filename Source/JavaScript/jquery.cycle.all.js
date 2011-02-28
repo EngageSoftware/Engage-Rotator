@@ -1333,7 +1333,7 @@ $.fn.cycle.defaults = {
     */
     $(function() {
         $.fn.extend({
-            getParentRotator: function() {
+            getParentRotators: function() {
                 return this.closest('.engage-rotator-container').find('.rotate-wrap');
             }
         });
@@ -1341,7 +1341,7 @@ $.fn.cycle.defaults = {
         $('.rotator-pause').click(function() {
             $(this)
                 .addClass('rotator-pause-on')
-                .getParentRotator().cycle('pause');
+                .getParentRotators().cycle('pause');
 
             $('.rotator-play')
                 .removeClass('rotator-play-on');
@@ -1350,7 +1350,7 @@ $.fn.cycle.defaults = {
         $('.rotator-play').click(function() {
             $(this)
                 .addClass('rotator-play-on')
-                .getParentRotator().cycle('resume');
+                .getParentRotators().cycle('resume');
 
             $('.rotator-pause')
                 .removeClass('rotator-pause-on');
@@ -1369,12 +1369,12 @@ $.fn.cycle.defaults = {
             // the next being the capture group (the digits in parenthesis)
             if (indexMatches && indexMatches.length === 2) {
                 var slideIndex = parseInt(indexMatches[1], 10);
-                $(this).getParentRotator().cycle(slideIndex);
+                $(this).getParentRotators().cycle(slideIndex);
             }
         });
 
         $('.total-slide-count').each(function(index, elem) {
-            var slideCount = $(elem).getParentRotator().children().length;
+            var slideCount = $(elem).getParentRotators().first().children().length;
             $(elem).html(slideCount);
         });
     });
