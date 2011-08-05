@@ -12,8 +12,10 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
+    using System.Web.UI;
     using System.Web.UI.WebControls;
 
     using DotNetNuke.Services.Exceptions;
@@ -40,15 +42,16 @@ namespace Engage.Dnn.ContentRotator
         /// Gets the URL to the rotator options script.
         /// </summary>
         /// <returns>The URL to the script</returns>
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Doesn't feel like a property")]
         protected string GetRotatorOptionsScriptUrl()
         {
             return this.Page.ClientScript.GetWebResourceUrl(typeof(RotatorOptions), "Engage.Dnn.ContentRotator.JavaScript.rotator-options.all.js");
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
+        /// Raises the <see cref="Control.Init"/> event.
         /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
             this.RequiresScriptManager = false;
@@ -68,6 +71,7 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void Page_Load(object sender, EventArgs e)
         {
             try

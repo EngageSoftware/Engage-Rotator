@@ -13,6 +13,7 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
     using System.Web.UI;
@@ -24,6 +25,8 @@ namespace Engage.Dnn.ContentRotator
     using DotNetNuke.Services.Localization;
     using Framework.Templating;
     using Templating;
+
+    using Utility = Engage.Utility;
 
     /// <summary>
     /// The main control displaying rotating slides
@@ -412,11 +415,24 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private static Control CreateCurrentIndexControl(Tag tag, ITemplateable slide, string resourceFile)
         {
-            var currentSlideIndexWrapper = new Label();
-            currentSlideIndexWrapper.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
-            currentSlideIndexWrapper.CssClass = Engage.Utility.AddCssClass(currentSlideIndexWrapper.CssClass, "current-slide-index");
-            currentSlideIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
-            return currentSlideIndexWrapper;
+            Label currentSlideIndexWrapper = null;
+            try
+            {
+                currentSlideIndexWrapper = new Label();
+                currentSlideIndexWrapper.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
+                currentSlideIndexWrapper.CssClass = Utility.AddCssClass(currentSlideIndexWrapper.CssClass, "current-slide-index");
+                currentSlideIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
+                return currentSlideIndexWrapper;
+            }
+            catch
+            {
+                if (currentSlideIndexWrapper != null)
+                {
+                    currentSlideIndexWrapper.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -430,10 +446,23 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private static Control CreateTotalCountControl(Tag tag, ITemplateable slide, string resourceFile)
         {
-            var totalCountLabel = new Label();
-            totalCountLabel.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
-            totalCountLabel.CssClass = Engage.Utility.AddCssClass(totalCountLabel.CssClass, "total-slide-count");
-            return totalCountLabel;
+            Label totalCountLabel = null;
+            try
+            {
+                totalCountLabel = new Label();
+                totalCountLabel.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
+                totalCountLabel.CssClass = Utility.AddCssClass(totalCountLabel.CssClass, "total-slide-count");
+                return totalCountLabel;
+            }
+            catch
+            {
+                if (totalCountLabel != null)
+                {
+                    totalCountLabel.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -444,37 +473,40 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="slide">The slide being processed (or <c>null</c>).</param>
         /// <param name="resourceFile">The resource file to use to find localized text.</param>
         /// <returns>Whether to process the tag's ChildTags collection</returns>
+        [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Container takes care of disposing")]
         private bool ProcessTags(Control container, Tag tag, ITemplateable slide, string resourceFile)
         {
-            if (tag.TagType == TagType.Open)
+            if (tag.TagType != TagType.Open)
             {
-                switch (tag.LocalName.ToUpperInvariant())
-                {
-                    case "ROTATEBACK":
-                        AddControl(container, this.CreateBackButton(tag, slide, resourceFile));
-                        break;
-                    case "ROTATENEXT":
-                        AddControl(container, this.CreateNextButton(tag, slide, resourceFile));
-                        break;
-                    case "ROTATEPAUSE":
-                        AddControl(container, this.CreatePauseButton(tag, slide, resourceFile));
-                        break;
-                    case "ROTATEPLAY":
-                        AddControl(container, this.CreatePlayButton(tag, slide, resourceFile));
-                        break;
-                    case "PAGER":
-                        AddControl(container, this.CreatePager(tag, slide, resourceFile));
-                        break;
-                    case "PAGERITEM":
-                        AddControl(container, this.CreatePagerItem(tag, slide, resourceFile));
-                        break;
-                    case "CURRENTINDEX":
-                        AddControl(container, CreateCurrentIndexControl(tag, slide, resourceFile));
-                        break;
-                    case "TOTALCOUNT":
-                        AddControl(container, CreateTotalCountControl(tag, slide, resourceFile));
-                        break;
-                }
+                return false;
+            }
+
+            switch (tag.LocalName.ToUpperInvariant())
+            {
+                case "ROTATEBACK":
+                    AddControl(container, this.CreateBackButton(tag, slide, resourceFile));
+                    break;
+                case "ROTATENEXT":
+                    AddControl(container, this.CreateNextButton(tag, slide, resourceFile));
+                    break;
+                case "ROTATEPAUSE":
+                    AddControl(container, this.CreatePauseButton(tag, slide, resourceFile));
+                    break;
+                case "ROTATEPLAY":
+                    AddControl(container, this.CreatePlayButton(tag, slide, resourceFile));
+                    break;
+                case "PAGER":
+                    AddControl(container, this.CreatePager(tag, slide, resourceFile));
+                    break;
+                case "PAGERITEM":
+                    AddControl(container, this.CreatePagerItem(tag, slide, resourceFile));
+                    break;
+                case "CURRENTINDEX":
+                    AddControl(container, CreateCurrentIndexControl(tag, slide, resourceFile));
+                    break;
+                case "TOTALCOUNT":
+                    AddControl(container, CreateTotalCountControl(tag, slide, resourceFile));
+                    break;
             }
 
             return false;
@@ -492,11 +524,24 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private Control CreateBackButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel backButton = this.CreateRotatorContainer(tag, slide, resourceFile);
+            Panel backButton = null;
+            try
+            {
+                backButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            backButton.CssClass = Engage.Utility.AddCssClass(backButton.CssClass, "rotator-prev");
+                backButton.CssClass = Utility.AddCssClass(backButton.CssClass, "rotator-prev");
 
-            return backButton;
+                return backButton;
+            }
+            catch
+            {
+                if (backButton != null)
+                {
+                    backButton.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -511,11 +556,24 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private Control CreateNextButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel nextButton = this.CreateRotatorContainer(tag, slide, resourceFile);
+            Panel nextButton = null;
+            try
+            {
+                nextButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            nextButton.CssClass = Engage.Utility.AddCssClass(nextButton.CssClass, "rotator-next");
+                nextButton.CssClass = Utility.AddCssClass(nextButton.CssClass, "rotator-next");
 
-            return nextButton;
+                return nextButton;
+            }
+            catch
+            {
+                if (nextButton != null)
+                {
+                    nextButton.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -530,9 +588,22 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private Control CreatePauseButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel pauseButton = this.CreateRotatorContainer(tag, slide, resourceFile);
-            pauseButton.CssClass = Engage.Utility.AddCssClass(pauseButton.CssClass, "rotator-pause");
-            return pauseButton;
+            Panel pauseButton = null;
+            try
+            {
+                pauseButton = this.CreateRotatorContainer(tag, slide, resourceFile);
+                pauseButton.CssClass = Utility.AddCssClass(pauseButton.CssClass, "rotator-pause");
+                return pauseButton;
+            }
+            catch
+            {
+                if (pauseButton != null)
+                {
+                    pauseButton.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -547,12 +618,25 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private Control CreatePlayButton(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel playButton = this.CreateRotatorContainer(tag, slide, resourceFile);
+            Panel playButton = null;
+            try
+            {
+                playButton = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play");
-            playButton.CssClass = Engage.Utility.AddCssClass(playButton.CssClass, "rotator-play-on");
+                playButton.CssClass = Utility.AddCssClass(playButton.CssClass, "rotator-play");
+                playButton.CssClass = Utility.AddCssClass(playButton.CssClass, "rotator-play-on");
 
-            return playButton;
+                return playButton;
+            }
+            catch
+            {
+                if (playButton != null)
+                {
+                    playButton.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -567,12 +651,25 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private Control CreatePager(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel pagerContainer = this.CreateRotatorContainer(tag, slide, resourceFile);
+            Panel pagerContainer = null;
+            try
+            {
+                pagerContainer = this.CreateRotatorContainer(tag, slide, resourceFile);
 
-            pagerContainer.CssClass = Engage.Utility.AddCssClass(pagerContainer.CssClass, "rotator-pager");
-            this.CycleOptions.PagerEvent = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Event") ?? "click";
+                pagerContainer.CssClass = Utility.AddCssClass(pagerContainer.CssClass, "rotator-pager");
+                this.CycleOptions.PagerEvent = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Event") ?? "click";
 
-            return pagerContainer;
+                return pagerContainer;
+            }
+            catch
+            {
+                if (pagerContainer != null)
+                {
+                    pagerContainer.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -587,9 +684,22 @@ namespace Engage.Dnn.ContentRotator
         /// </returns>
         private Control CreatePagerItem(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel pagerItemWrapper = this.CreateRotatorContainer(tag, slide, resourceFile);
-            pagerItemWrapper.CssClass = Engage.Utility.AddCssClass(pagerItemWrapper.CssClass, "pager-item-" + slide.GetValue("INDEX"));
-            return pagerItemWrapper;
+            Panel pagerItemWrapper = null;
+            try
+            {
+                pagerItemWrapper = this.CreateRotatorContainer(tag, slide, resourceFile);
+                pagerItemWrapper.CssClass = Utility.AddCssClass(pagerItemWrapper.CssClass, "pager-item-" + slide.GetValue("INDEX"));
+                return pagerItemWrapper;
+            }
+            catch
+            {
+                if (pagerItemWrapper != null)
+                {
+                    pagerItemWrapper.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -601,23 +711,36 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The created container</returns>
         private Panel CreateRotatorContainer(Tag tag, ITemplateable slide, string resourceFile)
         {
-            var button = new Panel();
-            button.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
+            Panel button = null;
+            try
+            {
+                button = new Panel();
+                button.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
 
-            if (tag.HasChildTags)
-            {
-                TemplateEngine.ProcessTags(button, tag.ChildTags, slide, resourceFile, this.ProcessTags, this.GetSlides);
-            }
-            else
-            {
-                string innerText = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Text");
-                if (!string.IsNullOrEmpty(innerText))
+                if (tag.HasChildTags)
                 {
-                    button.Controls.Add(new LiteralControl(innerText));
+                    TemplateEngine.ProcessTags(button, tag.ChildTags, slide, resourceFile, this.ProcessTags, this.GetSlides);
                 }
-            }
+                else
+                {
+                    string innerText = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Text");
+                    if (!string.IsNullOrEmpty(innerText))
+                    {
+                        button.Controls.Add(new LiteralControl(innerText));
+                    }
+                }
 
-            return button;
+                return button;
+            }
+            catch
+            {
+                if (button != null)
+                {
+                    button.Dispose();
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
@@ -637,6 +760,7 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void Page_Load(object sender, EventArgs e)
         {
             try

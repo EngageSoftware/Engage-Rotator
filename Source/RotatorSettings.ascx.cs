@@ -12,6 +12,7 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
     using System.Web.UI;
@@ -353,6 +354,7 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void Page_Load(object sender, EventArgs e)
         {
             try

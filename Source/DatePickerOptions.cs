@@ -101,6 +101,11 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="resourceFile">The resource file from which strings should be retrieved.</param>
         public DatePickerOptions(CultureInfo displayCulture, string resourceFile)
         {
+            if (displayCulture == null)
+            {
+                throw new ArgumentNullException("displayCulture");
+            }
+
             this.closeText = Localization.GetString("CalendarCloseText.Text", resourceFile);
             this.currentText = Localization.GetString("CalendarCurrentText.Text", resourceFile);
             this.nextText = Localization.GetString("CalendarNextText.Text", resourceFile);

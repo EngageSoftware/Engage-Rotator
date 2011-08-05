@@ -14,6 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Web.Script.Serialization;
 
     /// <summary>
@@ -41,6 +42,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="serializer">The <see cref="JavaScriptSerializer"/> instance. </param>
         /// <returns>The deserialized object. </returns>
         /// <exception cref="InvalidOperationException">We only serialize <see cref="CycleOptions"/></exception>
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "DatePickerOptions", Justification = "Spelled correctly")]
         public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
         {
             throw new InvalidOperationException("We only serialize DatePickerOptions");
@@ -53,6 +55,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="serializer">The object that is responsible for the serialization. </param>
         /// <returns>An object that contains key/value pairs that represent the object’s data. </returns>
         /// <exception cref="InvalidOperationException"><paramref name="obj"/> must be of the <see cref="CycleOptions"/> type</exception>
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "DatePickerOptions", Justification = "Spelled correctly")]
         public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
         {
             var opts = obj as DatePickerOptions;

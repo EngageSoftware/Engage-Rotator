@@ -35,7 +35,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRules>
     </CodeAnalysisRules>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Correctness, Design, Globalization, &amp; Security.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,10 +44,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRules>
     </CodeAnalysisRules>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Correctness, Design, Globalization, &amp; Security.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Trial|AnyCPU'">
     <OutputPath>..\..\trialBin\</OutputPath>
@@ -173,6 +173,7 @@
     <EmbeddedResource Include="JavaScript\rotator-settings.all.js">
       <DependentUpon>rotator.chirp.config</DependentUpon>
     </EmbeddedResource>
+    <CodeAnalysisDictionary Include="CustomDictionary.xml" />
     <Content Include="ReleaseNotes_2.3.0.htm" />
     <Content Include="images\collapse.gif" />
     <Content Include="images\expand.gif" />

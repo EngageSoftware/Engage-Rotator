@@ -14,8 +14,9 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.Web.Script.Serialization;
-    using System.Web.UI;
 
     /// <summary>
     /// Implementation of <see cref="JavaScriptConverter"/> for <see cref="CycleOptions"/>
@@ -42,6 +43,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="serializer">The <see cref="JavaScriptSerializer"/> instance. </param>
         /// <returns>The deserialized object. </returns>
         /// <exception cref="InvalidOperationException">We only serialize <see cref="CycleOptions"/></exception>
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "CycleOptions", Justification = "Spelled correctly")]
         public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
         {
             throw new InvalidOperationException("We only serialize CycleOptions");
@@ -54,6 +56,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="serializer">The object that is responsible for the serialization. </param>
         /// <returns>An object that contains key/value pairs that represent the object’s data. </returns>
         /// <exception cref="InvalidOperationException"><paramref name="obj"/> must be of the <see cref="CycleOptions"/> type</exception>
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "CycleOptions", Justification = "Spelled correctly")]
         public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
         {
             var opts = obj as CycleOptions;
@@ -68,9 +71,9 @@ namespace Engage.Dnn.ContentRotator
                     { "timeout", opts.MillisecondsBetweenTransitions },
                     { "continuous", opts.Continuous },
                     { "speed", opts.TransitionSpeed },
-                    { "next", string.Format("#{0} .rotator-next", opts.ContainerElement.ClientID) },
-                    { "prev", string.Format("#{0} .rotator-prev", opts.ContainerElement.ClientID) },
-                    { "pager", string.Format("#{0} .rotator-pager", opts.ContainerElement.ClientID) },
+                    { "next", string.Format(CultureInfo.InvariantCulture, "#{0} .rotator-next", opts.ContainerElement.ClientID) },
+                    { "prev", string.Format(CultureInfo.InvariantCulture, "#{0} .rotator-prev", opts.ContainerElement.ClientID) },
+                    { "pager", string.Format(CultureInfo.InvariantCulture, "#{0} .rotator-pager", opts.ContainerElement.ClientID) },
                     { "height", opts.ContainerHeight.IsEmpty ? "auto" : opts.ContainerHeight.ToString() },
                     { "width", opts.ContainerWidth.IsEmpty ? string.Empty : opts.ContainerWidth.ToString() },
                     { "startingSlide", opts.StartingSlideIndex },
@@ -96,16 +99,6 @@ namespace Engage.Dnn.ContentRotator
             }
 
             return cycleOptions;
-        }
-
-        /// <summary>
-        /// Gets the jQuery selector for the given <paramref name="control"/>, using its <see cref="Control.ID"/>.
-        /// </summary>
-        /// <param name="control">The control for which to get the selector.</param>
-        /// <returns>A jQuery selector for the given control, or <see cref="string.Empty"/> if <paramref name="control"/> is <c>null</c></returns>
-        private static string GetControlSelector(Control control)
-        {
-            return (control == null) ? string.Empty : "#" + control.ClientID;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Engage.Dnn.ContentRotator
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Text;
     using System.Threading;
     using System.Web;
@@ -81,6 +82,7 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void Page_Load(object sender, EventArgs e)
         {
             try
@@ -114,6 +116,7 @@ namespace Engage.Dnn.ContentRotator
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             try
@@ -233,7 +236,10 @@ namespace Engage.Dnn.ContentRotator
             foreach (KeyValuePair<string, string> settingPair in settings)
             {
                 // TODO: We need to take default settings into account, in case they haven't changed any of the settings yet
+// GetStringSetting still makes sense in this case
+#pragma warning disable 612,618
                 string currentSetting = Utility.GetStringSetting(this.Settings, settingPair.Key);
+#pragma warning restore 612,618
                 if (!settingPair.Value.Equals(currentSetting, StringComparison.OrdinalIgnoreCase))
                 {
                     changedSettings.Add(settingPair.Key, new Pair<string, string>(settingPair.Value, currentSetting));
