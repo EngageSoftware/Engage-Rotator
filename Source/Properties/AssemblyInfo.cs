@@ -30,6 +30,7 @@ using System.Web.UI;
 [assembly: AssemblyVersion("2.3.0.*")]
 [assembly: AssemblyFileVersion("2.3.0.0")]
 
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js", "text/javascript")]
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js", "text/javascript")]
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.jquery.rotator-options.js", "text/javascript")]
+[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator.all.js", "text/javascript")]
+[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator-edit.all.js", "text/javascript")]
+[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator-options.all.js", "text/javascript")]
+[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator-settings.all.js", "text/javascript")]

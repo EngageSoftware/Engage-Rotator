@@ -42,7 +42,7 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The URL to the script</returns>
         protected string GetRotatorOptionsScriptUrl()
         {
-            return this.Page.ClientScript.GetWebResourceUrl(typeof(RotatorOptions), "Engage.Dnn.ContentRotator.JavaScript.jquery.rotator-options.js");
+            return this.Page.ClientScript.GetWebResourceUrl(typeof(RotatorOptions), "Engage.Dnn.ContentRotator.JavaScript.rotator-options.all.js");
         }
 
         /// <summary>

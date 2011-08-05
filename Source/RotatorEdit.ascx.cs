@@ -172,7 +172,7 @@ namespace Engage.Dnn.ContentRotator
         {
             this.AddJQueryReference();
 
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.rotator-edit.all.js");
 
             var datePickerOptions = new DatePickerOptions(CultureInfo.CurrentCulture, this.LocalResourceFile);
             this.Page.ClientScript.RegisterClientScriptBlock(typeof(RotatorEdit), "datepicker options", "var datePickerOpts = " + datePickerOptions.Serialize() + ";", true);

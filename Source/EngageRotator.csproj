@@ -22,6 +22,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
+    <JSLintSkip>\JavaScript\jquery-ui.js|\JavaScript\jquery.cycle.all.js</JSLintSkip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -159,6 +160,19 @@
       <DependentUpon>RotatorEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Providers\DataProviders\DataProvider.cs" />
+    <None Include="JavaScript\rotator.js" />
+    <EmbeddedResource Include="JavaScript\rotator-options.all.js">
+      <DependentUpon>rotator.chirp.config</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JavaScript\rotator.all.js">
+      <DependentUpon>rotator.chirp.config</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JavaScript\rotator-edit.all.js">
+      <DependentUpon>rotator.chirp.config</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JavaScript\rotator-settings.all.js">
+      <DependentUpon>rotator.chirp.config</DependentUpon>
+    </EmbeddedResource>
     <Content Include="ReleaseNotes_2.3.0.htm" />
     <Content Include="images\collapse.gif" />
     <Content Include="images\expand.gif" />
@@ -197,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="EngageRotator.5.dnn" />
+    <Content Include="JavaScript\rotator.chirp.config" />
     <None Include="Migrated rules for EngageRotator.ruleset" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.01.00.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\2.3.0.SqlDataProvider" />
@@ -266,8 +281,8 @@
     <Content Include="References\Microsoft.ApplicationBlocks.Data.dll" />
     <Content Include="App_LocalResources\TemplateSelection.ascx.resx">
     </Content>
-    <EmbeddedResource Include="JavaScript\jquery.cycle.all.js" />
-    <EmbeddedResource Include="JavaScript\jquery-ui.js" />
+    <None Include="JavaScript\jquery.cycle.all.js" />
+    <None Include="JavaScript\jquery-ui.js" />
     <Content Include="Templates\Nebula\images\nebula-info-bg.png" />
     <Content Include="Templates\Nebula\Manifest.xml" />
     <Content Include="Templates\Nebula\Preview.jpg" />
@@ -330,7 +345,7 @@
     <Content Include="Templates\TwoColumn\Preview.jpg" />
     <Content Include="Templates\TwoColumn\Style.css" />
     <Content Include="Templates\TwoColumn\Template.htm" />
-    <EmbeddedResource Include="JavaScript\jquery.rotator-options.js" />
+    <None Include="JavaScript\jquery.rotator-options.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="'$(Solutions.VSVersion)' == '9.0'" />

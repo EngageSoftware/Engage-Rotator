@@ -701,7 +701,7 @@ namespace Engage.Dnn.ContentRotator
         private void RegisterRotatorJavaScript()
         {
             this.AddJQueryReference();
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.jquery.cycle.all.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(Rotator), "Engage.Dnn.ContentRotator.JavaScript.rotator.all.js");
         }
     }
 }

@@ -604,7 +604,7 @@ namespace Engage.Dnn.ContentRotator
         {
             this.AddJQueryReference();
 
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.jquery-ui.js");
+            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.rotator-settings.all.js");
         }
     }
 }
