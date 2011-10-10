@@ -174,7 +174,7 @@
       <DependentUpon>rotator.chirp.config</DependentUpon>
     </EmbeddedResource>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
-    <Content Include="ReleaseNotes_2.3.0.htm" />
+    <Content Include="ReleaseNotes_02.03.00.htm" />
     <Content Include="images\collapse.gif" />
     <Content Include="images\expand.gif" />
     <Content Include="images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -194,7 +194,7 @@
     <Content Include="References\Framework\Engage.Dnn.Framework.dll" />
     <Content Include="References\Framework\Engage.Events.dll" />
     <Content Include="References\Framework\Engage.Framework.dll" />
-    <Content Include="ReleaseNotes_2.2.0.htm" />
+    <Content Include="ReleaseNotes_02.02.00.htm" />
     <Content Include="Licenses\EULA-Enterprise.txt" />
     <Content Include="Licenses\EULA-Professional.txt" />
     <Content Include="Licenses\EULA-Standard.txt" />
@@ -236,14 +236,14 @@
     <Content Include="App_LocalResources\RotatorSettings.ascx.resx">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ReleaseNotes_2.1.0.htm" />
+    <Content Include="ReleaseNotes_02.01.00.htm" />
     <Content Include="References\System.Web.Extensions.dll" />
-    <Content Include="ReleaseNotes_2.0.1.htm" />
+    <Content Include="ReleaseNotes_02.00.01.htm" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\arrow_up.gif" />
     <Content Include="images\tab-bg.gif" />
-    <Content Include="ReleaseNotes_2.0.0.htm" />
-    <Content Include="ReleaseNotes_2.0.2.htm" />
+    <Content Include="ReleaseNotes_02.00.00.htm" />
+    <Content Include="ReleaseNotes_02.00.02.htm" />
     <Content Include="TemplateSelection.ascx" />
     <Content Include="images\bottom-header-bg.gif" />
     <Content Include="Templates\Element\images\next.png" />
