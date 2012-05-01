@@ -168,6 +168,7 @@
       <DependentUpon>rotator.chirp.config</DependentUpon>
     </EmbeddedResource>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+    <Content Include="ReleaseNotes_02.04.00.htm" />
     <Content Include="ReleaseNotes_02.03.00.htm" />
     <Content Include="images\collapse.gif" />
     <Content Include="images\expand.gif" />
