@@ -1,6 +1,6 @@
 ﻿// <copyright file="AssemblyInfo.cs" company="Engage Software">
 // Engage: Rotator - http://www.engagemodules.com
-// Copyright (c) 2004-2010
+// Copyright (c) 2004-2012
 // by Engage Software ( http://www.engagesoftware.com )
 // </copyright>
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
@@ -19,7 +19,7 @@ using System.Web.UI;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Engage Software")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright © Engage Software 2010")]
+[assembly: AssemblyCopyright("Copyright © Engage Software 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -27,10 +27,8 @@ using System.Web.UI;
 [assembly: Guid("3d5900ae-111a-45be-96b3-d9e4606ca793")]
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyVersion("2.3.0.*")]
-[assembly: AssemblyFileVersion("2.3.0.0")]
+[assembly: AssemblyVersion("2.4.0.*")]
+[assembly: AssemblyFileVersion("2.4.0.0")]
 
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator.all.js", "text/javascript")]
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator-edit.all.js", "text/javascript")]
 [assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator-options.all.js", "text/javascript")]
-[assembly: WebResource("Engage.Dnn.ContentRotator.JavaScript.rotator-settings.all.js", "text/javascript")]

@@ -167,12 +167,6 @@
     <EmbeddedResource Include="JavaScript\rotator.all.js">
       <DependentUpon>rotator.chirp.config</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JavaScript\rotator-edit.all.js">
-      <DependentUpon>rotator.chirp.config</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JavaScript\rotator-settings.all.js">
-      <DependentUpon>rotator.chirp.config</DependentUpon>
-    </EmbeddedResource>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
     <Content Include="ReleaseNotes_02.03.00.htm" />
     <Content Include="images\collapse.gif" />

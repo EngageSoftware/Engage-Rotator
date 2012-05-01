@@ -605,8 +605,7 @@ namespace Engage.Dnn.ContentRotator
         private void RegisterTabsContainer()
         {
             this.AddJQueryReference();
-
-            this.Page.ClientScript.RegisterClientScriptResource(typeof(RotatorEdit), "Engage.Dnn.ContentRotator.JavaScript.rotator-settings.all.js");
+            this.AddJQueryUIReference();
         }
     }
 }
