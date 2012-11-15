@@ -1,4 +1,4 @@
-/*globals jQuery */
+/*global jQuery */
 (function ($) {
     'use strict';
     
@@ -36,8 +36,8 @@
                indexMatches = /\bpager-item-(\d+)\b/.exec(cssClasses),
                slideIndex;
 
-            // indexMatches is an array of matches, 
-            // the first item being all the text matched by the regular expression, 
+            // indexMatches is an array of matches,
+            // the first item being all the text matched by the regular expression,
             // the next being the capture group (the digits in parenthesis)
             if (indexMatches && indexMatches.length === 2) {
                 slideIndex = parseInt(indexMatches[1], 10);
