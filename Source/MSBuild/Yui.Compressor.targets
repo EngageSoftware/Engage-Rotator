@@ -1,5 +1,5 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <UsingTask AssemblyFile="Yahoo.Yui.Compressor.Build.MsBuild.dll" TaskName="Yahoo.Yui.Compressor.Build.MsBuild.CompressorTask"/>
+  <UsingTask AssemblyFile="Yahoo.Yui.Compressor.MsBuildTask.dll" TaskName="CompressorTask"/>
   <PropertyGroup>
     <ResGenDependsOn>CompressJavaScript;CompressCss;$(ResGenDependsOn)</ResGenDependsOn>
   </PropertyGroup>
