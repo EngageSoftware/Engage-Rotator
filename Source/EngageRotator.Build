@@ -414,6 +414,8 @@
     <include name="**/*.build"/>
     <include name="**/*.dnn"/>
     <include name="**/*.docx"/>
+    <include name="**/*.scss"/>
+    <include name="**/*.coffee"/>
     <include name="**/*.config"/>
     <include name="**/*.dbml"/>
     <include name="**/*.dbml.layout"/>
