@@ -126,4 +126,11 @@
   <data name="Choose Template.Text" xml:space="preserve">
     <value>Choose Template</value>
   </data>
+  <data name="Getting Started.Format" xml:space="preserve">
+    <value>&lt;h4 class="SubSubHead"&gt;Welcome to Engage: Rotator!&lt;/h4&gt;
+&lt;p class="Normal"&gt;To get started, you should first &lt;a href="{0}"&gt;pick the template&lt;/a&gt; which will display your slides. You can then &lt;a href="{1}"&gt;create slides&lt;/a&gt;, and change any &lt;a href="{2}"&gt;rotator settings&lt;/a&gt;.&lt;/p&gt;</value>
+    <comment>{0} is URL to Select Template
+{1} is URL to Add New Slide
+{2} is URL to Rotator Settings</comment>
+  </data>
 </root>

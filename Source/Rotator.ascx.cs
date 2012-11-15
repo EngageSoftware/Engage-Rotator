@@ -16,13 +16,15 @@ namespace Engage.Dnn.ContentRotator
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
+    using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Entities.Modules.Actions;
     using DotNetNuke.Security;
     using DotNetNuke.Services.Exceptions;
-    using DotNetNuke.Services.Localization;
+
     using Framework.Templating;
     using Templating;
 
@@ -34,6 +36,9 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>Backing field for <see cref="CycleOptions" /></summary>
         private CycleOptions cycleOptions;
 
+        /// <summary>Backing field for <see cref="Slides"/></summary>
+        private List<Slide> slides;
+
         /// <summary>Gets ModuleActions.</summary>
         /// <value>The module actions.</value>
         public ModuleActionCollection ModuleActions
@@ -44,7 +49,7 @@ namespace Engage.Dnn.ContentRotator
                         {
                                 new ModuleAction(
                                         this.GetNextActionID(),
-                                        Localization.GetString("Add/Edit Slides", this.LocalResourceFile),
+                                        this.Localize("Add/Edit Slides"),
                                         ModuleActionType.AddContent,
                                         string.Empty,
                                         string.Empty,
@@ -56,7 +61,7 @@ namespace Engage.Dnn.ContentRotator
                                         false),
                                 new ModuleAction(
                                         this.GetNextActionID(),
-                                        Localization.GetString("Choose Template", this.LocalResourceFile),
+                                        this.Localize("Choose Template"),
                                         ModuleActionType.AddContent,
                                         string.Empty,
                                         string.Empty,
@@ -68,7 +73,7 @@ namespace Engage.Dnn.ContentRotator
                                         false),
                                 new ModuleAction(
                                         this.GetNextActionID(),
-                                        Localization.GetString("Rotator Settings", this.LocalResourceFile),
+                                        this.Localize("Rotator Settings"),
                                         ModuleActionType.AddContent,
                                         string.Empty,
                                         string.Empty,
@@ -125,6 +130,21 @@ namespace Engage.Dnn.ContentRotator
                 }
 
                 return this.cycleOptions;
+            }
+        }
+
+        /// <summary>Gets the slides for this module.</summary>
+        /// <value>A list of the module's slides.</value>
+        private List<Slide> Slides
+        {
+            get
+            {
+                if (this.slides == null)
+                {
+                    this.slides = Slide.GetSlides(this.ModuleId);
+                }
+                
+                return this.slides;
             }
         }
 
@@ -466,14 +486,14 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>Gets a list of the <see cref="Slide" />s for this module.  Does not take the <paramref name="listTag" /> or <paramref name="context" /> into account,
-        /// effectively only supporting one data source.</summary>
+        /// <summary>Gets a list of the <see cref="Slide" />s for this module.</summary>
         /// <param name="listTag">The Engage:List <see cref="Tag" /> for which to return a data source</param>
         /// <param name="context">The current <see cref="ITemplateable" /> item being processed, or <c>null</c> if no list is currently being processed</param>
+        /// <remarks>Does not take the <paramref name="listTag" /> or <paramref name="context" /> into account, effectively only supporting one data source.</remarks>
         /// <returns>A list of the <see cref="Slide" />s for this module.</returns>
         private IEnumerable<ITemplateable> GetSlides(Tag listTag, ITemplateable context)
         {
-            return Slide.GetSlides(this.ModuleId).ConvertAll(input => (ITemplateable)input);
+            return this.Slides.ConvertAll(input => (ITemplateable)input);
         }
 
         /// <summary>Handles the <see cref="Control.Load"/> event of this control.</summary>
@@ -485,6 +505,16 @@ namespace Engage.Dnn.ContentRotator
             try
             {
                 this.RegisterRotatorJavaScript();
+                if (this.Slides.Count == 0 && this.IsEditable)
+                {
+                    var gettingStartedHtml = string.Format(
+                        CultureInfo.InvariantCulture,
+                        this.Localize("Getting Started.Format"),
+                        HttpUtility.HtmlEncode(this.EditUrl("Template")),
+                        HttpUtility.HtmlEncode(this.EditUrl("Edit")),
+                        HttpUtility.HtmlEncode(this.EditUrl("ModSettings")));
+                    this.RotatorContainer.Controls.Add(new LiteralControl(gettingStartedHtml));
+                }
             }
             catch (Exception exc)
             {

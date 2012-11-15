@@ -1,5 +1,5 @@
 <%@ Control Language="c#" AutoEventWireup="False" Codebehind="Rotator.ascx.cs" Inherits="Engage.Dnn.ContentRotator.Rotator" %>
-<asp:Panel ID="RotatorContainer" runat="server" CssClass="engage-rotator-container"/>
+<asp:Panel ID="RotatorContainer" runat="server" CssClass="engage-rotator-container" />
 <script type="text/javascript">
     /*global jQuery */
     jQuery(window).load(function () {
