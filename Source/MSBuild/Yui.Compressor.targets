@@ -1,5 +1,5 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <UsingTask AssemblyFile="Yahoo.Yui.Compressor.NET20.dll" TaskName="CompressorTask"/>
+  <UsingTask AssemblyFile="Yahoo.Yui.Compressor.Build.MsBuild.dll" TaskName="Yahoo.Yui.Compressor.Build.MsBuild.CompressorTask"/>
   <PropertyGroup>
     <ResGenDependsOn>CompressJavaScript;CompressCss;$(ResGenDependsOn)</ResGenDependsOn>
   </PropertyGroup>
@@ -14,12 +14,9 @@
        JavaScriptFiles="%(Resources.Identity)"
        ObfuscateJavaScript="FoSho"
        JavaScriptOutputFile="%(Resources.Identity)"
-       LoggingType="ALittleBit"
-       ThreadCulture="en-GB"/> <!-- Setting to en-GB because 1) that's the default for the MSBuild task, and 2) there's a bug in the task where it's always set to en-GB regardless of what you provide -->
+       LoggingType="ALittleBit"/>
        
     <ItemGroup>
-      <!-- Replace the items in the EmbeddedResource collection with our minified versions -->
-      <!-- Remove is only available in MSBuild 3.5, this won't work on 2.0 -->
       <EmbeddedResource Remove="@(EmbeddedResource)" Condition="'%(Extension)'=='.js'" />
       <EmbeddedResource Include="@(Resources)" />
       
