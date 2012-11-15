@@ -27,14 +27,10 @@ namespace Engage.Dnn.ContentRotator
     using Framework.Templating;
     using Globals = DotNetNuke.Common.Globals;
 
-    /// <summary>
-    /// Control to select the template to use with the rotator
-    /// </summary>
+    /// <summary>Control to select the template to use with the rotator</summary>
     public partial class TemplateSelection : ModuleBase
     {
-        /// <summary>
-        /// Gets the setting for the selected style template.
-        /// </summary>
+        /// <summary>Gets the setting for the selected style template.</summary>
         /// <value>The selected style template.</value>
         private string Template
         {
@@ -44,10 +40,8 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Raises the <see cref="Control.Init"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <summary>Raises the <see cref="Control.Init" /> event.</summary>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
@@ -58,11 +52,9 @@ namespace Engage.Dnn.ContentRotator
             this.TemplatesDropDownList.SelectedIndexChanged += this.TemplatesDropDownList_SelectedIndexChanged;
         }
 
-        /// <summary>
-        /// Handles the <see cref="GridView.RowDataBound"/> event of the <see cref="SettingsGrid"/> control.
-        /// </summary>
+        /// <summary>Handles the <see cref="GridView.RowDataBound" /> event of the <see cref="SettingsGrid" /> control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.Web.UI.WebControls.GridViewRowEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="GridViewRowEventArgs" /> instance containing the event data.</param>
         private static void SettingsGrid_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -77,11 +69,9 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Handles the <see cref="Control.Load"/> event of this control.
-        /// </summary>
+        /// <summary>Handles the <see cref="Control.Load" /> event of this control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void Page_Load(object sender, EventArgs e)
         {
@@ -101,21 +91,17 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Handles the <see cref="Button.Click"/> event of the <see cref="CancelButton"/> control.
-        /// </summary>
+        /// <summary>Handles the <see cref="Button.Click" /> event of the <see cref="CancelButton" /> control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
         }
 
-        /// <summary>
-        /// Handles the <see cref="Button.Click"/> event of the <see cref="SubmitButton"/> control.
-        /// </summary>
+        /// <summary>Handles the <see cref="Button.Click" /> event of the <see cref="SubmitButton" /> control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void SubmitButton_Click(object sender, EventArgs e)
         {
@@ -151,19 +137,15 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Handles the <see cref="ListControl.SelectedIndexChanged"/> event of the <see cref="TemplatesDropDownList"/> control.
-        /// </summary>
+        /// <summary>Handles the <see cref="ListControl.SelectedIndexChanged" /> event of the <see cref="TemplatesDropDownList" /> control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void TemplatesDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.FillTemplateTab();
         }
 
-        /// <summary>
-        /// Fills <see cref="TemplatesDropDownList"/>.
-        /// </summary>
+        /// <summary>Fills <see cref="TemplatesDropDownList" />.</summary>
         private void FillTemplatesList()
         {
             try
@@ -183,9 +165,7 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Displays information about the selected template
-        /// </summary>
+        /// <summary>Displays information about the selected template</summary>
         private void FillTemplateTab()
         {
             try
@@ -220,20 +200,16 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Gets a list of the settings that will be changed by apply the template.
-        /// </summary>
+        /// <summary>Gets a list of the settings that will be changed by apply the template.</summary>
         /// <param name="settings">The settings collection for the template.</param>
-        /// <returns>
-        /// A <see cref="IDictionary{TKey,TValue}"/> of the settings that will be changed by applying the template,  where the key is the name of the setting,
-        /// and the value is a <see cref="Pair{TFirst,TSecond}"/> where the 
-        /// <see cref="Pair{TFirst,TSecond}.First"/> property has the new value and the 
-        /// <see cref="Pair{TFirst,TSecond}.Second"/> property has the current value
-        /// </returns>
+        /// <returns>A <see cref="IDictionary{TKey,TValue}" /> of the settings that will be changed by applying the template,  where the key is the name of the setting,
+        /// and the value is a <see cref="Pair{TFirst,TSecond}" /> where the
+        /// <see cref="Pair{TFirst,TSecond}.First" /> property has the new value and the
+        /// <see cref="Pair{TFirst,TSecond}.Second" /> property has the current value</returns>
         private IDictionary<string, Pair<string, string>> GetChangedSettings(ICollection<KeyValuePair<string, string>> settings)
         {
-            IDictionary<string, Pair<string, string>> changedSettings = new Dictionary<string, Pair<string, string>>(settings.Count);
-            foreach (KeyValuePair<string, string> settingPair in settings)
+            var changedSettings = new Dictionary<string, Pair<string, string>>(settings.Count);
+            foreach (var settingPair in settings)
             {
                 // TODO: We need to take default settings into account, in case they haven't changed any of the settings yet
 // GetStringSetting still makes sense in this case
@@ -249,9 +225,7 @@ namespace Engage.Dnn.ContentRotator
             return changedSettings;
         }
 
-        /// <summary>
-        /// Localizes the setting names in <see cref="SettingsGrid"/>.
-        /// </summary>
+        /// <summary>Localizes the setting names in <see cref="SettingsGrid" />.</summary>
         private void LocalizeSettingsGrid()
         {
             foreach (GridViewRow row in this.SettingsGrid.Rows)
@@ -262,13 +236,11 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Displays the error message that the selected template's manifest does not pass validation
-        /// </summary>
-        /// <param name="exc">The <see cref="Exception"/> created from the validation error.</param>
+        /// <summary>Displays the error message that the selected template's manifest does not pass validation</summary>
+        /// <param name="exc">The <see cref="Exception" /> created from the validation error.</param>
         private void ShowManifestValidationErrorMessage(Exception exc)
         {
-            StringBuilder validationMessage = new StringBuilder("<ul>");
+            var validationMessage = new StringBuilder("<ul>");
             validationMessage.AppendFormat("<li>{0}</li>", Localization.GetString("ManifestValidation", this.LocalResourceFile));
             if (exc != null)
             {

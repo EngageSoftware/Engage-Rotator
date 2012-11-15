@@ -125,14 +125,14 @@ namespace Engage.Dnn.ContentRotator
             set;
         }
 
-        /// <summary>Gets or sets a value indicating the additional delay (in ms) for the first transition (hint: can be negative)</summary>
+        /// <summary>Gets or sets a value indicating the additional delay (in milliseconds) for the first transition (hint: can be negative)</summary>
         public decimal InitialDelay
         {
             get;
             set;
         }
 
-        /// <summary>Gets or sets a value indicating the time in ms for transitions triggered manually (via <see cref="PagerContainer"/> or <see cref="PreviousButton"/>/<see cref="NextButton"/>)</summary>
+        /// <summary>Gets or sets a value indicating the time in milliseconds for transitions triggered manually (via <c>PagerContainer</c> or <c>PreviousButton</c>/<c>NextButton</c>)</summary>
         public int ManuallyTriggeredTransitionSpeed
         {
             get;
@@ -209,14 +209,14 @@ namespace Engage.Dnn.ContentRotator
             set;
         }
 
-        /// <summary>Gets or sets a value indicating the speed of the transition in ms</summary>
+        /// <summary>Gets or sets a value indicating the speed of the transition in milliseconds</summary>
         public int TransitionSpeed
         {
             get;
             set;
         }
 
-        /// <summary>Gets or sets a value indicating whether to disable extra cleartype fixing (leave <c>false</c> to force background color setting on slides)</summary>
+        /// <summary>Gets or sets a value indicating whether to disable extra clear-type fixing (leave <c>false</c> to force background color setting on slides)</summary>
         public bool DisableAddingBackgroundColorForClearTypeFix
         {
             get;

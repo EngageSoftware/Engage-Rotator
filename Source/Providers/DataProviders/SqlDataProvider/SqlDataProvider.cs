@@ -191,7 +191,7 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Executes a SQL stored procedure without returning any value.
         /// </summary>
-        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "InsertSlide" is translated to "dnn_EngageRotator_spInsertSlide."</param>
+        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example <c>InsertSlide</c> is translated to <c>dnn_EngageRotator_spInsertSlide</c>.</param>
         /// <param name="parameters">The parameters for this query.</param>
         private void ExecuteNonQuery(string storedProcedureName, params SqlParameter[] parameters)
         {
@@ -205,7 +205,7 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Executes a SQL stored procedure, returning the results as a <see cref="SqlDataReader"/>.
         /// </summary>
-        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "GetSlide" is translated to "dnn_EngageRotator_spGetSlide."</param>
+        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example <c>GetSlide</c> is translated to <c>dnn_EngageRotator_spGetSlide</c>.</param>
         /// <param name="parameters">The parameters for this query.</param>
         /// <returns>A <see cref="SqlDataReader"/> with the results of the stored procedure call</returns>
         private SqlDataReader ExecuteReader(string storedProcedureName, params SqlParameter[] parameters)
@@ -220,7 +220,7 @@ namespace Engage.Dnn.ContentRotator
         /// <summary>
         /// Executes a SQL stored procedure, returning a single value.
         /// </summary>
-        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example "InsertSlide" is translated to "dnn_EngageRotator_spInsertSlide."</param>
+        /// <param name="storedProcedureName">Name of the stored procedure.  Does not include any prefix, for example <c>InsertSlide</c> is translated to <c>dnn_EngageRotator_spInsertSlide</c>.</param>
         /// <param name="parameters">The parameters for this query.</param>
         /// <returns>The single value returned from the stored procedure call</returns>
         private object ExecuteScalar(string storedProcedureName, params SqlParameter[] parameters)

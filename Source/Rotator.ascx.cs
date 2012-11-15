@@ -363,10 +363,8 @@ namespace Engage.Dnn.ContentRotator
 // ReSharper restore PossibleInvalidOperationException
         }
 
-        /// <summary>
-        /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
-        /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        /// <summary>Raises the <see cref="Control.Init" /> event.</summary>
+        /// <param name="e">An <see cref="EventArgs" /> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
             this.RequiresScriptManager = false;
@@ -419,7 +417,7 @@ namespace Engage.Dnn.ContentRotator
             try
             {
                 currentSlideIndexWrapper = new Label();
-                currentSlideIndexWrapper.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
+                currentSlideIndexWrapper.CssClass = TemplateEngine.GetAttributeValue(tag, slide, null, resourceFile, "CssClass", "class");
                 currentSlideIndexWrapper.CssClass = Utility.AddCssClass(currentSlideIndexWrapper.CssClass, "current-slide-index");
                 currentSlideIndexWrapper.Text = 1.ToString(CultureInfo.CurrentCulture);
                 return currentSlideIndexWrapper;
@@ -450,7 +448,7 @@ namespace Engage.Dnn.ContentRotator
             try
             {
                 totalCountLabel = new Label();
-                totalCountLabel.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
+                totalCountLabel.CssClass = TemplateEngine.GetAttributeValue(tag, slide, null, resourceFile, "CssClass", "class");
                 totalCountLabel.CssClass = Utility.AddCssClass(totalCountLabel.CssClass, "total-slide-count");
                 return totalCountLabel;
             }
@@ -657,7 +655,7 @@ namespace Engage.Dnn.ContentRotator
                 pagerContainer = this.CreateRotatorContainer(tag, slide, resourceFile);
 
                 pagerContainer.CssClass = Utility.AddCssClass(pagerContainer.CssClass, "rotator-pager");
-                this.CycleOptions.PagerEvent = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Event") ?? "click";
+                this.CycleOptions.PagerEvent = TemplateEngine.GetAttributeValue(tag, slide, (ITemplateable)null, resourceFile, "Event") ?? "click";
 
                 return pagerContainer;
             }
@@ -703,7 +701,7 @@ namespace Engage.Dnn.ContentRotator
         }
 
         /// <summary>
-        /// Creates a <see cref="Panel"/> from a tag, setting its CssClass and supplying Text or inner controls, if it has any.
+        /// Creates a <see cref="Panel"/> from a tag, setting its <see cref="Panel.CssClass"/> and supplying Text or inner controls, if it has any.
         /// </summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
@@ -711,32 +709,32 @@ namespace Engage.Dnn.ContentRotator
         /// <returns>The created container</returns>
         private Panel CreateRotatorContainer(Tag tag, ITemplateable slide, string resourceFile)
         {
-            Panel button = null;
+            Panel container = null;
             try
             {
-                button = new Panel();
-                button.CssClass = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "CssClass", "class");
+                container = new Panel();
+                container.CssClass = TemplateEngine.GetAttributeValue(tag, slide, null, resourceFile, "CssClass", "class");
 
                 if (tag.HasChildTags)
                 {
-                    TemplateEngine.ProcessTags(button, tag.ChildTags, slide, resourceFile, this.ProcessTags, this.GetSlides);
+                    TemplateEngine.ProcessTags(container, tag.ChildTags, slide, null, resourceFile, this.ProcessTags, this.GetSlides);
                 }
                 else
                 {
-                    string innerText = TemplateEngine.GetAttributeValue(tag, slide, resourceFile, "Text");
+                    var innerText = TemplateEngine.GetAttributeValue(tag, slide, (ITemplateable)null, resourceFile, "Text");
                     if (!string.IsNullOrEmpty(innerText))
                     {
-                        button.Controls.Add(new LiteralControl(innerText));
+                        container.Controls.Add(new LiteralControl(innerText));
                     }
                 }
 
-                return button;
+                return container;
             }
             catch
             {
-                if (button != null)
+                if (container != null)
                 {
-                    button.Dispose();
+                    container.Dispose();
                 }
 
                 throw;
