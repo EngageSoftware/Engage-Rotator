@@ -1,4 +1,8 @@
-﻿.legacy-template .rotatorControlsPreviousLink{background: transparent url(images/previous.gif) no-repeat; height: 6px; width: 16px; cursor: pointer;}
+﻿.legacy-template.rotatorWrapper{width: 100%; clear: both; overflow: hidden; background: transparent;}
+.legacy-template .rotator{width: 100%; overflow: hidden;}
+.legacy-template #rotatorContentDescriptionWrapper{padding: 10px 0;}
+.legacy-template .rotatorContentWrapper{clear:both;overflow:hidden;}
+.legacy-template .rotatorControlsPreviousLink{background: transparent url(images/previous.gif) no-repeat; height: 6px; width: 16px; cursor: pointer;}
 .legacy-template .rotatorControlsPauseLink{background: transparent url(images/pause.gif) no-repeat;height: 14px;width: 14px; cursor: pointer;}
 .legacy-template .rotatorControlsNextLink{background: transparent url(images/next.gif) no-repeat; height: 6px; width: 16px; cursor: pointer;}
 .legacy-template .rotator-pause-on {display:block;}

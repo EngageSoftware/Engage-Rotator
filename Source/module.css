@@ -1,39 +1,19 @@
-﻿/**** TO BE CLEANED UP ****/
-.divRotator a:visited, .divRotator a:link, .divRotator a:active, .divRotator a
-{color:#000000; font-size:11px; font-weight:600; line-height:0.9; text-decoration:none;}
-.divRotator a:hover{text-decoration: underline; color: #000000;}
-.divRotator img{border-color: black;}
-.hotTopicTitle{padding-left: 5px; font-style: italic;}
-.hotTopicThumbnailWrapper img{border: 2px black solid;}
-.settingsTable{margin: 0px;padding: 0px; border: none 0px;width: 100%;}
-.settingsTable td{padding: 3px;}
-.settingsTable .contentColumn{width: 100%;}
-.settingsTable tr{vertical-align: top;}
-.settingsTable .ajax__calendar td{padding: 0px;}
-.hotTopicTable{width:545px;}
-.hotTopicThumbnail{width: 160px; height: 160px;}
-.btnPrev, .btnPause, .btnNext{border: none;}
+/********* Main Display ***********/
+.engage-rotator-container {
+  clear: both; }
 
-.Help{white-space: normal;}
-.nowrap{white-space:nowrap;}
-.nowrapTable th, .nowrapTable td{white-space: nowrap;}
-/*Add word break support to Opera*/
-wbr:after { content: "\00200B" }
-.TitleTextBox{width: 90%;}
-#editContent {overflow: auto; border-top: 1px #ccc solid; padding: 10px 0;}
-.engage-rotator-container{clear:both;}
-	.rotate-wrap{clear:both;position:relative;}
-	.rotate-wrap > *{position:absolute;top:0;left:0;} /*stack the direct children of .rotate-wrap until the jQuery kicks in.  Doesn't work in IE 6*/
-		.rotatorContentWrapper{clear:both;overflow:hidden;}
+.rotate-wrap {
+  clear: both;
+  position: relative; }
 
-.rotatorWrapper{width: 100%; clear: both; overflow: hidden; background: transparent;}
-	.rotator{width: 100%; overflow: hidden;}
-			.rotatorPositionSelected{color: #d00000;}
-#rotatorContentDescriptionWrapper{padding: 10px 0;}
+.rotate-wrap > * {
+  position: absolute;
+  top: 0;
+  left: 0; }
 
-/******** Main Rotator Display **********/
-.RotatorBody {overflow:hidden;}
-.rotator-pause-on, .rotator-play-on {display:none;}
+/*stack the direct children of .rotate-wrap until the jQuery kicks in.  Doesn't work in IE 6*/
+.rotator-pause-on, .rotator-play-on {
+  display: none; }
 
 /******** Rotator Options (Add/Edit List) ************/
 		.sortOrder{float: left; width: 120px; padding: 5px 0;}
