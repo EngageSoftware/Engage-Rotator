@@ -12,13 +12,17 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
+    using System.Linq;
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
     using DotNetNuke.Common.Utilities;
     using DotNetNuke.Services.Exceptions;
+
+    using Engage.Dnn.Framework.Templating;
 
     /// <summary>Control to add and edit slides</summary>
     public partial class RotatorEdit : ModuleBase
@@ -59,6 +63,20 @@ namespace Engage.Dnn.ContentRotator
             this.CancelButton.Click += this.CancelButton_Click;
         }
 
+        /// <summary>Hides the <paramref name="propertyPanel"/> if there are not any matching placeholders for that property.</summary>
+        /// <param name="placeholders">The placeholders for the current template.</param>
+        /// <param name="propertyPanel">The property panel to hide.</param>
+        /// <param name="values">The placeholder values to test for.</param>
+        private static void SetPropertyVisibility(IEnumerable<TemplatePlaceholder> placeholders, Panel propertyPanel, params string[] values)
+        {
+            if (placeholders.Any(p => values.Any(v => v.Equals(p.Value, StringComparison.OrdinalIgnoreCase))))
+            {
+                return;
+            }
+
+            propertyPanel.CssClass = Engage.Utility.AddCssClass(propertyPanel.CssClass, "unused");
+        }
+
         /// <summary>Handles the <see cref="Control.Load"/> event of this control.</summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -85,6 +103,14 @@ namespace Engage.Dnn.ContentRotator
                         // 5 is database default
                         this.SortOrderTextBox.Text = 5.ToString(CultureInfo.InvariantCulture);
                     }
+
+                    var templateInfo = this.GetTemplate(ModuleSettings.TemplateFolderName.GetValueAsStringFor(this));
+                    var placeholders = TemplateEngine.GetPlaceholders(templateInfo.Template.ChildTags).Where(placeholder => placeholder.Type == TemplatePlaceholderType.DataBinding).ToArray();
+                    SetPropertyVisibility(placeholders, this.TitlePanel, "TITLE");
+                    SetPropertyVisibility(placeholders, this.ContentPanel, "CONTENT");
+                    SetPropertyVisibility(placeholders, this.ImageUrlPanel, "IMAGEURL", "IMAGE URL");
+                    SetPropertyVisibility(placeholders, this.PagerImageUrlPanel, "PAGERIMAGEURL", "PAGER IMAGE URL");
+                    SetPropertyVisibility(placeholders, this.LinkUrlPanel, "LINKURL", "LINK URL");
                 }
 
                 this.RegisterDatePickerBehavior();

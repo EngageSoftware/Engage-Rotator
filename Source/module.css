@@ -68,7 +68,8 @@ wbr:after { content: "\00200B" }
 .ro-bottom{}
 
 /******** Rotator Edit ************/
-.engageRotatorEdit .urlControl {width:60%;float:left;}
+.engageRotatorEdit .unused {display:none;}
+.engageRotatorEdit .dnnTextEditor, .engageRotatorEdit .urlControl {width:60%;float:left;}
 .engageRotatorEdit .urlControl input[type="checkbox"] {clear:left;}
 .engageRotatorEdit ul.dnnActions li {margin-right:5px;}
     .engageRotatorEdit ul.dnnActions input {		

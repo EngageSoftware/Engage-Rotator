@@ -13,6 +13,15 @@ namespace Engage.Dnn.ContentRotator {
     public partial class RotatorEdit {
         
         /// <summary>
+        /// TitlePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel TitlePanel;
+        
+        /// <summary>
         /// TitleTextBox control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TitleTextBox;
+        
+        /// <summary>
+        /// ContentPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ContentPanel;
         
         /// <summary>
         /// ContentTextEditor control.
@@ -31,6 +49,15 @@ namespace Engage.Dnn.ContentRotator {
         protected global::DotNetNuke.UI.UserControls.TextEditor ContentTextEditor;
         
         /// <summary>
+        /// ImageUrlPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ImageUrlPanel;
+        
+        /// <summary>
         /// ImageUrlControl control.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.UrlControl ImageUrlControl;
+        
+        /// <summary>
+        /// PagerImageUrlPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PagerImageUrlPanel;
         
         /// <summary>
         /// PagerImageUrlControl control.
@@ -49,6 +85,15 @@ namespace Engage.Dnn.ContentRotator {
         protected global::DotNetNuke.UI.UserControls.UrlControl PagerImageUrlControl;
         
         /// <summary>
+        /// LinkUrlPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel LinkUrlPanel;
+        
+        /// <summary>
         /// LinkUrlControl control.
         /// </summary>
         /// <remarks>
@@ -56,6 +101,15 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.UrlControl LinkUrlControl;
+        
+        /// <summary>
+        /// StartDatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel StartDatePanel;
         
         /// <summary>
         /// StartDateTextBox control.
@@ -67,6 +121,15 @@ namespace Engage.Dnn.ContentRotator {
         protected global::System.Web.UI.WebControls.TextBox StartDateTextBox;
         
         /// <summary>
+        /// EndDatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel EndDatePanel;
+        
+        /// <summary>
         /// EndDateTextBox control.
         /// </summary>
         /// <remarks>
@@ -74,6 +137,15 @@ namespace Engage.Dnn.ContentRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EndDateTextBox;
+        
+        /// <summary>
+        /// SortOrderPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel SortOrderPanel;
         
         /// <summary>
         /// SortOrderTextBox control.
