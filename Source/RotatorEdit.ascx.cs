@@ -14,23 +14,19 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
 
     using DotNetNuke.Common.Utilities;
     using DotNetNuke.Services.Exceptions;
 
-    /// <summary>
-    /// Control to add and edit slides
-    /// </summary>
+    /// <summary>Control to add and edit slides</summary>
     public partial class RotatorEdit : ModuleBase
     {
-        /// <summary>
-        /// Backing field for <see cref="SlideId"/>
-        /// </summary>
+        /// <summary>Backing field for <see cref="SlideId" /></summary>
         private int? slideId;
 
-        /// <summary>
-        /// Gets the ID of the slide being edited. Returns <c>null</c> if creating a new slide
-        /// </summary>
+        /// <summary>Gets the ID of the slide being edited. Returns <c>null</c> if creating a new slide</summary>
         /// <value>The ID of the slide being edited, or <c>null</c> if the slide is new.</value>
         private int? SlideId
         {
@@ -53,10 +49,8 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
-        /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        /// <summary>Raises the <see cref="Control.Init" /> event.</summary>
+        /// <param name="e">An <see cref="EventArgs" /> object that contains the event data.</param>
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
@@ -65,11 +59,9 @@ namespace Engage.Dnn.ContentRotator
             this.CancelButton.Click += this.CancelButton_Click;
         }
 
-        /// <summary>
-        /// Handles the Load event of the Page control.
-        /// </summary>
+        /// <summary>Handles the <see cref="Control.Load"/> event of this control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void Page_Load(object sender, EventArgs e)
         {
@@ -78,9 +70,9 @@ namespace Engage.Dnn.ContentRotator
                 if (!this.IsPostBack)
                 {
                     this.TitleTextBox.Focus();
-                    Slide slide = this.SlideId.HasValue
-                                               ? Slide.GetSlide(this.SlideId.Value)
-                                               : null;
+                    var slide = this.SlideId.HasValue 
+                        ? Slide.GetSlide(this.SlideId.Value) 
+                        : null;
 
                     if (slide != null)
                     {
@@ -103,57 +95,53 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Handles the Click event of the CancelButton control.
-        /// </summary>
+        /// <summary>Handles the <see cref="Button.Click"/> event of the <see cref="CancelButton"/> control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Response.Redirect(this.EditUrl("Options"), false);
         }
 
-        /// <summary>
-        /// Handles the Click event of the SubmitButton control.
-        /// </summary>
+        /// <summary>Handles the <see cref="Button.Click"/> event of the <see cref="SubmitButton"/> control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (this.Page.IsValid)
+            if (!this.Page.IsValid)
             {
-                Slide slide = this.SlideId.HasValue
-                                                  ? new Slide(this.slideId.Value)
-                                                  : new Slide();
-
-                slide.Title = this.TitleTextBox.Text;
-                slide.Content = this.ContentTextEditor.Text;
-                slide.StartDate = DateTime.Parse(this.StartDateTextBox.Text, CultureInfo.CurrentCulture);
-                slide.EndDate = Engage.Utility.ParseNullableDateTime(this.EndDateTextBox.Text, CultureInfo.CurrentCulture);
-                slide.Link = this.LinkUrlControl.Url;
-                slide.TrackLink = this.LinkUrlControl.Track;
-                slide.ImageLink = this.ImageUrlControl.Url;
-                slide.PagerImageLink = this.PagerImageUrlControl.Url;
-                slide.SortOrder = int.Parse(this.SortOrderTextBox.Text, CultureInfo.CurrentCulture);
-
-                slide.Save(this.ModuleId);
-
-                new UrlController().UpdateUrl(
-                    this.PortalId,
-                    slide.Link,
-                    this.LinkUrlControl.UrlType,
-                    this.LinkUrlControl.Log,
-                    slide.TrackLink,
-                    this.ModuleId,
-                    false);
-
-                this.Response.Redirect(this.EditUrl("Options"), false);
+                return;
             }
+
+            var slide = this.SlideId.HasValue 
+                ? new Slide(this.slideId.Value) 
+                : new Slide();
+
+            slide.Title = this.TitleTextBox.Text;
+            slide.Content = this.ContentTextEditor.Text;
+            slide.StartDate = DateTime.Parse(this.StartDateTextBox.Text, CultureInfo.CurrentCulture);
+            slide.EndDate = Engage.Utility.ParseNullableDateTime(this.EndDateTextBox.Text, CultureInfo.CurrentCulture);
+            slide.Link = this.LinkUrlControl.Url;
+            slide.TrackLink = this.LinkUrlControl.Track;
+            slide.ImageLink = this.ImageUrlControl.Url;
+            slide.PagerImageLink = this.PagerImageUrlControl.Url;
+            slide.SortOrder = int.Parse(this.SortOrderTextBox.Text, CultureInfo.CurrentCulture);
+
+            slide.Save(this.ModuleId);
+
+            new UrlController().UpdateUrl(
+                this.PortalId,
+                slide.Link,
+                this.LinkUrlControl.UrlType,
+                this.LinkUrlControl.Log,
+                slide.TrackLink,
+                this.ModuleId,
+                false);
+
+            this.Response.Redirect(this.EditUrl("Options"), false);
         }
 
-        /// <summary>
-        /// Fills in the form with the information from the given <paramref name="slide"/>
-        /// </summary>
+        /// <summary>Fills in the form with the information from the given <paramref name="slide" /></summary>
         /// <param name="slide">The slide whose information should be filled in.</param>
         private void LoadSlide(Slide slide)
         {
@@ -167,9 +155,7 @@ namespace Engage.Dnn.ContentRotator
             this.SortOrderTextBox.Text = slide.SortOrder.ToString(CultureInfo.CurrentCulture);
         }
 
-        /// <summary>
-        /// Registers the jQuery date picker plugin on the page.
-        /// </summary>
+        /// <summary>Registers the jQuery date picker plugin on the page.</summary>
         private void RegisterDatePickerBehavior()
         {
             this.AddJQueryReference();

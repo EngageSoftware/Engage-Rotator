@@ -1,6 +1,6 @@
 // <copyright file="Rotator.ascx.cs" company="Engage Software">
-// Engage: Rotator - http://www.engagemodules.com
-// Copyright (c) 2004-2010
+// Engage: Rotator
+// Copyright (c) 2004-2012
 // by Engage Software ( http://www.engagesoftware.com )
 // </copyright>
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
@@ -28,19 +28,14 @@ namespace Engage.Dnn.ContentRotator
 
     using Utility = Engage.Utility;
 
-    /// <summary>
-    /// The main control displaying rotating slides
-    /// </summary>
+    /// <summary>The main control displaying rotating slides</summary>
     public partial class Rotator : ModuleBase, IActionable
     {
-        /// <summary>
-        /// Backing field for <see cref="CycleOptions"/>
-        /// </summary>
+        /// <summary>Backing field for <see cref="CycleOptions" /></summary>
         private CycleOptions cycleOptions;
 
-        /// <summary>
-        /// Gets ModuleActions.
-        /// </summary>
+        /// <summary>Gets ModuleActions.</summary>
+        /// <value>The module actions.</value>
         public ModuleActionCollection ModuleActions
         {
             get
@@ -87,280 +82,50 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Gets the <see cref="CycleOptions"/> for this module instance.
-        /// </summary>
-        /// <returns>The <see cref="CycleOptions"/> for this module instance</returns>
+        /// <summary>Gets the <see cref="CycleOptions" /> for this module instance.</summary>
+        /// <value>The cycle options.</value>
+        /// <returns>The <see cref="CycleOptions" /> for this module instance</returns>
         protected CycleOptions CycleOptions
         {
             get
             {
                 if (this.cycleOptions == null)
                 {
-                    Unit containerHeight = this.SlideHeight.HasValue ? Unit.Pixel(this.SlideHeight.Value) : Unit.Empty;
-                    Unit containerWidth = this.SlideWidth.HasValue ? Unit.Pixel(this.SlideWidth.Value) : Unit.Empty;
-                    int transitionSpeed = this.UseAnimations ? ConvertSecondsToMilliseconds(this.AnimationDuration) : 1;
+// ReSharper disable PossibleInvalidOperationException
+                    var slideHeight = ModuleSettings.SlideHeight.GetValueAsInt32For(this);
+                    var slideWidth = ModuleSettings.SlideWidth.GetValueAsInt32For(this);
+                    var containerHeight = slideHeight.HasValue ? Unit.Pixel(slideHeight.Value) : Unit.Empty;
+                    var containerWidth = slideWidth.HasValue ? Unit.Pixel(slideWidth.Value) : Unit.Empty;
+                    var transitionSpeed = ModuleSettings.UseAnimations.GetValueAsBooleanFor(this).Value
+                                              ? ConvertSecondsToMilliseconds(ModuleSettings.AnimationDuration.GetValueAsDecimalFor(this).Value)
+                                              : 1;
 
                     this.cycleOptions = new CycleOptions(
-                            this.AutoStop,
-                            this.AutoStopCount,
-                            this.ContainerResize,
+                            ModuleSettings.AutoStop.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.AutoStopCount.GetValueAsInt32For(this).Value,
+                            ModuleSettings.ContainerResize.GetValueAsBooleanFor(this).Value,
                             containerHeight,
                             containerWidth,
-                            this.Continuous,
-                            ConvertSecondsToMilliseconds(this.InitialDelay),
-                            ConvertSecondsToMilliseconds(this.RotatorDelay) + transitionSpeed,
-                            this.PauseOnHover,
-                            this.AnimationEffect,
+                            ModuleSettings.Continuous.GetValueAsBooleanFor(this).Value,
+                            ConvertSecondsToMilliseconds(ModuleSettings.InitialDelay.GetValueAsDecimalFor(this).Value),
+                            ConvertSecondsToMilliseconds(ModuleSettings.RotatorDelay.GetValueAsDecimalFor(this).Value) + transitionSpeed,
+                            ModuleSettings.PauseOnHover.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.AnimationEffect.GetValueAsEnumFor<Effects>(this).Value,
                             transitionSpeed,
-                            ConvertSecondsToMilliseconds(this.ManuallyTriggeredTransitionSpeed),
-                            this.Loop,
-                            this.RandomOrder,
-                            this.SimultaneousTransitions,
-                            this.ForceSlidesToFitContainer,
-                            this.DisableAddingBackgroundColorForClearTypeFix,
-                            this.RandomizeEffects,
-                            this.ManualTransitionTrumpsActiveTransition,
+                            ConvertSecondsToMilliseconds(ModuleSettings.ManuallyTriggeredTransitionSpeed.GetValueAsDecimalFor(this).Value),
+                            ModuleSettings.Loop.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.RandomOrder.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.SimultaneousTransitions.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.ForceSlidesToFitContainer.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.DisableAddingBackgroundColorForClearTypeFix.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.RandomizeEffects.GetValueAsBooleanFor(this).Value,
+                            ModuleSettings.ManualTransitionTrumpsActiveTransition.GetValueAsBooleanFor(this).Value,
                             this.RotatorContainer);
+// ReSharper restore PossibleInvalidOperationException
                 }
 
                 return this.cycleOptions;
             }
-        }
-
-        /// <summary>
-        /// Gets AnimationDuration.
-        /// </summary>
-        private decimal AnimationDuration
-        {
-// ReSharper disable PossibleInvalidOperationException
-            get
-            {
-                return ModuleSettings.AnimationDuration.GetValueAsDecimalFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the transition effect or effects to use.
-        /// </summary>
-        /// <value>The animation effect or effects to use for transitions.</value>
-        private Effects AnimationEffect
-        {
-            get
-            {
-                return ModuleSettings.AnimationEffect.GetValueAsEnumFor<Effects>(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to stop rotation after a certain number of transitions (<see cref="AutoStopCount"/>).
-        /// </summary>
-        /// <value><c>true</c> if the module is set to stop rotation after a certain number of transitions; otherwise, <c>false</c>.</value>
-        private bool AutoStop
-        {
-            get
-            {
-                return ModuleSettings.AutoStop.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to stop rotation after a certain number of transitions.
-        /// </summary>
-        /// <value><c>true</c> if the module is set to stop rotation after a certain number of transitions; otherwise, <c>false</c>.</value>
-        private int AutoStopCount
-        {
-            get
-            {
-                return ModuleSettings.AutoStopCount.GetValueAsInt32For(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to automatically resize the container to fit the largest <see cref="Slide"/>.
-        /// </summary>
-        /// <value><c>true</c> if the option to automatically resize the container to fit the largest <see cref="Slide"/> is set; otherwise, <c>false</c>.</value>
-        private bool ContainerResize
-        {
-            get
-            {
-                return ModuleSettings.ContainerResize.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to start the next transition immediately after the current one completes.
-        /// </summary>
-        /// <value><c>true</c> if the option to start the next transition immediately after the current one completes is set; otherwise, <c>false</c>.</value>
-        private bool Continuous
-        {
-            get
-            {
-                return ModuleSettings.Continuous.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating the additional delay (in seconds) for the first transition (hint: can be negative).
-        /// </summary>
-        /// <value>A value indicating the additional delay (in seconds) for the first transition (hint: can be negative)</value>
-        private decimal InitialDelay
-        {
-            get
-            {
-                return ModuleSettings.InitialDelay.GetValueAsDecimalFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating the delay (in seconds) for transitions triggered manually (through the pager or previous/next button).
-        /// </summary>
-        /// <value>A value indicating the delay (in seconds) for transitions triggered manually (through the pager or previous/next button)</value>
-        private decimal ManuallyTriggeredTransitionSpeed
-        {
-            get
-            {
-                return ModuleSettings.ManuallyTriggeredTransitionSpeed.GetValueAsDecimalFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to loop rotation, or just display each slide once.
-        /// </summary>
-        /// <value><c>true</c> if the module is set to only show each slide once; otherwise, <c>false</c>.</value>
-        private bool Loop
-        {
-            get
-            {
-                return ModuleSettings.Loop.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to display slides in a random order.
-        /// </summary>
-        /// <value><c>true</c> if the module is set to display slides in a random order; otherwise, <c>false</c>.</value>
-        private bool RandomOrder
-        {
-            get
-            {
-                return ModuleSettings.RandomOrder.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to pause rotation when the slides are hovered over.
-        /// </summary>
-        /// <value><c>true</c> if the module is set to pause rotation when the slides are hovered over; otherwise, <c>false</c>.</value>
-        private bool PauseOnHover
-        {
-            get
-            {
-                return ModuleSettings.PauseOnHover.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets RotatorDelay.
-        /// </summary>
-        private decimal RotatorDelay
-        {
-            get
-            {
-                return ModuleSettings.RotatorDelay.GetValueAsDecimalFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the height in pixels for the slide container, or <c>null</c> to 
-        /// </summary>
-        private int? SlideHeight
-        {
-            get
-            {
-                return ModuleSettings.SlideHeight.GetValueAsInt32For(this);
-            }
-        }
-
-        /// <summary>
-        /// Gets the width in pixels for the slide container
-        /// </summary>
-        private int? SlideWidth
-        {
-            get
-            {
-                return ModuleSettings.SlideWidth.GetValueAsInt32For(this);
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether in and out transitions occur simultaneously.
-        /// </summary>
-        /// <value><c>true</c> if the module is set to display in and out transitions simultaneously; otherwise, <c>false</c>.</value>
-        private bool SimultaneousTransitions
-        {
-            get
-            {
-                return ModuleSettings.SimultaneousTransitions.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to force slides to fit exactly within the container.
-        /// </summary>
-        /// <value><c>true</c> if the module is set to force slides to fit the dimensions of the container; otherwise, <c>false</c>.</value>
-        private bool ForceSlidesToFitContainer
-        {
-            get
-            {
-                return ModuleSettings.ForceSlidesToFitContainer.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to use animations to transition between slides.
-        /// </summary>
-        private bool UseAnimations
-        {
-            get
-            {
-                return ModuleSettings.UseAnimations.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to disable the ClearType fix that adds a background color to each slide
-        /// </summary>
-        private bool DisableAddingBackgroundColorForClearTypeFix
-        {
-            get
-            {
-                return ModuleSettings.DisableAddingBackgroundColorForClearTypeFix.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to randomize the order of the transition effects when <see cref="AnimationEffect"/> is set to multiple effects
-        /// </summary>
-        private bool RandomizeEffects
-        {
-            get
-            {
-                return ModuleSettings.RandomizeEffects.GetValueAsBooleanFor(this).Value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether a manual transition trumps an active transition
-        /// </summary>
-        private bool ManualTransitionTrumpsActiveTransition
-        {
-            get
-            {
-                return ModuleSettings.ManualTransitionTrumpsActiveTransition.GetValueAsBooleanFor(this).Value;
-            }
-
-// ReSharper restore PossibleInvalidOperationException
         }
 
         /// <summary>Raises the <see cref="Control.Init" /> event.</summary>
@@ -378,22 +143,18 @@ namespace Engage.Dnn.ContentRotator
             this.Load += this.Page_Load;
         }
 
-        /// <summary>
-        /// Converts the given number of seconds into milliseconds.
-        /// </summary>
+        /// <summary>Converts the given number of seconds into milliseconds.</summary>
         /// <param name="seconds">The value in seconds.</param>
-        /// <returns>The number of milliseconds represented by <paramref name="seconds"/></returns>
+        /// <returns>The number of milliseconds represented by <paramref name="seconds" /></returns>
         private static int ConvertSecondsToMilliseconds(decimal seconds)
         {
             const int MillisecondsPerSecond = 1000;
             return (int)Math.Round(seconds * MillisecondsPerSecond);
         }
 
-        /// <summary>
-        /// Adds the given <paramref name="control"/> to the given <paramref name="container"/> unless <paramref name="control"/> is <c>null</c>.
-        /// </summary>
-        /// <param name="container">The container to which <paramref name="control"/> is to be added.</param>
-        /// <param name="control">The control to add to <paramref name="container"/>.</param>
+        /// <summary>Adds the given <paramref name="control" /> to the given <paramref name="container" /> unless <paramref name="control" /> is <c>null</c>.</summary>
+        /// <param name="container">The container to which <paramref name="control" /> is to be added.</param>
+        /// <param name="control">The control to add to <paramref name="container" />.</param>
         private static void AddControl(Control container, Control control)
         {
             if (control != null)
@@ -402,15 +163,11 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <see cref="Label"/> whose content is the (1-based) index of the currently displayed <see cref="Slide"/>
-        /// </summary>
+        /// <summary>Creates a <see cref="Label" /> whose content is the (1-based) index of the currently displayed <see cref="Slide" /></summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The <see cref="Label"/> instance that was created
-        /// </returns>
+        /// <returns>The <see cref="Label" /> instance that was created</returns>
         private static Control CreateCurrentIndexControl(Tag tag, ITemplateable slide, string resourceFile)
         {
             Label currentSlideIndexWrapper = null;
@@ -433,15 +190,11 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <see cref="Label"/> whose content is the total number of <see cref="Slide"/>s for this rotator.
-        /// </summary>
+        /// <summary>Creates a <see cref="Label" /> whose content is the total number of <see cref="Slide" />s for this rotator.</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The <see cref="Label"/> instance that was created
-        /// </returns>
+        /// <returns>The <see cref="Label" /> instance that was created</returns>
         private static Control CreateTotalCountControl(Tag tag, ITemplateable slide, string resourceFile)
         {
             Label totalCountLabel = null;
@@ -463,9 +216,7 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Processes template tokens not automatically processed by the <see cref="TemplateEngine"/>, i.e. tokens specific to Rotator functionality.
-        /// </summary>
+        /// <summary>Processes template tokens not automatically processed by the <see cref="TemplateEngine" />, i.e. tokens specific to Rotator functionality.</summary>
         /// <param name="container">The container to which content is added.</param>
         /// <param name="tag">The tag being processed.</param>
         /// <param name="slide">The slide being processed (or <c>null</c>).</param>
@@ -510,16 +261,12 @@ namespace Engage.Dnn.ContentRotator
             return false;
         }
 
-        /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
-        /// Then sets the tag to cycle back when clicked.
-        /// </summary>
+        /// <summary>Creates a <c>div</c> tag for the given <paramref name="tag" />.
+        /// Then sets the tag to cycle back when clicked.</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The created back button
-        /// </returns>
+        /// <returns>The created back button</returns>
         private Control CreateBackButton(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel backButton = null;
@@ -542,16 +289,12 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
-        /// Then sets the tag to cycle forward when clicked.
-        /// </summary>
+        /// <summary>Creates a <c>div</c> tag for the given <paramref name="tag" />.
+        /// Then sets the tag to cycle forward when clicked.</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The created next button
-        /// </returns>
+        /// <returns>The created next button</returns>
         private Control CreateNextButton(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel nextButton = null;
@@ -574,16 +317,12 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
-        /// Then sets the tag to pause rotation when clicked.
-        /// </summary>
+        /// <summary>Creates a <c>div</c> tag for the given <paramref name="tag" />.
+        /// Then sets the tag to pause rotation when clicked.</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The created pause button
-        /// </returns>
+        /// <returns>The created pause button</returns>
         private Control CreatePauseButton(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel pauseButton = null;
@@ -604,16 +343,12 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
-        /// Then sets the tag to resume rotation when clicked.
-        /// </summary>
+        /// <summary>Creates a <c>div</c> tag for the given <paramref name="tag" />.
+        /// Then sets the tag to resume rotation when clicked.</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The created play button
-        /// </returns>
+        /// <returns>The created play button</returns>
         private Control CreatePlayButton(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel playButton = null;
@@ -637,16 +372,12 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
-        /// Then sets the tag to be the container for an auto-generated pager.
-        /// </summary>
+        /// <summary>Creates a <c>div</c> tag for the given <paramref name="tag" />.
+        /// Then sets the tag to be the container for an auto-generated pager.</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The created pager container
-        /// </returns>
+        /// <returns>The created pager container</returns>
         private Control CreatePager(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel pagerContainer = null;
@@ -670,16 +401,12 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <c>div</c> tag for the given <paramref name="tag"/>.
-        /// Then sets the tag to be the container for a pager item (which, when clicked, rotates to its associated slide).
-        /// </summary>
+        /// <summary>Creates a <c>div</c> tag for the given <paramref name="tag" />.
+        /// Then sets the tag to be the container for a pager item (which, when clicked, rotates to its associated slide).</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
-        /// <returns>
-        /// The created pager item
-        /// </returns>
+        /// <returns>The created pager item</returns>
         private Control CreatePagerItem(Tag tag, ITemplateable slide, string resourceFile)
         {
             Panel pagerItemWrapper = null;
@@ -700,9 +427,7 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Creates a <see cref="Panel"/> from a tag, setting its <see cref="Panel.CssClass"/> and supplying Text or inner controls, if it has any.
-        /// </summary>
+        /// <summary>Creates a <see cref="Panel" /> from a tag, setting its <see cref="Panel.CssClass" /> and supplying Text or inner controls, if it has any.</summary>
         /// <param name="tag">The tag whose content is being represented.</param>
         /// <param name="slide">The object from which to get the property.</param>
         /// <param name="resourceFile">The resource file from which to get localized resources.</param>
@@ -741,23 +466,19 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Gets a list of the <see cref="Slide"/>s for this module.  Does not take the <paramref name="listTag"/> or <paramref name="context"/> into account,
-        /// effectively only supporting one data source.
-        /// </summary>
-        /// <param name="listTag">The Engage:List <see cref="Tag"/> for which to return a data source</param>
-        /// <param name="context">The current <see cref="ITemplateable"/> item being processed, or <c>null</c> if no list is currently being processed</param>
-        /// <returns>A list of the <see cref="Slide"/>s for this module.</returns>
+        /// <summary>Gets a list of the <see cref="Slide" />s for this module.  Does not take the <paramref name="listTag" /> or <paramref name="context" /> into account,
+        /// effectively only supporting one data source.</summary>
+        /// <param name="listTag">The Engage:List <see cref="Tag" /> for which to return a data source</param>
+        /// <param name="context">The current <see cref="ITemplateable" /> item being processed, or <c>null</c> if no list is currently being processed</param>
+        /// <returns>A list of the <see cref="Slide" />s for this module.</returns>
         private IEnumerable<ITemplateable> GetSlides(Tag listTag, ITemplateable context)
         {
             return Slide.GetSlides(this.ModuleId).ConvertAll(input => (ITemplateable)input);
         }
 
-        /// <summary>
-        /// Handles the Load event of the Page control.
-        /// </summary>
+        /// <summary>Handles the <see cref="Control.Load"/> event of this control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "ProcessModuleLoadException handles exception, no need to rethrow")]
         private void Page_Load(object sender, EventArgs e)
         {
@@ -771,9 +492,7 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// Gets the template from this page's settings.  If no template is set, sets a default.
-        /// </summary>
+        /// <summary>Gets the template from this page's settings.  If no template is set, sets a default.</summary>
         /// <returns>The template from this page's settings, or <c>null</c> if no valid template is available</returns>
         private TemplateInfo GetTemplateSetting()
         {
@@ -799,27 +518,21 @@ namespace Engage.Dnn.ContentRotator
             return template;
         }
 
-        /// <summary>
-        /// Gets a default template to use if no template has been set (or the set template is no longer available).
-        /// </summary>
+        /// <summary>Gets a default template to use if no template has been set (or the set template is no longer available).</summary>
         /// <returns>A valid template, or <c>null</c> if there are no valid templates available</returns>
         private TemplateInfo GetDefaultTemplate()
         {
             return this.GetTemplates(TemplateType.List).FirstOrDefault();
         }
 
-        /// <summary>
-        /// Sets the template setting for this instance to the given <paramref name="folderName"/>.
-        /// </summary>
+        /// <summary>Sets the template setting for this instance to the given <paramref name="folderName" />.</summary>
         /// <param name="folderName">Name of the folder in which the template lives.</param>
         private void SetTemplateSetting(string folderName)
         {
             ModuleSettings.TemplateFolderName.Set(this, folderName);
         }
 
-        /// <summary>
-        /// Adds the references and code to the page to enable the jQuery Cycle plugin
-        /// </summary>
+        /// <summary>Adds the references and code to the page to enable the jQuery Cycle plugin</summary>
         private void RegisterRotatorJavaScript()
         {
             this.AddJQueryReference();

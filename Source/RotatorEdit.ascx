@@ -5,17 +5,17 @@
 <table class="settingsTable">
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="TitleLabel" runat="server" EnableViewState="false" /></td>
-        <td class="contentColumn leftAlign"><asp:TextBox ID="TitleTextBox" runat="server" CssClass="NormalTextBox TitleTextBox"/></td>
+        <td class="contentColumn leftAlign"><asp:TextBox ID="TitleTextBox" runat="server" CssClass="NormalTextBox TitleTextBox" /></td>
     </tr>
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="ContentLabel" runat="server" EnableViewState="false" /></td>
-        <td class="contentColumn leftAlign"><dnn:TextEditor ID="ContentTextEditor" runat="server" Height="400" Width="600" HtmlEncode="false"/></td>
+        <td class="contentColumn leftAlign"><dnn:TextEditor ID="ContentTextEditor" runat="server" Height="400" Width="600" HtmlEncode="false" /></td>
     </tr>
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="ImageUrlLabel" runat="server" EnableViewState="false" /></td>
         <td class="contentColumn leftAlign">
             <asp:UpdatePanel runat="server" UpdateMode="Conditional"><ContentTemplate>
-                <dnn:Url ID="ImageUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true"/>
+                <dnn:Url ID="ImageUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true" />
             </ContentTemplate></asp:UpdatePanel>
         </td>
     </tr>
@@ -23,7 +23,7 @@
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="PagerImageUrlLabel" runat="server" EnableViewState="false" /></td>
         <td class="contentColumn leftAlign">
             <asp:UpdatePanel runat="server" UpdateMode="Conditional"><ContentTemplate>
-                <dnn:Url ID="PagerImageUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true"/>
+                <dnn:Url ID="PagerImageUrlControl" runat="server" UrlType="N" ShowTrack="false" ShowLog="false" ShowNewWindow="false" ShowUsers="false" ShowTabs="false" ShowNone="true" ShowDatabase="true" ShowSecure="true" ShowUrls="true" ShowUpLoad="true" ShowFiles="true" />
             </ContentTemplate></asp:UpdatePanel>
         </td>
     </tr>
@@ -31,7 +31,7 @@
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="LinkUrlLabel" runat="server" EnableViewState="false" /></td>
         <td class="contentColumn leftAlign">
             <asp:UpdatePanel runat="server" UpdateMode="Conditional"><ContentTemplate>
-                <dnn:Url ID="LinkUrlControl" runat="server" UrlType="N" ShowTrack="true" ShowLog="true" ShowNewWindow="false" ShowUsers="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowNone="true" ShowTabs="true" ShowUrls="true"/>
+                <dnn:Url ID="LinkUrlControl" runat="server" UrlType="N" ShowTrack="true" ShowLog="true" ShowNewWindow="false" ShowUsers="false" ShowDatabase="false" ShowSecure="false" ShowUpLoad="false" ShowFiles="false" ShowNone="true" ShowTabs="true" ShowUrls="true" />
             </ContentTemplate></asp:UpdatePanel>
         </td>
     </tr>
@@ -54,7 +54,7 @@
     <tr>
         <td class="SubHead nowrap rightAlign"><dnn:Label ResourceKey="SortOrderLabel" runat="server" EnableViewState="false" /></td>
         <td class="contentColumn leftAlign">
-            <asp:TextBox ID="SortOrderTextBox" runat="server" CssClass="NormalTextBox"/>
+            <asp:TextBox ID="SortOrderTextBox" runat="server" CssClass="NormalTextBox" />
             <asp:RequiredFieldValidator runat="server" InitialValue="" ControlToValidate="SortOrderTextBox" Display="None" resourcekey="SortOrderRequiredValidator" />
             <asp:CompareValidator runat="server" Type="Integer" Operator="DataTypeCheck" ControlToValidate="SortOrderTextBox" Display="None" resourcekey="SortOrderTypeValidator" />
         </td>
@@ -66,7 +66,9 @@
 <asp:ValidationSummary runat="server" ShowMessageBox="true" ShowSummary="false" />
 
 <script type="text/javascript">
+    /*global jQuery, datePickerOpts */
     (function ($) {
+        'use strict';
         $(function() { $('.DatePicker').datepicker(datePickerOpts); });
         $(window).load(function () { $('#ui-datepicker-div').wrap('<div class="ModEngageRotatorC" />'); });
     }(jQuery));
