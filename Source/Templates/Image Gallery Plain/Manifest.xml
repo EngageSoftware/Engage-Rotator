@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EngageManifest Module="Rotator" Type="List" xmlns="http://www.engagesoftware.com/Schemas/EngageManifest">
+  <Title>Image Gallery - Plain</Title>
+  <Description>
+	&lt;p>Displays just the image, using the title as the image's alternate text.  Make sure that the images are the same size to avoid strange transitions.&lt;/p>
+  </Description>
+  <Template>Template.htm</Template>
+  <PreviewImage>Preview.jpg</PreviewImage>
+</EngageManifest>

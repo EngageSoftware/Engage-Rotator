@@ -266,6 +266,9 @@
     <Content Include="Templates\Fresh\Preview.jpg" />
     <Content Include="Templates\Fresh\Style.css" />
     <Content Include="Templates\Fresh\Template.htm" />
+    <Content Include="Templates\Image Gallery Plain\Manifest.xml" />
+    <Content Include="Templates\Image Gallery Plain\Preview.jpg" />
+    <Content Include="Templates\Image Gallery Plain\Template.htm" />
     <Content Include="Templates\Legacy\images\next.gif" />
     <Content Include="Templates\Legacy\images\pause.gif" />
     <Content Include="Templates\Legacy\images\previous.gif" />
