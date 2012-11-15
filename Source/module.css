@@ -16,6 +16,8 @@
   display: none; }
 
 /******** Rotator Options (Add/Edit List) ************/
+.engageRotatorOptions .slides {
+  padding: 0; }
 .engageRotatorOptions .slide {
   list-style: none;
   margin-bottom: 2em; }
