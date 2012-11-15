@@ -96,9 +96,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml.Linq" />
@@ -233,7 +231,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ReleaseNotes_02.01.00.htm" />
-    <Content Include="References\System.Web.Extensions.dll" />
     <Content Include="ReleaseNotes_02.00.01.htm" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\arrow_up.gif" />
