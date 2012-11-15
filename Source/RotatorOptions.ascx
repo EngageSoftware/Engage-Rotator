@@ -2,76 +2,78 @@
 <%@ Import Namespace="Globals=DotNetNuke.Common.Globals" %>
 <%@ Import Namespace="Engage.Dnn.ContentRotator" %>
 <%@ Register TagPrefix="dnn" TagName="UrlTracking" Src="~/controls/URLTrackingControl.ascx" %>
-<div class="RotatorOptions">
-    <div class="ro-top"><asp:Button ID="NewSlideButton" runat="server" resourcekey="NewSlideButton" EnableViewState="false" CssClass="Normal" />&nbsp;<asp:Button ID="BackButton" runat="server" resourcekey="BackButton" CssClass="Normal" /></div>            
-    <div class="ro-body">
-        <asp:Repeater ID="SlidesRepeater" runat="server">
-            <ItemTemplate>
-                    <div class="divArticleToRotate">
-                        <div class="topRotatorHeader">
-                            <div class="sortOrder Normal"><asp:Label runat="server" resourcekey="SortOrder" /> (<%#Eval("SortOrder") %>)</div>
-                            <div class="rotatorContentTitleWrapper SubHead"><%# Eval("Title") %></div>
-                        </div>
-                        <div class="rotatorContent">
-                            <div class="rotatorDescription">
-                                <div class="rotatorDescriptionTitle SubHead"><asp:Label runat="server" resourcekey="ContentHeader" /></div>
-                                <div class="Normal"><%# Eval("Content") %></div>
-                            </div>
-                            <div class="rotatorThumbnails">
-                                <div class="rotatorThumbnailWrapper">
-                                    <div class="rotatorThumbnailTitle SubHead"><asp:Label runat="server" resourcekey="ImageHeader" /></div>
-                                    <div class="rotatorThumbnail"><img src='<%# Eval("ImageUrl") %>' alt='<%# Eval("ImageUrl") %>' /></div>
-                                </div>
-                                <div class="rotatorPositionThumbnailWrapper">
-                                    <div class="rotatorPositionThumbnailTitle SubHead"><asp:Label runat="server" resourcekey="PagerImageHeader" /></div>
-                                    <div class="rotatorPositionThumbnail"><img src='<%# Eval("PagerImageUrl") %>' alt='<%# Eval("PagerImageUrl") %>' /></div>
-                                </div>
-                            </div>
-                            <div class="rotatorReadMoreLink Normal">
-                                <asp:Label runat="server" resourcekey="Link" />
-                                <asp:PlaceHolder runat="server" Visible='<%# !string.IsNullOrEmpty((string)Eval("Link")) %>'>
-                                    <asp:HyperLink runat="server" NavigateUrl='<%# Eval("LinkUrl") %>' Text='<%#GetPlainUrl((string)Eval("Link")) %>' />
-                                    
-                                    <asp:PlaceHolder runat="server" Visible='<%#(bool)Eval("TrackLink") %>'>
-                                        <fieldset class="urlTrackingWrap">
-                                            <legend><a href="#" class="view-url-tracking"><%= HttpUtility.HtmlEncode(Localize("View Link Statistics")) %></a></legend>
-                                            <asp:HiddenField runat="server" Value="false" />
-                                            <div class="urlTracking">
-                                                <dnn:UrlTracking runat="server" URL='<%# Eval("Link") %>' FormattedURL='<%# GetPlainUrl((string)Eval("Link")) %>' ModuleID='<%# ModuleId %>' />
-                                            </div>
-                                        </fieldset>
-                                    </asp:PlaceHolder>
-                                </asp:PlaceHolder>
-                                <asp:PlaceHolder runat="server" Visible='<%# string.IsNullOrEmpty((string)Eval("Link")) %>'>
-                                    <%= Localize("No Link") %>
-                                </asp:PlaceHolder>
-                            </div>
-                        </div>
-                        <div class="editContent">
-                            <div class="startEndDate Normal">
-                                <asp:Label runat="server" resourcekey="Starts" CssClass="NormalBold" />
-                                <%#Eval("StartDate", "{0:d}") %>&nbsp;&nbsp;&nbsp;
-                                <asp:Label runat="server" resourcekey="Ends" CssClass="NormalBold" />
-                                <%#Eval("EndDate", "{0:d}") %>
-                            </div>
-                            <div class="editButtons Normal">
-                                <asp:Button runat="server" resourcekey="Edit" CausesValidation="false" CommandName="Edit" />&nbsp;
-                                <asp:Button ID="DeleteSlideButton" runat="server" resourcekey="DeleteSlideButton" CausesValidation="false" CommandName="Delete" />
-                                <asp:HiddenField ID="SlideIdHiddenField" runat="server" Value='<%# Eval("SlideId") %>' />
-                            </div>
-                        </div>
+<div class="engageRotatorOptions">
+    <ul class="top-buttons dnnActions dnnClear">
+        <li><asp:Button ID="NewSlideButton" runat="server" ResourceKey="NewSlideButton" EnableViewState="false" CssClass="dnnPrimaryAction" /></li>
+        <li><asp:Button ID="BackButton" runat="server" ResourceKey="BackButton" CssClass="dnnSecondaryAction" /></li>
+    </ul>
+    <asp:Repeater ID="SlidesRepeater" runat="server">
+        <HeaderTemplate><ol class="slides dnnClear"></HeaderTemplate>
+        <ItemTemplate>
+            <li class="slide">
+                <div class="slide-header">
+                    <h6 class="slide-order"><%=Localize("SortOrder")%> (<%#Eval("SortOrder") %>)</h6>
+                    <h3 class="slide-title"><%# Eval("Title") %></h3>
+                </div>
+                <div class="slide-body">
+                    <div class="slide-body-box <%=IsContentInTemplate && IsImageInTemplate ? "both" : "single" %>">
+                        <asp:Panel runat="server" CssClass="slide-content" Visible="<%#IsContentInTemplate %>">
+                            <h6><%=Localize("ContentHeader")%></h6>
+                            <div class="content-wrap"><%# Eval("Content") %></div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" CssClass="slide-image" Visible="<%#IsImageInTemplate %>">
+                            <h6><%=Localize("ImageHeader")%></h6>
+                            <img src='<%# Eval("ImageUrl") %>' alt='<%# Eval("ImageUrl") %>' />
+                        </asp:Panel>
                     </div>
-            </ItemTemplate>
-        </asp:Repeater>
-        <asp:PlaceHolder ID="NoSlidesSection" runat="server" Visible="false">
-            <%= Localize("No Slides") %>
-        </asp:PlaceHolder>
-    </div>
-    <div class="ro-bottom"><asp:Button ID="BackButton2" runat="server" resourcekey="BackButton" CssClass="Normal" /></div>
+                    <asp:Panel runat="server" CssClass="slide-link" Visible="<%#IsLinkInTemplate %>">
+                        <h6><%=Localize("Link")%></h6>
+                        <asp:PlaceHolder runat="server" Visible='<%# !string.IsNullOrEmpty((string)Eval("Link")) %>'>
+                            <asp:HyperLink runat="server" NavigateUrl='<%# Eval("LinkUrl") %>' Text='<%#GetPlainUrl((string)Eval("Link")) %>' />
+                                    
+                            <asp:PlaceHolder runat="server" Visible='<%#(bool)Eval("TrackLink") %>'>
+                                <fieldset class="urlTrackingWrap">
+                                    <legend><a href="#" class="view-url-tracking"><%= HttpUtility.HtmlEncode(Localize("View Link Statistics")) %></a></legend>
+                                    <asp:HiddenField runat="server" Value="false" />
+                                    <div class="urlTracking">
+                                        <dnn:UrlTracking runat="server" URL='<%# Eval("Link") %>' FormattedURL='<%# GetPlainUrl((string)Eval("Link")) %>' ModuleID='<%# ModuleId %>' />
+                                    </div>
+                                </fieldset>
+                            </asp:PlaceHolder>
+                        </asp:PlaceHolder>
+                        <asp:PlaceHolder runat="server" Visible='<%# string.IsNullOrEmpty((string)Eval("Link")) %>'>
+                            <%= Localize("No Link") %>
+                        </asp:PlaceHolder>
+                    </asp:Panel>
+                </div>
+                <div class="slide-footer">
+                    <ol class="slide-dates">
+                        <li><h6><%=Localize("Starts")%></h6> <%#Eval("StartDate", "{0:d}") %></li>
+                        <asp:PlaceHolder runat="server" Visible='<%#Eval("EndDate") != null %>'>
+                            <li><h6><%=Localize("Ends")%></h6> <%#Eval("EndDate", "{0:d}") %></li>
+                        </asp:PlaceHolder>
+                    </ol>
+                    <ul class="slide-buttons dnnActions dnnClear">
+                        <li><asp:Button runat="server" CssClass="dnnPrimaryAction" ResourceKey="Edit" CausesValidation="false" CommandName="Edit" /></li>
+                        <li><asp:Button ID="DeleteSlideButton" CssClass="dnnSecondaryAction" runat="server" ResourceKey="DeleteSlideButton" CausesValidation="false" CommandName="Delete" /></li>
+                    </ul>
+                    <asp:HiddenField ID="SlideIdHiddenField" runat="server" Value='<%# Eval("SlideId") %>' />
+                </div>
+            </li>
+        </ItemTemplate>
+        <FooterTemplate></ol></FooterTemplate>
+    </asp:Repeater>
+    <asp:PlaceHolder ID="NoSlidesSection" runat="server" Visible="false">
+        <%= Localize("No Slides") %>
+    </asp:PlaceHolder>
+    
+    <ul class="bottom-buttons dnnActions dnnClear">
+        <li><asp:Button ID="BackButton2" runat="server" ResourceKey="BackButton" CssClass="dnnSecondaryAction" /></li>
+    </ul>
 </div>
 <script type="text/javascript" src="<%= GetRotatorOptionsScriptUrl() %>"></script>
 <script type="text/javascript">
     jQuery(function ($) {
-        $('.rotatorReadMoreLink').toggleUrlTracking();
+        $('.slide-link').toggleUrlTracking();
     });
 </script>

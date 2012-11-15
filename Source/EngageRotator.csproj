@@ -159,6 +159,87 @@
       <DependentUpon>RotatorEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Providers\DataProviders\DataProvider.cs" />
+    <Content Include="compass\css3\_appearance.scss" />
+    <Content Include="compass\css3\_background-clip.scss" />
+    <Content Include="compass\css3\_background-origin.scss" />
+    <Content Include="compass\css3\_background-size.scss" />
+    <Content Include="compass\css3\_border-radius.scss" />
+    <Content Include="compass\css3\_box-shadow.scss" />
+    <Content Include="compass\css3\_box-sizing.scss" />
+    <Content Include="compass\css3\_box.scss" />
+    <Content Include="compass\css3\_columns.scss" />
+    <Content Include="compass\css3\_filter.scss" />
+    <Content Include="compass\css3\_font-face.scss" />
+    <Content Include="compass\css3\_hyphenation.scss" />
+    <Content Include="compass\css3\_images.scss" />
+    <Content Include="compass\css3\_inline-block.scss" />
+    <Content Include="compass\css3\_opacity.scss" />
+    <Content Include="compass\css3\_pie.scss" />
+    <Content Include="compass\css3\_regions.scss" />
+    <Content Include="compass\css3\_shared.scss" />
+    <Content Include="compass\css3\_text-shadow.scss" />
+    <Content Include="compass\css3\_transform-legacy.scss" />
+    <Content Include="compass\css3\_transform.scss" />
+    <Content Include="compass\css3\_transition.scss" />
+    <Content Include="compass\css3\_user-interface.scss" />
+    <Content Include="compass\layout\_grid-background.scss" />
+    <Content Include="compass\layout\_sticky-footer.scss" />
+    <Content Include="compass\layout\_stretching.scss" />
+    <Content Include="compass\reset\_utilities-legacy.scss" />
+    <Content Include="compass\reset\_utilities.scss" />
+    <Content Include="compass\typography\links\_hover-link.scss" />
+    <Content Include="compass\typography\links\_link-colors.scss" />
+    <Content Include="compass\typography\links\_unstyled-link.scss" />
+    <Content Include="compass\typography\lists\_bullets.scss" />
+    <Content Include="compass\typography\lists\_horizontal-list.scss" />
+    <Content Include="compass\typography\lists\_inline-block-list.scss" />
+    <Content Include="compass\typography\lists\_inline-list.scss" />
+    <Content Include="compass\typography\text\_ellipsis.scss" />
+    <Content Include="compass\typography\text\_force-wrap.scss" />
+    <Content Include="compass\typography\text\_nowrap.scss" />
+    <Content Include="compass\typography\text\_replacement.scss" />
+    <Content Include="compass\typography\_links.scss" />
+    <Content Include="compass\typography\_lists.scss" />
+    <Content Include="compass\typography\_text.scss" />
+    <Content Include="compass\typography\_vertical_rhythm.scss" />
+    <Content Include="compass\utilities\color\_contrast.scss" />
+    <Content Include="compass\utilities\general\_clearfix.scss" />
+    <Content Include="compass\utilities\general\_float.scss" />
+    <Content Include="compass\utilities\general\_hacks.scss" />
+    <Content Include="compass\utilities\general\_min.scss" />
+    <Content Include="compass\utilities\general\_reset.scss" />
+    <Content Include="compass\utilities\general\_tabs.scss" />
+    <Content Include="compass\utilities\general\_tag-cloud.scss" />
+    <Content Include="compass\utilities\links\_hover-link.scss" />
+    <Content Include="compass\utilities\links\_link-colors.scss" />
+    <Content Include="compass\utilities\links\_unstyled-link.scss" />
+    <Content Include="compass\utilities\lists\_bullets.scss" />
+    <Content Include="compass\utilities\lists\_horizontal-list.scss" />
+    <Content Include="compass\utilities\lists\_inline-block-list.scss" />
+    <Content Include="compass\utilities\lists\_inline-list.scss" />
+    <Content Include="compass\utilities\sprites\_base.scss" />
+    <Content Include="compass\utilities\sprites\_sprite-img.scss" />
+    <Content Include="compass\utilities\tables\_alternating-rows-and-columns.scss" />
+    <Content Include="compass\utilities\tables\_borders.scss" />
+    <Content Include="compass\utilities\tables\_scaffolding.scss" />
+    <Content Include="compass\utilities\text\_ellipsis.scss" />
+    <Content Include="compass\utilities\text\_nowrap.scss" />
+    <Content Include="compass\utilities\text\_replacement.scss" />
+    <Content Include="compass\utilities\_color.scss" />
+    <Content Include="compass\utilities\_general.scss" />
+    <Content Include="compass\utilities\_links.scss" />
+    <Content Include="compass\utilities\_lists.scss" />
+    <Content Include="compass\utilities\_print.scss" />
+    <Content Include="compass\utilities\_sprites.scss" />
+    <Content Include="compass\utilities\_tables.scss" />
+    <Content Include="compass\utilities\_text.scss" />
+    <Content Include="compass\_css3.scss" />
+    <Content Include="compass\_layout.scss" />
+    <Content Include="compass\_reset-legacy.scss" />
+    <Content Include="compass\_reset.scss" />
+    <Content Include="compass\_support.scss" />
+    <Content Include="compass\_typography.scss" />
+    <Content Include="compass\_utilities.scss" />
     <None Include="JavaScript\rotator.js" />
     <EmbeddedResource Include="JavaScript\rotator-options.all.js">
       <DependentUpon>rotator.chirp.config</DependentUpon>
@@ -167,6 +248,9 @@
       <DependentUpon>rotator.chirp.config</DependentUpon>
     </EmbeddedResource>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+    <Content Include="module.css">
+      <DependentUpon>module.scss</DependentUpon>
+    </Content>
     <Content Include="ReleaseNotes_02.04.00.htm" />
     <Content Include="ReleaseNotes_02.03.00.htm" />
     <Content Include="images\collapse.gif" />
@@ -199,7 +283,12 @@
     <Content Include="Licenses\EULA-Trial.txt" />
     <Content Include="RotatorSettings.ascx" />
     <Content Include="RotatorEdit.ascx" />
-    <Content Include="module.css" />
+    <None Include="module.scss">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
     <Content Include="RotatorOptions.ascx" />
     <Content Include="Rotator.ascx" />
     <Compile Include="Providers\DataProviders\SqlDataProvider\SqlDataProvider.cs" />

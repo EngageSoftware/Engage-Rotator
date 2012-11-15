@@ -12,6 +12,7 @@
 namespace Engage.Dnn.ContentRotator
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
@@ -21,6 +22,9 @@ namespace Engage.Dnn.ContentRotator
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.Localization;
     using DotNetNuke.UI.Utilities;
+
+    using Engage.Dnn.Framework.Templating;
+
     using Globals = DotNetNuke.Common.Globals;
 
     /// <summary>
@@ -28,6 +32,73 @@ namespace Engage.Dnn.ContentRotator
     /// </summary>
     public partial class RotatorOptions : ModuleBase
     {
+        /// <summary>Backing field for <see cref="Template"/></summary>
+        private TemplateInfo template;
+
+        /// <summary>Backing field for <see cref="TemplatePlaceholders"/></summary>
+        private TemplatePlaceholder[] templatePlaceholders;
+
+        /// <summary>Gets a value indicating whether the slide title is used in the template.</summary>
+        /// <value><c>true</c> if the title is used in the template; otherwise, <c>false</c>.</value>
+        protected bool IsTitleInTemplate
+        {
+            get { return this.IsPropertyInTemplate("TITLE"); }
+        }
+
+        /// <summary>Gets a value indicating whether the slide content is used in the template.</summary>
+        /// <value><c>true</c> if the content is used in the template; otherwise, <c>false</c>.</value>
+        protected bool IsContentInTemplate
+        {
+            get { return this.IsPropertyInTemplate("CONTENT"); }
+        }
+
+        /// <summary>Gets a value indicating whether the slide image is used in the template.</summary>
+        /// <value><c>true</c> if the image is used in the template; otherwise, <c>false</c>.</value>
+        protected bool IsImageInTemplate
+        {
+            get { return this.IsPropertyInTemplate("IMAGEURL", "IMAGE URL"); }
+        }
+
+        /// <summary>Gets a value indicating whether the slide link is used in the template.</summary>
+        /// <value><c>true</c> if the link is used in the template; otherwise, <c>false</c>.</value>
+        protected bool IsLinkInTemplate
+        {
+            get { return this.IsPropertyInTemplate("LINKURL", "LINK URL"); }
+        }
+
+        /// <summary>Gets the template placeholders.</summary>
+        /// <value>The template placeholders.</value>
+        private IEnumerable<TemplatePlaceholder> TemplatePlaceholders
+        {
+            get
+            {
+                if (this.templatePlaceholders == null)
+                {
+                    this.templatePlaceholders =
+                        TemplateEngine.GetPlaceholders(this.Template.Template.ChildTags)
+                                      .Where(placeholder => placeholder.Type == TemplatePlaceholderType.DataBinding)
+                                      .ToArray();
+                }
+
+                return this.templatePlaceholders;
+            }
+        }
+
+        /// <summary>Gets the currently selected rotator template.</summary>
+        /// <value>The template info.</value>
+        private TemplateInfo Template
+        {
+            get
+            {
+                if (this.template == null)
+                {
+                    this.template = this.GetTemplate(ModuleSettings.TemplateFolderName.GetValueAsStringFor(this));
+                }
+
+                return this.template;
+            }
+        }
+
         /// <summary>
         /// Gets the plain URL version of a link.
         /// </summary>
@@ -87,6 +158,14 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
+        /// <summary>Determines whether the property is used in the <see cref="Template"/> [is property used] [the specified values].</summary>
+        /// <param name="values">The placeholder values to test for.</param>
+        /// <returns><c>true</c> if the property is used; otherwise, <c>false</c>.</returns>
+        private bool IsPropertyInTemplate(params string[] values)
+        {
+            return this.TemplatePlaceholders.Any(p => values.Any(v => v.Equals(p.Value, StringComparison.OrdinalIgnoreCase)));
+        }
+
         /// <summary>
         /// Handles the Click event of the <see cref="BackButton"/> and <see cref="BackButton2"/> controls.
         /// </summary>
@@ -139,11 +218,18 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">The <see cref="System.Web.UI.WebControls.RepeaterItemEventArgs"/> instance containing the event data.</param>
         private void SlidesRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            if (e != null)
+            if (e == null)
             {
-                var deleteSlideButton = (Button)e.Item.FindControl("DeleteSlideButton");
-                ClientAPI.AddButtonConfirm(deleteSlideButton, Localization.GetString("DeleteConfirm.Text", this.LocalResourceFile));
+                return;
             }
+
+            var deleteSlideButton = (Button)e.Item.FindControl("DeleteSlideButton");
+            if (deleteSlideButton == null)
+            {
+                return;
+            }
+
+            ClientAPI.AddButtonConfirm(deleteSlideButton, Localization.GetString("DeleteConfirm.Text", this.LocalResourceFile));
         }
 
         /// <summary>
