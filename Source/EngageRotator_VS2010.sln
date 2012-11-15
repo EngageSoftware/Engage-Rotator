@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5256552-08D0-45E6-B199-70AA13B56338}"
 	ProjectSection(SolutionItems) = preProject
 		Correctness, Design, Globalization, & Security.ruleset = Correctness, Design, Globalization, & Security.ruleset
