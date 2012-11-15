@@ -9,5 +9,6 @@
   </Description>
   <Stylesheet>Style.css</Stylesheet>
   <Template>Template.htm</Template>
+  <ResourceFile>App_LocalResources\Template.resx</ResourceFile>
   <PreviewImage>Preview.jpg</PreviewImage>
 </EngageManifest>

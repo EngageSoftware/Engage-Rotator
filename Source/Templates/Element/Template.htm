@@ -3,15 +3,15 @@
     	<engage:list>
         	<div class="engage-content">
             	<div class="element-info">
-                	<h2 class="title"><engage:literal text="%#Title%"/></h2>
-                    <div class="desc"><engage:literal text="%#Content%"/></div>
-                    <Engage:Link CssClass="more-link" ><Engage:Literal Text="Learn More"/></Engage:Link>
+                	<h2 class="title"><engage:literal text="%#Title%" /></h2>
+                    <div class="desc"><engage:literal text="%#Content%" /></div>
+                    <engage:a href="%#LinkUrl%" class="more-link" Text="%$LearnMore%" />
                 </div>
                 <div class="image-content">
-            		<engage:img src="%#ImageUrl%" alt="%#Title%"/>
+            		<engage:img src="%#ImageUrl%" alt="%#Title%" />
                 </div>
             </div>
         </engage:list>
     </div>
-    <div class="pager-numbers"><Engage:Pager/></div>
+    <div class="pager-numbers"><Engage:Pager /></div>
 </div>
