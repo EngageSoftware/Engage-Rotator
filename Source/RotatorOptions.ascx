@@ -12,8 +12,8 @@
         <ItemTemplate>
             <li class="slide">
                 <div class="slide-header">
-                    <h6 class="slide-order"><%=Localize("SortOrder")%> (<%#Eval("SortOrder") %>)</h6>
                     <h3 class="slide-title"><%# Eval("Title") %></h3>
+                    <span class="slide-order"><h6><%=Localize("SortOrder")%></h6> <%#Eval("SortOrder") %></span>
                 </div>
                 <div class="slide-body">
                     <div class="slide-body-box <%=IsContentInTemplate && IsImageInTemplate ? "both" : "single" %>">

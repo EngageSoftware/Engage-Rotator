@@ -11,20 +11,23 @@
 .engageRotatorOptions {
     $borderColor: #8fb9d0;
     $backgroundColor: #e8f6fd;
+    $borderRadius: 0.75em;
     .slides{padding:0;}
     .slide {
         list-style:none;
-        margin-bottom:2em;
+        margin-bottom:2.5em;
         h6, h3 {margin:0;padding:1em 1ex;}
+        h6 {padding:2em 2ex;}
         .slide-header, .slide-footer {
             h6 {display:inline-block;}
             background: $backgroundColor;
             border:1px $borderColor solid; 
         }
         .slide-header {
-            @include border-top-radius(15px);
+            @include border-top-radius($borderRadius);
             @include clearfix;
             border-bottom:none;
+            padding: 0 5ex;
             .slide-order, .slide-title {
                 float:left;
                 padding-left:0;
@@ -32,6 +35,7 @@
             }
             .slide-order {
                 width:33%;
+                text-align:right;
             }
             .slide-title {
                 width:66%;
@@ -40,16 +44,14 @@
         .slide-body {
             border-left:1px $borderColor solid; 
             border-right:1px $borderColor solid; 
+            padding: 1em 1ex;
             .slide-body-box {
+                padding: 0 5ex;
                 .slide-content, .slide-image {
                     h6 {text-align:center;}
                 }
-                .slide-content .content-wrap {
-                    margin-right: 2ex;
-                }
                 .slide-image {
                     text-align:center;
-                    img {margin-left:2ex;}
                 }
                 &.both {
                     @include clearfix;
@@ -58,12 +60,18 @@
                         overflow: auto;
                         float:left;
                     }
+                    .slide-content .content-wrap {
+                        margin-right: 2ex;
+                    }
+                    .slide-image {
+                        img {margin-left:2ex;}
+                    }
                 }
                 &.single {}
             }
             .slide-link {
                 h6 {display:inline-block;}
-                .urlTrackingWrap{border:1px #ccc solid;background:#eee;margin:10px 0 0;
+                .urlTrackingWrap{border:1px #ccc solid;border-left:none;border-right:none;background:#eee;margin:10px 0 0;
 	                .view-url-tracking{padding-left:15px;display:block;
 	                    &.collapse-link{background:transparent url(images/collapse.gif) no-repeat;}
 	                    &.expand-link{background:transparent url(images/expand.gif) no-repeat;}
@@ -73,18 +81,19 @@
             }
         }
         .slide-footer{
-            @include border-bottom-radius(15px);
+            @include border-bottom-radius($borderRadius);
             border-top:none;
             .slide-dates {
                 margin:0;
-                padding: 1em 1ex;
+                padding: 0;
                 li {
                     list-style:none;
                 }
             }
             .slide-buttons{
-                margin:0;
-                padding-left:2ex;
+                margin:0 2ex;
+                padding:1.5em 2ex;
+                &.dnnActions input {margin:0;}
             }
         }
     }
