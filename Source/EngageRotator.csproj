@@ -248,6 +248,7 @@
       <DependentUpon>rotator.chirp.config</DependentUpon>
     </EmbeddedResource>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+    <Content Include="images\rotator-icon32.png" />
     <Content Include="module.css">
       <DependentUpon>module.scss</DependentUpon>
     </Content>
