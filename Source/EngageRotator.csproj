@@ -295,7 +295,9 @@
     <Compile Include="Providers\DataProviders\SqlDataProvider\SqlDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="EngageRotator.5.dnn" />
+    <None Include="EngageRotator.5.dnn">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="JavaScript\rotator.chirp.config" />
     <None Include="Migrated rules for EngageRotator.ruleset" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.01.00.SqlDataProvider" />
