@@ -3,7 +3,7 @@
     <package name="Engage: Rotator" type="Module" version="2.1.0">
       <friendlyName>Engage: Rotator</friendlyName>
       <description>The DotNetNuke Rotator module by Engage Software (www.engagesoftware.com)</description>
-      <iconFile>/DesktopModules/EngageRotator/images/rotator-icon32.png</iconFile>
+      <iconFile>DesktopModules/EngageRotator/images/rotator-icon32.png</iconFile>
       <owner>
         <name>Engage Software</name>
         <organization>Engage Software</organization>
