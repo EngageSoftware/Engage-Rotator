@@ -1,3 +1,800 @@
+.DnnModule-EngageRotator .engageRotatorSettings, .DnnModule-EngageRotator .engageRotatorEdit {
+  /*
+   * jQuery UI CSS Framework 1.8.7
+   *
+   * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+   * Dual licensed under the MIT or GPL Version 2 licenses.
+   * http://jquery.org/license
+   *
+   * http://docs.jquery.com/UI/Theming/API
+   */
+  /* Layout helpers
+  ----------------------------------*/
+  /* required comment for clearfix to work in Opera \*/
+  /* end clearfix */
+  /* Interaction Cues
+  ----------------------------------*/
+  /* Icons
+  ----------------------------------*/
+  /* states and images */
+  /* Misc visuals
+  ----------------------------------*/
+  /* Overlays */
+  /*
+   * jQuery UI CSS Framework 1.8.7
+   *
+   * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+   * Dual licensed under the MIT or GPL Version 2 licenses.
+   * http://jquery.org/license
+   *
+   * http://docs.jquery.com/UI/Theming/API
+   *
+   * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS,%20Tahoma,%20Verdana,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
+   */
+  /* Component containers
+  ----------------------------------*/
+  /* Interaction states
+  ----------------------------------*/
+  /* Interaction Cues
+  ----------------------------------*/
+  /* Icons
+  ----------------------------------*/
+  /* states and images */
+  /* positioning */
+  /* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+  /* Misc visuals
+  ----------------------------------*/
+  /* Corner radius */
+  /* Overlays */
+                                                                                                                                                                                                                                                                  /*
+* jQuery UI Tabs 1.8.7
+*
+* Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Tabs#theming
+*/
+  /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+  /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+  /*
+   * jQuery UI Datepicker 1.8.7
+   *
+   * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+   * Dual licensed under the MIT or GPL Version 2 licenses.
+   * http://jquery.org/license
+   *
+   * http://docs.jquery.com/UI/Datepicker#theming
+   */
+  /* with multiple calendars */
+  /* RTL support */
+  /* IE6 IFRAME FIX (taken from datepicker 1.5.3 */ }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-hidden, .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-hidden {
+    display: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-hidden-accessible, .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-hidden-accessible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-reset, .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-reset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    line-height: 1.3;
+    text-decoration: none;
+    font-size: 100%;
+    list-style: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-clearfix:after, .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-clearfix, .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-clearfix {
+    display: inline-block; }
+  * html .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-clearfix, * html .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-clearfix {
+    height: 1%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-clearfix, .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-clearfix {
+    display: block; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-helper-zfix, .DnnModule-EngageRotator .engageRotatorEdit .ui-helper-zfix {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    filter: Alpha(Opacity=0); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-disabled, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-disabled {
+    cursor: default !important; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-overlay, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget {
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 1.1em; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget .ui-widget, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget .ui-widget {
+    font-size: 1em; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget input, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget select, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget textarea, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget button, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget input, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget select, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget textarea, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget button {
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 1em; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content {
+    border: 1px solid #dddddd;
+    background: #eeeeee url(images/jQuery%20UI%20Theme/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
+    color: #333333; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content a, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content a {
+    color: #333333; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header {
+    border: 1px solid #e78f08;
+    background: #f6a828 url(images/jQuery%20UI%20Theme/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
+    color: #ffffff;
+    font-weight: bold; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header a, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header a {
+    color: #ffffff; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-default, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-default, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-default, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-default, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-default, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-default {
+    border: 1px solid #cccccc;
+    background: #f6f6f6 url(images/jQuery%20UI%20Theme/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #1c94c4; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-default a, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-default a:link, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-default a:visited, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-default a, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-default a:link, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-default a:visited {
+    color: #1c94c4;
+    text-decoration: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-hover, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-hover, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-hover, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-focus, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-focus, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-focus, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-focus, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-focus, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-focus {
+    border: 1px solid #fbcb09;
+    background: #fdf5ce url(images/jQuery%20UI%20Theme/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #c77405; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-hover a, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-hover a:hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-hover a, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-hover a:hover {
+    color: #c77405;
+    text-decoration: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-active, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-active, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-active, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-active, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-active, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-active {
+    border: 1px solid #fbd850;
+    background: white url(images/jQuery%20UI%20Theme/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #eb8f00; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-active a, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-active a:link, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-active a:visited, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-active a, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-active a:link, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-active a:visited {
+    color: #eb8f00;
+    text-decoration: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget :active, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget :active {
+    outline: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-highlight, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-highlight, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-highlight, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-highlight, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-highlight, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-highlight {
+    border: 1px solid #fed22f;
+    background: #ffe45c url(images/jQuery%20UI%20Theme/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x;
+    color: #363636; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-highlight a, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-highlight a, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-highlight a, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-highlight a, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-highlight a, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-highlight a {
+    color: #363636; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-error, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-error, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-error, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-error, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-error, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-error {
+    border: 1px solid #cd0a0a;
+    background: #b81900 url(images/jQuery%20UI%20Theme/ui-bg_diagonals-thick_18_b81900_40x40.png) 50% 50% repeat;
+    color: #ffffff; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-error a, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-error a, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-error a, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-error a, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-error a, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-error a {
+    color: #ffffff; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-error-text, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-error-text, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-error-text, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-error-text, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-error-text, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-error-text {
+    color: #ffffff; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-priority-primary, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-priority-primary, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-priority-primary, .DnnModule-EngageRotator .engageRotatorEdit .ui-priority-primary, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-priority-primary, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-priority-primary {
+    font-weight: bold; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-priority-secondary, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-priority-secondary, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-priority-secondary, .DnnModule-EngageRotator .engageRotatorEdit .ui-priority-secondary, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-priority-secondary, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-priority-secondary {
+    opacity: .7;
+    filter: Alpha(Opacity=70);
+    font-weight: normal; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-disabled, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-state-disabled, .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-state-disabled, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-disabled, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-state-disabled, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-state-disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+    background-image: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_222222_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-content .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-content .ui-icon {
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_222222_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-header .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-header .ui-icon {
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_ffffff_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-default .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-default .ui-icon {
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_ef8c08_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-hover .ui-icon, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-focus .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-hover .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-focus .ui-icon {
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_ef8c08_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-active .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-active .ui-icon {
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_ef8c08_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-highlight .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-highlight .ui-icon {
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_228ef1_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-state-error .ui-icon, .DnnModule-EngageRotator .engageRotatorSettings .ui-state-error-text .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-error .ui-icon, .DnnModule-EngageRotator .engageRotatorEdit .ui-state-error-text .ui-icon {
+    background-image: url(images/jQuery%20UI%20Theme/ui-icons_ffd27a_256x240.png); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-n {
+    background-position: 0 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-ne, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-ne {
+    background-position: -16px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-e {
+    background-position: -32px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-se, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-se {
+    background-position: -48px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-s {
+    background-position: -64px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-sw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-sw {
+    background-position: -80px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-w {
+    background-position: -96px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-1-nw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-1-nw {
+    background-position: -112px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-2-n-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-2-n-s {
+    background-position: -128px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-carat-2-e-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-carat-2-e-w {
+    background-position: -144px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-n {
+    background-position: 0 -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-ne, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-ne {
+    background-position: -16px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-e {
+    background-position: -32px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-se, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-se {
+    background-position: -48px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-s {
+    background-position: -64px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-sw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-sw {
+    background-position: -80px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-w {
+    background-position: -96px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-1-nw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-1-nw {
+    background-position: -112px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-2-n-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-2-n-s {
+    background-position: -128px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-triangle-2-e-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-triangle-2-e-w {
+    background-position: -144px -16px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-n {
+    background-position: 0 -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-ne, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-ne {
+    background-position: -16px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-e {
+    background-position: -32px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-se, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-se {
+    background-position: -48px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-s {
+    background-position: -64px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-sw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-sw {
+    background-position: -80px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-w {
+    background-position: -96px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-1-nw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-1-nw {
+    background-position: -112px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-2-n-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-2-n-s {
+    background-position: -128px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-2-ne-sw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-2-ne-sw {
+    background-position: -144px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-2-e-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-2-e-w {
+    background-position: -160px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-2-se-nw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-2-se-nw {
+    background-position: -176px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowstop-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowstop-1-n {
+    background-position: -192px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowstop-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowstop-1-e {
+    background-position: -208px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowstop-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowstop-1-s {
+    background-position: -224px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowstop-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowstop-1-w {
+    background-position: -240px -32px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-n {
+    background-position: 0 -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-ne, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-ne {
+    background-position: -16px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-e {
+    background-position: -32px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-se, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-se {
+    background-position: -48px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-s {
+    background-position: -64px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-sw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-sw {
+    background-position: -80px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-w {
+    background-position: -96px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-1-nw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-1-nw {
+    background-position: -112px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-2-n-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-2-n-s {
+    background-position: -128px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-2-ne-sw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-2-ne-sw {
+    background-position: -144px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-2-e-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-2-e-w {
+    background-position: -160px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthick-2-se-nw, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthick-2-se-nw {
+    background-position: -176px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthickstop-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthickstop-1-n {
+    background-position: -192px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthickstop-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthickstop-1-e {
+    background-position: -208px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthickstop-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthickstop-1-s {
+    background-position: -224px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowthickstop-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowthickstop-1-w {
+    background-position: -240px -48px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturnthick-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturnthick-1-w {
+    background-position: 0 -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturnthick-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturnthick-1-n {
+    background-position: -16px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturnthick-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturnthick-1-e {
+    background-position: -32px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturnthick-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturnthick-1-s {
+    background-position: -48px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturn-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturn-1-w {
+    background-position: -64px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturn-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturn-1-n {
+    background-position: -80px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturn-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturn-1-e {
+    background-position: -96px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowreturn-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowreturn-1-s {
+    background-position: -112px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowrefresh-1-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowrefresh-1-w {
+    background-position: -128px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowrefresh-1-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowrefresh-1-n {
+    background-position: -144px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowrefresh-1-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowrefresh-1-e {
+    background-position: -160px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrowrefresh-1-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrowrefresh-1-s {
+    background-position: -176px -64px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-4, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-4 {
+    background-position: 0 -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-arrow-4-diag, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-arrow-4-diag {
+    background-position: -16px -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-extlink, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-extlink {
+    background-position: -32px -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-newwin, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-newwin {
+    background-position: -48px -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-refresh, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-refresh {
+    background-position: -64px -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-shuffle, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-shuffle {
+    background-position: -80px -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-transfer-e-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-transfer-e-w {
+    background-position: -96px -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-transferthick-e-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-transferthick-e-w {
+    background-position: -112px -80px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-folder-collapsed, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-folder-collapsed {
+    background-position: 0 -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-folder-open, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-folder-open {
+    background-position: -16px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-document, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-document {
+    background-position: -32px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-document-b, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-document-b {
+    background-position: -48px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-note, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-note {
+    background-position: -64px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-mail-closed, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-mail-closed {
+    background-position: -80px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-mail-open, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-mail-open {
+    background-position: -96px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-suitcase, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-suitcase {
+    background-position: -112px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-comment, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-comment {
+    background-position: -128px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-person, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-person {
+    background-position: -144px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-print, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-print {
+    background-position: -160px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-trash, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-trash {
+    background-position: -176px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-locked, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-locked {
+    background-position: -192px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-unlocked, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-unlocked {
+    background-position: -208px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-bookmark, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-bookmark {
+    background-position: -224px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-tag, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-tag {
+    background-position: -240px -96px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-home, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-home {
+    background-position: 0 -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-flag, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-flag {
+    background-position: -16px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-calendar, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-calendar {
+    background-position: -32px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-cart, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-cart {
+    background-position: -48px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-pencil, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-pencil {
+    background-position: -64px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-clock, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-clock {
+    background-position: -80px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-disk, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-disk {
+    background-position: -96px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-calculator, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-calculator {
+    background-position: -112px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-zoomin, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-zoomin {
+    background-position: -128px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-zoomout, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-zoomout {
+    background-position: -144px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-search, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-search {
+    background-position: -160px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-wrench, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-wrench {
+    background-position: -176px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-gear, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-gear {
+    background-position: -192px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-heart, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-heart {
+    background-position: -208px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-star, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-star {
+    background-position: -224px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-link, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-link {
+    background-position: -240px -112px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-cancel, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-cancel {
+    background-position: 0 -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-plus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-plus {
+    background-position: -16px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-plusthick, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-plusthick {
+    background-position: -32px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-minus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-minus {
+    background-position: -48px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-minusthick, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-minusthick {
+    background-position: -64px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-close, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-close {
+    background-position: -80px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-closethick, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-closethick {
+    background-position: -96px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-key, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-key {
+    background-position: -112px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-lightbulb, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-lightbulb {
+    background-position: -128px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-scissors, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-scissors {
+    background-position: -144px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-clipboard, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-clipboard {
+    background-position: -160px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-copy, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-copy {
+    background-position: -176px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-contact, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-contact {
+    background-position: -192px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-image, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-image {
+    background-position: -208px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-video, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-video {
+    background-position: -224px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-script, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-script {
+    background-position: -240px -128px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-alert, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-alert {
+    background-position: 0 -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-info, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-info {
+    background-position: -16px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-notice, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-notice {
+    background-position: -32px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-help, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-help {
+    background-position: -48px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-check, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-check {
+    background-position: -64px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-bullet, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-bullet {
+    background-position: -80px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-radio-off, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-radio-off {
+    background-position: -96px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-radio-on, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-radio-on {
+    background-position: -112px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-pin-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-pin-w {
+    background-position: -128px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-pin-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-pin-s {
+    background-position: -144px -144px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-play, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-play {
+    background-position: 0 -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-pause, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-pause {
+    background-position: -16px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-seek-next, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-seek-next {
+    background-position: -32px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-seek-prev, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-seek-prev {
+    background-position: -48px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-seek-end, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-seek-end {
+    background-position: -64px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-seek-start, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-seek-start {
+    background-position: -80px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-seek-first, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-seek-first {
+    background-position: -80px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-stop, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-stop {
+    background-position: -96px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-eject, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-eject {
+    background-position: -112px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-volume-off, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-volume-off {
+    background-position: -128px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-volume-on, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-volume-on {
+    background-position: -144px -160px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-power, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-power {
+    background-position: 0 -176px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-signal-diag, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-signal-diag {
+    background-position: -16px -176px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-signal, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-signal {
+    background-position: -32px -176px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-battery-0, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-battery-0 {
+    background-position: -48px -176px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-battery-1, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-battery-1 {
+    background-position: -64px -176px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-battery-2, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-battery-2 {
+    background-position: -80px -176px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-battery-3, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-battery-3 {
+    background-position: -96px -176px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-plus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-plus {
+    background-position: 0 -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-minus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-minus {
+    background-position: -16px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-close, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-close {
+    background-position: -32px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-triangle-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-triangle-e {
+    background-position: -48px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-triangle-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-triangle-s {
+    background-position: -64px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-triangle-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-triangle-w {
+    background-position: -80px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-triangle-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-triangle-n {
+    background-position: -96px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-arrow-e, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-arrow-e {
+    background-position: -112px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-arrow-s, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-arrow-s {
+    background-position: -128px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-arrow-w, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-arrow-w {
+    background-position: -144px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-arrow-n, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-arrow-n {
+    background-position: -160px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-zoomin, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-zoomin {
+    background-position: -176px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-zoomout, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-zoomout {
+    background-position: -192px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circle-check, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circle-check {
+    background-position: -208px -192px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circlesmall-plus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circlesmall-plus {
+    background-position: 0 -208px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circlesmall-minus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circlesmall-minus {
+    background-position: -16px -208px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-circlesmall-close, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-circlesmall-close {
+    background-position: -32px -208px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-squaresmall-plus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-squaresmall-plus {
+    background-position: -48px -208px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-squaresmall-minus, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-squaresmall-minus {
+    background-position: -64px -208px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-squaresmall-close, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-squaresmall-close {
+    background-position: -80px -208px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-grip-dotted-vertical, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-grip-dotted-vertical {
+    background-position: 0 -224px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-grip-dotted-horizontal, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-grip-dotted-horizontal {
+    background-position: -16px -224px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-grip-solid-vertical, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-grip-solid-vertical {
+    background-position: -32px -224px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-grip-solid-horizontal, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-grip-solid-horizontal {
+    background-position: -48px -224px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-gripsmall-diagonal-se, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-gripsmall-diagonal-se {
+    background-position: -64px -224px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-icon-grip-diagonal-se, .DnnModule-EngageRotator .engageRotatorEdit .ui-icon-grip-diagonal-se {
+    background-position: -80px -224px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-tl, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-tl {
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-tr, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-tr {
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-bl, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-bl {
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-br, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-br {
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-top, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-top {
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-bottom, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-bottom {
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-right, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-right {
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-left, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-left {
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-corner-all, .DnnModule-EngageRotator .engageRotatorEdit .ui-corner-all {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-overlay, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-overlay {
+    background: #666666 url(images/jQuery%20UI%20Theme/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat;
+    opacity: .50;
+    filter: Alpha(Opacity=50); }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-widget-shadow, .DnnModule-EngageRotator .engageRotatorEdit .ui-widget-shadow {
+    margin: -5px 0 0 -5px;
+    padding: 5px;
+    background: black url(images/jQuery%20UI%20Theme/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x;
+    opacity: .20;
+    filter: Alpha(Opacity=20);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs {
+    position: relative;
+    padding: .2em;
+    zoom: 1; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav {
+    margin: 0;
+    padding: .2em .2em 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav li, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav li {
+    list-style: none;
+    float: left;
+    position: relative;
+    top: 1px;
+    margin: 0 .2em 1px 0;
+    border-bottom: 0 !important;
+    padding: 0;
+    white-space: nowrap; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav li a, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav li a {
+    float: left;
+    padding: .5em 1em;
+    text-decoration: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav li.ui-tabs-selected, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+    margin-bottom: 0;
+    padding-bottom: 1px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav li.ui-state-processing a, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+    cursor: text; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-nav li a, .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-nav li a, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+    cursor: pointer; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-panel, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-panel {
+    display: block;
+    border-width: 0;
+    padding: 1em 1.4em;
+    background: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-tabs .ui-tabs-hide, .DnnModule-EngageRotator .engageRotatorEdit .ui-tabs .ui-tabs-hide {
+    display: none !important; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker {
+    width: 17em;
+    padding: .2em .2em 0;
+    display: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-header, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: .2em 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-prev, .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-next, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-prev, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 2px;
+    width: 1.8em;
+    height: 1.8em; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-prev-hover, .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-next-hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-prev-hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-next-hover {
+    top: 1px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-prev, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-prev {
+    left: 2px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-next, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-next {
+    right: 2px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-prev-hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-prev-hover {
+    left: 1px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-next-hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-next-hover {
+    right: 1px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-prev span, .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-next span, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-prev span, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-next span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -8px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-title, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-title select, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker select.ui-datepicker-month-year, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker select.ui-datepicker-month-year {
+    width: 100%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker select.ui-datepicker-month,
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker select.ui-datepicker-year, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker select.ui-datepicker-month,
+  .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker select.ui-datepicker-year {
+    width: 49%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker table, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker th, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker td, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker td {
+    border: 0;
+    padding: 1px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker td span, .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker td a, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker td span, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-buttonpane, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-buttonpane {
+    background-image: none;
+    margin: .7em 0 0 0;
+    padding: 0 .2em;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-buttonpane button, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-buttonpane button {
+    float: right;
+    margin: .5em .2em .4em;
+    cursor: pointer;
+    padding: .2em .6em .3em .6em;
+    width: auto;
+    overflow: visible; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    float: left; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker.ui-datepicker-multi, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker.ui-datepicker-multi {
+    width: auto; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi .ui-datepicker-group, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi .ui-datepicker-group {
+    float: left; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi .ui-datepicker-group table, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi .ui-datepicker-group table {
+    width: 95%;
+    margin: 0 auto .4em; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi-2 .ui-datepicker-group, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi-2 .ui-datepicker-group {
+    width: 50%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi-3 .ui-datepicker-group, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi-3 .ui-datepicker-group {
+    width: 33.3%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi-4 .ui-datepicker-group, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi-4 .ui-datepicker-group {
+    width: 25%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header {
+    border-left-width: 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+    border-left-width: 0; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-multi .ui-datepicker-buttonpane, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-multi .ui-datepicker-buttonpane {
+    clear: left; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-row-break, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-row-break {
+    clear: both;
+    width: 100%; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl {
+    direction: rtl; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-prev, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-prev {
+    right: 2px;
+    left: auto; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-next, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-next {
+    left: 2px;
+    right: auto; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-prev:hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-prev:hover {
+    right: 1px;
+    left: auto; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-next:hover, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-next:hover {
+    left: 1px;
+    right: auto; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-buttonpane, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-buttonpane {
+    clear: right; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-buttonpane button, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-buttonpane button {
+    float: left; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current {
+    float: right; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-group, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-group {
+    float: right; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px; }
+  .DnnModule-EngageRotator .engageRotatorSettings .ui-datepicker-cover, .DnnModule-EngageRotator .engageRotatorEdit .ui-datepicker-cover {
+    display: none;
+    /*sorry for IE5*/
+    display/**/: block;
+    /*sorry for IE5*/
+    position: absolute;
+    /*must have*/
+    z-index: -1;
+    /*must have*/
+    filter: mask();
+    /*must have*/
+    top: -4px;
+    /*must have*/
+    left: -4px;
+    /*must have*/
+    width: 200px;
+    /*must have*/
+    height: 200px;
+    /*must have*/ }
+
 /********* Main Display ***********/
 .engage-rotator-container {
   clear: both; }
@@ -366,1075 +1163,4 @@
 .rs-btn {
   padding-top: 15px;
   clear: both; }
-
-/*
- * jQuery UI CSS Framework 1.8.7
- *
- * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://jquery.org/license
- *
- * http://docs.jquery.com/UI/Theming/API
- */
-/* Layout helpers
-----------------------------------*/
-.RotatorContent .ui-helper-hidden, .ModEngageRotatorC .ui-helper-hidden {
-  display: none; }
-
-.RotatorContent .ui-helper-hidden-accessible, .ModEngageRotatorC .ui-helper-hidden-accessible {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px); }
-
-.RotatorContent .ui-helper-reset, .ModEngageRotatorC .ui-helper-reset {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  line-height: 1.3;
-  text-decoration: none;
-  font-size: 100%;
-  list-style: none; }
-
-.RotatorContent .ui-helper-clearfix:after, .ModEngageRotatorC .ui-helper-clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden; }
-
-.RotatorContent .ui-helper-clearfix, .ModEngageRotatorC .ui-helper-clearfix {
-  display: inline-block; }
-
-/* required comment for clearfix to work in Opera \*/
-* html .RotatorContent .ui-helper-clearfix, * html .ModEngageRotatorC .ui-helper-clearfix {
-  height: 1%; }
-
-.RotatorContent .ui-helper-clearfix, .ModEngageRotatorC .ui-helper-clearfix {
-  display: block; }
-
-/* end clearfix */
-.RotatorContent .ui-helper-zfix, .ModEngageRotatorC .ui-helper-zfix {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  opacity: 0;
-  filter: Alpha(Opacity=0); }
-
-/* Interaction Cues
-----------------------------------*/
-.RotatorContent .ui-state-disabled, .ModEngageRotatorC .ui-state-disabled {
-  cursor: default !important; }
-
-/* Icons
-----------------------------------*/
-/* states and images */
-.RotatorContent .ui-icon, .ModEngageRotatorC .ui-icon {
-  display: block;
-  text-indent: -99999px;
-  overflow: hidden;
-  background-repeat: no-repeat; }
-
-/* Misc visuals
-----------------------------------*/
-/* Overlays */
-.RotatorContent .ui-widget-overlay, .ModEngageRotatorC .ui-widget-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
-/*
- * jQuery UI CSS Framework 1.8.7
- *
- * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://jquery.org/license
- *
- * http://docs.jquery.com/UI/Theming/API
- *
- * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS,%20Tahoma,%20Verdana,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
- */
-/* Component containers
-----------------------------------*/
-.RotatorContent .ui-widget, .ModEngageRotatorC .ui-widget {
-  font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
-  font-size: 1.1em; }
-
-.RotatorContent .ui-widget .ui-widget, .ModEngageRotatorC .ui-widget .ui-widget {
-  font-size: 1em; }
-
-.RotatorContent .ui-widget input, .ModEngageRotatorC .ui-widget input, .RotatorContent .ui-widget select, .ModEngageRotatorC .ui-widget select, .RotatorContent .ui-widget textarea, .ModEngageRotatorC .ui-widget textarea, .RotatorContent .ui-widget button, .ModEngageRotatorC .ui-widget button {
-  font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
-  font-size: 1em; }
-
-.RotatorContent .ui-widget-content, .ModEngageRotatorC .ui-widget-content {
-  border: 1px solid #dddddd;
-  background: #eeeeee url(images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
-  color: #333333; }
-
-.RotatorContent .ui-widget-content a, .ModEngageRotatorC .ui-widget-content a {
-  color: #333333; }
-
-.RotatorContent .ui-widget-header, .ModEngageRotatorC .ui-widget-header {
-  border: 1px solid #e78f08;
-  background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
-  color: #ffffff;
-  font-weight: bold; }
-
-.RotatorContent .ui-widget-header a, .ModEngageRotatorC .ui-widget-header a {
-  color: #ffffff; }
-
-/* Interaction states
-----------------------------------*/
-.RotatorContent .ui-state-default, .ModEngageRotatorC .ui-state-default, .RotatorContent .ui-widget-content .ui-state-default, .ModEngageRotatorC .ui-widget-content .ui-state-default, .RotatorContent .ui-widget-header .ui-state-default, .ModEngageRotatorC .ui-widget-header .ui-state-default {
-  border: 1px solid #cccccc;
-  background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
-  font-weight: bold;
-  color: #1c94c4; }
-
-.RotatorContent .ui-state-default a, .ModEngageRotatorC .ui-state-default a, .RotatorContent .ui-state-default a:link, .ModEngageRotatorC .ui-state-default a:link, .RotatorContent .ui-state-default a:visited, .ModEngageRotatorC .ui-state-default a:visited {
-  color: #1c94c4;
-  text-decoration: none; }
-
-.RotatorContent .ui-state-hover, .ModEngageRotatorC .ui-state-hover, .RotatorContent .ui-widget-content .ui-state-hover, .ModEngageRotatorC .ui-widget-content .ui-state-hover, .RotatorContent .ui-widget-header .ui-state-hover, .ModEngageRotatorC .ui-widget-header .ui-state-hover, .RotatorContent .ui-state-focus, .ModEngageRotatorC .ui-state-focus, .RotatorContent .ui-widget-content .ui-state-focus, .ModEngageRotatorC .ui-widget-content .ui-state-focus, .RotatorContent .ui-widget-header .ui-state-focus, .ModEngageRotatorC .ui-widget-header .ui-state-focus {
-  border: 1px solid #fbcb09;
-  background: #fdf5ce url(images/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x;
-  font-weight: bold;
-  color: #c77405; }
-
-.RotatorContent .ui-state-hover a, .ModEngageRotatorC .ui-state-hover a, .RotatorContent .ui-state-hover a:hover, .ModEngageRotatorC .ui-state-hover a:hover {
-  color: #c77405;
-  text-decoration: none; }
-
-.RotatorContent .ui-state-active, .ModEngageRotatorC .ui-state-active, .RotatorContent .ui-widget-content .ui-state-active, .ModEngageRotatorC .ui-widget-content .ui-state-active, .RotatorContent .ui-widget-header .ui-state-active, .ModEngageRotatorC .ui-widget-header .ui-state-active {
-  border: 1px solid #fbd850;
-  background: white url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
-  font-weight: bold;
-  color: #eb8f00; }
-
-.RotatorContent .ui-state-active a, .ModEngageRotatorC .ui-state-active a, .RotatorContent .ui-state-active a:link, .ModEngageRotatorC .ui-state-active a:link, .RotatorContent .ui-state-active a:visited, .ModEngageRotatorC .ui-state-active a:visited {
-  color: #eb8f00;
-  text-decoration: none; }
-
-.RotatorContent .ui-widget :active, .ModEngageRotatorC .ui-widget :active {
-  outline: none; }
-
-/* Interaction Cues
-----------------------------------*/
-.RotatorContent .ui-state-highlight, .ModEngageRotatorC .ui-state-highlight, .RotatorContent .ui-widget-content .ui-state-highlight, .ModEngageRotatorC .ui-widget-content .ui-state-highlight, .RotatorContent .ui-widget-header .ui-state-highlight, .ModEngageRotatorC .ui-widget-header .ui-state-highlight {
-  border: 1px solid #fed22f;
-  background: #ffe45c url(images/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x;
-  color: #363636; }
-
-.RotatorContent .ui-state-highlight a, .ModEngageRotatorC .ui-state-highlight a, .RotatorContent .ui-widget-content .ui-state-highlight a, .ModEngageRotatorC .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
-  color: #363636; }
-
-.RotatorContent .ui-state-error, .ModEngageRotatorC .ui-state-error, .RotatorContent .ui-widget-content .ui-state-error, .ModEngageRotatorC .ui-widget-content .ui-state-error, .RotatorContent .ui-widget-header .ui-state-error, .ModEngageRotatorC .ui-widget-header .ui-state-error {
-  border: 1px solid #cd0a0a;
-  background: #b81900 url(images/ui-bg_diagonals-thick_18_b81900_40x40.png) 50% 50% repeat;
-  color: #ffffff; }
-
-.RotatorContent .ui-state-error a, .ModEngageRotatorC .ui-state-error a, .RotatorContent .ui-widget-content .ui-state-error a, .ModEngageRotatorC .ui-widget-content .ui-state-error a, .RotatorContent .ui-widget-header .ui-state-error a, .ModEngageRotatorC .ui-widget-header .ui-state-error a {
-  color: #ffffff; }
-
-.RotatorContent .ui-state-error-text, .ModEngageRotatorC .ui-state-error-text, .RotatorContent .ui-widget-content .ui-state-error-text, .ModEngageRotatorC .ui-widget-content .ui-state-error-text, .RotatorContent .ui-widget-header .ui-state-error-text, .ModEngageRotatorC .ui-widget-header .ui-state-error-text {
-  color: #ffffff; }
-
-.RotatorContent .ui-priority-primary, .ModEngageRotatorC .ui-priority-primary, .RotatorContent .ui-widget-content .ui-priority-primary, .ModEngageRotatorC .ui-widget-content .ui-priority-primary, .RotatorContent .ui-widget-header .ui-priority-primary, .ModEngageRotatorC .ui-widget-header .ui-priority-primary {
-  font-weight: bold; }
-
-.RotatorContent .ui-priority-secondary, .ModEngageRotatorC .ui-priority-secondary, .RotatorContent .ui-widget-content .ui-priority-secondary, .ModEngageRotatorC .ui-widget-content .ui-priority-secondary, .ui-widget-header .ui-priority-secondary {
-  opacity: .7;
-  filter: Alpha(Opacity=70);
-  font-weight: normal; }
-
-.RotatorContent .ui-state-disabled, .ModEngageRotatorC .ui-state-disabled, .RotatorContent .ui-widget-content .ui-state-disabled, .ModEngageRotatorC .ui-widget-content .ui-state-disabled, .RotatorContent .ui-widget-header .ui-state-disabled, .ModEngageRotatorC .ui-widget-header .ui-state-disabled {
-  opacity: .35;
-  filter: Alpha(Opacity=35);
-  background-image: none; }
-
-/* Icons
-----------------------------------*/
-/* states and images */
-.RotatorContent .ui-icon, .ModEngageRotatorC .ui-icon {
-  width: 16px;
-  height: 16px;
-  background-image: url(images/ui-icons_222222_256x240.png); }
-
-.RotatorContent .ui-widget-content .ui-icon, .ModEngageRotatorC .ui-widget-content .ui-icon {
-  background-image: url(images/ui-icons_222222_256x240.png); }
-
-.RotatorContent .ui-widget-header .ui-icon, .ModEngageRotatorC .ui-widget-header .ui-icon {
-  background-image: url(images/ui-icons_ffffff_256x240.png); }
-
-.RotatorContent .ui-state-default .ui-icon, .ModEngageRotatorC .ui-state-default .ui-icon {
-  background-image: url(images/ui-icons_ef8c08_256x240.png); }
-
-.RotatorContent .ui-state-hover .ui-icon, .ModEngageRotatorC .ui-state-hover .ui-icon, .RotatorContent .ui-state-focus .ui-icon, .ModEngageRotatorC .ui-state-focus .ui-icon {
-  background-image: url(images/ui-icons_ef8c08_256x240.png); }
-
-.RotatorContent .ui-state-active .ui-icon, .ModEngageRotatorC .ui-state-active .ui-icon {
-  background-image: url(images/ui-icons_ef8c08_256x240.png); }
-
-.RotatorContent .ui-state-highlight .ui-icon, .ModEngageRotatorC .ui-state-highlight .ui-icon {
-  background-image: url(images/ui-icons_228ef1_256x240.png); }
-
-.RotatorContent .ui-state-error .ui-icon, .ModEngageRotatorC .ui-state-error .ui-icon, .RotatorContent .ui-state-error-text .ui-icon, .ModEngageRotatorC .ui-state-error-text .ui-icon {
-  background-image: url(images/ui-icons_ffd27a_256x240.png); }
-
-/* positioning */
-.RotatorContent .ui-icon-carat-1-n, .ModEngageRotatorC .ui-icon-carat-1-n {
-  background-position: 0 0; }
-
-.RotatorContent .ui-icon-carat-1-ne, .ModEngageRotatorC .ui-icon-carat-1-ne {
-  background-position: -16px 0; }
-
-.RotatorContent .ui-icon-carat-1-e, .ModEngageRotatorC .ui-icon-carat-1-e {
-  background-position: -32px 0; }
-
-.RotatorContent .ui-icon-carat-1-se, .ModEngageRotatorC .ui-icon-carat-1-se {
-  background-position: -48px 0; }
-
-.RotatorContent .ui-icon-carat-1-s, .ModEngageRotatorC .ui-icon-carat-1-s {
-  background-position: -64px 0; }
-
-.RotatorContent .ui-icon-carat-1-sw, .ModEngageRotatorC .ui-icon-carat-1-sw {
-  background-position: -80px 0; }
-
-.RotatorContent .ui-icon-carat-1-w, .ModEngageRotatorC .ui-icon-carat-1-w {
-  background-position: -96px 0; }
-
-.RotatorContent .ui-icon-carat-1-nw, .ModEngageRotatorC .ui-icon-carat-1-nw {
-  background-position: -112px 0; }
-
-.RotatorContent .ui-icon-carat-2-n-s, .ModEngageRotatorC .ui-icon-carat-2-n-s {
-  background-position: -128px 0; }
-
-.RotatorContent .ui-icon-carat-2-e-w, .ModEngageRotatorC .ui-icon-carat-2-e-w {
-  background-position: -144px 0; }
-
-.RotatorContent .ui-icon-triangle-1-n, .ModEngageRotatorC .ui-icon-triangle-1-n {
-  background-position: 0 -16px; }
-
-.RotatorContent .ui-icon-triangle-1-ne, .ModEngageRotatorC .ui-icon-triangle-1-ne {
-  background-position: -16px -16px; }
-
-.RotatorContent .ui-icon-triangle-1-e, .ModEngageRotatorC .ui-icon-triangle-1-e {
-  background-position: -32px -16px; }
-
-.RotatorContent .ui-icon-triangle-1-se, .ModEngageRotatorC .ui-icon-triangle-1-se {
-  background-position: -48px -16px; }
-
-.RotatorContent .ui-icon-triangle-1-s, .ModEngageRotatorC .ui-icon-triangle-1-s {
-  background-position: -64px -16px; }
-
-.RotatorContent .ui-icon-triangle-1-sw, .ModEngageRotatorC .ui-icon-triangle-1-sw {
-  background-position: -80px -16px; }
-
-.RotatorContent .ui-icon-triangle-1-w, .ModEngageRotatorC .ui-icon-triangle-1-w {
-  background-position: -96px -16px; }
-
-.RotatorContent .ui-icon-triangle-1-nw, .ModEngageRotatorC .ui-icon-triangle-1-nw {
-  background-position: -112px -16px; }
-
-.RotatorContent .ui-icon-triangle-2-n-s, .ModEngageRotatorC .ui-icon-triangle-2-n-s {
-  background-position: -128px -16px; }
-
-.RotatorContent .ui-icon-triangle-2-e-w, .ModEngageRotatorC .ui-icon-triangle-2-e-w {
-  background-position: -144px -16px; }
-
-.RotatorContent .ui-icon-arrow-1-n, .ModEngageRotatorC .ui-icon-arrow-1-n {
-  background-position: 0 -32px; }
-
-.RotatorContent .ui-icon-arrow-1-ne, .ModEngageRotatorC .ui-icon-arrow-1-ne {
-  background-position: -16px -32px; }
-
-.RotatorContent .ui-icon-arrow-1-e, .ModEngageRotatorC .ui-icon-arrow-1-e {
-  background-position: -32px -32px; }
-
-.RotatorContent .ui-icon-arrow-1-se, .ModEngageRotatorC .ui-icon-arrow-1-se {
-  background-position: -48px -32px; }
-
-.RotatorContent .ui-icon-arrow-1-s, .ModEngageRotatorC .ui-icon-arrow-1-s {
-  background-position: -64px -32px; }
-
-.RotatorContent .ui-icon-arrow-1-sw, .ModEngageRotatorC .ui-icon-arrow-1-sw {
-  background-position: -80px -32px; }
-
-.RotatorContent .ui-icon-arrow-1-w, .ModEngageRotatorC .ui-icon-arrow-1-w {
-  background-position: -96px -32px; }
-
-.RotatorContent .ui-icon-arrow-1-nw, .ModEngageRotatorC .ui-icon-arrow-1-nw {
-  background-position: -112px -32px; }
-
-.RotatorContent .ui-icon-arrow-2-n-s, .ModEngageRotatorC .ui-icon-arrow-2-n-s {
-  background-position: -128px -32px; }
-
-.RotatorContent .ui-icon-arrow-2-ne-sw, .ModEngageRotatorC .ui-icon-arrow-2-ne-sw {
-  background-position: -144px -32px; }
-
-.RotatorContent .ui-icon-arrow-2-e-w, .ModEngageRotatorC .ui-icon-arrow-2-e-w {
-  background-position: -160px -32px; }
-
-.RotatorContent .ui-icon-arrow-2-se-nw, .ModEngageRotatorC .ui-icon-arrow-2-se-nw {
-  background-position: -176px -32px; }
-
-.RotatorContent .ui-icon-arrowstop-1-n, .ModEngageRotatorC .ui-icon-arrowstop-1-n {
-  background-position: -192px -32px; }
-
-.RotatorContent .ui-icon-arrowstop-1-e, .ModEngageRotatorC .ui-icon-arrowstop-1-e {
-  background-position: -208px -32px; }
-
-.RotatorContent .ui-icon-arrowstop-1-s, .ModEngageRotatorC .ui-icon-arrowstop-1-s {
-  background-position: -224px -32px; }
-
-.RotatorContent .ui-icon-arrowstop-1-w, .ModEngageRotatorC .ui-icon-arrowstop-1-w {
-  background-position: -240px -32px; }
-
-.RotatorContent .ui-icon-arrowthick-1-n, .ModEngageRotatorC .ui-icon-arrowthick-1-n {
-  background-position: 0 -48px; }
-
-.RotatorContent .ui-icon-arrowthick-1-ne, .ModEngageRotatorC .ui-icon-arrowthick-1-ne {
-  background-position: -16px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-1-e, .ModEngageRotatorC .ui-icon-arrowthick-1-e {
-  background-position: -32px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-1-se, .ModEngageRotatorC .ui-icon-arrowthick-1-se {
-  background-position: -48px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-1-s, .ModEngageRotatorC .ui-icon-arrowthick-1-s {
-  background-position: -64px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-1-sw, .ModEngageRotatorC .ui-icon-arrowthick-1-sw {
-  background-position: -80px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-1-w, .ModEngageRotatorC .ui-icon-arrowthick-1-w {
-  background-position: -96px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-1-nw, .ModEngageRotatorC .ui-icon-arrowthick-1-nw {
-  background-position: -112px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-2-n-s, .ModEngageRotatorC .ui-icon-arrowthick-2-n-s {
-  background-position: -128px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-2-ne-sw, .ModEngageRotatorC .ui-icon-arrowthick-2-ne-sw {
-  background-position: -144px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-2-e-w, .ModEngageRotatorC .ui-icon-arrowthick-2-e-w {
-  background-position: -160px -48px; }
-
-.RotatorContent .ui-icon-arrowthick-2-se-nw, .ModEngageRotatorC .ui-icon-arrowthick-2-se-nw {
-  background-position: -176px -48px; }
-
-.RotatorContent .ui-icon-arrowthickstop-1-n, .ModEngageRotatorC .ui-icon-arrowthickstop-1-n {
-  background-position: -192px -48px; }
-
-.RotatorContent .ui-icon-arrowthickstop-1-e, .ModEngageRotatorC .ui-icon-arrowthickstop-1-e {
-  background-position: -208px -48px; }
-
-.RotatorContent .ui-icon-arrowthickstop-1-s, .ModEngageRotatorC .ui-icon-arrowthickstop-1-s {
-  background-position: -224px -48px; }
-
-.RotatorContent .ui-icon-arrowthickstop-1-w, .ModEngageRotatorC .ui-icon-arrowthickstop-1-w {
-  background-position: -240px -48px; }
-
-.RotatorContent .ui-icon-arrowreturnthick-1-w, .ModEngageRotatorC .ui-icon-arrowreturnthick-1-w {
-  background-position: 0 -64px; }
-
-.RotatorContent .ui-icon-arrowreturnthick-1-n, .ModEngageRotatorC .ui-icon-arrowreturnthick-1-n {
-  background-position: -16px -64px; }
-
-.RotatorContent .ui-icon-arrowreturnthick-1-e, .ModEngageRotatorC .ui-icon-arrowreturnthick-1-e {
-  background-position: -32px -64px; }
-
-.RotatorContent .ui-icon-arrowreturnthick-1-s, .ModEngageRotatorC .ui-icon-arrowreturnthick-1-s {
-  background-position: -48px -64px; }
-
-.RotatorContent .ui-icon-arrowreturn-1-w, .ModEngageRotatorC .ui-icon-arrowreturn-1-w {
-  background-position: -64px -64px; }
-
-.RotatorContent .ui-icon-arrowreturn-1-n, .ModEngageRotatorC .ui-icon-arrowreturn-1-n {
-  background-position: -80px -64px; }
-
-.RotatorContent .ui-icon-arrowreturn-1-e, .ModEngageRotatorC .ui-icon-arrowreturn-1-e {
-  background-position: -96px -64px; }
-
-.RotatorContent .ui-icon-arrowreturn-1-s, .ModEngageRotatorC .ui-icon-arrowreturn-1-s {
-  background-position: -112px -64px; }
-
-.RotatorContent .ui-icon-arrowrefresh-1-w, .ModEngageRotatorC .ui-icon-arrowrefresh-1-w {
-  background-position: -128px -64px; }
-
-.RotatorContent .ui-icon-arrowrefresh-1-n, .ModEngageRotatorC .ui-icon-arrowrefresh-1-n {
-  background-position: -144px -64px; }
-
-.RotatorContent .ui-icon-arrowrefresh-1-e, .ModEngageRotatorC .ui-icon-arrowrefresh-1-e {
-  background-position: -160px -64px; }
-
-.RotatorContent .ui-icon-arrowrefresh-1-s, .ModEngageRotatorC .ui-icon-arrowrefresh-1-s {
-  background-position: -176px -64px; }
-
-.RotatorContent .ui-icon-arrow-4, .ModEngageRotatorC .ui-icon-arrow-4 {
-  background-position: 0 -80px; }
-
-.RotatorContent .ui-icon-arrow-4-diag, .ModEngageRotatorC .ui-icon-arrow-4-diag {
-  background-position: -16px -80px; }
-
-.RotatorContent .ui-icon-extlink, .ModEngageRotatorC .ui-icon-extlink {
-  background-position: -32px -80px; }
-
-.RotatorContent .ui-icon-newwin, .ModEngageRotatorC .ui-icon-newwin {
-  background-position: -48px -80px; }
-
-.RotatorContent .ui-icon-refresh, .ModEngageRotatorC .ui-icon-refresh {
-  background-position: -64px -80px; }
-
-.RotatorContent .ui-icon-shuffle, .ModEngageRotatorC .ui-icon-shuffle {
-  background-position: -80px -80px; }
-
-.RotatorContent .ui-icon-transfer-e-w, .ModEngageRotatorC .ui-icon-transfer-e-w {
-  background-position: -96px -80px; }
-
-.RotatorContent .ui-icon-transferthick-e-w, .ModEngageRotatorC .ui-icon-transferthick-e-w {
-  background-position: -112px -80px; }
-
-.RotatorContent .ui-icon-folder-collapsed, .ModEngageRotatorC .ui-icon-folder-collapsed {
-  background-position: 0 -96px; }
-
-.RotatorContent .ui-icon-folder-open, .ModEngageRotatorC .ui-icon-folder-open {
-  background-position: -16px -96px; }
-
-.RotatorContent .ui-icon-document, .ModEngageRotatorC .ui-icon-document {
-  background-position: -32px -96px; }
-
-.RotatorContent .ui-icon-document-b, .ModEngageRotatorC .ui-icon-document-b {
-  background-position: -48px -96px; }
-
-.RotatorContent .ui-icon-note, .ModEngageRotatorC .ui-icon-note {
-  background-position: -64px -96px; }
-
-.RotatorContent .ui-icon-mail-closed, .ModEngageRotatorC .ui-icon-mail-closed {
-  background-position: -80px -96px; }
-
-.RotatorContent .ui-icon-mail-open, .ModEngageRotatorC .ui-icon-mail-open {
-  background-position: -96px -96px; }
-
-.RotatorContent .ui-icon-suitcase, .ModEngageRotatorC .ui-icon-suitcase {
-  background-position: -112px -96px; }
-
-.RotatorContent .ui-icon-comment, .ModEngageRotatorC .ui-icon-comment {
-  background-position: -128px -96px; }
-
-.RotatorContent .ui-icon-person, .ModEngageRotatorC .ui-icon-person {
-  background-position: -144px -96px; }
-
-.RotatorContent .ui-icon-print, .ModEngageRotatorC .ui-icon-print {
-  background-position: -160px -96px; }
-
-.RotatorContent .ui-icon-trash, .ModEngageRotatorC .ui-icon-trash {
-  background-position: -176px -96px; }
-
-.RotatorContent .ui-icon-locked, .ModEngageRotatorC .ui-icon-locked {
-  background-position: -192px -96px; }
-
-.RotatorContent .ui-icon-unlocked, .ModEngageRotatorC .ui-icon-unlocked {
-  background-position: -208px -96px; }
-
-.RotatorContent .ui-icon-bookmark, .ModEngageRotatorC .ui-icon-bookmark {
-  background-position: -224px -96px; }
-
-.RotatorContent .ui-icon-tag, .ModEngageRotatorC .ui-icon-tag {
-  background-position: -240px -96px; }
-
-.RotatorContent .ui-icon-home, .ModEngageRotatorC .ui-icon-home {
-  background-position: 0 -112px; }
-
-.RotatorContent .ui-icon-flag, .ModEngageRotatorC .ui-icon-flag {
-  background-position: -16px -112px; }
-
-.RotatorContent .ui-icon-calendar, .ModEngageRotatorC .ui-icon-calendar {
-  background-position: -32px -112px; }
-
-.RotatorContent .ui-icon-cart, .ModEngageRotatorC .ui-icon-cart {
-  background-position: -48px -112px; }
-
-.RotatorContent .ui-icon-pencil, .ModEngageRotatorC .ui-icon-pencil {
-  background-position: -64px -112px; }
-
-.RotatorContent .ui-icon-clock, .ModEngageRotatorC .ui-icon-clock {
-  background-position: -80px -112px; }
-
-.RotatorContent .ui-icon-disk, .ModEngageRotatorC .ui-icon-disk {
-  background-position: -96px -112px; }
-
-.RotatorContent .ui-icon-calculator, .ModEngageRotatorC .ui-icon-calculator {
-  background-position: -112px -112px; }
-
-.RotatorContent .ui-icon-zoomin, .ModEngageRotatorC .ui-icon-zoomin {
-  background-position: -128px -112px; }
-
-.RotatorContent .ui-icon-zoomout, .ModEngageRotatorC .ui-icon-zoomout {
-  background-position: -144px -112px; }
-
-.RotatorContent .ui-icon-search, .ModEngageRotatorC .ui-icon-search {
-  background-position: -160px -112px; }
-
-.RotatorContent .ui-icon-wrench, .ModEngageRotatorC .ui-icon-wrench {
-  background-position: -176px -112px; }
-
-.RotatorContent .ui-icon-gear, .ModEngageRotatorC .ui-icon-gear {
-  background-position: -192px -112px; }
-
-.RotatorContent .ui-icon-heart, .ModEngageRotatorC .ui-icon-heart {
-  background-position: -208px -112px; }
-
-.RotatorContent .ui-icon-star, .ModEngageRotatorC .ui-icon-star {
-  background-position: -224px -112px; }
-
-.RotatorContent .ui-icon-link, .ModEngageRotatorC .ui-icon-link {
-  background-position: -240px -112px; }
-
-.RotatorContent .ui-icon-cancel, .ModEngageRotatorC .ui-icon-cancel {
-  background-position: 0 -128px; }
-
-.RotatorContent .ui-icon-plus, .ModEngageRotatorC .ui-icon-plus {
-  background-position: -16px -128px; }
-
-.RotatorContent .ui-icon-plusthick, .ModEngageRotatorC .ui-icon-plusthick {
-  background-position: -32px -128px; }
-
-.RotatorContent .ui-icon-minus, .ModEngageRotatorC .ui-icon-minus {
-  background-position: -48px -128px; }
-
-.RotatorContent .ui-icon-minusthick, .ModEngageRotatorC .ui-icon-minusthick {
-  background-position: -64px -128px; }
-
-.RotatorContent .ui-icon-close, .ModEngageRotatorC .ui-icon-close {
-  background-position: -80px -128px; }
-
-.RotatorContent .ui-icon-closethick, .ModEngageRotatorC .ui-icon-closethick {
-  background-position: -96px -128px; }
-
-.RotatorContent .ui-icon-key, .ModEngageRotatorC .ui-icon-key {
-  background-position: -112px -128px; }
-
-.RotatorContent .ui-icon-lightbulb, .ModEngageRotatorC .ui-icon-lightbulb {
-  background-position: -128px -128px; }
-
-.RotatorContent .ui-icon-scissors, .ModEngageRotatorC .ui-icon-scissors {
-  background-position: -144px -128px; }
-
-.RotatorContent .ui-icon-clipboard, .ModEngageRotatorC .ui-icon-clipboard {
-  background-position: -160px -128px; }
-
-.RotatorContent .ui-icon-copy, .ModEngageRotatorC .ui-icon-copy {
-  background-position: -176px -128px; }
-
-.RotatorContent .ui-icon-contact, .ModEngageRotatorC .ui-icon-contact {
-  background-position: -192px -128px; }
-
-.RotatorContent .ui-icon-image, .ModEngageRotatorC .ui-icon-image {
-  background-position: -208px -128px; }
-
-.RotatorContent .ui-icon-video, .ModEngageRotatorC .ui-icon-video {
-  background-position: -224px -128px; }
-
-.RotatorContent .ui-icon-script, .ModEngageRotatorC .ui-icon-script {
-  background-position: -240px -128px; }
-
-.RotatorContent .ui-icon-alert, .ModEngageRotatorC .ui-icon-alert {
-  background-position: 0 -144px; }
-
-.RotatorContent .ui-icon-info, .ModEngageRotatorC .ui-icon-info {
-  background-position: -16px -144px; }
-
-.RotatorContent .ui-icon-notice, .ModEngageRotatorC .ui-icon-notice {
-  background-position: -32px -144px; }
-
-.RotatorContent .ui-icon-help, .ModEngageRotatorC .ui-icon-help {
-  background-position: -48px -144px; }
-
-.RotatorContent .ui-icon-check, .ModEngageRotatorC .ui-icon-check {
-  background-position: -64px -144px; }
-
-.RotatorContent .ui-icon-bullet, .ModEngageRotatorC .ui-icon-bullet {
-  background-position: -80px -144px; }
-
-.RotatorContent .ui-icon-radio-off, .ModEngageRotatorC .ui-icon-radio-off {
-  background-position: -96px -144px; }
-
-.RotatorContent .ui-icon-radio-on, .ModEngageRotatorC .ui-icon-radio-on {
-  background-position: -112px -144px; }
-
-.RotatorContent .ui-icon-pin-w, .ModEngageRotatorC .ui-icon-pin-w {
-  background-position: -128px -144px; }
-
-.RotatorContent .ui-icon-pin-s, .ModEngageRotatorC .ui-icon-pin-s {
-  background-position: -144px -144px; }
-
-.RotatorContent .ui-icon-play, .ModEngageRotatorC .ui-icon-play {
-  background-position: 0 -160px; }
-
-.RotatorContent .ui-icon-pause, .ModEngageRotatorC .ui-icon-pause {
-  background-position: -16px -160px; }
-
-.RotatorContent .ui-icon-seek-next, .ModEngageRotatorC .ui-icon-seek-next {
-  background-position: -32px -160px; }
-
-.RotatorContent .ui-icon-seek-prev, .ModEngageRotatorC .ui-icon-seek-prev {
-  background-position: -48px -160px; }
-
-.RotatorContent .ui-icon-seek-end, .ModEngageRotatorC .ui-icon-seek-end {
-  background-position: -64px -160px; }
-
-.RotatorContent .ui-icon-seek-start, .ModEngageRotatorC .ui-icon-seek-start {
-  background-position: -80px -160px; }
-
-/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
-.RotatorContent .ui-icon-seek-first, .ModEngageRotatorC .ui-icon-seek-first {
-  background-position: -80px -160px; }
-
-.RotatorContent .ui-icon-stop, .ModEngageRotatorC .ui-icon-stop {
-  background-position: -96px -160px; }
-
-.RotatorContent .ui-icon-eject, .ModEngageRotatorC .ui-icon-eject {
-  background-position: -112px -160px; }
-
-.RotatorContent .ui-icon-volume-off, .ModEngageRotatorC .ui-icon-volume-off {
-  background-position: -128px -160px; }
-
-.RotatorContent .ui-icon-volume-on, .ModEngageRotatorC .ui-icon-volume-on {
-  background-position: -144px -160px; }
-
-.RotatorContent .ui-icon-power, .ModEngageRotatorC .ui-icon-power {
-  background-position: 0 -176px; }
-
-.RotatorContent .ui-icon-signal-diag, .ModEngageRotatorC .ui-icon-signal-diag {
-  background-position: -16px -176px; }
-
-.RotatorContent .ui-icon-signal, .ModEngageRotatorC .ui-icon-signal {
-  background-position: -32px -176px; }
-
-.RotatorContent .ui-icon-battery-0, .ModEngageRotatorC .ui-icon-battery-0 {
-  background-position: -48px -176px; }
-
-.RotatorContent .ui-icon-battery-1, .ModEngageRotatorC .ui-icon-battery-1 {
-  background-position: -64px -176px; }
-
-.RotatorContent .ui-icon-battery-2, .ModEngageRotatorC .ui-icon-battery-2 {
-  background-position: -80px -176px; }
-
-.RotatorContent .ui-icon-battery-3, .ModEngageRotatorC .ui-icon-battery-3 {
-  background-position: -96px -176px; }
-
-.RotatorContent .ui-icon-circle-plus, .ModEngageRotatorC .ui-icon-circle-plus {
-  background-position: 0 -192px; }
-
-.RotatorContent .ui-icon-circle-minus, .ModEngageRotatorC .ui-icon-circle-minus {
-  background-position: -16px -192px; }
-
-.RotatorContent .ui-icon-circle-close, .ModEngageRotatorC .ui-icon-circle-close {
-  background-position: -32px -192px; }
-
-.RotatorContent .ui-icon-circle-triangle-e, .ModEngageRotatorC .ui-icon-circle-triangle-e {
-  background-position: -48px -192px; }
-
-.RotatorContent .ui-icon-circle-triangle-s, .ModEngageRotatorC .ui-icon-circle-triangle-s {
-  background-position: -64px -192px; }
-
-.RotatorContent .ui-icon-circle-triangle-w, .ModEngageRotatorC .ui-icon-circle-triangle-w {
-  background-position: -80px -192px; }
-
-.RotatorContent .ui-icon-circle-triangle-n, .ModEngageRotatorC .ui-icon-circle-triangle-n {
-  background-position: -96px -192px; }
-
-.RotatorContent .ui-icon-circle-arrow-e, .ModEngageRotatorC .ui-icon-circle-arrow-e {
-  background-position: -112px -192px; }
-
-.RotatorContent .ui-icon-circle-arrow-s, .ModEngageRotatorC .ui-icon-circle-arrow-s {
-  background-position: -128px -192px; }
-
-.RotatorContent .ui-icon-circle-arrow-w, .ModEngageRotatorC .ui-icon-circle-arrow-w {
-  background-position: -144px -192px; }
-
-.RotatorContent .ui-icon-circle-arrow-n, .ModEngageRotatorC .ui-icon-circle-arrow-n {
-  background-position: -160px -192px; }
-
-.RotatorContent .ui-icon-circle-zoomin, .ModEngageRotatorC .ui-icon-circle-zoomin {
-  background-position: -176px -192px; }
-
-.RotatorContent .ui-icon-circle-zoomout, .ModEngageRotatorC .ui-icon-circle-zoomout {
-  background-position: -192px -192px; }
-
-.RotatorContent .ui-icon-circle-check, .ModEngageRotatorC .ui-icon-circle-check {
-  background-position: -208px -192px; }
-
-.RotatorContent .ui-icon-circlesmall-plus, .ModEngageRotatorC .ui-icon-circlesmall-plus {
-  background-position: 0 -208px; }
-
-.RotatorContent .ui-icon-circlesmall-minus, .ModEngageRotatorC .ui-icon-circlesmall-minus {
-  background-position: -16px -208px; }
-
-.RotatorContent .ui-icon-circlesmall-close, .ModEngageRotatorC .ui-icon-circlesmall-close {
-  background-position: -32px -208px; }
-
-.RotatorContent .ui-icon-squaresmall-plus, .ModEngageRotatorC .ui-icon-squaresmall-plus {
-  background-position: -48px -208px; }
-
-.RotatorContent .ui-icon-squaresmall-minus, .ModEngageRotatorC .ui-icon-squaresmall-minus {
-  background-position: -64px -208px; }
-
-.RotatorContent .ui-icon-squaresmall-close, .ModEngageRotatorC .ui-icon-squaresmall-close {
-  background-position: -80px -208px; }
-
-.RotatorContent .ui-icon-grip-dotted-vertical, .ModEngageRotatorC .ui-icon-grip-dotted-vertical {
-  background-position: 0 -224px; }
-
-.RotatorContent .ui-icon-grip-dotted-horizontal, .ModEngageRotatorC .ui-icon-grip-dotted-horizontal {
-  background-position: -16px -224px; }
-
-.RotatorContent .ui-icon-grip-solid-vertical, .ModEngageRotatorC .ui-icon-grip-solid-vertical {
-  background-position: -32px -224px; }
-
-.RotatorContent .ui-icon-grip-solid-horizontal, .ModEngageRotatorC .ui-icon-grip-solid-horizontal {
-  background-position: -48px -224px; }
-
-.RotatorContent .ui-icon-gripsmall-diagonal-se, .ModEngageRotatorC .ui-icon-gripsmall-diagonal-se {
-  background-position: -64px -224px; }
-
-.RotatorContent .ui-icon-grip-diagonal-se, .ModEngageRotatorC .ui-icon-grip-diagonal-se {
-  background-position: -80px -224px; }
-
-/* Misc visuals
-----------------------------------*/
-/* Corner radius */
-.RotatorContent .ui-corner-tl, .ModEngageRotatorC .ui-corner-tl {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px; }
-
-.RotatorContent .ui-corner-tr, .ModEngageRotatorC .ui-corner-tr {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px; }
-
-.RotatorContent .ui-corner-bl, .ModEngageRotatorC .ui-corner-bl {
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px; }
-
-.RotatorContent .ui-corner-br, .ModEngageRotatorC .ui-corner-br {
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px; }
-
-.RotatorContent .ui-corner-top, .ModEngageRotatorC .ui-corner-top {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px; }
-
-.RotatorContent .ui-corner-bottom, .ModEngageRotatorC .ui-corner-bottom {
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px; }
-
-.RotatorContent .ui-corner-right, .ModEngageRotatorC .ui-corner-right {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px; }
-
-.RotatorContent .ui-corner-left, .ModEngageRotatorC .ui-corner-left {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px; }
-
-.RotatorContent .ui-corner-all, .ModEngageRotatorC .ui-corner-all {
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px; }
-
-/* Overlays */
-.RotatorContent .ui-widget-overlay, .ModEngageRotatorC .ui-widget-overlay {
-  background: #666666 url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat;
-  opacity: .50;
-  filter: Alpha(Opacity=50); }
-
-.RotatorContent .ui-widget-shadow, .ModEngageRotatorC .ui-widget-shadow {
-  margin: -5px 0 0 -5px;
-  padding: 5px;
-  background: black url(images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x;
-  opacity: .20;
-  filter: Alpha(Opacity=20);
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; }
-
-                                                                                                                                                                                                                                                                                                                  /*
-* jQuery UI Tabs 1.8.7
-*
-* Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
-* Dual licensed under the MIT or GPL Version 2 licenses.
-* http://jquery.org/license
-*
-* http://docs.jquery.com/UI/Tabs#theming
-*/
-.RotatorContent .ui-tabs, .ModEngageRotatorC .ui-tabs {
-  position: relative;
-  padding: .2em;
-  zoom: 1; }
-
-/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
-.RotatorContent .ui-tabs .ui-tabs-nav, .ModEngageRotatorC .ui-tabs .ui-tabs-nav {
-  margin: 0;
-  padding: .2em .2em 0; }
-
-.RotatorContent .ui-tabs .ui-tabs-nav li, .ModEngageRotatorC .ui-tabs .ui-tabs-nav li {
-  list-style: none;
-  float: left;
-  position: relative;
-  top: 1px;
-  margin: 0 .2em 1px 0;
-  border-bottom: 0 !important;
-  padding: 0;
-  white-space: nowrap; }
-
-.RotatorContent .ui-tabs .ui-tabs-nav li a, .ModEngageRotatorC .ui-tabs .ui-tabs-nav li a {
-  float: left;
-  padding: .5em 1em;
-  text-decoration: none; }
-
-.RotatorContent .ui-tabs .ui-tabs-nav li.ui-tabs-selected, .ModEngageRotatorC .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
-  margin-bottom: 0;
-  padding-bottom: 1px; }
-
-.RotatorContent .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ModEngageRotatorC .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .RotatorContent .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ModEngageRotatorC .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .RotatorContent .ui-tabs .ui-tabs-nav li.ui-state-processing a, .ModEngageRotatorC .ui-tabs .ui-tabs-nav li.ui-state-processing a {
-  cursor: text; }
-
-.RotatorContent .ui-tabs .ui-tabs-nav li a, .ModEngageRotatorC .ui-tabs .ui-tabs-nav li a, .RotatorContent .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a, .ModEngageRotatorC .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
-  cursor: pointer; }
-
-/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
-.RotatorContent .ui-tabs .ui-tabs-panel, .ModEngageRotatorC .ui-tabs .ui-tabs-panel {
-  display: block;
-  border-width: 0;
-  padding: 1em 1.4em;
-  background: none; }
-
-.RotatorContent .ui-tabs .ui-tabs-hide, .ModEngageRotatorC .ui-tabs .ui-tabs-hide {
-  display: none !important; }
-
-/*
- * jQuery UI Datepicker 1.8.7
- *
- * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://jquery.org/license
- *
- * http://docs.jquery.com/UI/Datepicker#theming
- */
-.RotatorContent .ui-datepicker, .ModEngageRotatorC .ui-datepicker {
-  width: 17em;
-  padding: .2em .2em 0;
-  display: none; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-header, .ModEngageRotatorC .ui-datepicker .ui-datepicker-header {
-  position: relative;
-  padding: .2em 0; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-prev, .ModEngageRotatorC .ui-datepicker .ui-datepicker-prev, .RotatorContent .ui-datepicker .ui-datepicker-next, .ModEngageRotatorC .ui-datepicker .ui-datepicker-next {
-  position: absolute;
-  top: 2px;
-  width: 1.8em;
-  height: 1.8em; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-prev-hover, .ModEngageRotatorC .ui-datepicker .ui-datepicker-prev-hover, .RotatorContent .ui-datepicker .ui-datepicker-next-hover, .ModEngageRotatorC .ui-datepicker .ui-datepicker-next-hover {
-  top: 1px; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-prev, .ModEngageRotatorC .ui-datepicker .ui-datepicker-prev {
-  left: 2px; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-next, .ModEngageRotatorC .ui-datepicker .ui-datepicker-next {
-  right: 2px; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-prev-hover, .ModEngageRotatorC .ui-datepicker .ui-datepicker-prev-hover {
-  left: 1px; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-next-hover, .ModEngageRotatorC .ui-datepicker .ui-datepicker-next-hover {
-  right: 1px; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-prev span, .ModEngageRotatorC .ui-datepicker .ui-datepicker-prev span, .RotatorContent .ui-datepicker .ui-datepicker-next span, .ModEngageRotatorC .ui-datepicker .ui-datepicker-next span {
-  display: block;
-  position: absolute;
-  left: 50%;
-  margin-left: -8px;
-  top: 50%;
-  margin-top: -8px; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-title, .ModEngageRotatorC .ui-datepicker .ui-datepicker-title {
-  margin: 0 2.3em;
-  line-height: 1.8em;
-  text-align: center; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-title select, .ModEngageRotatorC .ui-datepicker .ui-datepicker-title select {
-  font-size: 1em;
-  margin: 1px 0; }
-
-.RotatorContent .ui-datepicker select.ui-datepicker-month-year, .ModEngageRotatorC .ui-datepicker select.ui-datepicker-month-year {
-  width: 100%; }
-
-.RotatorContent .ui-datepicker select.ui-datepicker-month, .ModEngageRotatorC .ui-datepicker select.ui-datepicker-month,
-.RotatorContent .ui-datepicker select.ui-datepicker-year, .ModEngageRotatorC .ui-datepicker select.ui-datepicker-year {
-  width: 49%; }
-
-.RotatorContent .ui-datepicker table, .ModEngageRotatorC .ui-datepicker table {
-  width: 100%;
-  font-size: .9em;
-  border-collapse: collapse;
-  margin: 0 0 .4em; }
-
-.RotatorContent .ui-datepicker th, .ModEngageRotatorC .ui-datepicker th {
-  padding: .7em .3em;
-  text-align: center;
-  font-weight: bold;
-  border: 0; }
-
-.RotatorContent .ui-datepicker td, .ModEngageRotatorC .ui-datepicker td {
-  border: 0;
-  padding: 1px; }
-
-.RotatorContent .ui-datepicker td span, .ModEngageRotatorC .ui-datepicker td span, .RotatorContent .ui-datepicker td a, .ModEngageRotatorC .ui-datepicker td a {
-  display: block;
-  padding: .2em;
-  text-align: right;
-  text-decoration: none; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-buttonpane, .ModEngageRotatorC .ui-datepicker .ui-datepicker-buttonpane {
-  background-image: none;
-  margin: .7em 0 0 0;
-  padding: 0 .2em;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-buttonpane button, .ModEngageRotatorC .ui-datepicker .ui-datepicker-buttonpane button {
-  float: right;
-  margin: .5em .2em .4em;
-  cursor: pointer;
-  padding: .2em .6em .3em .6em;
-  width: auto;
-  overflow: visible; }
-
-.RotatorContent .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current, .ModEngageRotatorC .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
-  float: left; }
-
-/* with multiple calendars */
-.RotatorContent .ui-datepicker.ui-datepicker-multi, .ModEngageRotatorC .ui-datepicker.ui-datepicker-multi {
-  width: auto; }
-
-.RotatorContent .ui-datepicker-multi .ui-datepicker-group, .ModEngageRotatorC .ui-datepicker-multi .ui-datepicker-group {
-  float: left; }
-
-.RotatorContent .ui-datepicker-multi .ui-datepicker-group table, .ModEngageRotatorC .ui-datepicker-multi .ui-datepicker-group table {
-  width: 95%;
-  margin: 0 auto .4em; }
-
-.RotatorContent .ui-datepicker-multi-2 .ui-datepicker-group, .ModEngageRotatorC .ui-datepicker-multi-2 .ui-datepicker-group {
-  width: 50%; }
-
-.RotatorContent .ui-datepicker-multi-3 .ui-datepicker-group, .ModEngageRotatorC .ui-datepicker-multi-3 .ui-datepicker-group {
-  width: 33.3%; }
-
-.RotatorContent .ui-datepicker-multi-4 .ui-datepicker-group, .ModEngageRotatorC .ui-datepicker-multi-4 .ui-datepicker-group {
-  width: 25%; }
-
-.RotatorContent .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header, .ModEngageRotatorC .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header {
-  border-left-width: 0; }
-
-.RotatorContent .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header, .ModEngageRotatorC .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
-  border-left-width: 0; }
-
-.RotatorContent .ui-datepicker-multi .ui-datepicker-buttonpane, .ModEngageRotatorC .ui-datepicker-multi .ui-datepicker-buttonpane {
-  clear: left; }
-
-.RotatorContent .ui-datepicker-row-break, .ModEngageRotatorC .ui-datepicker-row-break {
-  clear: both;
-  width: 100%; }
-
-/* RTL support */
-.RotatorContent .ui-datepicker-rtl, .ModEngageRotatorC .ui-datepicker-rtl {
-  direction: rtl; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-prev, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-prev {
-  right: 2px;
-  left: auto; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-next, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-next {
-  left: 2px;
-  right: auto; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-prev:hover, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-prev:hover {
-  right: 1px;
-  left: auto; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-next:hover, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-next:hover {
-  left: 1px;
-  right: auto; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-buttonpane, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-buttonpane {
-  clear: right; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-buttonpane button, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-buttonpane button {
-  float: left; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current {
-  float: right; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-group, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-group {
-  float: right; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
-  border-right-width: 0;
-  border-left-width: 1px; }
-
-.RotatorContent .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header, .ModEngageRotatorC .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
-  border-right-width: 0;
-  border-left-width: 1px; }
-
-/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
-.RotatorContent .ui-datepicker-cover, .ModEngageRotatorC .ui-datepicker-cover {
-  display: none;
-  /*sorry for IE5*/
-  display/**/: block;
-  /*sorry for IE5*/
-  position: absolute;
-  /*must have*/
-  z-index: -1;
-  /*must have*/
-  filter: mask();
-  /*must have*/
-  top: -4px;
-  /*must have*/
-  left: -4px;
-  /*must have*/
-  width: 200px;
-  /*must have*/
-  height: 200px;
-  /*must have*/ }
 

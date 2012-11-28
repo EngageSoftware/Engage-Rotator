@@ -62,7 +62,9 @@
     (function ($) {
         'use strict';
         $(function() { $('.DatePicker').datepicker(window.datePickerOpts); });
-        $(window).load(function () { $('#ui-datepicker-div').wrap('<div class="ModEngageRotatorC" />'); });
+        $(window).load(function() {
+            $('#ui-datepicker-div').wrap('<div class="DnnModule-EngageRotator"><div class="engageRotatorEdit"></div></div>');
+        });
         
         var ValidationSummaryOnSubmitOrig = window.ValidationSummaryOnSubmit;
         window.ValidationSummaryOnSubmit = function (group) {
