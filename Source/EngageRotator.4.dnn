@@ -71,6 +71,7 @@
           <name>2.3.0.SqlDataProvider</name>
         </file>
         <file>
+          <path>Providers\DataProviders\SqlDataProvider</path>
           <name>Uninstall.SqlDataProvider</name>
         </file>
         <file>

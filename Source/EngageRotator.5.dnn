@@ -24,7 +24,7 @@
         <component type="Cleanup" version="2.3.0" fileName="2.3.0.txt"/>
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\EngageRotator</basePath>
+            <basePath>DesktopModules\EngageRotator\Providers\DataProviders\SqlDataProvider</basePath>
             <script type="Install">
               <name>01.00.00.SqlDataProvider</name>
               <version>01.00.00</version>

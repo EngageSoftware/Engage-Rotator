@@ -306,7 +306,7 @@
     <None Include="Templates\Engage Rotator Templates.docx" />
     <None Include="Templates\Engage Rotator Templates.pdf" />
     <None Include="Templates\EngageManifest.xsd" />
-    <None Include="Uninstall.SqlDataProvider" />
+    <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="EngageRotator.4.dnn" />
     <None Include="EngageRotator.Build" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.00.00.SqlDataProvider" />
