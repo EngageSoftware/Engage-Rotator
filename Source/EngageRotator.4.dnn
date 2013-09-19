@@ -8,7 +8,7 @@
       <description>
         The DotNetNuke Rotator module by Engage Software (www.engagesoftware.com)
       </description>
-      <version latestVersion="latestVersion">2.1.0</version>
+      <version latestVersion="latestVersion">2.4.1</version>
       <businesscontrollerclass>Engage.Dnn.ContentRotator.FeaturesController</businesscontrollerclass>
       <resourcefile>Resources.zip</resourcefile>
       <modules>

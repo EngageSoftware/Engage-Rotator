@@ -282,6 +282,7 @@
     <Content Include="Licenses\EULA-Professional.htm" />
     <Content Include="Licenses\EULA-Standard.htm" />
     <Content Include="Licenses\EULA-Trial.txt" />
+    <Content Include="ReleaseNotes_02.04.01.htm" />
     <Content Include="RotatorSettings.ascx" />
     <Content Include="RotatorEdit.ascx" />
     <None Include="module.scss">

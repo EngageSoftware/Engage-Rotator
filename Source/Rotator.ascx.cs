@@ -16,9 +16,11 @@ namespace Engage.Dnn.ContentRotator
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
+    using System.Text;
     using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using System.Xml;
 
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Entities.Modules.Actions;

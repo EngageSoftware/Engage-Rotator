@@ -1,6 +1,6 @@
 ﻿<dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="Engage: Rotator" type="Module" version="2.1.0">
+    <package name="Engage: Rotator" type="Module" version="2.4.1">
       <friendlyName>Engage: Rotator</friendlyName>
       <description>The DotNetNuke Rotator module by Engage Software (www.engagesoftware.com)</description>
       <iconFile>DesktopModules/EngageRotator/images/rotator-icon32.png</iconFile>
@@ -11,7 +11,7 @@
         <email>support@engagemodules.com</email>
       </owner>
       <license src="Licenses/EULA-Standard.htm"/>
-      <releaseNotes src="ReleaseNotes_2.1.0.htm" />
+      <releaseNotes src="ReleaseNotes_2.4.1.htm" />
       <components>
         <component type="ResourceFile">
           <resourceFiles>
@@ -101,7 +101,7 @@
           <assemblies>
             <assembly>
               <name>Engage.Rotator.dll</name>
-              <version latestVersion="latestVersion">2.1.0</version>
+              <version latestVersion="latestVersion">2.4.1</version>
             </assembly>
             <assembly>
               <name>Engage.Framework.dll</name>
