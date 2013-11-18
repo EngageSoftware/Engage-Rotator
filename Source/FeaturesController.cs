@@ -11,9 +11,6 @@
 
 namespace Engage.Dnn.ContentRotator
 {
-#if TRIAL
-    using System;
-#endif
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
@@ -34,13 +31,6 @@ namespace Engage.Dnn.ContentRotator
     [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated through reflection by DNN")]
     internal class FeaturesController : IPortable
     {
-#if TRIAL
-        /// <summary>
-        /// The license key for this module
-        /// </summary>
-        public static readonly Guid ModuleLicenseKey = new Guid("E59D0904-B59F-4785-9498-26BE5503A123");
-#endif
-
         /// <summary>
         /// The export module.
         /// </summary>
