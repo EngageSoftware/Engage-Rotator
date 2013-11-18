@@ -257,12 +257,8 @@
     <Content Include="References\Framework\Engage.Events.dll" />
     <Content Include="References\Framework\Engage.Framework.dll" />
     <Content Include="ReleaseNotes_02.02.00.htm" />
-    <Content Include="Licenses\EULA-Enterprise.txt" />
-    <Content Include="Licenses\EULA-Professional.txt" />
-    <Content Include="Licenses\EULA-Standard.txt" />
-    <Content Include="Licenses\EULA-Enterprise.htm" />
-    <Content Include="Licenses\EULA-Professional.htm" />
-    <Content Include="Licenses\EULA-Standard.htm" />
+    <Content Include="Licenses\EULA-Free.txt" />
+    <Content Include="Licenses\EULA-Free.htm" />
     <Content Include="ReleaseNotes_02.04.01.htm" />
     <Content Include="RotatorSettings.ascx" />
     <Content Include="RotatorEdit.ascx" />
