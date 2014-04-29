@@ -259,6 +259,7 @@
     <Content Include="ReleaseNotes_02.02.00.htm" />
     <Content Include="Licenses\EULA-Free.txt" />
     <Content Include="Licenses\EULA-Free.htm" />
+    <Content Include="ReleaseNotes_02.04.02.htm" />
     <Content Include="ReleaseNotes_02.04.01.htm" />
     <Content Include="RotatorSettings.ascx" />
     <Content Include="RotatorEdit.ascx" />
