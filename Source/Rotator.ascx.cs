@@ -16,11 +16,9 @@ namespace Engage.Dnn.ContentRotator
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
-    using System.Text;
     using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-    using System.Xml;
 
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Entities.Modules.Actions;
@@ -144,6 +142,19 @@ namespace Engage.Dnn.ContentRotator
                 if (this.slides == null)
                 {
                     this.slides = Slide.GetSlides(this.ModuleId);
+                    if (this.CycleOptions.RandomOrder)
+                    {
+                        var random = new Random();
+                        this.slides = (from slide in this.slides
+                                       let sort = random.Next()
+                                       orderby sort
+                                       select slide).ToList();
+                    }
+
+                    if (this.CycleOptions.AutoStop && this.CycleOptions.AutoStopCount < this.slides.Count)
+                    {
+                        this.slides = this.slides.GetRange(0, this.CycleOptions.AutoStopCount);
+                    }
                 }
                 
                 return this.slides;
