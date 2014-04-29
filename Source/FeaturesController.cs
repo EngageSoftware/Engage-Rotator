@@ -25,21 +25,13 @@ namespace Engage.Dnn.ContentRotator
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.FileSystem;
 
-    /// <summary>
-    /// Controls which DNN features are available for this module.
-    /// </summary>
+    /// <summary>Controls which DNN features are available for this module.</summary>
     [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated through reflection by DNN")]
     internal class FeaturesController : IPortable
     {
-        /// <summary>
-        /// The export module.
-        /// </summary>
-        /// <param name="moduleId">
-        /// The module id.
-        /// </param>
-        /// <returns>
-        /// The <see cref="string"/>.
-        /// </returns>
+        /// <summary>Exports the module content</summary>
+        /// <param name="moduleId">The module ID.</param>
+        /// <returns>The module's content as XML.</returns>
         public string ExportModule(int moduleId)
         {
             var output = new StringBuilder();
@@ -51,25 +43,25 @@ namespace Engage.Dnn.ContentRotator
                 foreach (var slide in Slide.GetSlides(moduleId))
                 {
                     output.Append("<slide>");
-                    output.AppendFormat("<content>{0}</content>", slide.Content);
-                    output.AppendFormat("<link>{0}</link>", slide.Link);
-                    
-                    output.AppendFormat("<imagelink>{0}</imagelink>", slide.ImageLink);
-                    output.AppendFormat("<startdate>{0}</startdate>", slide.StartDate);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<content>{0}</content>", slide.Content);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<link>{0}</link>", slide.Link);
+
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<imagelink>{0}</imagelink>", slide.ImageLink);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<startdate>{0}</startdate>", slide.StartDate);
                     
                     if (slide.EndDate.HasValue)
                     {
-                        output.AppendFormat("<enddate>{0}</enddate>", slide.EndDate);
+                        output.AppendFormat(CultureInfo.InvariantCulture, "<enddate>{0}</enddate>", slide.EndDate);
                     }
 
-                    output.AppendFormat("<pagerimagelink>{0}</pagerimagelink>", slide.PagerImageLink);
-                    output.AppendFormat("<title>{0}</title>", slide.Title);
-                    output.AppendFormat("<sortorder>{0}</sortorder>", slide.SortOrder);
-                    output.AppendFormat("<tracklink>{0}</tracklink>", slide.TrackLink);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<pagerimagelink>{0}</pagerimagelink>", slide.PagerImageLink);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<title>{0}</title>", slide.Title);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<sortorder>{0}</sortorder>", slide.SortOrder);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<tracklink>{0}</tracklink>", slide.TrackLink);
 
                     // output imagedata and tab paths for multi-instance portibility
-                    ProcessExport(slide.ImageLink, "image", ref output);
-                    ProcessExport(slide.Link, "link", ref output);
+                    ProcessExport(slide.ImageLink, "image", output);
+                    ProcessExport(slide.Link, "link", output);
 
                     output.Append("</slide>");
                 }
@@ -83,21 +75,11 @@ namespace Engage.Dnn.ContentRotator
             return output.ToString();
         }
 
-        /// <summary>
-        /// The import module.
-        /// </summary>
-        /// <param name="moduleId">
-        /// The module id.
-        /// </param>
-        /// <param name="content">
-        /// The content.
-        /// </param>
-        /// <param name="version">
-        /// The version.
-        /// </param>
-        /// <param name="userId">
-        /// The user id.
-        /// </param>
+        /// <summary>Imports the given content into a new module instance</summary>
+        /// <param name="moduleId">The new module's ID.</param>
+        /// <param name="content">The module's content as XML.</param>
+        /// <param name="version">The version.</param>
+        /// <param name="userId">The user ID.</param>
         public void ImportModule(int moduleId, string content, string version, int userId)
         {
             // ReSharper disable PossibleNullReferenceException
@@ -113,21 +95,21 @@ namespace Engage.Dnn.ContentRotator
                     newSlide.Content = slide.SelectSingleNode("content").InnerText;
                     newSlide.Link = slide.SelectSingleNode("link").InnerText;
                     newSlide.ImageLink = slide.SelectSingleNode("imagelink").InnerText;
-                    newSlide.StartDate = DateTime.Parse(slide.SelectSingleNode("startdate").InnerText);
+                    newSlide.StartDate = DateTime.Parse(slide.SelectSingleNode("startdate").InnerText, CultureInfo.InvariantCulture);
 
                     var endDateXml = slide.SelectSingleNode("enddate");
                     if (endDateXml != null)
                     {
-                        newSlide.EndDate = DateTime.Parse(endDateXml.InnerText);
+                        newSlide.EndDate = DateTime.Parse(endDateXml.InnerText, CultureInfo.InvariantCulture);
                     }
 
                     newSlide.PagerImageLink = slide.SelectSingleNode("pagerimagelink").InnerText;
                     newSlide.Title = slide.SelectSingleNode("title").InnerText;
-                    newSlide.SortOrder = int.Parse(slide.SelectSingleNode("sortorder").InnerText);
+                    newSlide.SortOrder = int.Parse(slide.SelectSingleNode("sortorder").InnerText, CultureInfo.InvariantCulture);
                     newSlide.TrackLink = bool.Parse(slide.SelectSingleNode("tracklink").InnerText);
 
-                    this.ProcessImport(slide, "image", ref newSlide);
-                    this.ProcessImport(slide, "link", ref newSlide);
+                    ProcessImport(slide, "image", newSlide);
+                    ProcessImport(slide, "link", newSlide);
                     
                     newSlide.Save(moduleId);
                 }
@@ -138,26 +120,18 @@ namespace Engage.Dnn.ContentRotator
             }
         }
 
-        /// <summary>
-        /// process export for multi-instance portability, rewrite images into base64 and tab id's into paths
-        /// </summary>
-        /// <param name="slideUrl">
-        /// The slide url.
-        /// </param>
-        /// <param name="outputPrefix">
-        /// The output prefix. (image, or link)
-        /// </param>
-        /// <param name="output">
-        /// The output.
-        /// </param>
-        private static void ProcessExport(string slideUrl, string outputPrefix, ref StringBuilder output)
+        /// <summary>process export for multi-instance portability, rewrite images into base64 and tab id's into paths</summary>
+        /// <param name="slideUrl">The slide url.</param>
+        /// <param name="outputPrefix">The output prefix. (image, or link)</param>
+        /// <param name="output">The output.</param>
+        private static void ProcessExport(string slideUrl, string outputPrefix, StringBuilder output)
         {
             var ps = DotNetNuke.Entities.Portals.PortalController.GetCurrentPortalSettings();
 
             // var linkType = DotNetNuke.Common.Globals.GetURLType(slide.LinkUrl);
-            if (slideUrl.ToLower().StartsWith("fileid="))
+            if (slideUrl.StartsWith("FileID=", StringComparison.OrdinalIgnoreCase))
             {
-                var fileId = int.Parse(UrlUtils.GetParameterValue(slideUrl));
+                var fileId = int.Parse(UrlUtils.GetParameterValue(slideUrl), CultureInfo.InvariantCulture);
                 var fileController = new FileController();
                 var file = fileController.GetFileById(fileId, ps.PortalId);
 
@@ -167,39 +141,31 @@ namespace Engage.Dnn.ContentRotator
                     var buffer = File.ReadAllBytes(file.PhysicalPath);
                     var base64 = Convert.ToBase64String(buffer);
 
-                    output.AppendFormat("<{1}fileextension>{0}</{1}fileextension>", file.Extension, outputPrefix);
-                    output.AppendFormat("<{1}filename>{0}</{1}filename>", file.FileName, outputPrefix);
-                    output.AppendFormat("<{1}contenttype>{0}</{1}contenttype>", file.ContentType, outputPrefix);
-                    output.AppendFormat("<{1}folderpath>{0}</{1}folderpath>", file.Folder, outputPrefix);
-                    output.AppendFormat("<{1}filedata>{0}</{1}filedata>", base64, outputPrefix);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<{1}fileextension>{0}</{1}fileextension>", file.Extension, outputPrefix);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<{1}filename>{0}</{1}filename>", file.FileName, outputPrefix);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<{1}contenttype>{0}</{1}contenttype>", file.ContentType, outputPrefix);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<{1}folderpath>{0}</{1}folderpath>", file.Folder, outputPrefix);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<{1}filedata>{0}</{1}filedata>", base64, outputPrefix);
                 }
             }
-            else if (slideUrl.ToLower().StartsWith("tabid="))
+            else if (slideUrl.StartsWith("TabID=", StringComparison.OrdinalIgnoreCase))
             {
-                var tabId = int.Parse(UrlUtils.GetParameterValue(slideUrl));
+                var tabId = int.Parse(UrlUtils.GetParameterValue(slideUrl), CultureInfo.InvariantCulture);
                 var tabController = new TabController();
                 var tab = tabController.GetTab(tabId, ps.PortalId, true);
 
                 if (tab != null)
                 {
-                    output.AppendFormat("<{1}tabpath>{0}</{1}tabpath>", tab.TabPath, outputPrefix);
+                    output.AppendFormat(CultureInfo.InvariantCulture, "<{1}tabpath>{0}</{1}tabpath>", tab.TabPath, outputPrefix);
                 }
             }
         }
 
-        /// <summary>
-        /// process import of multi-instance records. 
-        /// </summary>
-        /// <param name="xml">
-        /// The xml.
-        /// </param>
-        /// <param name="prefix">
-        /// The prefix (image, or link)
-        /// </param>
-        /// <param name="slide">
-        /// The slide.
-        /// </param>
-        private void ProcessImport(XmlNode xml, string prefix, ref Slide slide)
+        /// <summary>process import of multi-instance records.</summary>
+        /// <param name="xml">The xml.</param>
+        /// <param name="prefix">The prefix (image, or link)</param>
+        /// <param name="slide">The slide.</param>
+        private static void ProcessImport(XmlNode xml, string prefix, Slide slide)
         {
             var ps = DotNetNuke.Entities.Portals.PortalController.GetCurrentPortalSettings();
 
@@ -241,12 +207,10 @@ namespace Engage.Dnn.ContentRotator
                 if (folder == null)
                 {
                     folderController.AddFolder(ps.PortalId, contentFolderPathXml.InnerText);
-
                     folder = folderController.GetFolder(ps.PortalId, contentFolderPathXml.InnerText, true);
                 }
 
                 var file = fileController.GetFile(contentFileNameXml.InnerText, ps.PortalId, folder.FolderID);
-
                 if (file == null)
                 {
                     var content = Convert.FromBase64String(contentBase64Xml.InnerText);
@@ -255,8 +219,7 @@ namespace Engage.Dnn.ContentRotator
                                        PortalId = ps.PortalId,
                                        ContentType = contentTypeXml.InnerText,
                                        FileName = contentFileNameXml.InnerText,
-                                       Extension =
-                                           contentFileExtensionXml.InnerText,
+                                       Extension = contentFileExtensionXml.InnerText,
                                        FolderId = folder.FolderID,
                                        Size = content.Length,
                                    };
@@ -269,7 +232,7 @@ namespace Engage.Dnn.ContentRotator
                 }
 
                 // update the files content.... just incase, it never hurts.... right?
-                //fileController.UpdateFileContent(file.FileId, content);
+                ////fileController.UpdateFileContent(file.FileId, content);
 
                 switch (prefix)
                 {
