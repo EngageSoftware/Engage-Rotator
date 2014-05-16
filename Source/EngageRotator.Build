@@ -271,5 +271,6 @@
     <include name="CustomDictionary.xml"/>
     <exclude name="**/obj/**"/>
     <exclude name="Release.txt"/>
+    <exclude name="**/bin/**"/>
   </patternset>
 </project>
