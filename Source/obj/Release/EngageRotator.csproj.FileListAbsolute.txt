@@ -1,0 +1,10 @@
+D:\Bin\Engage.Rotator.dll.config
+D:\Bin\Engage.Rotator.dll
+D:\Bin\Engage.Rotator.pdb
+D:\engagerotator-upgrade\Source\obj\Release\EngageRotator.csproj.AssemblyReference.cache
+D:\engagerotator-upgrade\Source\obj\Release\rotator-options.all.js
+D:\engagerotator-upgrade\Source\obj\Release\rotator.all.js
+D:\engagerotator-upgrade\Source\obj\Release\EngageRotator.csproj.CoreCompileInputs.cache
+D:\engagerotator-upgrade\Source\obj\Release\EngageRotator.csproj.CopyComplete
+D:\engagerotator-upgrade\Source\obj\Release\Engage.Rotator.dll
+D:\engagerotator-upgrade\Source\obj\Release\Engage.Rotator.pdb

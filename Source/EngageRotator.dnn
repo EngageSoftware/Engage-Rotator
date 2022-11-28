@@ -1,0 +1,119 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="Engage: Rotator" type="Module" version="3.0.0">
+      <friendlyName>Engage: Rotator</friendlyName>
+      <description>The DotNetNuke Rotator module by Engage Software (www.engagesoftware.com)</description>
+      <iconFile>DesktopModules/EngageRotator/images/rotator-icon32.png</iconFile>
+      <owner>
+        <name>Engage Software</name>
+        <organization>Engage Software</organization>
+        <url>http://www.engagesoftware.com/</url>
+        <email>support@engagemodules.com</email>
+      </owner>
+      <license src="Licenses/EULA-Standard.htm"/>
+      <releaseNotes src="ReleaseNotes_3.0.0.htm" />
+      <components>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/EngageRotator</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Cleanup" version="2.3.0" fileName="2.3.0.txt"/>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\EngageRotator\Providers\DataProviders\SqlDataProvider</basePath>
+            <script type="Install">
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+            <script type="Install">
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.01</version>
+            </script>
+            <script type="Install">
+              <name>01.01.00.SqlDataProvider</name>
+              <version>01.01.00</version>
+            </script>
+            <script type="Install">
+              <name>2.0.0.SqlDataProvider</name>
+              <version>2.0.0</version>
+            </script>
+            <script type="Install">
+              <name>2.3.0.SqlDataProvider</name>
+              <version>2.3.0</version>
+            </script>
+            <script type="UnInstall">
+              <name>Uninstall.SqlDataProvider</name>
+              <version latestVersion="latestVersion">2.1.0</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>Engage: Rotator</moduleName>
+            <foldername>EngageRotator</foldername>
+            <businessControllerClass>Engage.Dnn.ContentRotator.FeaturesController</businessControllerClass>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>EngageRotator</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey/>
+                    <controlSrc>DesktopModules/EngageRotator/Rotator.ascx</controlSrc>
+                    <controlType>View</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Edit</controlKey>
+                    <controlSrc>DesktopModules/EngageRotator/RotatorEdit.ascx</controlSrc>
+                    <controlType>Edit</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Options</controlKey>
+                    <controlSrc>DesktopModules/EngageRotator/RotatorOptions.ascx</controlSrc>
+                    <controlType>Edit</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Template</controlKey>
+                    <controlSrc>DesktopModules/EngageRotator/TemplateSelection.ascx</controlSrc>
+                    <controlType>Edit</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                    <supportsPartialRendering>true</supportsPartialRendering>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>ModSettings</controlKey>
+                    <controlSrc>DesktopModules/EngageRotator/RotatorSettings.ascx</controlSrc>
+                    <controlType>Edit</controlType>
+                    <helpUrl>http://www.EngageSoftware.com/Support.aspx</helpUrl>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>Engage.Rotator.dll</name>
+              <version latestVersion="latestVersion">3.0.0</version>
+            </assembly>
+            <assembly>
+              <name>Engage.Framework.dll</name>
+              <version>5.0.0</version>
+            </assembly>
+            <assembly>
+              <name>Engage.Dnn.Framework.dll</name>
+              <version>5.0.0</version>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

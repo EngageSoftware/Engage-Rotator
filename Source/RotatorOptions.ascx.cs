@@ -18,7 +18,7 @@ namespace Engage.Dnn.ContentRotator
     using System.Linq;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-
+    using DotNetNuke.Abstractions;
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.Localization;
     using DotNetNuke.UI.Utilities;
@@ -32,6 +32,12 @@ namespace Engage.Dnn.ContentRotator
     /// </summary>
     public partial class RotatorOptions : ModuleBase
     {
+        private readonly INavigationManager navigationManager;
+        public RotatorOptions(INavigationManager navigationManager)
+        {
+            this.navigationManager = navigationManager;
+        }
+
         /// <summary>Backing field for <see cref="Template"/></summary>
         private TemplateInfo template;
 
@@ -126,7 +132,7 @@ namespace Engage.Dnn.ContentRotator
         protected override void OnInit(EventArgs e)
         {
             this.RequiresScriptManager = false;
-            Utility.AddJQueryReference(this.Page);
+            this.AddJQueryReference();
 
             base.OnInit(e);
             this.Load += this.Page_Load;
@@ -173,7 +179,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void BackButton_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect(Globals.NavigateURL(this.TabId));
+            this.Response.Redirect(this.navigationManager.NavigateURL(this.TabId));
         }
 
         /// <summary>

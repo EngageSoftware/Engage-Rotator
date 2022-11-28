@@ -17,7 +17,7 @@ namespace Engage.Dnn.ContentRotator
     using System.Linq;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-
+    using DotNetNuke.Abstractions;
     using DotNetNuke.Services.Exceptions;
     using Globals = DotNetNuke.Common.Globals;
 
@@ -26,6 +26,12 @@ namespace Engage.Dnn.ContentRotator
     /// </summary>
     public partial class RotatorSettings : ModuleBase
     {
+        private readonly INavigationManager navigationManager;
+        public RotatorSettings(INavigationManager navigationManager)
+        {
+            this.navigationManager = navigationManager;
+        }
+
         /// <summary>
         /// The CSS class to use for disabled text boxes
         /// </summary>
@@ -417,7 +423,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
+            this.Response.Redirect(this.navigationManager.NavigateURL(this.TabId), false);
         }
 
         /// <summary>
@@ -453,7 +459,7 @@ namespace Engage.Dnn.ContentRotator
             ModuleSettings.DisableAddingBackgroundColorForClearTypeFix.Set(this, this.DisableAddingBackgroundColorForClearTypeFixCheckBox.Checked);
             ModuleSettings.ManualTransitionTrumpsActiveTransition.Set(this, this.ManualTransitionTrumpsActiveTransitionCheckBox.Checked);
 
-            this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
+            this.Response.Redirect(this.navigationManager.NavigateURL(this.TabId), false);
         }
 
         /// <summary>

@@ -14,6 +14,7 @@ namespace Engage.Dnn.ContentRotator
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.Text;
     using System.Threading;
     using System.Web;
@@ -21,6 +22,7 @@ namespace Engage.Dnn.ContentRotator
     using System.Web.UI.WebControls;
     using System.Xml;
     using System.Xml.Schema;
+    using DotNetNuke.Abstractions;
     using DotNetNuke.Entities.Modules;
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.Localization;
@@ -30,6 +32,13 @@ namespace Engage.Dnn.ContentRotator
     /// <summary>Control to select the template to use with the rotator</summary>
     public partial class TemplateSelection : ModuleBase
     {
+        private readonly INavigationManager navigationManager;
+
+        public TemplateSelection(INavigationManager navigationManager)
+        {
+            this.navigationManager = navigationManager;
+        }
+
         /// <summary>Gets the setting for the selected style template.</summary>
         /// <value>The selected style template.</value>
         private string Template
@@ -79,7 +88,7 @@ namespace Engage.Dnn.ContentRotator
             {
                 if (!this.IsPostBack)
                 {
-                    Utility.LocalizeGridView(ref this.SettingsGrid, this.LocalResourceFile);
+                    Localization.LocalizeGridView(ref this.SettingsGrid, this.LocalResourceFile);
                     this.FillTemplatesList();
                     this.TemplatesDropDownList.SelectedValue = this.Template;
                     this.FillTemplateTab();
@@ -96,7 +105,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect(Globals.NavigateURL(this.TabId), false);
+            this.Response.Redirect(this.navigationManager.NavigateURL(this.TabId), false);
         }
 
         /// <summary>Handles the <see cref="Button.Click" /> event of the <see cref="SubmitButton" /> control.</summary>
@@ -121,7 +130,7 @@ namespace Engage.Dnn.ContentRotator
                         }
                     }
 
-                    this.Response.Redirect(Globals.NavigateURL(this.TabId));
+                    this.Response.Redirect(this.navigationManager.NavigateURL(this.TabId));
                 }
                 catch (XmlSchemaValidationException exc)
                 {
@@ -241,13 +250,13 @@ namespace Engage.Dnn.ContentRotator
         private void ShowManifestValidationErrorMessage(Exception exc)
         {
             var validationMessage = new StringBuilder("<ul>");
-            validationMessage.AppendFormat("<li>{0}</li>", Localization.GetString("ManifestValidation", this.LocalResourceFile));
+            validationMessage.AppendFormat(CultureInfo.InvariantCulture, "<li>{0}</li>", Localization.GetString("ManifestValidation", this.LocalResourceFile));
             if (exc != null)
             {
-                validationMessage.AppendFormat("<li>{0}</li>", HttpUtility.HtmlEncode(exc.Message));
+                validationMessage.AppendFormat(CultureInfo.InvariantCulture, "<li>{0}</li>", HttpUtility.HtmlEncode(exc.Message));
                 if (exc.InnerException != null)
                 {
-                    validationMessage.AppendFormat("<li>{0}</li>", HttpUtility.HtmlEncode(exc.InnerException.Message));
+                    validationMessage.AppendFormat(CultureInfo.InvariantCulture, "<li>{0}</li>", HttpUtility.HtmlEncode(exc.InnerException.Message));
                 }
             }
 

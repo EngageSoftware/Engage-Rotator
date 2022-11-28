@@ -21,6 +21,7 @@ namespace Engage.Dnn.ContentRotator
 
     using DotNetNuke.Common.Utilities;
     using DotNetNuke.Entities.Modules;
+    using DotNetNuke.Entities.Portals;
     using DotNetNuke.Entities.Tabs;
     using DotNetNuke.Services.Exceptions;
     using DotNetNuke.Services.FileSystem;
@@ -90,12 +91,13 @@ namespace Engage.Dnn.ContentRotator
 
                 foreach (XmlNode slide in slides.SelectNodes("slide"))
                 {
-                    var newSlide = new Slide();
-
-                    newSlide.Content = slide.SelectSingleNode("content").InnerText;
-                    newSlide.Link = slide.SelectSingleNode("link").InnerText;
-                    newSlide.ImageLink = slide.SelectSingleNode("imagelink").InnerText;
-                    newSlide.StartDate = DateTime.Parse(slide.SelectSingleNode("startdate").InnerText, CultureInfo.InvariantCulture);
+                    var newSlide = new Slide
+                    {
+                        Content = slide.SelectSingleNode("content").InnerText,
+                        Link = slide.SelectSingleNode("link").InnerText,
+                        ImageLink = slide.SelectSingleNode("imagelink").InnerText,
+                        StartDate = DateTime.Parse(slide.SelectSingleNode("startdate").InnerText, CultureInfo.InvariantCulture)
+                    };
 
                     var endDateXml = slide.SelectSingleNode("enddate");
                     if (endDateXml != null)
@@ -126,14 +128,14 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="output">The output.</param>
         private static void ProcessExport(string slideUrl, string outputPrefix, StringBuilder output)
         {
-            var ps = DotNetNuke.Entities.Portals.PortalController.GetCurrentPortalSettings();
+            var ps = PortalController.Instance.GetCurrentSettings();
 
             // var linkType = DotNetNuke.Common.Globals.GetURLType(slide.LinkUrl);
             if (slideUrl.StartsWith("FileID=", StringComparison.OrdinalIgnoreCase))
             {
                 var fileId = int.Parse(UrlUtils.GetParameterValue(slideUrl), CultureInfo.InvariantCulture);
-                var fileController = new FileController();
-                var file = fileController.GetFileById(fileId, ps.PortalId);
+                var fileController = FileManager.Instance;
+                var file = fileController.GetFile(fileId);
 
                 if (file != null)
                 {
@@ -167,7 +169,7 @@ namespace Engage.Dnn.ContentRotator
         /// <param name="slide">The slide.</param>
         private static void ProcessImport(XmlNode xml, string prefix, Slide slide)
         {
-            var ps = DotNetNuke.Entities.Portals.PortalController.GetCurrentPortalSettings();
+            var ps = PortalController.Instance.GetCurrentSettings();
 
             var contentTypeXml = xml.SelectSingleNode(prefix + "contenttype");
             var contentFileNameXml = xml.SelectSingleNode(prefix + "filename");
@@ -179,8 +181,9 @@ namespace Engage.Dnn.ContentRotator
             // this item appears to be an encoded tabpath.... lets continue
             if (contentTabPathXml != null)
             {
-                // todo, when upgrading  DNN reference, switch this to GetTabByTabPath on the TabController
-                var tabInfo = ps.DesktopTabs.Cast<TabInfo>().SingleOrDefault(desktopTab => desktopTab.TabPath == contentTabPathXml.InnerText);
+
+                var tabId = TabController.GetTabByTabPath(ps.PortalId, contentTabPathXml.InnerText, CultureInfo.InvariantCulture.Name);
+                var tabInfo = TabController.Instance.GetTab(tabId, ps.PortalId);
                 if (tabInfo != null)
                 {
                     switch (prefix)
@@ -198,19 +201,16 @@ namespace Engage.Dnn.ContentRotator
             // this item appears to be an encoded image... lets continue
             if (contentTypeXml != null && contentBase64Xml != null && contentFolderPathXml != null && contentFileNameXml != null && contentFileExtensionXml != null)
             {
-                var folderController = new FolderController();
-                var fileController = new FileController();
-
                 // for now, just put imported images into the root folder... 
-                var folder = folderController.GetFolder(ps.PortalId, contentFolderPathXml.InnerText, true);
+                var folder = FolderManager.Instance.GetFolder(ps.PortalId, contentFolderPathXml.InnerText);
 
                 if (folder == null)
                 {
-                    folderController.AddFolder(ps.PortalId, contentFolderPathXml.InnerText);
-                    folder = folderController.GetFolder(ps.PortalId, contentFolderPathXml.InnerText, true);
+                    FolderManager.Instance.AddFolder(ps.PortalId, contentFolderPathXml.InnerText);
+                    folder = FolderManager.Instance.GetFolder(ps.PortalId, contentFolderPathXml.InnerText);
                 }
 
-                var file = fileController.GetFile(contentFileNameXml.InnerText, ps.PortalId, folder.FolderID);
+                var file = FileManager.Instance.GetFile(folder, contentFileNameXml.InnerText);
                 if (file == null)
                 {
                     var content = Convert.FromBase64String(contentBase64Xml.InnerText);
@@ -228,7 +228,7 @@ namespace Engage.Dnn.ContentRotator
                     File.WriteAllBytes(ps.HomeDirectoryMapPath + file.FileName, content);
 
                     // add the file to the dnn database
-                    file.FileId = fileController.AddFile(file);
+                    file = FileManager.Instance.AddFile(folder, file.FileName, null, true);
                 }
 
                 // update the files content.... just incase, it never hurts.... right?

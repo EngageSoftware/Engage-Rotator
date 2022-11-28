@@ -1,0 +1,10 @@
+D:\engagerotator-upgrade\Source\obj\Debug\EngageRotator.csproj.AssemblyReference.cache
+D:\engagerotator-upgrade\Source\obj\Debug\EngageRotator.csproj.CoreCompileInputs.cache
+D:\bin\Engage.Rotator.dll.config
+D:\bin\Engage.Rotator.dll
+D:\bin\Engage.Rotator.pdb
+D:\bin\Engage.Rotator.dll.CodeAnalysisLog.xml
+D:\bin\Engage.Rotator.dll.lastcodeanalysissucceeded
+D:\engagerotator-upgrade\Source\obj\Debug\EngageRotator.csproj.CopyComplete
+D:\engagerotator-upgrade\Source\obj\Debug\Engage.Rotator.dll
+D:\engagerotator-upgrade\Source\obj\Debug\Engage.Rotator.pdb
